@@ -1,0 +1,25 @@
+---
+title: "Exercise 7: Nonparametric Regression"
+editor: source
+reference-location: margin
+---
+
+::: callout-note
+
+:::
+
+
+
+## Nonparametric Regression
+
+<!-- Yu -->
+
+1. For the `Boston` data, use `medv` as the response and `lstat` as the predictor, then do
+
+    (a) Kernel Smoother
+    (b) Local Linear Regression
+    (c) LOESS
+    
+    Try to find the best parameter of each method to get the best fit.
+    
+    

@@ -1,0 +1,36 @@
+---
+title: "Week 11"
+subtitle: "Polynomial and Nonparametric Regression"
+editor: visual
+---
+
+::: callout-important
+:::
+
+## Participate
+
+🖥️ [Slides - Polynomial Regression](slides/11-poly-reg.html)
+
+🖥️ [Slides - Nonparametric Regression](slides/12-nonpara-reg.html)
+
+`r fontawesome::fa("table")` [Data - Hardwood](/slides/data/data-ex-7-1.csv)
+
+`r fontawesome::fa("table")` [Data - U.S. Birth Rate](/slides/data/birthrates.rda)
+
+## Reading
+
+📖 LRA - Ch 7.1 - 7.3
+
+## Exercise
+
+📋 [Exercise 6](/exercise/ex-6-poly.html)
+
+📋 [Exercise 7](/exercise/ex-7-nonpar.html)
+
+## Perform
+
+<br><br>
+
+::: {style="font-size: 0.875em;"}
+Back to [course schedule](/ "Course schedule") ⏎
+:::

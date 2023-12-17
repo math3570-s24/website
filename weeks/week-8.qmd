@@ -1,0 +1,35 @@
+---
+title: "Week 8"
+subtitle: "Diagnostics: Constant Variance"
+editor: visual
+---
+
+::: callout-important
+-   *In-Class Exam* Tue, 10/17
+:::
+
+## Participate
+
+🖥️ [Slides - Diagnostics: Constant Variance](slides/09-diag-const-var.html)
+
+`r fontawesome::fa("table")` [Data - CIA World Factbook Data](/slides/data/CIA.txt)
+
+## Reading
+
+📖 LRA - Ch 5.2, 5.4 - 5.5
+
+📖 CMR - Ch 7.1
+
+📖 CAR - Ch 3.4, 8.5
+
+📖 RD - Ch 5
+
+## Perform
+
+✅ **In-Class Exam**
+
+<br><br>
+
+::: {style="font-size: 0.875em;"}
+Back to [course schedule](/ "Course schedule") ⏎
+:::

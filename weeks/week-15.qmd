@@ -1,0 +1,35 @@
+---
+title: "Week 15"
+subtitle: "Logistic Regression"
+editor: visual
+---
+
+::: callout-important
+-   Due date: HW 6 - Fri, 12/8 11:59 PM
+:::
+
+## Participate
+
+🖥️ [Slides - Logistic Regression](slides/16-logistic-reg.html)
+
+`r fontawesome::fa("table")` `ISLR2::Default`
+
+`r fontawesome::fa("table")` [Data - Strength of Fastener](/slides/data/data-prob-13-3.csv)
+
+## Reading
+
+📖 ISL - Ch 4.1 - 4.3
+
+## Exercise
+
+📋 [Exercise 11](/exercise/ex-11-logistic.html)
+
+## Perform
+
+✍️ HW 6 due 12/8 11:59 PM
+
+<br><br>
+
+::: {style="font-size: 0.875em;"}
+Back to [course schedule](/ "Course schedule") ⏎
+:::

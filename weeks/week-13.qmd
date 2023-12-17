@@ -1,0 +1,30 @@
+---
+title: "Week 13"
+subtitle: "Collinearity"
+editor: visual
+---
+
+::: callout-important
+:::
+
+## Participate
+
+🖥️ [Slides - Collinearity](slides/14-colliearity.html)
+
+`r fontawesome::fa("table")` [Data - Manpower](/slides/data/manpower.csv)
+
+## Reading
+
+📖 LRA - Ch 3.11 - 3.12, 9.1 - 9.5
+
+📖 CMR - Ch 3.8, 8.1 - 8.2, 8.4
+
+## Exercise
+
+📋 [Exercise 9](/exercise/ex-9-colliearity.html)
+
+<br><br>
+
+::: {style="font-size: 0.875em;"}
+Back to [course schedule](/ "Course schedule") ⏎
+:::

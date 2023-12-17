@@ -1,0 +1,32 @@
+---
+title: "Week 14"
+subtitle: "Variable Selection"
+editor: visual
+---
+
+::: callout-important
+:::
+
+## Participate
+
+🖥️ [Slides - Variable Selection](slides/15-var-select.html)
+
+`r fontawesome::fa("table")` [Data - Manpower](/slides/data/manpower.csv)
+
+## Reading
+
+📖 LRA - Ch 10.1 - 10.2
+
+📖 CMR - Ch 4
+
+## Exercise
+
+📋 [Exercise 10](/exercise/ex-10-var.html)
+
+## Perform
+
+<br><br>
+
+::: {style="font-size: 0.875em;"}
+Back to [course schedule](/ "Course schedule") ⏎
+:::

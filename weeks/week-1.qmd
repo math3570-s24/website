@@ -1,0 +1,39 @@
+---
+title: "Week 1"
+subtitle: "Welcome to MATH 4780"
+editor: visual
+---
+
+## Prepare
+
+📖 Read the [syllabus](/course-syllabus.html)
+
+📖 Get your computing environment ready
+
+📖 Be familiar with your computing language
+
+## Reading
+
+📖 Introduction to Statistics (IS) - [Ch 3 - 5, 8 - 13, 15](https://chenghanyu-introstatsbook.netlify.app).
+
+📖 An R Companion to Applied Regression (CAR) - Ch 1 - 3, 9, 10.
+
+## Participate
+
+🖥️ [Slides - Welcome to MATH 4780](/slides/01-syllabus.html)
+
+🖥️ [Slides - Overview of Regression](/slides/02-overview.html)
+
+🖥️ [Slides - Probability and Statistics](/slides/03-prob-stat.html)
+
+`r fontawesome::fa("table")`  [Data - Delivery](/slides/data/data-ex-3-1.csv)
+
+## Exercise
+
+📋 [Exercise 1](/exercise/ex-1.html)
+
+<br><br>
+
+::: {style="font-size: 0.875em;"}
+Back to [course schedule](/ "Course schedule") ⏎
+:::

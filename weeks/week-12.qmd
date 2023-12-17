@@ -1,0 +1,33 @@
+---
+title: "Week 12"
+subtitle: "Categorical Variables"
+editor: visual
+---
+
+::: callout-important
+-   Due date: HW 5 - Fri, 11/17 11:59 PM
+:::
+
+## Participate
+
+🖥️ [Slides - Categorical Variable](slides/13-cat-var.html)
+
+`r fontawesome::fa("table")` [Data - Tool Life](/slides/data/data-ex-8-1.csv)
+
+## Reading
+
+📖 LRA - Ch 8.1 - 8.2
+
+## Exercise
+
+📋 [Exercise 8](/exercise/ex-8-cat.html)
+
+## Perform
+
+✍️ HW 5 due 11/17 11:59 PM
+
+<br><br>
+
+::: {style="font-size: 0.875em;"}
+Back to [course schedule](/ "Course schedule") ⏎
+:::

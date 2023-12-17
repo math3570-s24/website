@@ -1,0 +1,28 @@
+---
+title: "Week 5"
+subtitle: "Multiple Linear Regression - II"
+editor: visual
+---
+
+::: callout-important
+:::
+
+## Participate
+
+🖥️ [Slides - Multiple Linear Regression](slides/05-mlr.html)
+
+`r fontawesome::fa("table")` [Data - Delivery](/slides/data/data-ex-3-1.csv)
+
+## Reading
+
+📖 CAR - Ch 4.1 - 4.3, 4.9
+
+## Exercise
+
+📋 [Exercise 3](/exercise/ex-3-mlr.html)
+
+<br><br>
+
+::: {style="font-size: 0.875em;"}
+Back to [course schedule](/ "Course schedule") ⏎
+:::
