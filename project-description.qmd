@@ -1,5 +1,5 @@
 ---
-title: "MSSC 5780 Project Description"
+title: "MATH/COSC 3570 Project Description"
 ---
 
 To be announced.

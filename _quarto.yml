@@ -3,11 +3,11 @@ project:
 
 website:
   page-navigation: true
-  title: "MATH 4780 - Fall 2023"
-  description: "Homepage for MATH 4780 - Regression Analysis at Marquette University, Fall 2023."
-  site-url: "https://math4780-f23.github.io/website/"
+  title: "MATH/COSC 3570 - Spring 2024"
+  description: "Homepage for MATH/COSC 3570 - Introduction to Data Science at Marquette University, Spring 2024."
+  site-url: "https://math3570-s24.github.io/website/"
 
-  repo-url: https://github.com/math4780-f23/website
+  repo-url: https://github.com/math3570-s24/website
   repo-actions: [edit, issue]
 
   open-graph: true
@@ -18,23 +18,23 @@ website:
 
   page-footer:
     right: "This page is built with ❤️ and [Quarto](https://quarto.org/)."
-    left: "&copy; Copyright 2023, Cheng-Han Yu"
+    left: "&copy; Copyright 2024, Cheng-Han Yu"
     background: "#b5e2ff"
 
   sidebar:
     background: "#b5e2ff"
-    logo: "images/logo.png"
+    logo: "/images/logo.png"
     pinned: true
     align: center
     tools:
       - icon: github
-        href: https://github.com/math4780-f23
+        href: https://github.com/math3570-s24
         text: "GitHub organization"
       # - icon: code-square
       #   href: https://cmgr.oit.duke.edu/containers
       #   text: "RStudio Containers"
       - icon: person-fill
-        href: https://d2l.mu.edu/d2l/home/525088
+        href: https://d2l.mu.edu/d2l/home/545777
         text: "D2L"
 
     style: "docked"
@@ -65,10 +65,10 @@ website:
       #       text: Troubleshooting
       - section: "Project"
         contents:
-          - href: project-description-4780.qmd
-            text: Guideline for MATH 4780
-          - href: project-description-5780.qmd
-            text: Guideline for MATH 5780
+          - href: project-description.qmd
+            text: Guideline and Policy
+          # - href: project-description-5780.qmd
+          #   text: Guideline for MATH 5780
           - href: project-work.qmd
             text: Project Group and Proposal
       - section: "Class Activities"
@@ -109,18 +109,18 @@ website:
             text: "Week 14"
           - href: weeks/week-15.qmd
             text: "Week 15"
-      - section: "Supplementary materials for MSSC 5780"
-        contents:
-          # - href: supplemental/slr-derivations.qmd
-          #   text: SLR derivations
-          - href: supplemental/model-diagnostics-matrix.qmd
-            text: Model diagnostics
-          - href: supplemental/mlr-matrix.qmd
-            text: MLR matrix notation
-          - href: supplemental/log-transformations.qmd
-            text: Log transformations
-          - href: supplemental/model-selection-criteria.qmd
-            text: Model selection criteria
+      # - section: "Supplementary materials for MSSC 5780"
+      #   contents:
+      #     # - href: supplemental/slr-derivations.qmd
+      #     #   text: SLR derivations
+      #     - href: supplemental/model-diagnostics-matrix.qmd
+      #       text: Model diagnostics
+      #     - href: supplemental/mlr-matrix.qmd
+      #       text: MLR matrix notation
+      #     - href: supplemental/log-transformations.qmd
+      #       text: Log transformations
+      #     - href: supplemental/model-selection-criteria.qmd
+      #       text: Model selection criteria
 
 format:
   html:

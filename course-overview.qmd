@@ -1,7 +1,7 @@
 ---
-title: "MATH 4780: Regression Analysis"
+title: "MATH/COSC 3570: Introduction to Data Science"
 ---
 
-Starting from simple linear regression, this course provides a brief, yet complete foundation for the understanding of basic regression theory and applications that is a core of supervised learning in statistical machine learning. Topics include multiple linear regression, diagnostic analysis, collinearity, nonparametric regression, variable selection, generalized linear models and other selected topics. This course focus on data analysis rather than mathematical derivation. For advanced regression topics, consider MSSC 6250 Statistical Machine Learning.
+This course introduces main aspects of doing a practical data science project, from importing data to deploying what is learned from data. We start with learning popular data science tools such as basic [R](https://www.r-project.org/) and [Python](https://www.python.org/) programming, [Git](https://git-scm.com/) and [GitHub](https://github.com/), and interactive documenting systems RMarkdown and Quarto. Then we learn data importing, data visualization and data wrangling using both R and Python. The second half of the course focuses on several basic simulation and machine learning methods, including Monte Carlo simulation, linear regression, K-nearest neighbors, logistic regression, principal component analysis, and K-means clustering. We learn R [tidyverse](https://www.tidyverse.org/) and [tidymodels](https://www.tidymodels.org/) packages. For Python, [Pandas](https://pandas.pydata.org/) and [Scikit-Learn](https://scikit-learn.org/stable/) libraries are introduced.\
 
 ![](images/background-bikeshare.png){fig-alt="A series of six, generic data visualizations: a scatterplot, a density plot, a contour plot, a line plot, a box plot, and another scatterplot." width="700"}

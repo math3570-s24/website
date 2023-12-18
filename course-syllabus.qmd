@@ -2,18 +2,18 @@
 title: "Syllabus"
 ---
 
-[**Click here**](/documents/syllabus-4780-fall2023.pdf "PDF of syllabus") **to download the syllabus.**
+[**Click here**](/documents/syllabus-3570-s24.pdf "PDF of syllabus") **to download the syllabus.**
 
 ## Time and location
 
-|          | Day     | Time           | Location        |
-|----------|---------|----------------|-----------------|
-| Lectures | Tu & Th | 5:00 - 6:15 PM | Cudahy Hall 120 |
-| Lab      | None    | None           | None            |
+|          | Day     | Time           | Location             |
+|----------|---------|----------------|----------------------|
+| Lectures | Tu & Th | 2:00 - 3:15 PM | Olin Engineering 198 |
+| Lab      | None    | None           | None                 |
 
 ## Office Hours
 
--   My in-person office hours are TuTh 3:20 - 4:50 PM, in Cudahy Hall room 353.
+-   My in-person office hours are TuTh 4:50 - 5:50 PM, and Fri 12 - 1 PM in Cudahy Hall room 353.
 
 -   You are welcome to schedule an online meeting via Microsoft Teams if you need/prefer.
 
@@ -21,20 +21,19 @@ title: "Syllabus"
 
 By the end of the semester, you will be able to...
 
--   analyze real data to answer questions about relationships among variables.
--   fit and evaluate linear and logistic regression models.
--   assess whether a proposed model is appropriate and describe its limitations.
--   communicate results from statistical analyses to a general audience.
+-   Represent and manipulate data in effective ways
+-   Manipulate data using packages/tools and by ad hoc data handling
+-   Use mathematical, computational and statistical tools to detect patterns and model performance
+-   Use computational principles and tools to tackle issues addressable by data science
+-   Use a solid foundation in data science to independently learn new methodologies and technologies in the field of data science
 
 ## Prerequisites
 
--   MATH 2780 (Intro to Regression and Classification), MATH 4720 (Intro to Statistics) or equivalent.
+-   COSC 1010 (Intro to Programming) and MATH 4720 (Intro to Statistics), or MATH 2780 (Intro to Regression and Classification).
 
 -   Programming experience is helpful because the course involves doing regression analysis using [\textsf{R}](https://www.r-project.org/about.html) programming language.
 
--   Some linear algebra exposure at the level of MATH 3100 (Linear Algebra and Matrix Theory) would helps especially for MSSC 5780 students as some matrix operations are used for modeling and computation.
-
--   MSSC 5780 students, having taken MATH 4700 (Probability) and MATH 4710 (Statistical Inference) would help too.
+-   The course will also assume facility with using the internet and a personal computer/laptop. The course involves coding in [R](https://www.r-project.org/) and [Python](https://www.python.org/) using [Posit Cloud](https://posit.cloud/), a cloud integrated development environment (IDE).
 
 -   Talk to me if you are not sure whether or not this is the right course for you.
 
@@ -44,13 +43,13 @@ By the end of the semester, you will be able to...
 
 -   **Expect a reply on Monday if you send a question during weekends**. If you do not receive a response from me within two days, re-send your question/comment in case there was a "mix-up" with email communication (Hope this won't happen!).
 
--   Please start your subject line with **\[math4780\]** or **\[mssc5780\]** followed by a clear description of your question. See an example below.
+-   Please start your subject line with **\[math3570\]** or **\[cosc3570\]** followed by a clear description of your question. See an example below.
 
-![Email Subject Line Example](./images/email.png)
+![Email Subject Line Example](./images/email_3570.png)
 
 -   Email etiquette is important. Please read this [article](https://www.insidehighered.com/views/2015/04/16/advice-students-so-they-dont-sound-silly-emails-essay) to learn more about email etiquette.
 
--   I am more than happy to answer your questions about this course or statistics in general. However, due to time constraint, I may choose **NOT** to respond to students' e-mail if
+-   I am more than happy to answer your questions about this course or data science/statistics in general. However, with tons of email messgaes everyday, I may choose **NOT** to respond to students' e-mail if
 
     1.  The student could answer his/her own inquiry by reading the syllabus or information on the course website or D2L.
 
@@ -66,54 +65,29 @@ By the end of the semester, you will be able to...
 
 <!-- ### Required Textbook -->
 
+No textbook is required for this course. Course materials are mainly Dr. Yu's slides. Below are some good references.
+
+-   [*(**r4ds**) R for Data Science*](https://r4ds.hadley.nz/) by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund.
+
+-   [*(**tmwr**) Tidy Modeling with R*](https://www.tmwr.org/) by Max Kuhn and Julia Silge.
+
+-   [*(**py4ds**) Python for Data Science*](https://wesmckinney.com/book/) by Wes McKinney.
+
 -   [(**IS**) *Introduction to Statistics*](https://chenghanyu-introstatsbook.netlify.app/) by Cheng-Han Yu. (Good resource for brushing up your basic probability, statistics and simple linear regression knowledge.)
-
--   [(**LRA**) *Introduction to Linear Regression Analysis, 6th edition*](https://www.wiley.com/en-us/Introduction+to+Linear+Regression+Analysis%2C+6th+Edition-p-9781119578727), by D. C. Montgomery, E. A. Peck and G. G. Vining. Publisher: Wiley. (Graduate-level book that requires knowledge of matrix algebra.)
-
--   [(**CAR**) *An R Companion to Applied Regression*](https://socialsciences.mcmaster.ca/jfox/Books/Companion/), by John Fox and Sanford Weisberg. Publisher: SAGE. (Doing regression much easier by the `car` and `effects` R packages.)
-
--   [(**RD**) *Regression Daignostics*](https://socialsciences.mcmaster.ca/jfox/Books/RegressionDiagnostics/index.html), by John Fox. Publisher: SAGE. (Great concise book for learning regression diagnostics.)
-
--   [(**CMR**) *Classical and Modern Regression with Applications*](https://www.amazon.com/Classical-Regression-Applications-Duxbury-Classic/dp/0534380166/ref=pd_lpo_14_t_0/135-5067421-1903413?_encoding=UTF8&pd_rd_i=0534380166&pd_rd_r=03ae154d-b095-4e98-9a72-e3dc30666c1f&pd_rd_w=tDw1K&pd_rd_wg=OIjNY&pf_rd_p=3b5203d9-bdd0-47f6-97e5-387010fc3251&pf_rd_r=PY1Q3JBBS4PS1M7D7DZF&psc=1&refRID=PY1Q3JBBS4PS1M7D7DZF), by Raymond Myers. Publisher: Duxbury Press. (The textbook when I was a master student.).
-
-## Programming Languages
-
-The default language of this course is \textsf{R}. Python code will be provided as well. Due to time constraint, I will NOT teach you \textsf{R} or Python programming from A to Z. If you never use R/Python and would like to grasp its syntax quickly, read my MATH 3570 R/Python programming slides on D2L. I am more than happy to answer any questions about \textsf{R} if you have any. There are a lot of online resources for learning \textsf{R} including the sites below.
-
--   [*Quick-R*](https://www.statmethods.net/index.html)
-
--   [*Hands-On Programming with R*](https://rstudio-education.github.io/hopr/)
-
-<!-- - [*A Student's Guide to R*](https://cran.r-project.org/doc/contrib/Horton+Pruim+Kaplan_MOSAIC-StudentGuide.pdf)  -->
-
-<!-- - [*R for Cats*](https://rforcats.net/)  -->
-
-You may use any other language to complete your homework, exams and project. However, I will not debug your code or provide comments on any technical issues of those languages.
 
 ## Grading Policy
 
--   Students in this class range from juniors to second-year PhD students, so it makes sense to evaluate student performance using a different scale.
+-   **40%** In-class lab exercises and participation.
 
--   The homework/exams questions involving matrix algebra (MATH 3100) and calculus-based probability and statistical inference (MATH 4700/4710) are **optional** for MATH 4780 students.
+-   **30%** Homework
 
--   For students in **MATH 4780**, the final grade is earned out of **1000 total points** distributed as follows:
+-   **30%** Final project competition
 
-    -   **Homework 1 to 6: 600 pts (100 pts each)**
-    -   **In-class Exam: 120 pts**
-    -   **Final project: 220 pts**
-    -   **Class Participation: 60 pts**
+-   Every student has to participate (in-person) in the final presentation in order to pass the course.
 
--   For students in **MSSC 5780**, the final grade is earned out of **1200 total points** distributed as follows:
+-   You will **NOT** be allowed any extra credit projects/homework/exam to compensate for a poor grade. Everyone is given the same opportunity to do well in this class. I may use class participation to make grade adjustments at the end of the semester.
 
-    -   **Homework 1 to 6: 600 pts (100 pts each)**
-    -   **In-class Exam: 120 pts**
-    -   **Final project: 220 pts**
-    -   **Class Participation: 60 pts**
-    -   **MSSC 5780 work: 200 pts**
-
--   You will **NOT** be allowed any extra credit projects/homework/exam to compensate for a poor average. Everyone must be given the same opportunity to do well in this class. Individual exam will **NOT** be curved.
-
--   The final grade is based on your percentage of points earned out of 1000 or 1200 points and the grade-percentage conversion Table. $[x, y)$ means greater than or equal to $x$ and less than $y$. For example, 94.1 is in $[93, 100]$ and the grade is A and 92.8 is in $[90, 94)$ and the grade is A-.
+-   The final grade is based on the grade-percentage conversion Table 1 on the next page. $[x, y)$ means greater than or equal to $x$ and less than $y$. For example, 94.1 is in $[94, 100]$ and the grade is A and 93.8 is in $[90, 94)$ and the grade is A-.
 
 ```{r, echo=FALSE}
 letter <- c("A", "A-", "B+", "B", "B-", "C+", "C", "C-",
@@ -125,72 +99,61 @@ grade_dist <- data.frame(Grade = letter, Percentage = percentage)
 knitr::kable(grade_dist, longtable = TRUE, caption = "Grade-Percentage Conversion")
 ```
 
--   This is not a course that gives most of students grade A. If you want to obtain a good grade, study hard. No pain, no gain.
 
-## Homework
+### Lab exercises
 
--   Homework will be assigned through the course website in weekly modules.
+- There are several **in-class** lab exercises, which are graded as **complete/incomplete** and used as evidence of attendance and class participation.
 
--   To submit your homework, please go to **D2L \> Assessments \> Dropbox** and upload your homework in **PDF** format.
+- You are allowed to have **one** incomplete lab exercises without penalty. Beyond that, **2%** grade percentage will be taken off for each missing/incomplete exercise.
 
-    -   [Combine images into a PDF file](https://www.youtube.com/watch?v=hQxfU-r5qKs)
-    -   [Microsoft Word to PDF in 10 Seconds](https://www.youtube.com/watch?v=ibELbGJQTK8&feature=youtu.be)
-    -   [Convert images to PDF in Macbook/iMac](https://www.youtube.com/watch?v=CgsidiVdaRM)
-    -   [Combine two or more images to get a single PDF file](https://apple.stackexchange.com/questions/11163/how-do-i-combine-two-or-more-images-to-get-a-single-pdf-file)
+- If you answer the questions in the [form](https://forms.office.com/r/542zDbEde8) correctly, you are allowed to miss **2** lab exercises without penalty.
 
--   There will be 6 homework sets to be graded, Homework 1 to 6.
+- **No make-up lab exercises** for any reason.
 
--   Some questions are required for MSSC students.
 
--   You will get a better understanding of the material if you discuss it with others. However, you must submit YOUR OWN work.
+### Homework
 
--   **NO LATE HOMEWORK WILL BE ACCEPTED NOR WILL YOU BE ALLOWED TO MAKE UP MISSED HOMEWORK!**
+-   The homework assignments are *individual*. You should submit your own work. 
 
-<!-- - You have at least **one week** to finish your homework. -->
+- **You may not directly share or discuss answers/code with anyone other than the instructor**. But you are welcome to discuss the problems in general and ask for advice.
 
--   **Handwriting is not allowed for data analysis part**.
+-   Homework will be assigned through GitHub. You need to clone/pull the homework repo into Posit Cloud and work on the Quarto file in the repo. A step-by-step guide will be discussed in class before homework is assigned.
 
-## In-Class Exam
+-   You will have *at least one week* to complete your assignment.
 
--   The in-class exam covers materials in Week 1 to Week 7 on simple linear regression and multiple linear regression.
+- **No make-up homework** for any reason unless you got [COVID](https://www.marquette.edu/central/registrar/faculty-staff/guidance-on-spring-2023-class-attendance-withdrawal-grading.php) or [excused absence](https://bulletin.marquette.edu/undergrad/academicregulations/#attendance).
 
--   Some questions are required for MSSC students.
+- If you miss a homework assignment due to COVID-19 symptoms, exposure, diagnosis, quarantine, and/or isolation, or you have an excused absence as defined in [Attendance in Academic Regulations](https://bulletin.marquette.edu/undergrad/academicregulations/#attendance), the homework percentage will be added to your final project. If you miss more than one assignment, only one assignment percentage can be added to the final project percentage. You get 0% for the other assignment.
 
--   **NO make-up midterm exam** unless you miss exams due to COVID-19 symptoms, exposure, diagnosis, quarantine, and/or isolation, or you have an excused absence as defined in [Attendance in Academic Regulations](https://bulletin.marquette.edu/undergrad/academicregulations/#attendance).
 
-## Class Participation
+### Final project competition
 
--   You will be presenting exercise problems.
+-   You will be team up to do the final project. Your project can be in either of the following categories:
 
--   More details will be released later.
+    1.  **Data analysis** using statistical models or machine learning algorithms
 
-## Final Project
+    2.  Introduce a **R or Python package** not learned in class, including **live demo**
 
--   A detailed final project guideline will be released later.
+    3.  Introduce a **data science tool (visualization, computing, etc)** not learned in class, including **live demo**
+    
+    4.  **Web development**: Shiny website or dashboard, including **live demo**
+    
+-   Details about the project will be provided as the course progresses. You must complete the final project and be in class to present it in order to pass this course.
 
-<!-- ## Final Project -->
+<!-- -   The final project will consist of analysis on a data set of your own choosing. More information will be released later (page limit, format, etc). -->
 
-<!-- - There will be 2 in-class midterm exams and probably 1 final exam. -->
+<!-- -   Your project is individual. You work on your own project. \textcolor{red}{(may change to group project)} -->
 
-<!-- - Exam 1 and 2 have in-class part and take-home part. The in-class part tests your understanding of mathematical intuition of regression models. The take-home part tests your ability to do regression data analysis using computing software. -->
+<!-- -   Submit your one-page project proposal before **Friday, 3/19 11:59 PM**. -->
 
-<!-- - The final exam is take-home.  -->
+-   The final project presentation is on **Monday, 5/6 10:30 AM - 12:30 PM**.
 
-<!-- - For the take-home parts, **handwriting is not allowed for data analysis part**. -->
+## Sharing/Reusing Code Policy
 
-<!-- - Please go to **Assessments > Dropbox** to submit your take-home exams in **PDF** format. -->
+-   Unless explicitly stated otherwise, you may make use of any online resources, but you must **explicitly cite** where you obtained any code you directly use or use as inspiration in your solutions.
 
-<!-- - Exam 1 covers Week 1 to 6. Exam 2 covers Week 1 to 11. If there is one, the final exam is comprehensive and covers the **all course materials**. -->
+-   Any recycled code that is discovered and is not explicitly cited will be treated as plagiarism, regardless of source.
 
-<!-- -   A detailed final project guideline will be released later. -->
-
-<!-- - Some questions are required for MSSC students. -->
-
-<!-- - There are **NO make-up midterm exams** unless you miss exams due to COVID-19 symptoms, exposure, diagnosis, quarantine, and/or isolation, or you have an excused absence as defined in [Attendance in Academic Regulations](https://bulletin.marquette.edu/undergrad/academicregulations/#attendance). -->
-
-<!-- - If you miss a midterm exam due to COVID-19 symptoms, exposure, diagnosis, quarantine, and/or isolation, or you have an excused absence as defined in [Attendance in Academic Regulations](https://bulletin.marquette.edu/undergrad/academicregulations/#attendance), the 120 pts will be added to your prorated final exam pts, i.e., (280 + 120 = 400) pts. If you miss two midterm exams, only one exam pts can be added to the final exam. You get 0 pt for the other exam. -->
-
-<!-- - **NO make-up final exam/project** for any reason. -->
 
 ## University and college policies
 
@@ -210,12 +173,12 @@ If you need to request accommodations, or modify existing accommodations that ad
 
 ## Important dates
 
--   **Sept 4:** Labor day
--   **Sept 5:** Last day to add/swap/drop
--   **Oct 19-20:** Midterm break
--   **Nov 17:** Withdrawal deadline
--   **Nov 22-26:** Thanksgiving
--   **Dec 7**: Last day of class
--   **Dec 19**: Final grade submission
+-   **Jan 24:** Last day to add/swap/drop
+-   **Mar 10-16:** Spring break
+-   **Mar 12:** Midterm grade submission
+-   **Mar 28 - Apr 1:** Easter break
+-   **Apr 12:** Withdrawal deadline
+-   **May 4**: Last day of class
+-   **May 14**: Final grade submission
 
-Click [here](https://www.marquette.edu/central/registrar/2023-fall-academic-calendar-.php) for the full Marquette academic calendar.
+Click [here](https://www.marquette.edu/central/registrar/2024-spring-academic-calendar.php) for the full Marquette academic calendar.
