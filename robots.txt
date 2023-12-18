@@ -1,1 +1,1 @@
-Sitemap: https://math4780-f23.github.io/website/sitemap.xml
+Sitemap: https://math3570-s24.github.io/website/sitemap.xml

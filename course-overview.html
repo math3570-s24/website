@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MATH 4780 - Fall 2023 - MATH 4780: Regression Analysis</title>
+<title>MATH/COSC 3570 - Spring 2024 - MATH/COSC 3570: Introduction to Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -62,9 +62,9 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta property="og:title" content="MATH 4780 - Fall 2023 - MATH 4780: Regression Analysis">
-<meta property="og:description" content="Starting from simple linear regression, this course provides a brief, yet complete foundation for the understanding of basic regression theory and applications that is a core of supervised learning…">
-<meta property="og:site-name" content="MATH 4780 - Fall 2023">
+<meta property="og:title" content="MATH/COSC 3570 - Spring 2024 - MATH/COSC 3570: Introduction to Data Science">
+<meta property="og:description" content="This course introduces main aspects of doing a practical data science project, from importing data to deploying what is learned from data.">
+<meta property="og:site-name" content="MATH/COSC 3570 - Spring 2024">
 </head>
 
 <body class="nav-sidebar docked">
@@ -73,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">MATH 4780: Regression Analysis</h1>
+      <h1 class="quarto-secondary-nav-title">MATH/COSC 3570: Introduction to Data Science</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -89,8 +89,8 @@ ul.task-list li input[type="checkbox"] {
       <img src="./images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/math4780-f23" title="GitHub organization" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-    <a href="https://d2l.mu.edu/d2l/home/525088" title="D2L" class="sidebar-tool px-1"><i class="bi bi-person-fill"></i></a>
+    <a href="https://github.com/math3570-s24" title="GitHub organization" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="https://d2l.mu.edu/d2l/home/545777" title="D2L" class="sidebar-tool px-1"><i class="bi bi-person-fill"></i></a>
   <a href="" class="quarto-color-scheme-toggle sidebar-tool" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div>
@@ -136,12 +136,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./project-description-4780.html" class="sidebar-item-text sidebar-link">Guideline for MATH 4780</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./project-description-5780.html" class="sidebar-item-text sidebar-link">Guideline for MATH 5780</a>
+  <a href="./project-description.html" class="sidebar-item-text sidebar-link">Guideline and Policy</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -256,36 +251,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">Supplementary materials for MSSC 5780</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./supplemental/model-diagnostics-matrix.html" class="sidebar-item-text sidebar-link">Model diagnostics</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./supplemental/mlr-matrix.html" class="sidebar-item-text sidebar-link">MLR matrix notation</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./supplemental/log-transformations.html" class="sidebar-item-text sidebar-link">Log transformations</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./supplemental/model-selection-criteria.html" class="sidebar-item-text sidebar-link">Model selection criteria</a>
-  </div>
-</li>
-      </ul>
-  </li>
     </ul>
     </div>
 </nav>
@@ -298,7 +263,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">MATH 4780: Regression Analysis</h1>
+<h1 class="title d-none d-lg-block">MATH/COSC 3570: Introduction to Data Science</h1>
 </div>
 
 
@@ -313,7 +278,8 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Starting from simple linear regression, this course provides a brief, yet complete foundation for the understanding of basic regression theory and applications that is a core of supervised learning in statistical machine learning. Topics include multiple linear regression, diagnostic analysis, collinearity, nonparametric regression, variable selection, generalized linear models and other selected topics. This course focus on data analysis rather than mathematical derivation. For advanced regression topics, consider MSSC 6250 Statistical Machine Learning.</p>
+<p>This course introduces main aspects of doing a practical data science project, from importing data to deploying what is learned from data. We start with learning popular data science tools such as basic <a href="https://www.r-project.org/">R</a> and <a href="https://www.python.org/">Python</a> programming, <a href="https://git-scm.com/">Git</a> and <a href="https://github.com/">GitHub</a>, and interactive documenting systems RMarkdown and Quarto. Then we learn data importing, data visualization and data wrangling using both R and Python. The second half of the course focuses on several basic simulation and machine learning methods, including Monte Carlo simulation, linear regression, K-nearest neighbors, logistic regression, principal component analysis, and K-means clustering. We learn R <a href="https://www.tidyverse.org/">tidyverse</a> and <a href="https://www.tidymodels.org/">tidymodels</a> packages. For Python, <a href="https://pandas.pydata.org/">Pandas</a> and <a href="https://scikit-learn.org/stable/">Scikit-Learn</a> libraries are introduced.<br>
+</p>
 <p><img src="images/background-bikeshare.png" class="img-fluid" alt="A series of six, generic data visualizations: a scatterplot, a density plot, a contour plot, a line plot, a box plot, and another scatterplot." width="700"></p>
 
 
@@ -579,7 +545,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">© Copyright 2023, Cheng-Han Yu</div>   
+    <div class="nav-footer-left">© Copyright 2024, Cheng-Han Yu</div>   
     <div class="nav-footer-right">This page is built with ❤️ and <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>
