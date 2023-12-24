@@ -1,6 +1,6 @@
 ---
 title: "Week 13"
-subtitle: "Collinearity"
+subtitle: ""
 editor: visual
 ---
 
@@ -9,19 +9,17 @@ editor: visual
 
 ## Participate
 
-🖥️ [Slides - Collinearity](slides/14-colliearity.html)
+🖥️ [Slides - K Nearest Neighbors](slides/18-knn.html)
 
-`r fontawesome::fa("table")` [Data - Manpower](/slides/data/manpower.csv)
+`r fontawesome::fa("table")` [Data - body](/slides/data/body.csv)
 
 ## Reading
 
-📖 LRA - Ch 3.11 - 3.12, 9.1 - 9.5
-
-📖 CMR - Ch 3.8, 8.1 - 8.2, 8.4
+📖
 
 ## Exercise
 
-📋 [Exercise 9](/exercise/ex-9-colliearity.html)
+📋 [Lab-22 K Nearest Neighbors](/exercise/lab21-logistic.html)
 
 <br><br>
 

@@ -1,32 +1,13 @@
 ---
 title: "Week 9"
-subtitle: "Diagnostics: Linearity"
+subtitle: "NO CLASS: Spring break"
 editor: visual
 ---
 
 ::: callout-important
--   Due date: HW 4 - Fri, 11/3 11:59 PM
 :::
 
-## Participate
-
-🖥️ [Slides - Diagnostics: Linearity](slides/10-diag-linearity)
-
-`r fontawesome::fa("table")` [Data - CIA World Factbook Data](/slides/data/CIA.txt)
-
-## Reading
-
-📖 LRA - Ch 5.3
-
-📖 CMR - Ch 7.3
-
-📖 CAR - Ch 8.4
-
-📖 RD - Ch 6
-
-## Exercise
-
-📋 [Exercise 4](/exercise/ex-4-diagnostics.html)
+Happy spring break!
 
 <br><br>
 

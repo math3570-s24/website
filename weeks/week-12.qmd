@@ -1,30 +1,25 @@
 ---
 title: "Week 12"
-subtitle: "Categorical Variables"
+subtitle: "Logistic Regression"
 editor: visual
 ---
 
 ::: callout-important
--   Due date: HW 5 - Fri, 11/17 11:59 PM
 :::
 
 ## Participate
 
-🖥️ [Slides - Categorical Variable](slides/13-cat-var.html)
+🖥️ [Slides - Logistic Regression](/slides/17-logistic-reg.html)
 
-`r fontawesome::fa("table")` [Data - Tool Life](/slides/data/data-ex-8-1.csv)
+`r fontawesome::fa("table")` [Data - body](/slides/data/body.csv)
 
 ## Reading
 
-📖 LRA - Ch 8.1 - 8.2
+📖
 
 ## Exercise
 
-📋 [Exercise 8](/exercise/ex-8-cat.html)
-
-## Perform
-
-✍️ HW 5 due 11/17 11:59 PM
+📋 [Lab-21 Logistic Regression](/exercise/lab21-logistic.html)
 
 <br><br>
 

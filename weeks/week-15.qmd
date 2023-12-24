@@ -1,32 +1,34 @@
 ---
 title: "Week 15"
-subtitle: "Logistic Regression"
+subtitle: "K-Means Clustering"
 editor: visual
 ---
 
 ::: callout-important
--   Due date: HW 6 - Fri, 12/8 11:59 PM
 :::
 
 ## Participate
 
-🖥️ [Slides - Logistic Regression](slides/16-logistic-reg.html)
+🖥️ [Slides - K-Means Clustering](slides/20-kmeans.html)
 
-`r fontawesome::fa("table")` `ISLR2::Default`
-
-`r fontawesome::fa("table")` [Data - Strength of Fastener](/slides/data/data-prob-13-3.csv)
+`r fontawesome::fa("table")` [Data - clus_data](/slides/data/clus_data.csv)
 
 ## Reading
 
-📖 ISL - Ch 4.1 - 4.3
+📖
 
 ## Exercise
 
 📋 [Exercise 11](/exercise/ex-11-logistic.html)
 
-## Perform
+`r fontawesome::fa("table")` [palmerpenguins](https://allisonhorst.github.io/palmerpenguins/)::penguins
 
-✍️ HW 6 due 12/8 11:59 PM
+```{r}
+#| eval: false
+library(palmerpenguins)
+peng <- penguins[complete.cases(penguins), ] |> 
+    select(flipper_length_mm, bill_length_mm)
+```
 
 <br><br>
 

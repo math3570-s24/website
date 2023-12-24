@@ -1,29 +1,57 @@
 ---
 title: "Week 2"
-subtitle: "Simple Linear Regression - I"
+subtitle: "Git/GitHub and Quarto"
 editor: visual
 ---
 
 ::: callout-important
--   Drop deadline 9/5 11:59 PM
--   Due date: HW 1 - Fri, 9/8 11:59 PM
 :::
 
-## Reading
+## Reading and Resources
 
-📖 IS - Ch 23: [Linear Regression](https://chenghanyu-introstatsbook.netlify.app/model-reg)
+### Git/GitHub
+
+📖 [Create a personal access token (PAT)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+
+📖 [Two-factor authentication](https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)
+
+📖 [Git hands-on session within RStudio](https://inbo.github.io/git-course/course_rstudio.html)
+
+📖 [Happy Git and GitHub for the useR](https://happygitwithr.com/)
+
+📖 [Happier version control with Git and GitHub](https://bcjaeger.github.io/seminar-git/#1)
+
+### Markdown
+
+📖 [Markdown Tutorial](https://www.markdowntutorial.com/)
+
+📖 [Mastering Markdown GitHub Guides](https://guides.github.com/features/mastering-markdown/)
+
+📖 [Markdown Guide](https://www.markdownguide.org/getting-started/)
+
+### Quarto
+
+📖 [Quarto Website](https://quarto.org/)
+
+📖 [Get Started with Quarto](https://rstudio-conf-2022.github.io/get-started-quarto/)
+
+📖 [R for Data Science - Quarto](https://r4ds.hadley.nz/quarto)
 
 ## Participate
 
-🖥️ [Slides - Simple Linear Regression](/slides/04-slr.html)
+🖥️ [Slides - Git/GitHub](/slides/04-git.html)
 
-`r fontawesome::fa("table")` `ggplot2::mpg`
-
-`r fontawesome::fa("table")` [Data - Delivery](/slides/data/data-ex-3-1.csv)
+🖥️ [Slides - Quarto](/slides/05-quarto.html)
 
 ## Perform
 
-✍️ [HW 1 Probability and Statistics due 9/8 11:59 PM](../hw/hw-1.html)
+📋 [Lab-00 Git/GitHub](/exercise/lab00-git.html)
+
+📋 [Lab-02 Quarto File](/exercise/lab02-quarto.html)
+
+📋 [Lab-03 Markdown](/exercise/lab03-markdown.html)
+
+📋 [Lab-04 Code Chunk](/exercise/lab04-chunk.html)
 
 <br><br>
 

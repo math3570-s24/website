@@ -1,0 +1,36 @@
+---
+title: "Lab 07: Plotting (Presentation)"
+editor: source
+reference-location: margin
+execute:
+  freeze: true
+  echo: false
+---
+
+```{r}
+knitr::opts_chunk$set(
+    fig.asp = 0.618,
+    fig.align = "center",
+    out.width = "100%",
+    fig.retina = 10,
+    fig.path = "../slides/images/06-syntax/",
+    message = FALSE,
+    global.par = TRUE
+)
+library(fontawesome)
+```
+
+::: callout-note
+
+:::
+
+In **lab.qmd** `## Lab 7`,
+
+- For the `mtcars` data, use R or Python to 
+  + make a scatter plot of `miles per gallon` vs. `weight`. Decorate your plot using arguments, `col`, `pch`, `xlab`, etc.
+  
+  + create a histogram of 1/4 mile time. Make it beautiful!
+  
+  + generate boxplots of miles per gallon by number of forward gears. Make it cool!
+  
+- Commit and Push your work once you are done.

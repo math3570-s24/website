@@ -1,6 +1,6 @@
 ---
 title: "Week 14"
-subtitle: "Variable Selection"
+subtitle: "Principal Component Analysis"
 editor: visual
 ---
 
@@ -9,19 +9,17 @@ editor: visual
 
 ## Participate
 
-🖥️ [Slides - Variable Selection](slides/15-var-select.html)
+🖥️ [Slides - Principal Component Analysis](slides/15-var-select.html)
 
-`r fontawesome::fa("table")` [Data - Manpower](/slides/data/manpower.csv)
+`r fontawesome::fa("table")` USArrests
 
 ## Reading
 
-📖 LRA - Ch 10.1 - 10.2
-
-📖 CMR - Ch 4
+📖
 
 ## Exercise
 
-📋 [Exercise 10](/exercise/ex-10-var.html)
+📋 [Lab-23 Principal Component Analysis](/exercise/lab22-pca.html)
 
 ## Perform
 

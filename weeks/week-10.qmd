@@ -1,34 +1,25 @@
 ---
 title: "Week 10"
-subtitle: "Bootstrapping and Simulation-based Inference"
+subtitle: "Probabilistic and Statistical Simulation and Linear Regression"
 editor: visual
 ---
 
 ::: callout-important
--   Due date: HW 4 - Fri, 11/3 11:59 PM
 :::
 
 ## Participate
 
-🖥️ [Slides - Bootstrapping](slides/11-bootstrap)
+🖥️ [Slides - Probability and Statistics](/slides/15-probstat.html)
 
-`r fontawesome::fa("table")` [Data - Manhattan](/slides/data/manhattan.csv)
+🖥️ [Slides - Linear Regression](/slides/16-linear-reg.html)
 
-`r fontawesome::fa("table")` [Data - Delivery](/slides/data/data-ex-3-1.csv)
-
-## Reading
-
-📖 Introduction to Modern Statistics (IMS) - [Ch 12, 24.3](https://openintro-ims.netlify.app/foundations-bootstrapping)
-
-📖 CAR - Ch 5.1 - 5.2
+`r fontawesome::fa("table")` **ggplot2::mpg**
 
 ## Exercise
 
-📋 [Exercise 5](/exercise/ex-5-bootstrapping.html)
+📋 [Lab-18 Probability](/exercise/lab18-prob.html)
 
-## Perform
-
-✍️ [HW 4 Diagnostics due 11/3 11:59 PM](hw/hw4.html)
+📋 [Lab-19 Confidence Interval](/exercise/lab19-ci.html)
 
 <br><br>
 

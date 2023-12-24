@@ -1,32 +1,54 @@
 ---
 title: "Week 8"
-subtitle: "Diagnostics: Constant Variance"
+subtitle: "Data Wrangling"
 editor: visual
 ---
 
 ::: callout-important
--   *In-Class Exam* Tue, 10/17
 :::
 
 ## Participate
 
-🖥️ [Slides - Diagnostics: Constant Variance](slides/09-diag-const-var.html)
+🖥️ [Slides - Data Wrangling - two data frames](/slides/13-dplyr-2.html)
 
-`r fontawesome::fa("table")` [Data - CIA World Factbook Data](/slides/data/CIA.txt)
+🖥️ [Slides - Tidying Data](/slides/14-tidyr.html)
 
-## Reading
+`r fontawesome::fa("table")` Data - Pop_x and elec_vote_y
 
-📖 LRA - Ch 5.2, 5.4 - 5.5
+```{r}
+#| eval: false
+library(tidyverse)
+library(dslabs)
+pop_x <- murders |> 
+    slice(1:6) |>
+    select(state, population)
 
-📖 CMR - Ch 7.1
+elec_vote_y <- results_us_election_2016 |> 
+    filter(state %in% c("Alabama", "Alaska", "Arizona", 
+                        "California", "Connecticut", "Delaware")) |> 
+    select(state, electoral_votes) |> 
+    rename(elec_vote = electoral_votes)
+```
 
-📖 CAR - Ch 3.4, 8.5
+`r fontawesome::fa("table")` [Data - Customers](/slides/data/sales/customers.csv)
 
-📖 RD - Ch 5
+## Reading and Resources
 
-## Perform
+📖 [R for Data Science - Joins](https://r4ds.hadley.nz/joins)
 
-✅ **In-Class Exam**
+📖 [R for Data Science - Joins](https://r4ds.hadley.nz/data-tidy)
+
+## Exercise
+
+📋 [Lab-16 Joining tables](/exercise/lab16-join.html)
+
+`r fontawesome::fa("table")` <https://www.jaredlander.com/data/DiamondColors.csv>
+
+`r fontawesome::fa("table")` **ggplot2::diamonds**
+
+📋 [Lab-17 tidyr](/exercise/lab17-tidyr.html)
+
+`r fontawesome::fa("table")` [trump.csv](/slides/data/trump.csv)
 
 <br><br>
 

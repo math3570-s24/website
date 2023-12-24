@@ -1,31 +1,30 @@
 ---
 title: "Week 3"
-subtitle: "Simple Linear Regression - II"
+subtitle: "R/Python Syntax"
 editor: visual
 ---
 
 ::: callout-important
--   Drop deadline 9/5 11:59 PM
--   Due date: HW 1 - Fri, 9/8 11:59 PM
+-   Presenting Lab 07-Plotting for extra points!
 :::
 
 ## Participate
 
-🖥️ [Slides - Simple Linear Regression](/slides/04-slr.html)
+🖥️ [Slides - R/Python Syntax](/slides/06-syntax.html)
 
-`r fontawesome::fa("table")` [Data - Delivery](/slides/data/data-ex-3-1.csv)
+## Reading and Resources
 
-## Reading
+📖 [The R Graph Gallery](https://www.r-graph-gallery.com/)
 
-📖 ISL - Ch 3.1
-
-📖 LRA - Ch 2.1 - 2.6, 2.10
-
-📖 CMR - Ch 2.1 - 2.3, 2.5, 2.6, 2.8, 2.9
+📖 [matplotlib](https://matplotlib.org/stable/plot_types/index.html)
 
 ## Exercise
 
-📋 [Exercise 2](/exercise/ex-2-slr.html)
+📋 [Lab-05 R Data Summary](/exercise/lab05-rtype.html)
+
+📋 [Lab-06 Python Data Structure](/exercise/lab06-py.html)
+
+📋 [Lab-07 Plotting](/exercise/lab07-plot.html) (Present)
 
 <br><br>
 

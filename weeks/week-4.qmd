@@ -1,26 +1,31 @@
 ---
 title: "Week 4"
-subtitle: "Multiple Linear Regression - I"
+subtitle: "R/Python Data Frames for Data Science"
 editor: visual
 ---
 
 ::: callout-important
--   Due date: HW 2 - Fri, 9/22 11:59 PM
 :::
 
 ## Participate
 
-🖥️ Slides - [Multiple Linear Regression](slides/05-mlr.html)
+🖥️ [Slides - R/Python Data Frames for Data Science](/slides/07-package.html)
 
-`r fontawesome::fa("table")` [Data - Delivery](/slides/data/data-ex-3-1.csv)
+## Reading and Resources
 
-## Reading
+📖 [tibble](https://tibble.tidyverse.org/)
 
-📖 ISL - Ch 3.2
+📖 [pipes](https://r4ds.hadley.nz/workflow-pipes.html#why-use-a-pipe)
+
+📖 [NumPy](https://numpy.org/doc/stable/user/index.html)
+
+📖 [pandas](https://pandas.pydata.org/docs/user_guide/index.html)
 
 ## Perform
 
-✍️ [HW 2 Simple Linear Regression due 9/22 11:59 PM](../hw/hw-2.html)
+📋 [Lab-08 Tibbles and Pipes](/exercise/lab08-tibble.html)
+
+📋 [Lab-09 NumPy and pandas](/exercise/lab09-numpy.html)
 
 <br><br>
 

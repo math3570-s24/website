@@ -1,6 +1,6 @@
 ---
 title: "Week 11"
-subtitle: "Polynomial and Nonparametric Regression"
+subtitle: "Linear Regression"
 editor: visual
 ---
 
@@ -9,25 +9,13 @@ editor: visual
 
 ## Participate
 
-🖥️ [Slides - Polynomial Regression](slides/11-poly-reg.html)
+🖥️ [Slides - Linear Regression](/slides/16-linear-reg.html)
 
-🖥️ [Slides - Nonparametric Regression](slides/12-nonpara-reg.html)
-
-`r fontawesome::fa("table")` [Data - Hardwood](/slides/data/data-ex-7-1.csv)
-
-`r fontawesome::fa("table")` [Data - U.S. Birth Rate](/slides/data/birthrates.rda)
-
-## Reading
-
-📖 LRA - Ch 7.1 - 7.3
+`r fontawesome::fa("table")` **ggplot2::mpg**
 
 ## Exercise
 
-📋 [Exercise 6](/exercise/ex-6-poly.html)
-
-📋 [Exercise 7](/exercise/ex-7-nonpar.html)
-
-## Perform
+📋 [Lab-20 Simple Linear Regression](/exercise/lab20-slr.html)
 
 <br><br>
 
