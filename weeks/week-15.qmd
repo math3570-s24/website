@@ -19,7 +19,7 @@ editor: visual
 
 ## Exercise
 
-📋 [Exercise 11](/exercise/ex-11-logistic.html)
+📋 [Lab-24 K-Means Clustering](/exercise/lab24-kmeans.html)
 
 `r fontawesome::fa("table")` [palmerpenguins](https://allisonhorst.github.io/palmerpenguins/)::penguins
 

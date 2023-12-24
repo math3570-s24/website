@@ -71,12 +71,12 @@ website:
           #   text: Guideline for MATH 5780
           - href: project-work.qmd
             text: Project Group and Proposal
-      - section: "Class Activities"
-        contents:
-          - href: activity-description.qmd
-            text: Description
-          - href: activity-work.qmd
-            text: Activity work
+      # - section: "Class Activities"
+      #   contents:
+      #     - href: activity-description.qmd
+      #       text: Description
+      #     - href: activity-work.qmd
+      #       text: Activity work
       - section: "Weekly materials"
         contents:
           - href: weeks/week-1.qmd
