@@ -23,7 +23,7 @@ editor: visual
 
 ## Exercise
 
-📋 [Lab-14 Interactive Visualization](/exercise/lab14-interactive.html)
+📋 [Lab-14 Interactive Visualization](/exercise/lab14-interactive.html) (Present)
 
 📋 [Lab-15 dplyr](/exercise/lab15-dplyr.html)
 

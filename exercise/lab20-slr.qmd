@@ -28,6 +28,7 @@ library(tidymodels)
 
 :::
 
+
 In **lab.qmd** `## Lab 20` section,
 
 - Use the `mpg` data to fit a simple linear regression where $y$ is `hwy` and $x$ is `cty`.

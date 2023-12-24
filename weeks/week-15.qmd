@@ -9,7 +9,7 @@ editor: visual
 
 ## Participate
 
-🖥️ [Slides - K-Means Clustering](slides/20-kmeans.html)
+🖥️ [Slides - K-Means Clustering](/slides/20-kmeans.html)
 
 `r fontawesome::fa("table")` [Data - clus_data](/slides/data/clus_data.csv)
 
@@ -21,7 +21,7 @@ editor: visual
 
 📋 [Lab-24 K-Means Clustering](/exercise/lab24-kmeans.html)
 
-`r fontawesome::fa("table")` [palmerpenguins](https://allisonhorst.github.io/palmerpenguins/)::penguins
+`r fontawesome::fa("table")` [`palmerpenguins`](https://allisonhorst.github.io/palmerpenguins/)`::penguins`
 
 ```{r}
 #| eval: false

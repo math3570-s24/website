@@ -39,6 +39,7 @@ In **lab.qmd** `## Lab 17` section,
 #| echo: false
 trump_data <- read_csv("../slides/data/trump.csv")
 ```
+
 ```{r}
 trump_data
 ```

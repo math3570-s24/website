@@ -11,7 +11,7 @@ editor: visual
 
 🖥️ [Slides - Principal Component Analysis](slides/15-var-select.html)
 
-`r fontawesome::fa("table")` USArrests
+`r fontawesome::fa("table")` `USArrests`
 
 ## Reading
 
@@ -21,7 +21,7 @@ editor: visual
 
 📋 [Lab-23 Principal Component Analysis](/exercise/lab22-pca.html)
 
-## Perform
+`r fontawesome::fa("table")` `iris`
 
 <br><br>
 

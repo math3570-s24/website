@@ -36,7 +36,7 @@ elec_vote_y <- results_us_election_2016 |>
 
 📖 [R for Data Science - Joins](https://r4ds.hadley.nz/joins)
 
-📖 [R for Data Science - Joins](https://r4ds.hadley.nz/data-tidy)
+📖 [R for Data Science - Data tidying](https://r4ds.hadley.nz/data-tidy)
 
 ## Exercise
 
@@ -44,7 +44,7 @@ elec_vote_y <- results_us_election_2016 |>
 
 `r fontawesome::fa("table")` <https://www.jaredlander.com/data/DiamondColors.csv>
 
-`r fontawesome::fa("table")` **ggplot2::diamonds**
+`r fontawesome::fa("table")` **`ggplot2::diamonds`**
 
 📋 [Lab-17 tidyr](/exercise/lab17-tidyr.html)
 

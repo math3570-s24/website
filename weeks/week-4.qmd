@@ -15,7 +15,7 @@ editor: visual
 
 📖 [tibble](https://tibble.tidyverse.org/)
 
-📖 [pipes](https://r4ds.hadley.nz/workflow-pipes.html#why-use-a-pipe)
+📖 [pipes](https://r4ds.hadley.nz/data-transform.html#sec-the-pipe)
 
 📖 [NumPy](https://numpy.org/doc/stable/user/index.html)
 

@@ -9,7 +9,7 @@ editor: visual
 
 ## Participate
 
-🖥️ [Slides - K Nearest Neighbors](slides/18-knn.html)
+🖥️ [Slides - K Nearest Neighbors](/slides/18-knn.html)
 
 `r fontawesome::fa("table")` [Data - body](/slides/data/body.csv)
 
@@ -19,7 +19,7 @@ editor: visual
 
 ## Exercise
 
-📋 [Lab-22 K Nearest Neighbors](/exercise/lab21-logistic.html)
+📋 [Lab-22 K Nearest Neighbors](/exercise/lab22-knn.html)
 
 <br><br>
 

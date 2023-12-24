@@ -127,8 +127,8 @@ knitr::knit_hooks$set(output = function(x, options) {
 
 
 ## [A Little History of Data Science](https://www.forbes.com/sites/gilpress/2013/05/28/a-very-short-history-of-data-science/?sh=7786e51d55cf)
-- In 1985, Dr. Jeff Wu used the term [Data Science for the first time as an alternative name for Statistics.](./fazhan.pdf)
-- In 1997, Dr. Wu calls for [statistics to be renamed data science and statisticians to be renamed data scientists.](./datascience.pdf)
+- In 1985, Dr. Jeff Wu used the term [Data Science for the first time as an alternative name for Statistics.](../documents/fazhan.pdf)
+- In 1997, Dr. Wu calls for [statistics to be renamed data science and statisticians to be renamed data scientists.](../documents/datascience.pdf)
 - In 2001, Dr. William S. Cleveland advocated an [expansion of statistics beyond theory into six technical areas, and the altered expanded field will be called data science.](http://brenocon.com/Cleveland1991DataScience.pdf)
 
 

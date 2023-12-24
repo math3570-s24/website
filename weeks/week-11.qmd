@@ -11,7 +11,7 @@ editor: visual
 
 🖥️ [Slides - Linear Regression](/slides/16-linear-reg.html)
 
-`r fontawesome::fa("table")` **ggplot2::mpg**
+`r fontawesome::fa("table")` `ggplot2::mpg`
 
 ## Exercise
 

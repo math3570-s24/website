@@ -1,5 +1,5 @@
 ---
-title: "Lab 03: Code Chunk"
+title: "Lab 04: Code Chunk"
 editor: source
 reference-location: margin
 execute:

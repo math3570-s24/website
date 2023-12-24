@@ -1,5 +1,5 @@
 ---
-title: "Lab 11: ggplot2"
+title: "Lab 12: Faceting"
 editor: source
 reference-location: margin
 execute:
