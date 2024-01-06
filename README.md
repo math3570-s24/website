@@ -1,7 +1,6 @@
-# Website for MATH 4780 at Marquette University (Fall 2023)
+# Website for MATH/COSC 3570 at Marquette University (Spring 2024)
 
-🔗 https://math4780-f23.github.io/website/
-
+🔗 https://math3570-s24.github.io/website/
 
 <hr>
 
