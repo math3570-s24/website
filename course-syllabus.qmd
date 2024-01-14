@@ -13,7 +13,7 @@ title: "Syllabus"
 
 ## Office Hours
 
--   My in-person office hours are TuTh 4:50 - 5:50 PM, and Fri 12 - 1 PM in Cudahy Hall room 353.
+-   My in-person office hours are TuTh 4:50 - 5:50 PM, and Wed 12 - 1 PM in Cudahy Hall room 353.
 
 -   You are welcome to schedule an online meeting via Microsoft Teams if you need/prefer.
 
@@ -49,7 +49,7 @@ By the end of the semester, you will be able to...
 
 -   Email etiquette is important. Please read this [article](https://www.insidehighered.com/views/2015/04/16/advice-students-so-they-dont-sound-silly-emails-essay) to learn more about email etiquette.
 
--   I am more than happy to answer your questions about this course or data science/statistics in general. However, with tons of email messgaes everyday, I may choose **NOT** to respond to students' e-mail if
+-   I am more than happy to answer your questions about this course or data science/statistics in general. However, with tons of email messages everyday, I may choose **NOT** to respond to students' e-mail if
 
     1.  The student could answer his/her own inquiry by reading the syllabus or information on the course website or D2L.
 
@@ -65,7 +65,7 @@ By the end of the semester, you will be able to...
 
 <!-- ### Required Textbook -->
 
-No textbook is required for this course. Course materials are mainly Dr. Yu's slides. Below are some good references.
+*No textbook is required* for this course. Course materials are mainly Dr. Yu's slides. Below are some good references.
 
 -   [*(**r4ds**) R for Data Science*](https://r4ds.hadley.nz/) by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund.
 
@@ -83,6 +83,8 @@ No textbook is required for this course. Course materials are mainly Dr. Yu's sl
 
 -   **30%** Final project competition
 
+-   *Extra credit opportunities*
+
 -   Every student has to participate (in-person) in the final presentation in order to pass the course.
 
 -   You will **NOT** be allowed any extra credit projects/homework/exam to compensate for a poor grade. Everyone is given the same opportunity to do well in this class. I may use class participation to make grade adjustments at the end of the semester.
@@ -99,32 +101,27 @@ grade_dist <- data.frame(Grade = letter, Percentage = percentage)
 knitr::kable(grade_dist, longtable = TRUE, caption = "Grade-Percentage Conversion")
 ```
 
-
 ### Lab exercises
 
-- There are several **in-class** lab exercises, which are graded as **complete/incomplete** and used as evidence of attendance and class participation.
+-   There are several **in-class** lab exercises, which are graded as **complete/incomplete** and used as evidence of attendance and class participation.
 
-- You are allowed to have **one** incomplete lab exercises without penalty. Beyond that, **2%** grade percentage will be taken off for each missing/incomplete exercise.
+-   You are allowed to have **one** incomplete lab exercises without penalty. Beyond that, **2%** grade percentage will be taken off for each missing/incomplete exercise.
 
-- If you answer the questions in the [form](https://forms.office.com/r/542zDbEde8) correctly, you are allowed to miss **2** lab exercises without penalty.
-
-- **No make-up lab exercises** for any reason.
-
+-   **No make-up lab exercises** for any reason.
 
 ### Homework
 
--   The homework assignments are *individual*. You should submit your own work. 
+-   The homework assignments are *individual*. You should submit your own work.
 
-- **You may not directly share or discuss answers/code with anyone other than the instructor**. But you are welcome to discuss the problems in general and ask for advice.
+-   **You may not directly share or discuss answers/code with anyone other than the instructor**. But you are welcome to discuss the problems in general and ask for advice.
 
 -   Homework will be assigned through GitHub. You need to clone/pull the homework repo into Posit Cloud and work on the Quarto file in the repo. A step-by-step guide will be discussed in class before homework is assigned.
 
 -   You will have *at least one week* to complete your assignment.
 
-- **No make-up homework** for any reason unless you got [COVID](https://www.marquette.edu/central/registrar/faculty-staff/guidance-on-spring-2023-class-attendance-withdrawal-grading.php) or [excused absence](https://bulletin.marquette.edu/undergrad/academicregulations/#attendance).
+-   **No make-up homework** for any reason unless you got [COVID](https://www.marquette.edu/central/registrar/faculty-staff/guidance-on-spring-2023-class-attendance-withdrawal-grading.php) or [excused absence](https://bulletin.marquette.edu/undergrad/academicregulations/#attendance).
 
-- If you miss a homework assignment due to COVID-19 symptoms, exposure, diagnosis, quarantine, and/or isolation, or you have an excused absence as defined in [Attendance in Academic Regulations](https://bulletin.marquette.edu/undergrad/academicregulations/#attendance), the homework percentage will be added to your final project. If you miss more than one assignment, only one assignment percentage can be added to the final project percentage. You get 0% for the other assignment.
-
+-   If you miss a homework assignment due to COVID-19 symptoms, exposure, diagnosis, quarantine, and/or isolation, or you have an excused absence as defined in [Attendance in Academic Regulations](https://bulletin.marquette.edu/undergrad/academicregulations/#attendance), the homework percentage will be added to your final project. If you miss more than one assignment, only one assignment percentage can be added to the final project percentage. You get 0% for the other assignment.
 
 ### Final project competition
 
@@ -135,9 +132,9 @@ knitr::kable(grade_dist, longtable = TRUE, caption = "Grade-Percentage Conversio
     2.  Introduce a **R or Python package** not learned in class, including **live demo**
 
     3.  Introduce a **data science tool (visualization, computing, etc)** not learned in class, including **live demo**
-    
+
     4.  **Web development**: Shiny website or dashboard, including **live demo**
-    
+
 -   Details about the project will be provided as the course progresses. You must complete the final project and be in class to present it in order to pass this course.
 
 <!-- -   The final project will consist of analysis on a data set of your own choosing. More information will be released later (page limit, format, etc). -->
@@ -153,7 +150,6 @@ knitr::kable(grade_dist, longtable = TRUE, caption = "Grade-Percentage Conversio
 -   Unless explicitly stated otherwise, you may make use of any online resources, but you must **explicitly cite** where you obtained any code you directly use or use as inspiration in your solutions.
 
 -   Any recycled code that is discovered and is not explicitly cited will be treated as plagiarism, regardless of source.
-
 
 ## University and college policies
 
