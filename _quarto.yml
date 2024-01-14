@@ -39,10 +39,12 @@ website:
 
     style: "docked"
     search: true
-    collapse-level: 1
+    collapse-level: 0
     contents:
       - section: "Course information"
         contents:
+          - href: course-news.qmd
+            text: News/Annoucements
           - href: course-overview.qmd
             text: Overview
           - href: course-syllabus.qmd
@@ -109,6 +111,8 @@ website:
             text: "Week 14"
           - href: weeks/week-15.qmd
             text: "Week 15"
+          - href: weeks/week-16.qmd
+            text: "Week 16"
       # - section: "Supplementary materials for MSSC 5780"
       #   contents:
       #     # - href: supplemental/slr-derivations.qmd
