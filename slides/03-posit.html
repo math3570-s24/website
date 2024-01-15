@@ -460,7 +460,7 @@ Dr.&nbsp;Cheng-Han Yu <br> Department of Mathematical and Statistical Sciences <
           display:block!important;
       }</style></aside></section><section id="posit-cloud---data-science-wo-hardware-hassles" class="slide level2"><h2>☁️ Posit Cloud - Data Science w/o hardware hassles</h2>
 <ul>
-<li><p>😎 Implement R/Python programs <em>without</em> installing R/Python and the IDE in your laptop!</p></li>
+<li><p>😎 Implement R/Python programs <em>without</em> needing to install R/Python and the IDE in your laptop!</p></li>
 <li><p>😎 <a href="https://rstudio.cloud/"><strong>Posit Cloud</strong></a> lets you do, share and learn data science <strong>online for free</strong>!</p></li>
 </ul>
 <div class="columns">
@@ -514,24 +514,24 @@ Dr.&nbsp;Cheng-Han Yu <br> Department of Mathematical and Statistical Sciences <
 <div class="lab">
 <ul>
 <li><p><em>Step 2</em>: Click <strong>GET STARTED</strong>.</p></li>
-<li><p><em>Step 3</em>: <strong>Free<sup>1</sup> &gt; Sign Up</strong>. Please sign up with <em>GitHub</em> if you have one or use your <em>Marquette email address</em>.</p></li>
+<li><p><em>Step 3</em>: <strong>Free or Student &gt; Sign Up</strong>. Please sign up with <em>GitHub</em> if you have one or use your <em>Marquette email address</em>.</p></li>
 </ul>
 </div>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" style="width:30%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/03-posit/landing-1-posit.png" style="width:80.0%"></p>
+<figure><p><img data-src="images/03-posit/landing-1-posit.png" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
 </div>
-</div><div class="column" style="width:50%;">
+</div><div class="column" style="width:70%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/03-posit/posit-free-plan.png" style="width:100.0%"></p>
+<figure><p><img data-src="images/03-posit/posit-student-plan.png" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -549,7 +549,7 @@ Dr.&nbsp;Cheng-Han Yu <br> Department of Mathematical and Statistical Sciences <
           width: 1px!important;
           overflow: hidden!important;
           display:block!important;
-      }</style></aside><aside><ol class="aside-footnotes"><li id="fn1"><p>You are encouraged to choose Student plan for 75 hours usage per month.</p></li></ol></aside></section><section id="new-projects" class="slide level2"><h2>New Projects</h2>
+      }</style></aside></section><section id="new-projects" class="slide level2"><h2>New Projects</h2>
 <div class="columns">
 <div class="column" style="width:85%;">
 <div class="cell" data-layout-align="center">
@@ -593,10 +593,9 @@ Dr.&nbsp;Cheng-Han Yu <br> Department of Mathematical and Statistical Sciences <
 </div>
 </div>
 </div>
-<aside class="notes"><p>Go to D2l to send Posit Cloud inivation</p>
+<aside class="notes"><p>Go to D2l to send Posit Cloud invitation</p>
 <p>Subject Posit Cloud Invitation Message https://posit.cloud/spaces/459948/join?access_code=JY6N0CSQWE5qa7QFYxYKqWT9awi6wP2JqV3UNfj6</p>
-<p>Best,</p>
-<p>Dr.&nbsp;Yu</p>
+<p>Best, Dr.&nbsp;Yu</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -793,25 +792,27 @@ Dr.&nbsp;Cheng-Han Yu <br> Department of Mathematical and Statistical Sciences <
 </section><section id="loading-r-packages" class="slide level2"><h2>Loading R Packages 📦</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
+<div class="question">
+<p>What happened when you run</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, </span>
+<span id="cb3-2"><a href="#cb3-2"></a>                <span class="at">y =</span> hwy, </span>
+<span id="cb3-3"><a href="#cb3-3"></a>                <span class="at">colour =</span> class)) <span class="sc">+</span> </span>
+<span id="cb3-4"><a href="#cb3-4"></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
 <ul>
 <li>To use any function or data in <strong>ggplot2</strong>, we write <code>ggplot2::</code> followed by the name of the function or data.</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(ggplot2<span class="sc">::</span>mpg, </span>
-<span id="cb3-2"><a href="#cb3-2"></a>                ggplot2<span class="sc">::</span><span class="fu">aes</span>(</span>
-<span id="cb3-3"><a href="#cb3-3"></a>                    <span class="at">x =</span> displ, </span>
-<span id="cb3-4"><a href="#cb3-4"></a>                    <span class="at">y =</span> hwy, </span>
-<span id="cb3-5"><a href="#cb3-5"></a>                    <span class="at">colour =</span> class)</span>
-<span id="cb3-6"><a href="#cb3-6"></a>                ) <span class="sc">+</span> </span>
-<span id="cb3-7"><a href="#cb3-7"></a>    ggplot2<span class="sc">::</span><span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="question">
-<p>What happened when you run</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, </span>
-<span id="cb4-2"><a href="#cb4-2"></a>                <span class="at">y =</span> hwy, </span>
-<span id="cb4-3"><a href="#cb4-3"></a>                <span class="at">colour =</span> class)) <span class="sc">+</span> </span>
-<span id="cb4-4"><a href="#cb4-4"></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(ggplot2<span class="sc">::</span>mpg, </span>
+<span id="cb4-2"><a href="#cb4-2"></a>                ggplot2<span class="sc">::</span><span class="fu">aes</span>(</span>
+<span id="cb4-3"><a href="#cb4-3"></a>                    <span class="at">x =</span> displ, </span>
+<span id="cb4-4"><a href="#cb4-4"></a>                    <span class="at">y =</span> hwy, </span>
+<span id="cb4-5"><a href="#cb4-5"></a>                    <span class="at">colour =</span> class)</span>
+<span id="cb4-6"><a href="#cb4-6"></a>                ) <span class="sc">+</span> </span>
+<span id="cb4-7"><a href="#cb4-7"></a>    ggplot2<span class="sc">::</span><span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
@@ -883,10 +884,10 @@ Dr.&nbsp;Cheng-Han Yu <br> Department of Mathematical and Statistical Sciences <
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>bar <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> diamonds) <span class="sc">+</span> </span>
-<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">fill =</span> cut), </span>
-<span id="cb8-3"><a href="#cb8-3"></a>           <span class="at">show.legend =</span> <span class="cn">FALSE</span>, <span class="at">width =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
-<span id="cb8-4"><a href="#cb8-4"></a>  <span class="fu">theme</span>(<span class="at">aspect.ratio =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb8-5"><a href="#cb8-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span>
+<span id="cb8-2"><a href="#cb8-2"></a>    <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">fill =</span> cut), </span>
+<span id="cb8-3"><a href="#cb8-3"></a>             <span class="at">show.legend =</span> <span class="cn">FALSE</span>, <span class="at">width =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb8-4"><a href="#cb8-4"></a>    <span class="fu">theme</span>(<span class="at">aspect.ratio =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span>
 <span id="cb8-6"><a href="#cb8-6"></a>bar <span class="sc">+</span> <span class="fu">coord_flip</span>()</span>
 <span id="cb8-7"><a href="#cb8-7"></a>bar <span class="sc">+</span> <span class="fu">coord_polar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
