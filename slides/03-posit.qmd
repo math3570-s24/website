@@ -178,7 +178,7 @@ knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/3/38/Jup
 
 ## `r emo::ji('cloud')` Posit Cloud - Data Science w/o hardware hassles
 
-- `r emo::ji('sunglasses')` Implement R/Python programs *without* installing R/Python and the IDE in your laptop! 
+- `r emo::ji('sunglasses')` Implement R/Python programs *without* needing to install R/Python and the IDE in your laptop! 
 
 - `r emo::ji('sunglasses')` [**Posit Cloud**](https://rstudio.cloud/) lets you do, share and learn data science **online for free**! 
 
@@ -246,26 +246,26 @@ knitr::include_graphics("images/03-posit/posit-cloud.png")
 
 - *Step 2*: Click **GET STARTED**.
 
-- *Step 3*: **Free^[You are encouraged to choose Student plan for 75 hours usage per month.] > Sign Up**. Please sign up with *GitHub* if you have one or use your *Marquette email address*.
+- *Step 3*: **Free or Student > Sign Up**. Please sign up with *GitHub* if you have one or use your *Marquette email address*.
 
 :::
 
 
 :::: {.columns}
 
-::: {.column width="50%"}
+::: {.column width="30%"}
 ```{r}
-#| out-width: "80%"
+#| out-width: "100%"
 #| fig-align: "center"
 knitr::include_graphics("images/03-posit/landing-1-posit.png")
 ```
 :::
 
-::: {.column width="50%"}
+::: {.column width="70%"}
 ```{r}
 #| out-width: "100%"
 #| fig-align: "center"
-knitr::include_graphics("images/03-posit/posit-free-plan.png")
+knitr::include_graphics("images/03-posit/posit-student-plan.png")
 ```
 :::
 ::::
@@ -329,7 +329,7 @@ knitr::include_graphics("images/03-posit/join-space.png")
 
 
 ::: notes
-Go to D2l to send Posit Cloud inivation
+Go to D2l to send Posit Cloud invitation
 
 Subject
 Posit Cloud Invitation
@@ -337,7 +337,6 @@ Message
 https://posit.cloud/spaces/459948/join?access_code=JY6N0CSQWE5qa7QFYxYKqWT9awi6wP2JqV3UNfj6
 
 Best,
-
 Dr. Yu
 :::
 
@@ -571,6 +570,21 @@ knitr::include_graphics("./images/03-posit/pkg_install.png")
 ::::: {.columns}
 
 :::: {.column width="50%"}
+
+:::{.question}
+What happened when you run
+```{r}
+#| echo: true
+#| eval: false
+ggplot(mpg, aes(x = displ, 
+                y = hwy, 
+                colour = class)) + 
+    geom_point()
+```
+:::
+
+::: {.fragment}
+
 - To use any function or data in **ggplot2**, we write `ggplot2::` followed by the name of the function or data.
 
 ```{r}
@@ -584,19 +598,8 @@ ggplot2::ggplot(ggplot2::mpg,
                 ) + 
     ggplot2::geom_point()
 ```
-
-
-:::{.question}
-What happened when you run
-```{r}
-#| echo: true
-#| eval: false
-ggplot(mpg, aes(x = displ, 
-                y = hwy, 
-                colour = class)) + 
-    geom_point()
-```
 :::
+
 
 ::::
 
@@ -678,10 +681,10 @@ ________(ggplot2)
 #| eval: false
 x <- 4; y <- 3
 bar <- ggplot(data = diamonds) + 
-  geom_bar(mapping = aes(x = cut, fill = cut), 
-           show.legend = FALSE, width = 1) + 
-  theme(aspect.ratio = 1) +
-  labs(x = NULL, y = NULL)
+    geom_bar(mapping = aes(x = cut, fill = cut), 
+             show.legend = FALSE, width = 1) + 
+    theme(aspect.ratio = 1) +
+    labs(x = NULL, y = NULL)
 bar + coord_flip()
 bar + coord_polar()
 ```

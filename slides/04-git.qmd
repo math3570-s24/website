@@ -142,7 +142,7 @@ file:///Users/chenghanyu/Dropbox/academia/books/r/teach-r-online-master/03-git/0
 knitr::include_graphics("images/04-git/git-logo.png")
 ```
 - [**Git**](https://git-scm.com/) is a **version control** system -- like **Track Changes** features from MS Word, on steroids.
-- It's not the only version control system, but it's a very popular one.
+- It's not the only version control system, but it's a popular one.
 :::
 
 
@@ -152,7 +152,7 @@ knitr::include_graphics("images/04-git/git-logo.png")
 knitr::include_graphics("images/04-git/github-mark.png")
 ```
 - [**GitHub**](https://github.com/) is a home for Git-based projects (repository, or **repo**) **on the cloud** -- like Dropbox but much better.
-- We'll use GitHub as a platform for web hosting homework.
+- We'll use GitHub for web hosting homework.
 :::
 
 ::::
@@ -267,7 +267,7 @@ knitr::include_graphics("images/04-git/whole-game-02.png")
 
 ::: notes
 - How are we going to use Git/GitHub in this class?
-- We have a course organization (**2023-spring-math-3570**) I created on GitHub.
+- We have a course organization (**2024-spring-math-3570**) I created on GitHub.
 - Within the organization, there will be a bunch of repositories I created for you.
 - Think each repo as a project you will be working on. It is basically your homework assignment.
 <!-- - When we are working with these, I'll prepare these repositories for you, where for each of these assignments, you have a repository for yourself. -->
@@ -330,7 +330,7 @@ knitr::include_graphics("images/04-git/whole-game-04.png")
   - `r fa("envelope") `  **Emails** > *Uncheck* "Keep my email address private" (Link your R/Python work to GitHub)
   - `r fa("user") `  **Public Profile** > Cool name and nice picture!
 
-- Share your GitHub **username** in D2L's **Communication > Chat**, so I can invite you to join our course organization **math3570-s24**. 
+- Share your GitHub **username** at <https://forms.office.com/r/k0L5M5TyS7>, so I can invite you to join our course organization **math3570-s24**. 
 :::
 
 
@@ -354,7 +354,7 @@ knitr::include_graphics("images/04-git/join-org-2024.png")
 
 ::: notes
 - use ghclass_code.R and add usernames in students vector.
-- Check Who is already in and make sure there are 28 of them
+- Check Who is already in and make sure there are 29 of them.
 :::
 
 
@@ -462,6 +462,14 @@ knitr::include_graphics("images/04-git/github-auth-3-23.png")
 ::: {.column width="61%"}
 - Back to the Authentication of Posit Cloud, check **Private repo access also enabled**.
 
+
+```{r}
+#| out-width: "100%"
+#| label: github-auth-4-1
+knitr::include_graphics("images/04-git/github-auth-4-24.png")
+```
+
+
 - Make sure **math3570-s24** shows up under **Organization access**. 
 
 - Click on **Request**
@@ -562,8 +570,8 @@ org_create_assignment(
 ## GitHub to Posit Cloud: Step 2
 <!-- (this might already be selected by default, and if it is, you’ll see the text Clone with HTTPS as in the image below) -->
 - On GitHub, 
-  + click on the green **Code** button, select **HTTPS**. 
-  + click on the clipboard icon on the right to copy the repo URL, such as  `https://github.com/math3570-s24/hw00-chenghanyu.git`
+  + Click on the green **Code** button, select **HTTPS**. 
+  + Click on the clipboard icon on the right to copy the repo URL, such as  `https://github.com/math3570-s24/hw00-chenghanyu.git`
 
 
 ```{r}
@@ -575,7 +583,7 @@ knitr::include_graphics("images/04-git/clone-repo-link-2024.png")
 
 ## GitHub to Posit Cloud: Step 3
 - Go to Posit Cloud and into the course workspace **2024-spring-math-3570**. 
-- Create a **New Project from Git Repo**.
+- New Project > **New Project from Git Repo**.
 
 ```{r}
 #| out-width: "45%"
@@ -667,7 +675,7 @@ knitr::include_graphics("images/04-git/pat_4-23.png")
 
 
 ## Personal Access Token (PAT): Step 5
-- Copy and paste your PAT to a [*secrete and safe space*]{.blue}!!
+- Copy and paste your PAT to a [**secrete and safe space**]{.blue}!!
 
 ```{r}
 #| out-width: "100%"
@@ -686,7 +694,7 @@ knitr::include_graphics("images/04-git/pat_5-23.png")
 
 ```{r}
 #| label: yaml-raw-to-rendered
-knitr::include_graphics("images/04-git/yaml-raw-to-rendered_hw00-23.png")
+knitr::include_graphics("images/04-git/yaml-raw-to-rendered_hw00-24.png")
 ```
 
 

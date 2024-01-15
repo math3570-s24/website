@@ -28,6 +28,8 @@ editor: visual
 
 🖥️ [Slides - Posit Cloud](/slides/03-posit.html "03-posit")
 
+🖥️ [Slides - Git/GitHub](/slides/04-git.html)
+
 `r fontawesome::fa("table")` `ggplot2::mpg`
 
 `r fontawesome::fa("table")` `ggplot2::diamond`

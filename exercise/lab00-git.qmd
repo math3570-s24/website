@@ -33,7 +33,7 @@ library(fontawesome)
   - `r fa("envelope") `  **Emails** > *Uncheck* "Keep my email address private" (Link your R/Python work to GitHub)
   - `r fa("user") `  **Public Profile** > Cool name and nice picture!
 
-- Share your GitHub **username** in D2L's **Communication > Chat**, so I can invite you to join our course organization **math3570-s24**. 
+- Share your GitHub **username** at <https://forms.office.com/r/k0L5M5TyS7>, so I can invite you to join our course organization **math3570-s24**.
 
 
 - Please accept my invitation to join the GitHub organization **math3570-s24**.
@@ -252,7 +252,7 @@ knitr::include_graphics("../slides/images/04-git/pat_5-23.png")
 
 ```{r}
 #| label: yaml-raw-to-rendered
-knitr::include_graphics("../slides/images/04-git/yaml-raw-to-rendered_hw00-23.png")
+knitr::include_graphics("../slides/images/04-git/yaml-raw-to-rendered_hw00-24.png")
 ```
 
 

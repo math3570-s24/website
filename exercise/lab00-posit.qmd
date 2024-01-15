@@ -35,7 +35,7 @@ knitr::include_graphics("../slides/images/03-posit/posit-cloud.png")
 
 - *Step 2*: Click **GET STARTED**.
 
-- *Step 3*: **Free^[You are encouraged to choose Student plan for 75 hours usage per month.] > Sign Up**. Please sign up with *GitHub* if you have one or use your *Marquette email address*.
+- *Step 3*: **Free or Student > Sign Up**. Please sign up with *GitHub* if you have one or use your *Marquette email address*.
 
 ```{r}
 #| fig-align: "center"
@@ -46,6 +46,12 @@ knitr::include_graphics("../slides/images/03-posit/landing-1-posit.png")
 #| fig-align: "center"
 knitr::include_graphics("../slides/images/03-posit/posit-free-plan.png")
 ```
+
+```{r}
+#| fig-align: "center"
+knitr::include_graphics("../slides/images/03-posit/posit-student-plan.png")
+```
+
 
 ### New project
 

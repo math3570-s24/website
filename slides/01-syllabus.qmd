@@ -201,7 +201,7 @@ After college, working and doing military service for several years, I came to t
 #| out-width: "45%"
 knitr::include_graphics("./images/01-syllabus/3570_email.png")
 ```
-  + I will **NOT** reply your e-mail if ... **Check the email policy in the [syllabus](../syllabus/syllabus-3570-s23.pdf)**!
+  + I will **NOT** reply your e-mail if ... **Check the email policy in the [syllabus](../syllabus/syllabus-3570-s24.pdf)**!
 
 
 ## When You Have Two Dr. Yu in One Semester `r emo::ji('joy')`
@@ -268,6 +268,7 @@ Nowadays
   + MATH 4750 Statistical Computing
   + MATH 4760 Time Series Analysis
   + MATH 4780 Regression Analysis
+  + MATH 4790 Bayesian Statistics
   + COSC 4600 Fundamentals of Artificial Intelligence
   + COSC 4610 Data Mining
   + COEN 4860 Introduction to Neural Networks
@@ -321,8 +322,7 @@ knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/c/c3/Pyt
 
 :::::
 
-- You've learned Python in COSC 1010.
-- Being R-Python bilingual is getting more and more important!
+- You've learned Python in COSC 1010. Being R-Python bilingual is getting more important!
 
 . . .
 
@@ -331,7 +331,7 @@ knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/c/c3/Pyt
 
 . . .
 
-`r emo::ji("x")` If you do **NOT** want to learn **R**, do **NOT** take this course! (3570 is offered **every** semester)
+`r emo::ji("x")` If you do **NOT** want to learn **R and/or Python**, do **NOT** take this course! (3570 is offered **every** semester)
 
 `r emo::ji("x")` Drop deadline: **01/24/2024 11:59 PM**.
 
@@ -401,7 +401,7 @@ knitr::include_graphics("./images/01-syllabus/tmwr_book.png")
 ```{r}
 #| out-width: "50%"
 #| fig-align: "center"
-# knitr::include_graphics("./images/01-syllabus/website.png")
+knitr::include_graphics("./images/01-syllabus/website.png")
 ```
 
 
@@ -420,9 +420,12 @@ knitr::include_graphics("./images/01-syllabus/tmwr_book.png")
 knitr::include_graphics("./images/01-syllabus/d2l.png")
 ```
 - Any new announcement will be posted in **News** in **Course Home**.
+
+- **Assessments > Grades**
+
 <!-- - **Content > Start Here: Course Information** include syllabus and other information. -->
 <!-- - Week modules (**Content > Week 1 to Week 15**) includes course materials. -->
-- We'll use **Posit Cloud (RStudio)** and **GitHub** to manage homework and projects. 
+<!-- - We'll use **Posit Cloud (RStudio)** and **GitHub** to manage homework and projects.  -->
 <!-- - Go to  <https://www.marquette.edu/remote-learning/d2l.php> to learn more about D2L. -->
 
 
@@ -431,8 +434,13 @@ knitr::include_graphics("./images/01-syllabus/d2l.png")
 ## Grading Policy &#x2728;
 
 - **40%** In-class lab exercises
+
 - **30%** Homework
+
 - **30%** Final project competition
+
+- *Extra credit opportunities*
+
 <!-- Depending on the progress of the course,  -->
 <!-- - There may be a midterm project proposal presentation, if time permitted.  -->
 - `r emo::ji("x")` You have to participate (in-person) in the final presentation in order to pass the course.
@@ -456,7 +464,7 @@ knitr::kable(grade_dist, longtable = TRUE, format = "html", align = 'l') %>% kab
 
 ## Lab Exercises (40%)
 
-- The in-class lab exercises are graded as **complete/incomplete** and used as evidence of attendance and participation.
+- Graded as **Complete/Incomplete** and used as evidence of attendance and participation.
 
 - You are allowed to have **one** incomplete lab exercises without any penalty.
 
@@ -471,19 +479,23 @@ knitr::kable(grade_dist, longtable = TRUE, format = "html", align = 'l') %>% kab
 
 - `r emo::ji("x")` **You may not directly share or discuss answers/code with anyone other than the instructor**. But you are welcome to discuss the problems in general and ask for advice.
 
-- Homework will be assigned through **GitHub**: 
+. . .
+
+- Homework will be assigned through [**GitHub**](https://github.com/): 
   + clone/pull the homework repo into Posit Cloud
-  + work on the Quarto file in the repo (We'll go through know-how together)
+  + work on the [Quarto](https://quarto.org/) file in the repo (We'll go through know-how together)
   
+. . .
+
 - You will have **at least one week** to complete your assignment.
 
-- `r emo::ji("x")` **No make-up homework** for any reason unless you got [COVID](https://www.marquette.edu/central/registrar/faculty-staff/guidance-on-fall-2021-class-attendance-withdrawal-grading.php) or [excused absence](https://bulletin.marquette.edu/undergrad/academicregulations/#attendance). `r emo::ji("pray")` (More details in the syllabus)
+- `r emo::ji("x")` **No make-up homework** for any reason unless you got [COVID](https://www.marquette.edu/central/registrar/faculty-staff/guidance-on-fall-2023-class-attendance-withdrawal-grading.php) or [excused absence](https://bulletin.marquette.edu/undergrad/academicregulations/#attendance). `r emo::ji("pray")`
 
 
 ## Project (30%)
 
 <!-- - You will be responsible for the completion of an open ended final project for this course. The goal is to tackle an interesting problem using the tools and techniques covered in this class. Additional details on the project will be provided as the course progresses. You must complete the final project and be in class to present it in order to pass this course. -->
-- You will be doing a final team project.
+- You will be doing a final group project.
 
 - Your project can be:
 
@@ -594,27 +606,27 @@ _It is **your** responsibility as a Marquette University student to protect the 
 
 `r emo::ji("question")` **Your question.**  
 
-# `r emo::ji("handshake")` Please read the syllabus!!! Because ... {background-color="#447099"}
+<!-- # `r emo::ji("handshake")` Please read the syllabus!!! Because ... {background-color="#447099"} -->
 
 
 
-## You May Find Something Good!
+<!-- ## You May Find Something Good! -->
 
-:::: {.columns}
+<!-- :::: {.columns} -->
 
-::: {.column width="50%"}
-```{r, echo=FALSE, out.width="100%", fig.align='center'}
-knitr::include_graphics("./images/01-syllabus/read_syllabus_1.png")
-```
-:::
+<!-- ::: {.column width="50%"} -->
+<!-- ```{r, echo=FALSE, out.width="100%", fig.align='center'} -->
+<!-- knitr::include_graphics("./images/01-syllabus/read_syllabus_1.png") -->
+<!-- ``` -->
+<!-- ::: -->
 
 
-::: {.column width="50%"}
-```{r, echo=FALSE, out.width="100%", fig.align='center'}
-knitr::include_graphics("./images/01-syllabus/read_syllabus.png")
-```
-:::
-::::
+<!-- ::: {.column width="50%"} -->
+<!-- ```{r, echo=FALSE, out.width="100%", fig.align='center'} -->
+<!-- knitr::include_graphics("./images/01-syllabus/read_syllabus.png") -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- :::: -->
 
 
 
