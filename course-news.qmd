@@ -5,3 +5,8 @@ title: "News/Announcements"
 ## Jan 14, 2024
 
 -   The background survey form is at <https://forms.office.com/r/PNwNY0F5Zk>.
+
+
+## Jan 16, 2024
+
+- Please bring your laptop this Thursday. We'll set up our computing environment and get it ready for doing data science.
