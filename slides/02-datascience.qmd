@@ -353,8 +353,16 @@ knitr::include_graphics("./images/02-datascience/venn_7_way.jpg")
 :::
 ::::
 
+##
+
 - You probably get the idea. There are so many ways to define *data science*.
 
+
+```{r}
+#| out-width: "100%"
+#| fig-align: "center"
+knitr::include_graphics("./images/02-datascience/ds_venn.png")
+```
 
 ## Nobody Knows What Data Science (Scientist) is
 
@@ -385,12 +393,12 @@ knitr::include_graphics("./images/02-datascience/data_science_mac.png")
 - `r emo::ji('moneybag')` `r emo::ji('moneybag')` Dr. Grant [(*Statistics Education Research Journal*, 2017)](https://iase-web.org/documents/SERJ/SERJ16(1)_Grant.pdf): Data science is the field of people who decide to print "Data Scientist" on their business cards to get a salary bump! `r emo::ji('dollar')` `r emo::ji('dollar')`
 
 
-##
-```{r}
-#| out-width: "100%"
-#| fig-align: "center"
-knitr::include_graphics("./images/02-datascience/ds_meme.png")
-```
+<!-- ## -->
+<!-- ```{r} -->
+<!-- #| out-width: "100%" -->
+<!-- #| fig-align: "center" -->
+<!-- knitr::include_graphics("./images/02-datascience/ds_meme.png") -->
+<!-- ``` -->
 
 ## What Wiki Defines
 
@@ -597,6 +605,12 @@ knitr::include_graphics("./images/02-datascience/pkg-workflow.png")
 
 ![](images/02-datascience/quarto.png){.absolute top="460" right="8" width="200"}
 
+::: notes
+- If you are ready, let's dive in and learn all these tools. Well not all, but some of these tools. 
+
+- By the way, you see these hex stickers? It kind of becomes a trend that when we create an R package, or software, we also create a hex logo associated with it, so it works as product or brand logo. It may be easier for you to promote your package if you have a cute or beautiful hex logo. 
+:::
+
 ## Python for Data Science
 
 ::: small
@@ -608,8 +622,3 @@ knitr::include_graphics("./images/02-datascience/pkg-workflow-py.png")
 ```
 :::
 
-::: notes
-- If you are ready, let's dive in and learn all these tools. Well not all, but some of these tools. 
-
-- By the way, you see these hex stickers? It kind of becomes a trend that when we create an R package, or software, we also create a hex logo associated with it, so it works as product or brand logo. It may be easier for you to promote your package if you have a cute or beautiful hex logo. 
-:::

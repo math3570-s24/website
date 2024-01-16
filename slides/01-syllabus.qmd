@@ -190,7 +190,7 @@ After college, working and doing military service for several years, I came to t
 
 ## How to Reach Me
 
-- Office hours **TuTh 4:50 - 5:50 PM** and **Fri 12 - 1 PM** in **Cudahy Hall 353**.
+- Office hours **TuTh 4:50 - 5:50 PM** and **Wed 12 - 1 PM** in **Cudahy Hall 353**.
 - `r emo::ji('e-mail')`  <cheng-han.yu@marquette.edu> 
   + Answer your question within 24 hours. 
   + Expect a reply on **Monday** if shoot me a message **on weekends**.
@@ -201,7 +201,7 @@ After college, working and doing military service for several years, I came to t
 #| out-width: "45%"
 knitr::include_graphics("./images/01-syllabus/3570_email.png")
 ```
-  + I will **NOT** reply your e-mail if ... **Check the email policy in the [syllabus](../syllabus/syllabus-3570-s24.pdf)**!
+  + I will **NOT** reply your e-mail if ... **Check the email policy in the [syllabus](https://math3570-s24.github.io/website/course-syllabus.html)**!
 
 
 ## When You Have Two Dr. Yu in One Semester `r emo::ji('joy')`
@@ -347,46 +347,48 @@ knitr::include_graphics("./images/01-syllabus/survey.png")
 
 
 ## Course Materials
-<!-- No one single main textbook. -->
 
-<!-- - All recommended books are **free on line**! `r emo::ji("sunglasses")` -->
-<!-- - The main course materials are from: -->
-
-- Course materials are grabbed from several books and resources. 
+- Course materials are grabbed from several books and resources.
 
 - Our [course website and slides](https://math3570-s24.github.io/website/) would be helpful.
 
-:::: {.columns}
+. . .
 
-::: {.column width="50%"}
+:::: {.columns}
+::: {.column width="30%"}
 
 [*R for Data Science 2nd edition*](https://r4ds.hadley.nz/)
 
 ```{r}
-#| out-width: "60%"
+#| out-width: "100%"
 #| fig-align: "center"
 knitr::include_graphics("./images/01-syllabus/r4ds_book2.jpeg")
 ```
+
 :::
 
-::: {.column width="50%"}
-
-<!-- [*Data Science - A First Introduction*](https://datasciencebook.ca/) -->
-
-<!-- ```{r} -->
-<!-- #| out-width: "40%" -->
-<!-- #| fig-align: "center" -->
-<!-- knitr::include_graphics("./images/01-syllabus/ds-a-first-intro-cover.jpg") -->
-<!-- ``` -->
+::: {.column width="30%"}
 
 [*Tidy Modeling with R*](https://www.tmwr.org/)
+
 ```{r}
-#| out-width: "60%"
+#| out-width: "100%"
 #| fig-align: "center"
 knitr::include_graphics("./images/01-syllabus/tmwr_book.png")
 ```
+
 :::
 
+
+::: {.column width="30%"}
+
+[*Python for Data Analysis, 3E*](https://wesmckinney.com/book/)
+```{r}
+#| out-width: "100%"
+#| fig-align: "center"
+knitr::include_graphics("./images/01-syllabus/py4ds_book.jpg")
+```
+:::
 
 ::::
 
@@ -419,7 +421,7 @@ knitr::include_graphics("./images/01-syllabus/website.png")
 #| fig-align: "center"
 knitr::include_graphics("./images/01-syllabus/d2l.png")
 ```
-- Any new announcement will be posted in **News** in **Course Home**.
+- **News**
 
 - **Assessments > Grades**
 
@@ -466,7 +468,7 @@ knitr::kable(grade_dist, longtable = TRUE, format = "html", align = 'l') %>% kab
 
 - Graded as **Complete/Incomplete** and used as evidence of attendance and participation.
 
-- You are allowed to have **one** incomplete lab exercises without any penalty.
+- You are allowed to have **two** incomplete lab exercises without any penalty.
 
 - Beyond that, **2%** grade percentage will be taken off for each missing/incomplete exercise.
 
@@ -530,7 +532,7 @@ knitr::kable(grade_dist, longtable = TRUE, format = "html", align = 'l') %>% kab
 This course expects all students to follow University and College statements on [academic integrity](https://bulletin.marquette.edu/undergrad/academicregulations/).
 
 - **Honor Pledge and Honor Code**: *I recognize the importance of personal integrity in all aspects of life and work. I commit myself to truthfulness, honor, and responsibility, by which I earn the respect of others. I support the development of good character, and commit myself to uphold the highest standards of academic integrity as an important aspect of personal integrity. My commitment obliges me to conduct myself according to the Marquette University Honor Code*.
-- `r emo::ji("x")` You know what I am talking about. Yes, **DO NOT CHEAT**. 
+<!-- - `r emo::ji("x")` You know what I am talking about. Yes, **DO NOT CHEAT**.  -->
 
 
 ## [COVID-19](https://www.marquette.edu/coronavirus/) {visibility="hidden"}
@@ -546,7 +548,7 @@ _It is **your** responsibility as a Marquette University student to protect the 
 
 ## Q & A
 `r emo::ji("question")` **Will this course require any Textbook(s) or other materials to be purchased?**  
-`r emo::ji("point_right")` No. All resources are free on line!
+`r emo::ji("point_right")` No required textbooks. All resources are free on line!
 
 
 <br>

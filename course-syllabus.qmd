@@ -71,7 +71,7 @@ By the end of the semester, you will be able to...
 
 -   [*(**tmwr**) Tidy Modeling with R*](https://www.tmwr.org/) by Max Kuhn and Julia Silge.
 
--   [*(**py4ds**) Python for Data Science*](https://wesmckinney.com/book/) by Wes McKinney.
+-   [*(**py4ds**) Python for Data Analysis*](#0) by Wes McKinney.
 
 -   [(**IS**) *Introduction to Statistics*](https://chenghanyu-introstatsbook.netlify.app/) by Cheng-Han Yu. (Good resource for brushing up your basic probability, statistics and simple linear regression knowledge.)
 
@@ -105,7 +105,7 @@ knitr::kable(grade_dist, longtable = TRUE, caption = "Grade-Percentage Conversio
 
 -   There are several **in-class** lab exercises, which are graded as **complete/incomplete** and used as evidence of attendance and class participation.
 
--   You are allowed to have **one** incomplete lab exercises without penalty. Beyond that, **2%** grade percentage will be taken off for each missing/incomplete exercise.
+-   You are allowed to have **two** incomplete lab exercises without penalty. Beyond that, **2%** grade percentage will be taken off for each missing/incomplete exercise.
 
 -   **No make-up lab exercises** for any reason.
 
