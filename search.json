@@ -1677,7 +1677,14 @@
     "href": "slides/02-datascience.html#shall-we-continue",
     "title": "Data Science Overview 📖",
     "section": "Shall We Continue?",
-    "text": "Shall We Continue?\n\n\n\ntotally-not-a-Venn-diagram by Calvin Andrus\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nYou probably get the idea. There are so many ways to define data science."
+    "text": "Shall We Continue?\n\n\n\ntotally-not-a-Venn-diagram by Calvin Andrus"
+  },
+  {
+    "objectID": "slides/02-datascience.html#section-3",
+    "href": "slides/02-datascience.html#section-3",
+    "title": "Data Science Overview 📖",
+    "section": "",
+    "text": "You probably get the idea. There are so many ways to define data science."
   },
   {
     "objectID": "slides/02-datascience.html#nobody-knows-what-data-science-scientist-is",
@@ -1775,14 +1782,14 @@
     "href": "slides/02-datascience.html#r-for-data-science",
     "title": "Data Science Overview 📖",
     "section": "R for Data Science",
-    "text": "R for Data Science\n\n\n\n\nSource: https://teachdatascience.com/tidyverse/"
+    "text": "R for Data Science\n\n\n\n\nSource: https://teachdatascience.com/tidyverse/\n\n\n\n\n\n\n\nIf you are ready, let’s dive in and learn all these tools. Well not all, but some of these tools.\nBy the way, you see these hex stickers? It kind of becomes a trend that when we create an R package, or software, we also create a hex logo associated with it, so it works as product or brand logo. It may be easier for you to promote your package if you have a cute or beautiful hex logo."
   },
   {
     "objectID": "slides/02-datascience.html#python-for-data-science",
     "href": "slides/02-datascience.html#python-for-data-science",
     "title": "Data Science Overview 📖",
     "section": "Python for Data Science",
-    "text": "Python for Data Science\n\n\n\n\n\nSource: https://www.e2enetworks.com/blog/9-python-libraries-for-data-science-and-artificial-intelligence\n\n\n\n\n\n\nIf you are ready, let’s dive in and learn all these tools. Well not all, but some of these tools.\nBy the way, you see these hex stickers? It kind of becomes a trend that when we create an R package, or software, we also create a hex logo associated with it, so it works as product or brand logo. It may be easier for you to promote your package if you have a cute or beautiful hex logo.\n\n\n\nmath3570-s24.github.io/website"
+    "text": "Python for Data Science\n\n\n\n\n\nSource: https://www.e2enetworks.com/blog/9-python-libraries-for-data-science-and-artificial-intelligence\n\n\n\n\n\n\n\n\nmath3570-s24.github.io/website"
   },
   {
     "objectID": "slides/17-logistic-reg.html#regression-vs.-classification",
@@ -2125,7 +2132,7 @@
     "href": "slides/01-syllabus.html#how-to-reach-me",
     "title": "Welcome Aboard! 🙌",
     "section": "How to Reach Me",
-    "text": "How to Reach Me\n\nOffice hours TuTh 4:50 - 5:50 PM and Fri 12 - 1 PM in Cudahy Hall 353.\n📧 cheng-han.yu@marquette.edu\n\nAnswer your question within 24 hours.\nExpect a reply on Monday if shoot me a message on weekends.\nStart your subject line with [math3570] or [cosc3570] followed by a clear description of your question.\n\n\n\n\n\nI will NOT reply your e-mail if … Check the email policy in the syllabus!"
+    "text": "How to Reach Me\n\nOffice hours TuTh 4:50 - 5:50 PM and Wed 12 - 1 PM in Cudahy Hall 353.\n📧 cheng-han.yu@marquette.edu\n\nAnswer your question within 24 hours.\nExpect a reply on Monday if shoot me a message on weekends.\nStart your subject line with [math3570] or [cosc3570] followed by a clear description of your question.\n\n\n\n\n\nI will NOT reply your e-mail if … Check the email policy in the syllabus!"
   },
   {
     "objectID": "slides/01-syllabus.html#when-you-have-two-dr.-yu-in-one-semester",
@@ -2160,7 +2167,7 @@
     "href": "slides/01-syllabus.html#course-materials",
     "title": "Welcome Aboard! 🙌",
     "section": "Course Materials",
-    "text": "Course Materials\n\n\n\n\nCourse materials are grabbed from several books and resources.\nOur course website and slides would be helpful.\n\n\n\nR for Data Science 2nd edition\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTidy Modeling with R"
+    "text": "Course Materials\n\nCourse materials are grabbed from several books and resources.\nOur course website and slides would be helpful.\n\n\n\n\nR for Data Science 2nd edition\n\n\n\n\n\n\n\n\n\nTidy Modeling with R\n\n\n\n\n\n\n\n\n\nPython for Data Analysis, 3E"
   },
   {
     "objectID": "slides/01-syllabus.html#course-website---httpsmath3570-s24.github.iowebsite",
@@ -2174,7 +2181,7 @@
     "href": "slides/01-syllabus.html#learning-management-system-d2l",
     "title": "Welcome Aboard! 🙌",
     "section": "Learning Management System (D2L)",
-    "text": "Learning Management System (D2L)\n\n\n\n\n\n\n\nAny new announcement will be posted in News in Course Home.\nAssessments > Grades"
+    "text": "Learning Management System (D2L)\n\n\n\n\n\n\n\nNews\nAssessments > Grades"
   },
   {
     "objectID": "slides/01-syllabus.html#grading-policy",
@@ -2195,7 +2202,7 @@
     "href": "slides/01-syllabus.html#lab-exercises-40",
     "title": "Welcome Aboard! 🙌",
     "section": "Lab Exercises (40%)",
-    "text": "Lab Exercises (40%)\n\nGraded as Complete/Incomplete and used as evidence of attendance and participation.\nYou are allowed to have one incomplete lab exercises without any penalty.\nBeyond that, 2% grade percentage will be taken off for each missing/incomplete exercise.\nYou will create a RStudio project in Posit Cloud saving all of your lab exercises. (We’ll go through know-how together)\n❌ No make-up lab exercises for any reason."
+    "text": "Lab Exercises (40%)\n\nGraded as Complete/Incomplete and used as evidence of attendance and participation.\nYou are allowed to have two incomplete lab exercises without any penalty.\nBeyond that, 2% grade percentage will be taken off for each missing/incomplete exercise.\nYou will create a RStudio project in Posit Cloud saving all of your lab exercises. (We’ll go through know-how together)\n❌ No make-up lab exercises for any reason."
   },
   {
     "objectID": "slides/01-syllabus.html#homework-30",
@@ -2223,14 +2230,14 @@
     "href": "slides/01-syllabus.html#academic-integrity",
     "title": "Welcome Aboard! 🙌",
     "section": "Academic Integrity",
-    "text": "Academic Integrity\nThis course expects all students to follow University and College statements on academic integrity.\n\n\nHonor Pledge and Honor Code: I recognize the importance of personal integrity in all aspects of life and work. I commit myself to truthfulness, honor, and responsibility, by which I earn the respect of others. I support the development of good character, and commit myself to uphold the highest standards of academic integrity as an important aspect of personal integrity. My commitment obliges me to conduct myself according to the Marquette University Honor Code.\n❌ You know what I am talking about. Yes, DO NOT CHEAT."
+    "text": "Academic Integrity\nThis course expects all students to follow University and College statements on academic integrity.\n\n\nHonor Pledge and Honor Code: I recognize the importance of personal integrity in all aspects of life and work. I commit myself to truthfulness, honor, and responsibility, by which I earn the respect of others. I support the development of good character, and commit myself to uphold the highest standards of academic integrity as an important aspect of personal integrity. My commitment obliges me to conduct myself according to the Marquette University Honor Code."
   },
   {
     "objectID": "slides/01-syllabus.html#q-a",
     "href": "slides/01-syllabus.html#q-a",
     "title": "Welcome Aboard! 🙌",
     "section": "Q & A",
-    "text": "Q & A\n❓ Will this course require any Textbook(s) or other materials to be purchased?\n👉 No. All resources are free on line!\n\n\n❓ Is it teaching the basics of data science?\n👉 Yes, I think so.\n\n\n\n❓ What do you think will be the most interesting part of the course?\n👉 I love data visualization and web development.\n\n\n\n❓ If this course is a joint label between COSC and MATH, is there a difference between any particular class section or other that we may have registered for?\n👉 No difference. MATH 3570 and COSC 3570 are exactly the same course.\n\n\n\n❓ What kind of time estimate do you believe most students should spend on reading + assignments for the course?\n👉 Everyone is different. The more the better."
+    "text": "Q & A\n❓ Will this course require any Textbook(s) or other materials to be purchased?\n👉 No required textbooks. All resources are free on line!\n\n\n❓ Is it teaching the basics of data science?\n👉 Yes, I think so.\n\n\n\n❓ What do you think will be the most interesting part of the course?\n👉 I love data visualization and web development.\n\n\n\n❓ If this course is a joint label between COSC and MATH, is there a difference between any particular class section or other that we may have registered for?\n👉 No difference. MATH 3570 and COSC 3570 are exactly the same course.\n\n\n\n❓ What kind of time estimate do you believe most students should spend on reading + assignments for the course?\n👉 Everyone is different. The more the better."
   },
   {
     "objectID": "slides/01-syllabus.html#q-a-1",
@@ -4953,14 +4960,14 @@
     "href": "course-syllabus.html#textbooks",
     "title": "Syllabus",
     "section": "Textbooks",
-    "text": "Textbooks\n\nNo textbook is required for this course. Course materials are mainly Dr. Yu’s slides. Below are some good references.\n\n(r4ds) R for Data Science by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund.\n(tmwr) Tidy Modeling with R by Max Kuhn and Julia Silge.\n(py4ds) Python for Data Science by Wes McKinney.\n(IS) Introduction to Statistics by Cheng-Han Yu. (Good resource for brushing up your basic probability, statistics and simple linear regression knowledge.)"
+    "text": "Textbooks\n\nNo textbook is required for this course. Course materials are mainly Dr. Yu’s slides. Below are some good references.\n\n(r4ds) R for Data Science by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund.\n(tmwr) Tidy Modeling with R by Max Kuhn and Julia Silge.\n(py4ds) Python for Data Analysis by Wes McKinney.\n(IS) Introduction to Statistics by Cheng-Han Yu. (Good resource for brushing up your basic probability, statistics and simple linear regression knowledge.)"
   },
   {
     "objectID": "course-syllabus.html#grading-policy",
     "href": "course-syllabus.html#grading-policy",
     "title": "Syllabus",
     "section": "Grading Policy",
-    "text": "Grading Policy\n\n40% In-class lab exercises and participation.\n30% Homework\n30% Final project competition\nExtra credit opportunities\nEvery student has to participate (in-person) in the final presentation in order to pass the course.\nYou will NOT be allowed any extra credit projects/homework/exam to compensate for a poor grade. Everyone is given the same opportunity to do well in this class. I may use class participation to make grade adjustments at the end of the semester.\nThe final grade is based on the grade-percentage conversion Table 1 on the next page. \\([x, y)\\) means greater than or equal to \\(x\\) and less than \\(y\\). For example, 94.1 is in \\([94, 100]\\) and the grade is A and 93.8 is in \\([90, 94)\\) and the grade is A-.\n\n\n\n\nGrade-Percentage Conversion\n\n\nGrade\nPercentage\n\n\n\n\nA\n[94, 100]\n\n\nA-\n[90, 94)\n\n\nB+\n[87, 90)\n\n\nB\n[83, 87)\n\n\nB-\n[80, 83)\n\n\nC+\n[77, 80)\n\n\nC\n[73, 77)\n\n\nC-\n[70, 73)\n\n\nD+\n[65, 70)\n\n\nD\n[60, 65)\n\n\nF\n[0, 60)\n\n\n\n\n\n\nLab exercises\n\nThere are several in-class lab exercises, which are graded as complete/incomplete and used as evidence of attendance and class participation.\nYou are allowed to have one incomplete lab exercises without penalty. Beyond that, 2% grade percentage will be taken off for each missing/incomplete exercise.\nNo make-up lab exercises for any reason.\n\n\n\nHomework\n\nThe homework assignments are individual. You should submit your own work.\nYou may not directly share or discuss answers/code with anyone other than the instructor. But you are welcome to discuss the problems in general and ask for advice.\nHomework will be assigned through GitHub. You need to clone/pull the homework repo into Posit Cloud and work on the Quarto file in the repo. A step-by-step guide will be discussed in class before homework is assigned.\nYou will have at least one week to complete your assignment.\nNo make-up homework for any reason unless you got COVID or excused absence.\nIf you miss a homework assignment due to COVID-19 symptoms, exposure, diagnosis, quarantine, and/or isolation, or you have an excused absence as defined in Attendance in Academic Regulations, the homework percentage will be added to your final project. If you miss more than one assignment, only one assignment percentage can be added to the final project percentage. You get 0% for the other assignment.\n\n\n\nFinal project competition\n\nYou will be team up to do the final project. Your project can be in either of the following categories:\n\nData analysis using statistical models or machine learning algorithms\nIntroduce a R or Python package not learned in class, including live demo\nIntroduce a data science tool (visualization, computing, etc) not learned in class, including live demo\nWeb development: Shiny website or dashboard, including live demo\n\nDetails about the project will be provided as the course progresses. You must complete the final project and be in class to present it in order to pass this course.\n\n\n\n\n\nThe final project presentation is on Monday, 5/6 10:30 AM - 12:30 PM."
+    "text": "Grading Policy\n\n40% In-class lab exercises and participation.\n30% Homework\n30% Final project competition\nExtra credit opportunities\nEvery student has to participate (in-person) in the final presentation in order to pass the course.\nYou will NOT be allowed any extra credit projects/homework/exam to compensate for a poor grade. Everyone is given the same opportunity to do well in this class. I may use class participation to make grade adjustments at the end of the semester.\nThe final grade is based on the grade-percentage conversion Table 1 on the next page. \\([x, y)\\) means greater than or equal to \\(x\\) and less than \\(y\\). For example, 94.1 is in \\([94, 100]\\) and the grade is A and 93.8 is in \\([90, 94)\\) and the grade is A-.\n\n\n\n\nGrade-Percentage Conversion\n\n\nGrade\nPercentage\n\n\n\n\nA\n[94, 100]\n\n\nA-\n[90, 94)\n\n\nB+\n[87, 90)\n\n\nB\n[83, 87)\n\n\nB-\n[80, 83)\n\n\nC+\n[77, 80)\n\n\nC\n[73, 77)\n\n\nC-\n[70, 73)\n\n\nD+\n[65, 70)\n\n\nD\n[60, 65)\n\n\nF\n[0, 60)\n\n\n\n\n\n\nLab exercises\n\nThere are several in-class lab exercises, which are graded as complete/incomplete and used as evidence of attendance and class participation.\nYou are allowed to have two incomplete lab exercises without penalty. Beyond that, 2% grade percentage will be taken off for each missing/incomplete exercise.\nNo make-up lab exercises for any reason.\n\n\n\nHomework\n\nThe homework assignments are individual. You should submit your own work.\nYou may not directly share or discuss answers/code with anyone other than the instructor. But you are welcome to discuss the problems in general and ask for advice.\nHomework will be assigned through GitHub. You need to clone/pull the homework repo into Posit Cloud and work on the Quarto file in the repo. A step-by-step guide will be discussed in class before homework is assigned.\nYou will have at least one week to complete your assignment.\nNo make-up homework for any reason unless you got COVID or excused absence.\nIf you miss a homework assignment due to COVID-19 symptoms, exposure, diagnosis, quarantine, and/or isolation, or you have an excused absence as defined in Attendance in Academic Regulations, the homework percentage will be added to your final project. If you miss more than one assignment, only one assignment percentage can be added to the final project percentage. You get 0% for the other assignment.\n\n\n\nFinal project competition\n\nYou will be team up to do the final project. Your project can be in either of the following categories:\n\nData analysis using statistical models or machine learning algorithms\nIntroduce a R or Python package not learned in class, including live demo\nIntroduce a data science tool (visualization, computing, etc) not learned in class, including live demo\nWeb development: Shiny website or dashboard, including live demo\n\nDetails about the project will be provided as the course progresses. You must complete the final project and be in class to present it in order to pass this course.\n\n\n\n\n\nThe final project presentation is on Monday, 5/6 10:30 AM - 12:30 PM."
   },
   {
     "objectID": "course-syllabus.html#sharingreusing-code-policy",
