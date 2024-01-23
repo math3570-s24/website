@@ -207,7 +207,7 @@
     "href": "weeks/week-2.html#perform",
     "title": "Week 2",
     "section": "Perform",
-    "text": "Perform\n📋 Lab-00 Git/GitHub\n📋 Lab-02 Quarto File\n📋 Lab-03 Markdown\n📋 Lab-04 Code Chunk\n\n\nBack to course schedule ⏎"
+    "text": "Perform\n📋 Lab-00 Git/GitHub\n📋 Lab-02 Quarto File\n\n\n\n\nBack to course schedule ⏎"
   },
   {
     "objectID": "weeks/week-10.html",
@@ -453,6 +453,13 @@
     "title": "News/Announcements",
     "section": "Jan 16, 2024",
     "text": "Jan 16, 2024\n\nPlease bring your laptop this Thursday. We’ll set up our computing environment and get it ready for doing data science."
+  },
+  {
+    "objectID": "course-news.html#jan-17-2024",
+    "href": "course-news.html#jan-17-2024",
+    "title": "News/Announcements",
+    "section": "Jan 17, 2024",
+    "text": "Jan 17, 2024\nhttps://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=03db93ed-1b1c-4447-805d-a674958c23e6&ccId=19000101_000001&jobId=480911&lang=en_US\nDeadline\nApplicants should submit their application by February 1, 2024."
   },
   {
     "objectID": "slides/13-dplyr-2.html#joining-data-frames",
@@ -3346,11 +3353,25 @@
     "text": "What and Why – Full Reproducibility\n\n\n\n\n[What] data science publishing system\nUse a single Quarto file (.qmd) to\n\nweave together narrative text and code\n\nproduce elegantly formatted outputs: word/pdf, webpages, blogs, books, etc.\n\n\n\n[Why] Fully reproducible reports\n\nHave code, results, and text in the same document\nResults are generated from the source code, and your documents are automatically updated if your data or code changed.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWHAT\nRemember in the last stage of DS, we need to communicate our DS results with others.\nRmd is a very useful communication tool that integrates prose/words, code, and analysis results.\nWHY\nResults are generated from the source code, and your documents are automatically updated if your data changed.\nSo if your data or code changed, or you need to redo your analysis or rerun your algorithm, you don’t need to actually redo your analysis and copy all of your numbers, tables and figures generated from your code and paste them manually to your Word or Powerpoint file.\nSince your code, results, and text are all in one Rmd file, if your data change, your results will be automatically updated with that change. No more copy and paste.\nThis greatly saves lots of time. Also, it reduces the chance of making mistakes of copying and pasting, and increases reproducibility of your study, meaning that your code can produce exactly the same result shown in your document.\nLiterate Programming"
   },
   {
+    "objectID": "slides/05-quarto.html#section-1",
+    "href": "slides/05-quarto.html#section-1",
+    "title": "Quarto 📖",
+    "section": "",
+    "text": "I found an error in the data and added two more cases. Find the attached the modified excel. Can you redo the analysis? - Excel to R - Re-Make the graphs and re-run all the analysis - Copy and paste every updated output from R to your document This is an non-reproducible way fo doing data science.\nBut there is another way, a better way, a reproducible way."
+  },
+  {
     "objectID": "slides/05-quarto.html#why-quarto-various-types-of-output",
     "href": "slides/05-quarto.html#why-quarto-various-types-of-output",
     "title": "Quarto 📖",
     "section": "Why Quarto – Various Types of Output",
     "text": "Why Quarto – Various Types of Output\n\nSupport dozens of static and dynamic/interactive output formats!\n\n\n\nOne more reason to use R Markdown is Rmd can generate various types of output!\nIt can produce a PDF, blog, HTML. It can generate slides, website, dashboard, word document, e-books. You name it!\nSo once you learn this Rmarkdown, you can prepare any type of output you want for different purposes. You can prepare a paper for submitting it to a journal, prepare slides for your presentation, prepare a website/dashboard for data science results.\nIt’s really handy! In fact, the slides I make for this course are all Rmd files."
+  },
+  {
+    "objectID": "slides/05-quarto.html#moving-between-formats-straightforward",
+    "href": "slides/05-quarto.html#moving-between-formats-straightforward",
+    "title": "Quarto 📖",
+    "section": "Moving Between Formats Straightforward",
+    "text": "Moving Between Formats Straightforward\n\n\nHTML Document\n\n datascience.qmd\n\ntitle: \"Data Science\"\nformat: html\n\n\nPresentation Slides\n\n datascience.qmd\n\ntitle: \"Data Science\"\nformat: revealjs\n\n\n\nWebsite\n\n _quarto.yml\n\nproject:\n  type: website\n\nwebsite: \n  navbar: \n    left:\n      - datascience.qmd\n\n\n\n–> a lesson in document form  –> the same content in presentation form  –> the same content on a page in a website,\nand you can see that all that needed to change going between these formats is a few lines in the yaml. Nothing in the content part of my document. No slide breaks to remove, no citation style to change, no headings to re-level. This ease of transition has freed up time to focus my time on content, and that, folks, is the dream!"
   },
   {
     "objectID": "slides/05-quarto.html#why-quarto1-integrate-multiple-languages",
@@ -3399,14 +3420,14 @@
     "href": "slides/05-quarto.html#quarto-file-plain-text-file-with-extension-.qmd",
     "title": "Quarto 📖",
     "section": "Quarto file = plain text file with extension .qmd\n",
-    "text": "Quarto file = plain text file with extension .qmd\n\n---\ntitle: \"ggplot2 demo\"\ndate: \"1/22/2023\"\nformat: html\n---\n\n## Cars\nThere is a relationship between *miles per gallon* and *displacement*.\n\n```{r}\nmpg |> ggplot(aes(x = displ, y = hwy)) + \n  geom_point()\n```\n\n\n\n\n\nYAML Header (“YAML Ain’t Markup Language”)\n---\nkey: value\n---\n\n\nThe first part is the YAML header, which is surrounded by a pair of three dashes.\nYAML is a human readable language that is commonly used in configuration files of programs.\nHere, YAML header defines metadata of the document, for example, title, date, and output format.\n\n\n\n\n\n\n\nMarkdown Text\n\n\nThe second part is text.\nAnd as we’ve discussed, the syntax for text is Markdown. We’ll learn some basic syntax later.\n\n\n\n\n\n\n\nCode Chunk\n\n```{r}\n## code right here\n```\n\n\n\nThe third main part of a Rmd document is the so-called code chunk. which is surrounded by a pair of three backticks.\nThe code written in code chunks will be run once you compile your Rmd file, and any output generated by your code will be printed out in the final document. All right!\nAny questions"
+    "text": "Quarto file = plain text file with extension .qmd\n\n---\ntitle: \"ggplot2 demo\"\ndate: \"1/25/2024\"\nformat: html\n---\n\n## Cars\nThere is a relationship between *miles per gallon* and *displacement*.\n\n```{r}\nmpg |> ggplot(aes(x = displ, y = hwy)) + \n  geom_point()\n```\n\n\n\n\n\nYAML Header (“YAML Ain’t Markup Language”)\n---\nkey: value\n---\n\n\nThe first part is the YAML header, which is surrounded by a pair of three dashes.\nYAML is a human readable language that is commonly used in configuration files of programs.\nHere, YAML header defines metadata of the document, for example, title, date, and output format.\n\n\n\n\n\n\n\nMarkdown Text\n\n\nThe second part is text.\nAnd as we’ve discussed, the syntax for text is Markdown. We’ll learn some basic syntax later.\n\n\n\n\n\n\n\nCode Chunk\n\n```{r}\n## code right here\n```\n\n\n\nThe third main part of a Rmd document is the so-called code chunk. which is surrounded by a pair of three backticks.\nThe code written in code chunks will be run once you compile your Rmd file, and any output generated by your code will be printed out in the final document. All right!\nAny questions"
   },
   {
     "objectID": "slides/05-quarto.html#section-2",
     "href": "slides/05-quarto.html#section-2",
     "title": "Quarto 📖",
     "section": "",
-    "text": "02-Quarto File\n\nGo to your GitHub repo lab-yourusername. Clone it to your Posit Cloud as a project in 2024-Spring-Math-3570 workspace.\nOpen the file lab.qmd.\nChange author in YAML.\n\n\nClick on  or Ctrl/Cmd + Shift + K to produce a HTML document.\nHow can we show the current date every time we compile the file? [Hint:] Check your hw00. Compile your document and make sure the date shows up.\nHow do we produce a pdf? Describe it in ## Lab 2: Quarto\nOnce done, commit with message “02-Quarto File” and push your version to GitHub.\n\n\n\nClick on the inverted triangle right next to  to produce a PDF/Word document.\n\nr Sys.Date()\ndate: “2023-12-23”"
+    "text": "02-Quarto File\n\nGo to your GitHub repo lab-yourusername. Clone it to your Posit Cloud as a project in 2024-Spring-Math-3570 workspace.\nOpen the file lab.qmd.\nChange author in YAML.\n\n\nClick on  or Ctrl/Cmd + Shift + K to produce a HTML document.\nHow can we show the current date every time we compile the file? [Hint:] Check your hw00. Compile your document and make sure the date shows up.\nHow do we produce a pdf? Describe it in ## Lab 2: Quarto\nOnce done, commit with message “02-Quarto File” and push your version to GitHub.\n\n\n\nClick on the inverted triangle right next to  to produce a PDF/Word document.\n\nr Sys.Date()\ndate: “2024-01-23”"
   },
   {
     "objectID": "slides/05-quarto.html#text-formatting",
