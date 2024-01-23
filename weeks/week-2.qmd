@@ -49,9 +49,9 @@ editor: visual
 
 📋 [Lab-02 Quarto File](/exercise/lab02-quarto.html)
 
-📋 [Lab-03 Markdown](/exercise/lab03-markdown.html)
+<!-- 📋 [Lab-03 Markdown](/exercise/lab03-markdown.html) -->
 
-📋 [Lab-04 Code Chunk](/exercise/lab04-chunk.html)
+<!-- 📋 [Lab-04 Code Chunk](/exercise/lab04-chunk.html) -->
 
 <br><br>
 
