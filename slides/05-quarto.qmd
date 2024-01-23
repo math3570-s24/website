@@ -198,6 +198,20 @@ knitr::include_graphics("https://raw.githubusercontent.com/rstudio/hex-stickers/
 
 </iframe>
 
+
+::: notes
+I found an error in the data and added two more cases. Find the attached the modified excel. Can you redo the analysis?
+- Excel to R
+- Re-Make the graphs and re-run all the analysis
+- Copy and paste every updated output from R to your document
+This is an non-reproducible way fo doing data science.
+
+But there is another way, a better way, a reproducible way.
+:::
+
+
+
+
 ## Why Quarto -- Various Types of Output
 
 -   Support dozens of static and dynamic/interactive output formats!
@@ -207,12 +221,81 @@ knitr::include_graphics("https://raw.githubusercontent.com/rstudio/hex-stickers/
 knitr::include_graphics("images/05-quarto/rmarkdown_output.png")
 ```
 
+
 ::: notes
 -   One more reason to use R Markdown is Rmd can generate various types of output!
 -   It can produce a PDF, blog, HTML. It can generate slides, website, dashboard, word document, e-books. You name it!
 -   So once you learn this Rmarkdown, you can prepare any type of output you want for different purposes. You can prepare a paper for submitting it to a journal, prepare slides for your presentation, prepare a website/dashboard for data science results.
 -   It's really handy! In fact, the slides I make for this course are all Rmd files.
 :::
+
+
+## Moving Between Formats Straightforward
+
+
+::: columns
+::: {.column width="33%"}
+
+HTML Document
+
+::: {.code-file .sourceCode .cell-code}
+{{< fa file >}} datascience.qmd
+:::
+
+``` yaml
+title: "Data Science"
+format: html
+```
+
+:::
+
+::: {.column width="33%"}
+::: fragment
+Presentation Slides
+
+::: {.code-file .sourceCode .cell-code}
+{{< fa file >}} datascience.qmd
+:::
+
+``` yaml
+title: "Data Science"
+format: revealjs
+```
+:::
+:::
+
+::: {.column width="33%"}
+::: fragment
+Website
+
+::: {.code-file .sourceCode .cell-code}
+{{< fa file >}} _quarto.yml
+:::
+
+``` yaml
+project:
+  type: website
+
+website: 
+  navbar: 
+    left:
+      - datascience.qmd
+```
+:::
+:::
+:::
+
+::: notes
+--\> a lesson in document form <br>
+--\> the same content in presentation form <br>
+--\> the same content on a page in a website,
+
+and you can see that all that needed to change going between these formats is a few lines in the yaml.
+Nothing in the content part of my document.
+No slide breaks to remove, no citation style to change, no headings to re-level.
+This ease of transition has freed up time to focus my time on content, and that, folks, is the dream!
+:::
+
 
 ## Why Quarto[^1] -- Integrate Multiple Languages
 
@@ -325,7 +408,7 @@ knitr::include_graphics("images/05-quarto/markdown.png")
 
     ---
     title: "ggplot2 demo"
-    date: "1/22/2023"
+    date: "1/25/2024"
     format: html
     ---
 
