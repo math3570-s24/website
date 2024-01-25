@@ -207,7 +207,7 @@
     "href": "weeks/week-2.html#perform",
     "title": "Week 2",
     "section": "Perform",
-    "text": "Perform\n📋 Lab-00 Git/GitHub\n📋 Lab-02 Quarto File\n\n\n\n\nBack to course schedule ⏎"
+    "text": "Perform\n📋 Lab-00 Git/GitHub\n📋 Lab-02 Quarto File\n📋 Lab-03 Markdown\n📋 Lab-04 Code Chunk\n\n\nBack to course schedule ⏎"
   },
   {
     "objectID": "weeks/week-10.html",
@@ -3343,14 +3343,14 @@
     "href": "slides/05-quarto.html#sharing-data-science-products-using-quarto",
     "title": "Quarto 📖",
     "section": "Sharing Data Science Products using Quarto",
-    "text": "Sharing Data Science Products using Quarto\n\n\nRemember that in DS, our ultimate goal is share our data science outputs and communicate with others.\nToday, we are going to learn R Markdown that is an amazing tool for generating various different kinds of data science output."
+    "text": "Sharing Data Science Products using Quarto\n\n\nRemember that in DS, our ultimate goal is share our data science outputs and communicate with others.\nToday, we are going to learn Quarto that is an amazing tool for generating various different kinds of data science output."
   },
   {
     "objectID": "slides/05-quarto.html#what-and-why-full-reproducibility",
     "href": "slides/05-quarto.html#what-and-why-full-reproducibility",
     "title": "Quarto 📖",
     "section": "What and Why – Full Reproducibility",
-    "text": "What and Why – Full Reproducibility\n\n\n\n\n[What] data science publishing system\nUse a single Quarto file (.qmd) to\n\nweave together narrative text and code\n\nproduce elegantly formatted outputs: word/pdf, webpages, blogs, books, etc.\n\n\n\n[Why] Fully reproducible reports\n\nHave code, results, and text in the same document\nResults are generated from the source code, and your documents are automatically updated if your data or code changed.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWHAT\nRemember in the last stage of DS, we need to communicate our DS results with others.\nRmd is a very useful communication tool that integrates prose/words, code, and analysis results.\nWHY\nResults are generated from the source code, and your documents are automatically updated if your data changed.\nSo if your data or code changed, or you need to redo your analysis or rerun your algorithm, you don’t need to actually redo your analysis and copy all of your numbers, tables and figures generated from your code and paste them manually to your Word or Powerpoint file.\nSince your code, results, and text are all in one Rmd file, if your data change, your results will be automatically updated with that change. No more copy and paste.\nThis greatly saves lots of time. Also, it reduces the chance of making mistakes of copying and pasting, and increases reproducibility of your study, meaning that your code can produce exactly the same result shown in your document.\nLiterate Programming"
+    "text": "What and Why – Full Reproducibility\n\n\n\n\n[What] data science publishing system\nUse a single Quarto file (.qmd) to\n\nweave together narrative text and code\n\nproduce elegantly formatted outputs: word/pdf, webpages, blogs, books, etc.\n\n\n\n[Why] Fully reproducible reports\n\nHave code, results, and text in the same document\nResults are generated from the source code, and your documents are automatically updated if your data or code changed.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWHAT\nRemember in the last stage of DS, we need to communicate our DS results with others.\nqmd is a very useful communication tool that integrates prose/words, code, and analysis results.\nWHY\nResults are generated from the source code, and your documents are automatically updated if your data changed.\nSo if your data or code changed, or you need to redo your analysis or rerun your algorithm, you don’t need to actually redo your analysis and copy all of your numbers, tables and figures generated from your code and paste them manually to your Word or Powerpoint file.\nSince your code, results, and text are all in one qmd file, if your data change, your results will be automatically updated with that change. No more copy and paste.\nThis greatly saves lots of time. Also, it reduces the chance of making mistakes of copying and pasting, and increases reproducibility of your study, meaning that your code can produce exactly the same result shown in your document.\nLiterate Programming"
   },
   {
     "objectID": "slides/05-quarto.html#section-1",
@@ -3364,7 +3364,7 @@
     "href": "slides/05-quarto.html#why-quarto-various-types-of-output",
     "title": "Quarto 📖",
     "section": "Why Quarto – Various Types of Output",
-    "text": "Why Quarto – Various Types of Output\n\nSupport dozens of static and dynamic/interactive output formats!\n\n\n\nOne more reason to use R Markdown is Rmd can generate various types of output!\nIt can produce a PDF, blog, HTML. It can generate slides, website, dashboard, word document, e-books. You name it!\nSo once you learn this Rmarkdown, you can prepare any type of output you want for different purposes. You can prepare a paper for submitting it to a journal, prepare slides for your presentation, prepare a website/dashboard for data science results.\nIt’s really handy! In fact, the slides I make for this course are all Rmd files."
+    "text": "Why Quarto – Various Types of Output\n\nSupport dozens of static and dynamic/interactive output formats!\n\n\n\nOne more reason to use Quarto is qmd can generate various types of output!\nIt can produce a PDF, blog, HTML. It can generate slides, website, dashboard, word document, e-books. You name it!\nSo once you learn this Rmarkdown, you can prepare any type of output you want for different purposes. You can prepare a paper for submitting it to a journal, prepare slides for your presentation, prepare a website/dashboard for data science results.\nIt’s really handy! In fact, the slides I make for this course are all qmd files."
   },
   {
     "objectID": "slides/05-quarto.html#moving-between-formats-straightforward",
@@ -3385,7 +3385,7 @@
     "href": "slides/05-quarto.html#quarto-is-built-on-pandoc",
     "title": "Quarto 📖",
     "section": "Quarto Is Built on Pandoc\n",
-    "text": "Quarto Is Built on Pandoc\n\n\nR uses knitr and Python/Julia uses Jupyter to evaluate our code and turn qmd into md file.\n\n\n\nSo what does R Markdown do so amazingly for us?\nWhen we hit Knit, your Rmd first uses the knitr package to execute and translate our code, and then creates a new markdown document which includes the code and its output.\nThe markdown file is then processed by a document converter called pandoc which is responsible for creating various document format you like.\nThe entire process looks and sounds complicated, and indeed it’s complicated. But Rmd makes it simple. All we need is to click on the Knit button, and Rmd does everything for us."
+    "text": "Quarto Is Built on Pandoc\n\n\nR uses knitr and Python/Julia uses Jupyter to evaluate our code and turn qmd into md file.\n\n\n\nSo what does Quarto do so amazingly for us?\nWhen we hit Knit, your qmd first uses the knitr package to execute and translate our code, and then creates a new markdown document which includes the code and its output.\nThe markdown file is then processed by a document converter called pandoc which is responsible for creating various document format you like.\nThe entire process looks and sounds complicated, and indeed it’s complicated. But qmd makes it simple. All we need is to click on the Knit button, and qmd does everything for us."
   },
   {
     "objectID": "slides/05-quarto.html#why-quarto-comfort-of-your-own-workspace",
@@ -3399,14 +3399,14 @@
     "href": "slides/05-quarto.html#why-quarto-simple-markdown-syntax-for-text",
     "title": "Quarto 📖",
     "section": "Why Quarto – Simple Markdown Syntax for Text",
-    "text": "Why Quarto – Simple Markdown Syntax for Text\nTo generate a PDF report, you prefer writing this with 24 lines…\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAnother reason to use R Markdown is that its syntax is simple.\nWe can generate this PDF report including code and figures using this concise Rmd file on the right."
+    "text": "Why Quarto – Simple Markdown Syntax for Text\nTo generate a PDF report, you prefer writing this with 24 lines…\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAnother reason to use Quarto is that its syntax is simple.\nWe can generate this PDF report including code and figures using this concise qmd file on the right."
   },
   {
     "objectID": "slides/05-quarto.html#why-quarto-simple-markdown-syntax-for-text-1",
     "href": "slides/05-quarto.html#why-quarto-simple-markdown-syntax-for-text-1",
     "title": "Quarto 📖",
     "section": "Why Quarto – Simple Markdown Syntax for Text",
-    "text": "Why Quarto – Simple Markdown Syntax for Text\nOr this with 250 lines!?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWe can also generate the same PDF report using this document processing format.\nWhich one you prefer?\nDoes anyone know what tool is used for generating the PDF? It’s called LaTex.\nYou can see the Rmd file is cleaner and much more concise."
+    "text": "Why Quarto – Simple Markdown Syntax for Text\nOr this with 250 lines!?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWe can also generate the same PDF report using this document processing format.\nWhich one you prefer?\nDoes anyone know what tool is used for generating the PDF? It’s called LaTex.\nYou can see the qmd file is cleaner and much more concise."
   },
   {
     "objectID": "slides/05-quarto.html#markdown",
@@ -3420,14 +3420,14 @@
     "href": "slides/05-quarto.html#quarto-file-plain-text-file-with-extension-.qmd",
     "title": "Quarto 📖",
     "section": "Quarto file = plain text file with extension .qmd\n",
-    "text": "Quarto file = plain text file with extension .qmd\n\n---\ntitle: \"ggplot2 demo\"\ndate: \"1/25/2024\"\nformat: html\n---\n\n## Cars\nThere is a relationship between *miles per gallon* and *displacement*.\n\n```{r}\nmpg |> ggplot(aes(x = displ, y = hwy)) + \n  geom_point()\n```\n\n\n\n\n\nYAML Header (“YAML Ain’t Markup Language”)\n---\nkey: value\n---\n\n\nThe first part is the YAML header, which is surrounded by a pair of three dashes.\nYAML is a human readable language that is commonly used in configuration files of programs.\nHere, YAML header defines metadata of the document, for example, title, date, and output format.\n\n\n\n\n\n\n\nMarkdown Text\n\n\nThe second part is text.\nAnd as we’ve discussed, the syntax for text is Markdown. We’ll learn some basic syntax later.\n\n\n\n\n\n\n\nCode Chunk\n\n```{r}\n## code right here\n```\n\n\n\nThe third main part of a Rmd document is the so-called code chunk. which is surrounded by a pair of three backticks.\nThe code written in code chunks will be run once you compile your Rmd file, and any output generated by your code will be printed out in the final document. All right!\nAny questions"
+    "text": "Quarto file = plain text file with extension .qmd\n\n---\ntitle: \"ggplot2 demo\"\ndate: \"1/25/2024\"\nformat: html\n---\n\n## Cars\nThere is a relationship between *miles per gallon* and *displacement*.\n\n```{r}\nmpg |> ggplot(aes(x = displ, y = hwy)) + \n  geom_point()\n```\n\n\n\n\n\nYAML Header (“YAML Ain’t Markup Language”)\n---\nkey: value\n---\n\n\nThe first part is the YAML header, which is surrounded by a pair of three dashes.\nYAML is a human readable language that is commonly used in configuration files of programs.\nHere, YAML header defines metadata of the document, for example, title, date, and output format.\n\n\n\n\n\n\n\nMarkdown Text\n\n\nThe second part is text.\nAnd as we’ve discussed, the syntax for text is Markdown. We’ll learn some basic syntax later.\n\n\n\n\n\n\n\nCode Chunk\n\n```{r}\n## code right here\n```\n\n\n\nThe third main part of a qmd document is the so-called code chunk. which is surrounded by a pair of three backticks.\nThe code written in code chunks will be run once you compile your qmd file, and any output generated by your code will be printed out in the final document. All right!\nAny questions"
   },
   {
     "objectID": "slides/05-quarto.html#section-2",
     "href": "slides/05-quarto.html#section-2",
     "title": "Quarto 📖",
     "section": "",
-    "text": "02-Quarto File\n\nGo to your GitHub repo lab-yourusername. Clone it to your Posit Cloud as a project in 2024-Spring-Math-3570 workspace.\nOpen the file lab.qmd.\nChange author in YAML.\n\n\nClick on  or Ctrl/Cmd + Shift + K to produce a HTML document.\nHow can we show the current date every time we compile the file? [Hint:] Check your hw00. Compile your document and make sure the date shows up.\nHow do we produce a pdf? Describe it in ## Lab 2: Quarto\nOnce done, commit with message “02-Quarto File” and push your version to GitHub.\n\n\n\nClick on the inverted triangle right next to  to produce a PDF/Word document.\n\nr Sys.Date()\ndate: “2024-01-23”"
+    "text": "02-Quarto File\n\nGo to your GitHub repo lab-yourusername. Clone it to your Posit Cloud as a project in 2024-Spring-Math-3570 workspace.\nOpen the file lab.qmd.\nChange author in YAML.\n\n\nClick on  or Ctrl/Cmd + Shift + K to produce a HTML document.\nHow can we show the current date every time we compile the file? [Hint:] Check your hw00. Compile your document and make sure the date shows up.\nHow do we produce a pdf? Describe it in ## Lab 2: Quarto\nOnce done, commit with message “02-Quarto File” and push your version to GitHub.\n\n\n\nClick on the inverted triangle right next to  to produce a PDF/Word document.\n\nr Sys.Date()\ndate: “2024-01-25”"
   },
   {
     "objectID": "slides/05-quarto.html#text-formatting",
@@ -3448,7 +3448,7 @@
     "href": "slides/05-quarto.html#lists",
     "title": "Quarto 📖",
     "section": "Lists",
-    "text": "Lists\n\n\n\n\n\n\n\nMarkdown Syntax\nOutput\n\n\n\n* unordered list\n    + sub-item 1\n    + sub-item 2\n        - sub-sub-item 1\n\n\nunordered list\n\nsub-item 1\n\nsub-item 2\n\nsub-sub-item 1\n\n\n\n\n\n\n\n*   item 2\n    <new line>\n    Continued (indent 4 spaces)\n\n\nitem 2\nContinued (indent 4 spaces)\n\n\n\n\n1. ordered list\n2. item 2\n    i) sub-item 1\n         A.  sub-sub-item 1\n\nordered list\n\nitem 2\n\n\nsub-item 1\n\nsub-sub-item 1"
+    "text": "Lists\n\n\n\n\n\n\n\nMarkdown Syntax\nOutput\n\n\n\n* unordered list\n    + sub-item 1\n    + sub-item 2\n        - sub-sub-item 1\n\n\nunordered list\n\nsub-item 1\n\nsub-item 2\n\nsub-sub-item 1\n\n\n\n\n\n\n\n*   item 2\n    <new line>\n    Continued (indent 4 spaces)\n\n\nitem 2\nContinued (indent 4 spaces)\n\n\n\n\n1. ordered list\n2. item 2\n    i) sub-item 1\n         A.  sub-sub-item 1\n\nordered list\n\nitem 2\n\n\nsub-item 1\n\nsub-sub-item 1\n\n\n\n\n\n\n\n\n\nAt least two spaces"
   },
   {
     "objectID": "slides/05-quarto.html#math-and-links",
@@ -3490,14 +3490,14 @@
     "href": "slides/05-quarto.html#anatomy-of-a-code-chunk",
     "title": "Quarto 📖",
     "section": "Anatomy of a Code Chunk",
-    "text": "Anatomy of a Code Chunk\n\n\n```{r}\n#| label: car-stuff\n#| echo: false\nmtcars |> \n  distinct(cyl)\n```\n\n```{python}\n#| label: string\n#| eval: false\nx = 'hello, python world!'\nprint(x.split(' '))\n```\n\n\nHas 3x backticks ``` on each end\nTo insert a code chunk,\n\n\n\n\n\n\n\n\n\n\nAlt + Ctrl + I (Win)\nOption + Cmd + I (Mac)\nIndicate engine (r) between curly braces {r}\nPlace options underneath, behind the #| (hashpipe): #| option1: value\nTool > Modify Keyboard Shortcuts > search Chunk > Insert Chunk Python > Cmd + P"
+    "text": "Anatomy of a Code Chunk\n\n\n```{r}\n#| label: car-stuff\n#| echo: false\nmtcars |> \n  distinct(cyl)\n```\n\n```{python}\n#| label: string\n#| eval: false\nx = 'hello, python world!'\nprint(x.split(' '))\n```\n\n\nHas 3x backticks ``` on each end\nTo insert a code chunk,\n\n\n\n\n\n\n\n\n\n\nAlt + Ctrl + I (Win)\nOption + Cmd + I (Mac)\nIndicate engine (r) between curly braces {r}\nPlace options underneath, behind the #| (hashpipe): #| option1: value\nTools > Modify Keyboard Shortcuts > Filter… > Insert Chunk Python > Cmd + P"
   },
   {
     "objectID": "slides/05-quarto.html#option-echo",
     "href": "slides/05-quarto.html#option-echo",
     "title": "Quarto 📖",
     "section": "Option echo\n",
-    "text": "Option echo\n\n\nIf you simply want code highlighting, you can use 3x backticks + the language ```r\n\n\n\n```r\nhead(mtcars)\n```\n\n\nWhich returns the below but is not executed since there aren’t {} around the language:\nhead(mtcars)\n\n\n\n\n\nIf you instead want to see source code and evaluate it, you could use echo: true where echo: false would instead hide the code but still evaluate it.\n#| echo: true\n1 + 1\n\n\n\n\n\n\n1 + 1\n\n[1] 2"
+    "text": "Option echo\n\n\nIf you simply want code highlighting, you can use 3x backticks + the language ```r\n\n\n\n```r\nhead(mtcars)\n```\n\n\nWhich returns the below but is not executed since there aren’t {} around the language:\nhead(mtcars)\n\n\n\n\nIf you instead want to see source code and evaluate it, you could use echo: true where echo: false would instead hide the code but still evaluate it.\n\n\n\n\n```{r}\n#| echo: true\n1 + 1\n```\n\n\n\n1 + 1\n\n[1] 2"
   },
   {
     "objectID": "slides/05-quarto.html#chunk-options",
@@ -3525,14 +3525,14 @@
     "href": "slides/05-quarto.html#figures-w-code",
     "title": "Quarto 📖",
     "section": "Figures w/ code",
-    "text": "Figures w/ code\n\n```{r}\n#| out-width: \"40%\"\n#| fig-align: right\n\nknitr::include_graphics(\"images/05-quarto/maru1.jpg\")\n```"
+    "text": "Figures w/ code\n\n```{r}\n#| out-width: 40%\n#| fig-align: right\n\nknitr::include_graphics(\"images/05-quarto/maru1.jpg\")\n```\n\n\nWidth of the plot in the output document, which can be different from its physical fig-width, i.e., plots can be scaled in the output document. When used without a unit, the unit is assumed to be pixels. However, any of the following unit identifiers can be used: px, cm, mm, in, inch and %, for example, 3in, 8cm, 300px or 50%."
   },
   {
     "objectID": "slides/05-quarto.html#including-plots",
     "href": "slides/05-quarto.html#including-plots",
     "title": "Quarto 📖",
     "section": "Including Plots",
-    "text": "Including Plots\n\nMany chunk options for figures and images start with fig-, for example fig-width, fig-height, fig-show, etc.\n\n\n\n\n\n```{r}\n#| eval: false\n#| fig-align: center\n#| fig-cap: \"Fig. 1: A plot of car stuff\"\nplot(x = cars$speed, y = cars$dist)\n```\n\n\n\n\n\n\nFig. 1: A plot of car stuff"
+    "text": "Including Plots\n\nMany chunk options for figures and images start with fig-, for example fig-width, fig-height, fig-show, etc.\n\n\n\n\n\n```{r}\n#| eval: false\n#| fig-cap: \"Fig. 1: Car stuff\"\nplot(x = cars$speed, y = cars$dist)\n```\n\n\n\n\n\n\nFig. 1: Car stuff"
   },
   {
     "objectID": "slides/05-quarto.html#divs-and-spans",
@@ -3546,7 +3546,7 @@
     "href": "slides/05-quarto.html#subfigures-fenced-div-class",
     "title": "Quarto 📖",
     "section": "Subfigures Fenced div Class",
-    "text": "Subfigures Fenced div Class\n::: {#fig-maru layout-ncol=2}\n\n![Loaf](images/05-quarto/maru2.jpg){#fig-loaf width=\"250px\"}\n\n![Lick](images/05-quarto/maru3.jpg){#fig-lick width=\"250px\"}\n\nTwo states of Maru\n\n:::\n\n\n\n\n\n(a) Loaf\n\n\n\n\n\n\n(b) Lick\n\n\n\n\nFigure 1: Two states of Maru"
+    "text": "Subfigures Fenced div Class\n::: {#fig-maru layout-ncol=2}\n\n![Loaf](images/05-quarto/maru2.jpg){#fig-loaf width=\"250px\"}\n![Lick](images/05-quarto/maru3.jpg){#fig-lick width=\"250px\"}\nTwo states of Maru\n\n:::\n\n\n\n\n\n(a) Loaf\n\n\n\n\n\n\n(b) Lick\n\n\n\n\nFigure 1: Two states of Maru"
   },
   {
     "objectID": "slides/05-quarto.html#inline-code",
@@ -3560,7 +3560,7 @@
     "href": "slides/05-quarto.html#section-4",
     "title": "Quarto 📖",
     "section": "",
-    "text": "04-Code Chunk \n\n\nIn lab.qmd ## Lab 4: Code Chunk, use code chunks to\n\ninclude an image with knitr::include_graphics(\"URL or file path\") https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/ggplot2.png\ninclude a plot plot(mtcars$disp, mtcars$mpg)\nShow dataset mtcars as a table using knitr::kable()\ndo some inline code calculation like `r ncol(mtcars)`, `r log(100, base = 10) + sqrt(4)`.\n\n\nAdd option fig-height: 4, fig-width: 6 and fig-align: right to your plot. What are the changes?\nHow do we set global chunk options to hide and run code in every chunk?\nOnce done, commit with message “04-Code Chunk” and push your work to GitHub.\n\n\n\nRun the following in the console\n\n\n\n\nThen, add the following chunk in your lab02-rmarkdown.Rmd and re-knit it.\n\n\n\nWhat happens? - The environment of your R Markdown document is separate from the Console! Remember this, and expect it to bite you a few times as you’re learning to work with R Markdown! - fig.dim = c(8, 6) means fig.width = 8 and fig.height = 6 in inches - out.width=“50%”: half of the width of the image container"
+    "text": "04-Code Chunk \n\n\nIn lab.qmd ## Lab 4: Code Chunk, use code chunks to\n\ninclude an image with knitr::include_graphics(\"URL or file path\") https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/ggplot2.png\ninclude a plot plot(mtcars$disp, mtcars$mpg)\nShow dataset mtcars as a table using knitr::kable()\ndo some inline code calculation like `r ncol(mtcars)`, `r log(100, base = 10) + sqrt(4)`.\n\n\nAdd option fig-height: 4, fig-width: 6 and fig-align: right to your plot. What are the changes?\nHow do we set global chunk options to hide and run code in every chunk?\nOnce done, commit with message “04-Code Chunk” and push your work to GitHub.\n\n\n\nRun the following in the console\n\n\n\n\nThen, add the following chunk in your lab02-rmarkdown.qmd and re-knit it.\n\n\n\nWhat happens? - The environment of your Quarto document is separate from the Console! Remember this, and expect it to bite you a few times as you’re learning to work with Quarto! - fig.dim = c(8, 6) means fig.width = 8 and fig.height = 6 in inches - out.width=“50%”: half of the width of the image container"
   },
   {
     "objectID": "slides/05-quarto.html#quarto-skills-to-the-next-level",
