@@ -25,7 +25,7 @@
     "href": "weeks/week-6.html#participate",
     "title": "Week 6",
     "section": "Participate",
-    "text": "Participate\n🖥️ Slides -Visualizing Data\n openintro::loans_full_schema"
+    "text": "Participate\n🖥️ Slides - ggplot2\n🖥️ Slides -Visualizing Data\n openintro::loans_full_schema"
   },
   {
     "objectID": "weeks/week-6.html#reading-and-resources",
@@ -39,7 +39,7 @@
     "href": "weeks/week-6.html#exercise",
     "title": "Week 6",
     "section": "Exercise",
-    "text": "Exercise\n📋 Lab-13 Visualization\n penguins.csv\n\n\nBack to course schedule ⏎"
+    "text": "Exercise\n📋 Lab-11 ggplot2\n📋 Lab-12 Faceting\n📋 Lab-13 Visualization\n penguins.csv\n\n\nBack to course schedule ⏎"
   },
   {
     "objectID": "weeks/week-7.html",
@@ -81,7 +81,7 @@
     "href": "weeks/week-5.html#participate",
     "title": "Week 5",
     "section": "Participate",
-    "text": "Participate\n🖥️ Slides - Data Importing\n🖥️ Slides - ggplot2"
+    "text": "Participate\n🖥️ Slides - Data Importing"
   },
   {
     "objectID": "weeks/week-5.html#reading-and-resources",
@@ -95,7 +95,7 @@
     "href": "weeks/week-5.html#exercise",
     "title": "Week 5",
     "section": "Exercise",
-    "text": "Exercise\n📋 Lab-10 Data Importing\n📋 Lab-11 ggplot2\n📋 Lab-12 Faceting\n penguins.csv\n\n\nBack to course schedule ⏎"
+    "text": "Exercise\n📋 Lab-10 Data Importing\n penguins.csv\n\n\nBack to course schedule ⏎"
   },
   {
     "objectID": "weeks/week-4.html",
@@ -438,7 +438,7 @@
     "href": "index.html",
     "title": "MATH/COSC 3570 - Introduction to Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nTopic\nTo Do\nSlides\nLab Exercise\nHomework\nLab Presentation\n\n\n\n\n1\nTue, Jan 16\nGreetings + Overview of Data Science\n📖\n🖥️ 🖥️\n\n\n\n\n\n\nThu, Jan 18\nPosit Cloud and Git/GitHub Introduction\n\n🖥️\n📋📋\n\n\n\n\n2\nTue, Jan 23\nConnecting Posit Cloud with GitHub\n📖\n🖥️\n📋\n\n\n\n\n\nThu, Jan 25\nQuarto\n\n🖥️\n📋📋📋\n\n\n\n\n3\nTue, Jan 30\nQuarto\n\n\n\n\n\n\n\n\nThu, Feb 1\nR/Python Programming\n📖\n🖥️\n📋📋\n\n\n\n\n4\nTue, Feb 6\nR Tidyverse\n📖\n🖥️\n📋\n\n\n\n\n\nThu, Feb 8\nPython Pandas\n\n\n📋\n✍️\n✅\n\n\n5\nTue, Feb 13\nData Importing\n📖\n🖥️\n📋\n\n\n\n\n\nThu, Feb 15\nData Vaisualization\n\n🖥️\n📋📋\n\n\n\n\n6\nTue, Feb 20\nData Vaisualization\n📖\n🖥️\n📋\n\n\n\n\n\nThu, Feb 22\nData Vaisualization\n\n\n\n\n\n\n\n7\nTue, Feb 27\nInteractive Data Vaisualization\n📖\n🖥️\n\n\n✅\n\n\n\nThu, Feb 29\nData Wrangling\n\n🖥️\n📋\n\n\n\n\n8\nTue, Mar 5\nData Wrangling\n📖\n🖥️\n📋\n\n\n\n\n\nThu, Mar 7\nData Wrangling\n\n🖥️\n📋\n✍️\n\n\n\n9\nTue, Mar 12\nNO CLASS: Spring break\n\n\n\n\n\n\n\n\nThu, Mar 14\nNO CLASS: Spring break\n\n\n\n\n\n\n\n10\nTue, Mar 19\nProbabilistic and Statistical Simulation\n📖\n🖥️\n📋📋\n\n\n\n\n\nThu, Mar 21\nLinear Regression\n\n🖥️\n\n\n\n\n\n11\nTue, Mar 26\nLinear Regression\n📖\n\n📋\n\n\n\n\n\nThu, Mar 28\nNO CLASS: Easter break\n\n\n\n\n\n\n\n12\nTue, Apr 2\nLogistic Regression\n📖\n🖥️\n\n\n\n\n\n\nThu, Apr 4\nLogistic Regression\n\n\n📋\n\n\n\n\n13\nTue, Apr 9\nK-Nearest Neighbors\n📖\n🖥️\n\n\n\n\n\n\nThu, Apr 11\nK-Nearest Neighbors\n\n\n📋\n✍️\n\n\n\n14\nTue, Apr 16\nPrincipal Component Analysis\n📖\n🖥️\n\n\n📂\n\n\n\nThu, Apr 18\nPrincipal Component Analysis\n\n\n📋\n\n\n\n\n15\nTue, Apr 23\nK-Means Clustering\n📖\n🖥️\n\n\n\n\n\n\nThu, Apr 25\nK-Means Clustering\n\n\n📋\n\n\n\n\n16\nTue, Apr 30\nData Dashboards\n📖\n🖥️\n\n\n📂\n\n\n16\nThu, May 2\nQuarto Websites\n\n\n\n\n\n\n\n\n\nI reserve the right to make changes to the schedule."
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nTopic\nTo Do\nSlides\nLab Exercise\nHomework\nLab Presentation\n\n\n\n\n1\nTue, Jan 16\nGreetings + Overview of Data Science\n📖\n🖥️ 🖥️\n\n\n\n\n\n\nThu, Jan 18\nPosit Cloud and Git/GitHub Introduction\n\n🖥️\n📋📋\n\n\n\n\n2\nTue, Jan 23\nConnecting Posit Cloud with GitHub\n📖\n🖥️\n📋\n\n\n\n\n\nThu, Jan 25\nQuarto\n\n🖥️\n📋📋📋\n\n\n\n\n3\nTue, Jan 30\nQuarto\n\n\n\n\n\n\n\n\nThu, Feb 1\nR/Python Programming\n📖\n🖥️\n\n\n\n\n\n4\nTue, Feb 6\nPython Programming\n\n\n📋📋\n\n\n\n\n\nThu, Feb 8\nR Tidyverse\n📖\n🖥️\n📋\n✍️\n\n\n\n5\nTue, Feb 13\nPython Pandas/NumPy\n\n\n📋\n\n✅\n\n\n\nThu, Feb 15\nData Importing\n📖\n🖥️\n📋\n\n\n\n\n6\nTue, Feb 20\nData Vaisualization\n📖\n🖥️\n📋\n\n\n\n\n\nThu, Feb 22\nData Vaisualization\n\n\n\n\n\n\n\n7\nTue, Feb 27\nInteractive Data Vaisualization\n📖\n🖥️\n\n\n✅\n\n\n\nThu, Feb 29\nData Wrangling\n\n🖥️\n📋\n\n\n\n\n8\nTue, Mar 5\nData Wrangling\n📖\n🖥️\n📋\n\n\n\n\n\nThu, Mar 7\nData Wrangling\n\n🖥️\n📋\n✍️\n\n\n\n9\nTue, Mar 12\nNO CLASS: Spring break\n\n\n\n\n\n\n\n\nThu, Mar 14\nNO CLASS: Spring break\n\n\n\n\n\n\n\n10\nTue, Mar 19\nProbabilistic and Statistical Simulation\n📖\n🖥️\n📋📋\n\n\n\n\n\nThu, Mar 21\nLinear Regression\n\n🖥️\n\n\n\n\n\n11\nTue, Mar 26\nLinear Regression\n📖\n\n📋\n\n\n\n\n\nThu, Mar 28\nNO CLASS: Easter break\n\n\n\n\n\n\n\n12\nTue, Apr 2\nLogistic Regression\n📖\n🖥️\n\n\n\n\n\n\nThu, Apr 4\nLogistic Regression\n\n\n📋\n\n\n\n\n13\nTue, Apr 9\nK-Nearest Neighbors\n📖\n🖥️\n\n\n\n\n\n\nThu, Apr 11\nK-Nearest Neighbors\n\n\n📋\n✍️\n\n\n\n14\nTue, Apr 16\nPrincipal Component Analysis\n📖\n🖥️\n\n\n📂\n\n\n\nThu, Apr 18\nPrincipal Component Analysis\n\n\n📋\n\n\n\n\n15\nTue, Apr 23\nK-Means Clustering\n📖\n🖥️\n\n\n\n\n\n\nThu, Apr 25\nK-Means Clustering\n\n\n📋\n\n\n\n\n16\nTue, Apr 30\nData Dashboards\n📖\n🖥️\n\n\n📂\n\n\n16\nThu, May 2\nQuarto Websites\n\n\n\n\n\n\n\n\n\nI reserve the right to make changes to the schedule."
   },
   {
     "objectID": "course-news.html",
@@ -4092,7 +4092,7 @@
     "href": "slides/06-syntax.html#factor-1",
     "title": "Basic R/Python \n",
     "section": "Factor",
-    "text": "Factor\n\nA vector of type factor can be ordered in a meaningful way.\n\nCreate a factor by factor(). It is a type of integer, not character. 😲 🙄\n\n\n## Create a factor from a character vector using function factor()\n(fac <- factor(c(\"med\", \"high\", \"low\")))\n\n[1] med  high low \nLevels: high low med\n\ntypeof(fac)  ## The type is integer.\n\n[1] \"integer\"\n\nstr(fac)  ## The integers show the level each element in vector fac belongs to.\n\n Factor w/ 3 levels \"high\",\"low\",\"med\": 3 1 2\n\n\n\n\norder_fac <- factor(c(\"med\", \"high\", \"low\"),\n                    levels = c(\"med\", \"high\", \"low\"))\nstr(order_fac)\n\n Factor w/ 3 levels \"med\",\"high\",\"low\": 1 2 3\n\n\nlevels(fac) ## Each level represents an integer, ordered from the vector alphabetically."
+    "text": "Factor\n\nA vector of type factor can be ordered in a meaningful way.\n\nCreate a factor by factor(). It is a type of integer, not character. 😲 🙄\n\n\n## Create a factor from a character vector using function factor()\n(fac <- factor(c(\"med\", \"high\", \"low\")))\n\n[1] med  high low \nLevels: high low med\n\ntypeof(fac)  ## The type is integer.\n\n[1] \"integer\"\n\nstr(fac)  ## The integers show the level each element in vector fac belongs to.\n\n Factor w/ 3 levels \"high\",\"low\",\"med\": 3 1 2\n\n\n\n\norder_fac <- factor(c(\"med\", \"high\", \"low\"),\n                    levels = c(\"low\", \"med\", \"high\"))\nstr(order_fac)\n\n Factor w/ 3 levels \"low\",\"med\",\"high\": 2 3 1\n\n\nlevels(fac) ## Each level represents an integer, ordered from the vector alphabetically."
   },
   {
     "objectID": "slides/06-syntax.html#list-generic-vectors",
@@ -4176,7 +4176,7 @@
     "href": "slides/06-syntax.html#section-5",
     "title": "Basic R/Python \n",
     "section": "",
-    "text": "05-R Data Type Summary \n\nIn lab.qmd Lab 5,\n\nCreate R objects vector v1, factor f2, list l3, matrix m4 and data frame d5.\nCheck typeof() and class() of those objects, and create a list having the output below.\n\n\n\n\n\nv1 <- __________\nf2 <- __________\nl3 <- __________\nm4 <- __________\nd5 <- __________\nv <- c(type = typeof(v1), class = class(v1))\nf <- c(type = __________, class = _________)\nl <- c(type = __________, class = _________)\nm <- c(type = __________, class = _________)\nd <- c(type = __________, class = _________)\n____(vector =   v,\n     ______ = ___,\n     ______ = ___,\n     ______ = ___,\n     ______ = ___)\n\n\n\n\n$vec\n     type     class \n \"double\" \"numeric\" \n\n$fac\n     type     class \n\"integer\"  \"factor\" \n\n$lst\n  type  class \n\"list\" \"list\" \n\n$mat\n     type    class1    class2 \n\"integer\"  \"matrix\"   \"array\" \n\n$df\n        type        class \n      \"list\" \"data.frame\""
+    "text": "05-R Data Type Summary \n\nIn lab.qmd Lab 5,\n\nCreate R objects vector v1, factor f2, list l3, matrix m4 and data frame d5.\nCheck typeof() and class() of those objects, and create a list having the output below.\n\n\n\n\n\nv1 <- __________\nf2 <- __________\nl3 <- __________\nm4 <- __________\nd5 <- __________\nv <- c(type = typeof(v1), class = class(v1))\nf <- c(type = __________, class = _________)\nl <- c(type = __________, class = _________)\nm <- c(type = __________, class = _________)\nd <- c(type = __________, class = _________)\n____(vec    =   v,\n     ______ = ___,\n     ______ = ___,\n     ______ = ___,\n     ______ = ___)\n\n\n\n\n$vec\n     type     class \n \"double\" \"numeric\" \n\n$fac\n     type     class \n\"integer\"  \"factor\" \n\n$lst\n  type  class \n\"list\" \"list\" \n\n$mat\n     type    class1    class2 \n\"integer\"  \"matrix\"   \"array\" \n\n$df\n        type        class \n      \"list\" \"data.frame\""
   },
   {
     "objectID": "slides/06-syntax.html#python-lists",
@@ -4414,7 +4414,7 @@
     "href": "slides/06-syntax.html#section-7",
     "title": "Basic R/Python \n",
     "section": "",
-    "text": "07-Plotting (Show your work for extra points!)  \nIn lab.qmd ## Lab 7,\n\nFor the mtcars data, use R or Python to\n\nmake a scatter plot of miles per gallon vs. weight. Decorate your plot using arguments, col, pch, xlab, etc.\ncreate a histogram of 1/4 mile time. Make it beautiful!\ngenerate boxplots of miles per gallon by number of forward gears. Make it cool!\n\n\nCommit and Push your work once you are done."
+    "text": "07-Plotting (Bonus question!)  \nIn lab.qmd ## Lab 7,\n\nFor the mtcars data, use R or Python to\n\nmake a scatter plot of miles per gallon vs. weight. Decorate your plot using arguments, col, pch, xlab, etc.\ncreate a histogram of 1/4 mile time. Make it beautiful!\n\n\nCommit and Push your work once you are done.\n\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\nmtcars = pd.read_csv('./data/mtcars.csv')"
   },
   {
     "objectID": "slides/06-syntax.html#resources",
@@ -4638,7 +4638,7 @@
     "href": "exercise/lab05-rtype.html",
     "title": "Lab 05: R Data Type Summary",
     "section": "",
-    "text": "Note\n\n\n\n\n\n\nIn lab.qmd Lab 5,\n\nCreate R objects vector v1, factor f2, list l3, matrix m4 and data frame d5.\nCheck typeof() and class() of those objects, and create a list having the output below.\n\n\nv1 <- __________\nf2 <- __________\nl3 <- __________\nm4 <- __________\nd5 <- __________\nv <- c(type = typeof(v1), class = class(v1))\nf <- c(type = __________, class = _________)\nl <- c(type = __________, class = _________)\nm <- c(type = __________, class = _________)\nd <- c(type = __________, class = _________)\n____(vector =   v,\n     ______ = ___,\n     ______ = ___,\n     ______ = ___,\n     ______ = ___)\n\n\n\n$vec\n     type     class \n \"double\" \"numeric\" \n\n$fac\n     type     class \n\"integer\"  \"factor\" \n\n$lst\n  type  class \n\"list\" \"list\" \n\n$mat\n     type    class1    class2 \n\"integer\"  \"matrix\"   \"array\" \n\n$df\n        type        class \n      \"list\" \"data.frame\""
+    "text": "Note\n\n\n\n\n\n\nIn lab.qmd Lab 5,\n\nCreate R objects vector v1, factor f2, list l3, matrix m4 and data frame d5.\nCheck typeof() and class() of those objects, and create a list having the output below.\n\n\nv1 <- __________\nf2 <- __________\nl3 <- __________\nm4 <- __________\nd5 <- __________\nv <- c(type = typeof(v1), class = class(v1))\nf <- c(type = __________, class = _________)\nl <- c(type = __________, class = _________)\nm <- c(type = __________, class = _________)\nd <- c(type = __________, class = _________)\n____(vec    =   v,\n     ______ = ___,\n     ______ = ___,\n     ______ = ___,\n     ______ = ___)\n\n\n\n$vec\n     type     class \n \"double\" \"numeric\" \n\n$fac\n     type     class \n\"integer\"  \"factor\" \n\n$lst\n  type  class \n\"list\" \"list\" \n\n$mat\n     type    class1    class2 \n\"integer\"  \"matrix\"   \"array\" \n\n$df\n        type        class \n      \"list\" \"data.frame\""
   },
   {
     "objectID": "exercise/lab06-py.html",
@@ -4932,7 +4932,7 @@
     "href": "exercise/lab07-plot.html",
     "title": "Lab 07: Plotting (Presentation)",
     "section": "",
-    "text": "Note\n\n\n\n\n\n\nIn lab.qmd ## Lab 7,\n\nFor the mtcars data, use R or Python to\n\nmake a scatter plot of miles per gallon vs. weight. Decorate your plot using arguments, col, pch, xlab, etc.\ncreate a histogram of 1/4 mile time. Make it beautiful!\ngenerate boxplots of miles per gallon by number of forward gears. Make it cool!\n\nCommit and Push your work once you are done."
+    "text": "Note\n\n\n\n\n\n\nIn lab.qmd ## Lab 7,\n\nFor the mtcars data, use R or Python to\n\nmake a scatter plot of miles per gallon vs. weight. Decorate your plot using arguments, col, pch, xlab, etc.\ncreate a histogram of 1/4 mile time. Make it beautiful!\n\nCommit and Push your work once you are done."
   },
   {
     "objectID": "project-description.html",
