@@ -31,6 +31,31 @@ In **lab.qmd** `## Lab 7`,
   
   + create a histogram of 1/4 mile time. Make it beautiful!
   
-  + generate boxplots of miles per gallon by number of forward gears. Make it cool!
-  
 - Commit and Push your work once you are done.
+
+
+```{r}
+plot(mtcars$mpg, mtcars$wt, xlab = "MPG", ylab = "Weight")
+```
+
+```{r}
+hist(mtcars$qsec, xlab = "1/4 mile time", main = "")
+```
+
+
+```{python}
+import pandas as pd
+import matplotlib.pyplot as plt
+mtcars = pd.read_csv('../slides/data/mtcars.csv')
+plt.scatter(x = mtcars.mpg, y = mtcars.wt)
+plt.xlabel("Miles per gallon")
+plt.ylabel("Weight")
+plt.show()
+plt.clf()
+plt.hist(mtcars.qsec)
+plt.xlabel("1/4 mile time")
+plt.title("Histogram of 1/4 mile time")
+plt.show()
+```
+
+

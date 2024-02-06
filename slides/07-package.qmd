@@ -140,7 +140,7 @@ import matplotlib.pyplot as plt
 :::: {.columns}
 
 ::: {.column width="40%"}
-- The [**tidyverse**](https://www.tidyverse.org/) is a `r emo::ji("package")` for data science. 
+- The [**tidyverse**](https://tidyverse.tidyverse.org) is a `r emo::ji("package")` for data science. 
 - All packages share common design philosophy, grammar, and data structures.
 - The *core* tidyverse packages include
   + [**ggplot2**](https://ggplot2.tidyverse.org/) - data visualisation
@@ -184,9 +184,10 @@ knitr::include_graphics("images/07-package/01_tidyverse_data_science.png")
 
 - tidyverse is loading *all* the core packages for us!
 
-```{r tidyverse, eval=FALSE}
+```{r tidyverse}
 #| echo: true
 #| eval: false
+library(tidyverse)
 ── Attaching core tidyverse packages ──────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.2     ✔ readr     2.1.4
 ✔ forcats   1.0.0     ✔ stringr   1.5.0
@@ -199,10 +200,10 @@ knitr::include_graphics("images/07-package/01_tidyverse_data_science.png")
 ℹ Use the conflicted package to force all conflicts to become errors
 ```
 
-. . .
 
+::: notes
 - Packages in the tidyverse change frequently. To check if updates are available:
-```{r, eval=FALSE}
+```{r}
 #| echo: true
 #| eval: false
 tidyverse_update()
@@ -213,6 +214,8 @@ The following packages are out of date:
 Start a clean R session then run:
 install.packages(c("dbplyr", "forcats", "pillar"))
 ```
+:::
+
 
 ## [Tidymodels](https://www.tidymodels.org/) {visibility="hidden"}
 
@@ -346,7 +349,8 @@ knitr::include_graphics("images/07-package/tidydata.png")
 - We will learn how to make our data tidy using **tidyr**, **dplyr** and other packages in **Data Wrangling** weeks.
 :::
 
-##
+## {visibility="hidden"}
+
 
 ::: {.question}
 What makes this data not tidy?
@@ -381,7 +385,8 @@ knitr::include_graphics("images/07-package/hyperwar-airplanes-on-hand.png")
 
 
 
-##
+## {visibility="hidden"}
+
 :::{.question}
 What makes this data not tidy?
 :::
@@ -556,7 +561,7 @@ iris
 
 - Prints data *size* and *column type*.
 
-- Control the default appearance, like `options(tibble.print_max = n, tibble.print_min = m)`: if there are more than $n$ rows, print only the first $m$ rows.
+<!-- - Control the default appearance, like `options(tibble.print_max = n, tibble.print_min = m)`: if there are more than $n$ rows, print only the first $m$ rows. -->
 
 ::: notes
 - Only shows the first *10 rows* and *all the columns that fit on one screen*. This makes it easier to work with large data.
@@ -734,6 +739,12 @@ data.frame(x = 1:5,
 # object 'x' not found
 ```
 
+:::
+
+
+
+
+::: {.column width="50%"}
 - [**Tibble**: Allow to refer to created variables.]{.green}
 ```{r}
 #| echo: true
@@ -741,27 +752,7 @@ tibble(x = 1:5,
        y = 1:5, 
        z = x + 3)
 ```
-:::
 
-
-::: {.column width="50%"}
-::: {.fragment}
-- [**Data frame**: Columns need to be atomic vectors.]{.green}
-
-```{r, eval=FALSE}
-#| echo: true
-data.frame(id = c(1, 2, 3), 
-           func = c(mean, median, sd))
-# function can't be in a data.frame
-```
-
-- [**Tibble**: Elements can be lists or functions.]{.green}
-```{r}
-#| echo: true
-tibble(id = c(1, 2, 3), 
-       func = c(mean, median, sd))
-```
-:::
 :::
 ::::
 
@@ -770,6 +761,61 @@ tibble(id = c(1, 2, 3),
 - Columns need to be atomic vectors of numbers, strings, or logical values
 - Can have more complex objects, such as lists or functions.
 :::
+
+
+
+<!-- ## Tibbles Can Have Complex Entries -->
+
+<!-- :::: {.columns} -->
+
+<!-- ::: {.column width="50%"} -->
+
+<!-- - [**Data frame**: Columns can't be defined using other created variables.]{.green} -->
+
+<!-- ```{r, eval=FALSE} -->
+<!-- #| echo: true -->
+<!-- data.frame(x = 1:5,  -->
+<!--            y = 1:5,  -->
+<!--            z = x + 3) -->
+<!-- # object 'x' not found -->
+<!-- ``` -->
+
+<!-- - [**Tibble**: Allow to refer to created variables.]{.green} -->
+<!-- ```{r} -->
+<!-- #| echo: true -->
+<!-- tibble(x = 1:5,  -->
+<!--        y = 1:5,  -->
+<!--        z = x + 3) -->
+<!-- ``` -->
+<!-- ::: -->
+
+
+<!-- ::: {.column width="50%"} -->
+<!-- ::: {.fragment} -->
+<!-- - [**Data frame**: Columns need to be atomic vectors.]{.green} -->
+
+<!-- ```{r, eval=FALSE} -->
+<!-- #| echo: true -->
+<!-- data.frame(id = c(1, 2, 3),  -->
+<!--            func = c(mean, median, sd)) -->
+<!-- # function can't be in a data.frame -->
+<!-- ``` -->
+
+<!-- - [**Tibble**: Elements can be lists or functions.]{.green} -->
+<!-- ```{r} -->
+<!-- #| echo: true -->
+<!-- tibble(id = c(1, 2, 3),  -->
+<!--        func = c(mean, median, sd)) -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- ::: -->
+<!-- :::: -->
+
+
+<!-- ::: notes -->
+<!-- - Columns need to be atomic vectors of numbers, strings, or logical values -->
+<!-- - Can have more complex objects, such as lists or functions. -->
+<!-- ::: -->
 
 
 
@@ -971,7 +1017,7 @@ print(s["y"])
 ```
 
 
-## Pandas Series from a Dictionary
+## Pandas Series from a Dictionary {visibility="hidden"}
 
 ```{python}
 #| echo: true
@@ -990,13 +1036,13 @@ s = pd.Series(grade, index = ["stats", "cs"])
 print(s)
 ```
 
-. . .
+
 
 ::: {.question}
 How do we create a named vector in R?
 :::
 
-. . .
+
 ```{r}
 #| echo: true
 #| eval: false
@@ -1429,7 +1475,7 @@ pd._____________(dic)
 
 ## Lab Bonus!
 
-- Happy Valentine's Day! ❤️
+- Happy **R**alentine's Day! ❤️
 
 ```{r}
 #| eval: false
@@ -1445,6 +1491,8 @@ text(0, 0, "Happy Valentine's Day!", font = 2, cex = 2, col = "pink")
 
 ## Lab Bonus!
 
+- Happy **Py**lentine's Day! ❤️
+
 ```{python}
 #| eval: false
 lines = []
@@ -1458,6 +1506,7 @@ for y in range(15, -15, -1):
 
 print("\n".join(lines))
 ```
+
 
 ## Resources
 

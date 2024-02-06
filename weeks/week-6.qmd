@@ -9,6 +9,8 @@ editor: visual
 
 ## Participate
 
+🖥️ [Slides - ggplot2](/slides/09-ggplot2.html)
+
 🖥️ [Slides -Visualizing Data](/slides/10-viz.html)
 
 `r fontawesome::fa("table")` `openintro::loans_full_schema`
@@ -24,6 +26,10 @@ editor: visual
 📖 [R CHARTS](https://r-charts.com/)
 
 ## Exercise
+
+📋 [Lab-11 ggplot2](/exercise/lab11-ggplot2.html)
+
+📋 [Lab-12 Faceting](/exercise/lab12-facet.html)
 
 📋 [Lab-13 Visualization](/exercise/lab13-visualization.html)
 
