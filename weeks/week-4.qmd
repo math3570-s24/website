@@ -9,7 +9,7 @@ editor: visual
 
 ## Participate
 
-🖥️ Slides - R/Python Data Frames for Data Science
+🖥️ [Slides - R/Python Data Frames for Data Science](/slides/07-package.html)
 
 ## Reading and Resources
 

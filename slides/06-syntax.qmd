@@ -1609,6 +1609,9 @@ Remember to create Python code chunk
 
 ```
 
+[Any issue of this Python chunk?]{.red}
+
+
 Commit and Push your work once you are done.
 :::
 
@@ -2346,9 +2349,14 @@ import matplotlib.pyplot as plt
 mtcars = pd.read_csv('./data/mtcars.csv')
 ```
 
-
 :::
 
+
+- *Find your mate and work in pairs. *
+
+- *Two volunteer pairs teach us how to make beautiful plots next Tuesday (Feb 13)!*
+
+- *The presenters will be awarded a hex sticker! 😎*
 
 
 ## Resources

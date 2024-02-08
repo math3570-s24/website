@@ -21,7 +21,11 @@ library(fontawesome)
 ```
 
 ::: callout-note
+- *Find your mate and work in pairs. *
 
+- *Two volunteer pairs teach us how to make beautiful plots next Tuesday (Feb 13)!*
+
+- *The presenters will be awarded a hex sticker! 😎*
 :::
 
 In **lab.qmd** `## Lab 7`,
