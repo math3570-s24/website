@@ -1,279 +1,283 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://math3570-s24.github.io/website/course-syllabus.html</loc>
-    <lastmod>2024-02-08T19:24:07.256Z</lastmod>
-  </url>
-  <url>
-    <loc>https://math3570-s24.github.io/website/exercise/lab07-plot.html</loc>
-    <lastmod>2024-02-08T19:24:06.335Z</lastmod>
-  </url>
-  <url>
-    <loc>https://math3570-s24.github.io/website/exercise/lab00-posit.html</loc>
-    <lastmod>2024-02-08T19:24:05.550Z</lastmod>
-  </url>
-  <url>
-    <loc>https://math3570-s24.github.io/website/exercise/lab10-import.html</loc>
-    <lastmod>2024-02-08T19:24:04.685Z</lastmod>
-  </url>
-  <url>
-    <loc>https://math3570-s24.github.io/website/exercise/lab17-tidyr.html</loc>
-    <lastmod>2024-02-08T19:24:03.884Z</lastmod>
-  </url>
-  <url>
-    <loc>https://math3570-s24.github.io/website/exercise/lab04-chunk.html</loc>
-    <lastmod>2024-02-08T19:24:02.939Z</lastmod>
-  </url>
-  <url>
-    <loc>https://math3570-s24.github.io/website/exercise/lab23-pca.html</loc>
-    <lastmod>2024-02-08T19:24:02.310Z</lastmod>
-  </url>
-  <url>
-    <loc>https://math3570-s24.github.io/website/exercise/lab21-logistic.html</loc>
-    <lastmod>2024-02-08T19:24:01.497Z</lastmod>
-  </url>
-  <url>
-    <loc>https://math3570-s24.github.io/website/exercise/lab20-slr.html</loc>
-    <lastmod>2024-02-08T19:24:00.590Z</lastmod>
-  </url>
-  <url>
-    <loc>https://math3570-s24.github.io/website/exercise/lab16-join.html</loc>
-    <lastmod>2024-02-08T19:23:59.800Z</lastmod>
-  </url>
-  <url>
-    <loc>https://math3570-s24.github.io/website/exercise/lab24-kmeans.html</loc>
-    <lastmod>2024-02-08T19:23:58.939Z</lastmod>
-  </url>
-  <url>
-    <loc>https://math3570-s24.github.io/website/exercise/lab06-py.html</loc>
-    <lastmod>2024-02-08T19:23:57.887Z</lastmod>
-  </url>
-  <url>
-    <loc>https://math3570-s24.github.io/website/exercise/lab12-facet.html</loc>
-    <lastmod>2024-02-08T19:23:56.870Z</lastmod>
-  </url>
-  <url>
-    <loc>https://math3570-s24.github.io/website/exercise/lab13-visualization.html</loc>
-    <lastmod>2024-02-08T19:23:56.084Z</lastmod>
-  </url>
-  <url>
-    <loc>https://math3570-s24.github.io/website/slides/14-tidyr.html</loc>
-    <lastmod>2024-02-08T19:23:55.149Z</lastmod>
-  </url>
-  <url>
-    <loc>https://math3570-s24.github.io/website/slides/03-posit.html</loc>
-    <lastmod>2024-02-08T19:23:48.853Z</lastmod>
-  </url>
-  <url>
-    <loc>https://math3570-s24.github.io/website/slides/05-quarto.html</loc>
-    <lastmod>2024-02-08T19:23:44.763Z</lastmod>
-  </url>
-  <url>
-    <loc>https://math3570-s24.github.io/website/slides/07-package.html</loc>
-    <lastmod>2024-02-08T19:23:40.926Z</lastmod>
-  </url>
-  <url>
-    <loc>https://math3570-s24.github.io/website/slides/15-probstat.html</loc>
-    <lastmod>2024-02-08T19:23:36.019Z</lastmod>
-  </url>
-  <url>
-    <loc>https://math3570-s24.github.io/website/slides/01-syllabus.html</loc>
-    <lastmod>2024-02-08T19:23:32.278Z</lastmod>
-  </url>
-  <url>
-    <loc>https://math3570-s24.github.io/website/slides/17-logistic-reg.html</loc>
-    <lastmod>2024-02-08T19:23:27.710Z</lastmod>
-  </url>
-  <url>
-    <loc>https://math3570-s24.github.io/website/slides/09-ggplot2.html</loc>
-    <lastmod>2024-02-08T19:23:24.614Z</lastmod>
-  </url>
-  <url>
-    <loc>https://math3570-s24.github.io/website/slides/10-viz.html</loc>
-    <lastmod>2024-02-08T19:23:19.477Z</lastmod>
-  </url>
-  <url>
-    <loc>https://math3570-s24.github.io/website/slides/08-import.html</loc>
-    <lastmod>2024-02-08T19:23:14.491Z</lastmod>
-  </url>
-  <url>
-    <loc>https://math3570-s24.github.io/website/course-news.html</loc>
-    <lastmod>2024-02-08T19:23:10.522Z</lastmod>
-  </url>
-  <url>
-    <loc>https://math3570-s24.github.io/website/course-overview.html</loc>
-    <lastmod>2024-02-08T19:23:09.585Z</lastmod>
-  </url>
-  <url>
-    <loc>https://math3570-s24.github.io/website/weeks/week-14.html</loc>
-    <lastmod>2024-02-08T19:23:08.910Z</lastmod>
-  </url>
-  <url>
-    <loc>https://math3570-s24.github.io/website/weeks/week-8.html</loc>
-    <lastmod>2024-02-08T19:23:07.992Z</lastmod>
-  </url>
-  <url>
-    <loc>https://math3570-s24.github.io/website/weeks/week-9.html</loc>
-    <lastmod>2024-02-08T19:23:06.661Z</lastmod>
-  </url>
-  <url>
-    <loc>https://math3570-s24.github.io/website/weeks/week-13.html</loc>
-    <lastmod>2024-02-08T19:23:06.057Z</lastmod>
-  </url>
-  <url>
-    <loc>https://math3570-s24.github.io/website/weeks/week-10.html</loc>
-    <lastmod>2024-02-08T19:23:05.405Z</lastmod>
-  </url>
-  <url>
-    <loc>https://math3570-s24.github.io/website/weeks/week-3.html</loc>
-    <lastmod>2024-02-08T19:23:04.735Z</lastmod>
-  </url>
-  <url>
-    <loc>https://math3570-s24.github.io/website/weeks/week-4.html</loc>
-    <lastmod>2024-02-08T19:23:04.029Z</lastmod>
-  </url>
-  <url>
-    <loc>https://math3570-s24.github.io/website/weeks/week-7.html</loc>
-    <lastmod>2024-02-08T19:23:03.377Z</lastmod>
+    <loc>https://math3570-s24.github.io/website/project-work.html</loc>
+    <lastmod>2024-02-13T17:18:10.182Z</lastmod>
   </url>
   <url>
     <loc>https://math3570-s24.github.io/website/LICENSE.html</loc>
-    <lastmod>2024-02-08T19:23:02.713Z</lastmod>
-  </url>
-  <url>
-    <loc>https://math3570-s24.github.io/website/project-work.html</loc>
-    <lastmod>2024-02-08T19:23:01.968Z</lastmod>
+    <lastmod>2024-02-13T17:18:10.760Z</lastmod>
   </url>
   <url>
     <loc>https://math3570-s24.github.io/website/weeks/week-6.html</loc>
-    <lastmod>2024-02-08T19:23:03.056Z</lastmod>
+    <lastmod>2024-02-13T17:18:11.411Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math3570-s24.github.io/website/weeks/week-7.html</loc>
+    <lastmod>2024-02-13T17:18:11.824Z</lastmod>
   </url>
   <url>
     <loc>https://math3570-s24.github.io/website/weeks/week-5.html</loc>
-    <lastmod>2024-02-08T19:23:03.707Z</lastmod>
+    <lastmod>2024-02-13T17:18:12.235Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math3570-s24.github.io/website/weeks/week-4.html</loc>
+    <lastmod>2024-02-13T17:18:12.624Z</lastmod>
   </url>
   <url>
     <loc>https://math3570-s24.github.io/website/weeks/week-1.html</loc>
-    <lastmod>2024-02-08T19:23:04.366Z</lastmod>
+    <lastmod>2024-02-13T17:18:13.010Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math3570-s24.github.io/website/weeks/week-3.html</loc>
+    <lastmod>2024-02-13T17:18:13.381Z</lastmod>
   </url>
   <url>
     <loc>https://math3570-s24.github.io/website/weeks/week-2.html</loc>
-    <lastmod>2024-02-08T19:23:05.075Z</lastmod>
+    <lastmod>2024-02-13T17:18:13.759Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math3570-s24.github.io/website/weeks/week-10.html</loc>
+    <lastmod>2024-02-13T17:18:14.138Z</lastmod>
   </url>
   <url>
     <loc>https://math3570-s24.github.io/website/weeks/week-11.html</loc>
-    <lastmod>2024-02-08T19:23:05.745Z</lastmod>
+    <lastmod>2024-02-13T17:18:14.521Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math3570-s24.github.io/website/weeks/week-13.html</loc>
+    <lastmod>2024-02-13T17:18:14.901Z</lastmod>
   </url>
   <url>
     <loc>https://math3570-s24.github.io/website/weeks/week-12.html</loc>
-    <lastmod>2024-02-08T19:23:06.382Z</lastmod>
+    <lastmod>2024-02-13T17:18:15.288Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math3570-s24.github.io/website/weeks/week-9.html</loc>
+    <lastmod>2024-02-13T17:18:15.652Z</lastmod>
   </url>
   <url>
     <loc>https://math3570-s24.github.io/website/weeks/week-16.html</loc>
-    <lastmod>2024-02-08T19:23:07.476Z</lastmod>
+    <lastmod>2024-02-13T17:18:16.240Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math3570-s24.github.io/website/weeks/week-8.html</loc>
+    <lastmod>2024-02-13T17:18:16.788Z</lastmod>
   </url>
   <url>
     <loc>https://math3570-s24.github.io/website/weeks/week-15.html</loc>
-    <lastmod>2024-02-08T19:23:08.591Z</lastmod>
+    <lastmod>2024-02-13T17:18:17.357Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math3570-s24.github.io/website/weeks/week-14.html</loc>
+    <lastmod>2024-02-13T17:18:17.735Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math3570-s24.github.io/website/hw/hw1.html</loc>
+    <lastmod>2024-02-13T17:18:18.524Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math3570-s24.github.io/website/course-overview.html</loc>
+    <lastmod>2024-02-13T17:18:19.231Z</lastmod>
   </url>
   <url>
     <loc>https://math3570-s24.github.io/website/index.html</loc>
-    <lastmod>2024-02-08T19:23:10.189Z</lastmod>
+    <lastmod>2024-02-13T17:18:19.688Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math3570-s24.github.io/website/course-news.html</loc>
+    <lastmod>2024-02-13T17:18:20.036Z</lastmod>
   </url>
   <url>
     <loc>https://math3570-s24.github.io/website/slides/13-dplyr-2.html</loc>
-    <lastmod>2024-02-08T19:23:12.671Z</lastmod>
+    <lastmod>2024-02-13T17:18:21.266Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math3570-s24.github.io/website/slides/08-import.html</loc>
+    <lastmod>2024-02-13T17:18:22.539Z</lastmod>
   </url>
   <url>
     <loc>https://math3570-s24.github.io/website/slides/18-knn.html</loc>
-    <lastmod>2024-02-08T19:23:16.162Z</lastmod>
+    <lastmod>2024-02-13T17:18:26.175Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math3570-s24.github.io/website/slides/10-viz.html</loc>
+    <lastmod>2024-02-13T17:18:28.221Z</lastmod>
   </url>
   <url>
     <loc>https://math3570-s24.github.io/website/slides/16-linear-reg.html</loc>
-    <lastmod>2024-02-08T19:23:21.454Z</lastmod>
+    <lastmod>2024-02-13T17:18:29.556Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math3570-s24.github.io/website/slides/09-ggplot2.html</loc>
+    <lastmod>2024-02-13T17:18:31.664Z</lastmod>
   </url>
   <url>
     <loc>https://math3570-s24.github.io/website/slides/02-datascience.html</loc>
-    <lastmod>2024-02-08T19:23:26.109Z</lastmod>
+    <lastmod>2024-02-13T17:18:32.982Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math3570-s24.github.io/website/slides/17-logistic-reg.html</loc>
+    <lastmod>2024-02-13T17:18:34.262Z</lastmod>
   </url>
   <url>
     <loc>https://math3570-s24.github.io/website/slides/11-interactive-viz.html</loc>
-    <lastmod>2024-02-08T19:23:30.853Z</lastmod>
+    <lastmod>2024-02-13T17:18:38.913Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math3570-s24.github.io/website/slides/01-syllabus.html</loc>
+    <lastmod>2024-02-13T17:18:39.940Z</lastmod>
   </url>
   <url>
     <loc>https://math3570-s24.github.io/website/slides/20-kmeans.html</loc>
-    <lastmod>2024-02-08T19:23:33.883Z</lastmod>
+    <lastmod>2024-02-13T17:18:41.184Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math3570-s24.github.io/website/slides/15-probstat.html</loc>
+    <lastmod>2024-02-13T17:18:42.565Z</lastmod>
   </url>
   <url>
     <loc>https://math3570-s24.github.io/website/slides/12-dplyr-1.html</loc>
-    <lastmod>2024-02-08T19:23:38.667Z</lastmod>
+    <lastmod>2024-02-13T17:18:44.570Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math3570-s24.github.io/website/slides/07-package.html</loc>
+    <lastmod>2024-02-13T17:18:46.179Z</lastmod>
   </url>
   <url>
     <loc>https://math3570-s24.github.io/website/slides/04-git.html</loc>
-    <lastmod>2024-02-08T19:23:42.470Z</lastmod>
+    <lastmod>2024-02-13T17:18:47.255Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math3570-s24.github.io/website/slides/05-quarto.html</loc>
+    <lastmod>2024-02-13T17:18:49.995Z</lastmod>
   </url>
   <url>
     <loc>https://math3570-s24.github.io/website/slides/19-pca.html</loc>
-    <lastmod>2024-02-08T19:23:47.389Z</lastmod>
+    <lastmod>2024-02-13T17:18:51.674Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math3570-s24.github.io/website/slides/03-posit.html</loc>
+    <lastmod>2024-02-13T17:18:53.578Z</lastmod>
   </url>
   <url>
     <loc>https://math3570-s24.github.io/website/slides/06-syntax.html</loc>
-    <lastmod>2024-02-08T19:23:53.202Z</lastmod>
+    <lastmod>2024-02-13T17:18:57.403Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math3570-s24.github.io/website/slides/14-tidyr.html</loc>
+    <lastmod>2024-02-13T17:18:58.761Z</lastmod>
   </url>
   <url>
     <loc>https://math3570-s24.github.io/website/exercise/lab11-ggplot2.html</loc>
-    <lastmod>2024-02-08T19:23:55.587Z</lastmod>
+    <lastmod>2024-02-13T17:18:59.327Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math3570-s24.github.io/website/exercise/lab13-visualization.html</loc>
+    <lastmod>2024-02-13T17:18:59.903Z</lastmod>
   </url>
   <url>
     <loc>https://math3570-s24.github.io/website/exercise/lab18-prob.html</loc>
-    <lastmod>2024-02-08T19:23:56.416Z</lastmod>
+    <lastmod>2024-02-13T17:19:00.278Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math3570-s24.github.io/website/exercise/lab12-facet.html</loc>
+    <lastmod>2024-02-13T17:19:00.822Z</lastmod>
   </url>
   <url>
     <loc>https://math3570-s24.github.io/website/exercise/lab05-rtype.html</loc>
-    <lastmod>2024-02-08T19:23:57.335Z</lastmod>
+    <lastmod>2024-02-13T17:19:01.393Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math3570-s24.github.io/website/exercise/lab06-py.html</loc>
+    <lastmod>2024-02-13T17:19:01.967Z</lastmod>
   </url>
   <url>
     <loc>https://math3570-s24.github.io/website/exercise/lab22-knn.html</loc>
-    <lastmod>2024-02-08T19:23:58.467Z</lastmod>
+    <lastmod>2024-02-13T17:19:02.523Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math3570-s24.github.io/website/exercise/lab24-kmeans.html</loc>
+    <lastmod>2024-02-13T17:19:03.054Z</lastmod>
   </url>
   <url>
     <loc>https://math3570-s24.github.io/website/exercise/lab01-rscript.html</loc>
-    <lastmod>2024-02-08T19:23:59.365Z</lastmod>
+    <lastmod>2024-02-13T17:19:03.589Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math3570-s24.github.io/website/exercise/lab16-join.html</loc>
+    <lastmod>2024-02-13T17:19:04.165Z</lastmod>
   </url>
   <url>
     <loc>https://math3570-s24.github.io/website/exercise/lab14-interactive.html</loc>
-    <lastmod>2024-02-08T19:24:00.288Z</lastmod>
+    <lastmod>2024-02-13T17:19:04.754Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math3570-s24.github.io/website/exercise/lab20-slr.html</loc>
+    <lastmod>2024-02-13T17:19:05.154Z</lastmod>
   </url>
   <url>
     <loc>https://math3570-s24.github.io/website/exercise/lab09-numpy.html</loc>
-    <lastmod>2024-02-08T19:24:01.034Z</lastmod>
+    <lastmod>2024-02-13T17:19:05.679Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math3570-s24.github.io/website/exercise/lab21-logistic.html</loc>
+    <lastmod>2024-02-13T17:19:06.237Z</lastmod>
   </url>
   <url>
     <loc>https://math3570-s24.github.io/website/exercise/lab08-tibble.html</loc>
-    <lastmod>2024-02-08T19:24:01.987Z</lastmod>
+    <lastmod>2024-02-13T17:19:06.739Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math3570-s24.github.io/website/exercise/lab23-pca.html</loc>
+    <lastmod>2024-02-13T17:19:07.124Z</lastmod>
   </url>
   <url>
     <loc>https://math3570-s24.github.io/website/exercise/lab03-markdown.html</loc>
-    <lastmod>2024-02-08T19:24:02.628Z</lastmod>
+    <lastmod>2024-02-13T17:19:07.506Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math3570-s24.github.io/website/exercise/lab04-chunk.html</loc>
+    <lastmod>2024-02-13T17:19:07.898Z</lastmod>
   </url>
   <url>
     <loc>https://math3570-s24.github.io/website/exercise/lab19-ci.html</loc>
-    <lastmod>2024-02-08T19:24:03.416Z</lastmod>
+    <lastmod>2024-02-13T17:19:08.436Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math3570-s24.github.io/website/exercise/lab17-tidyr.html</loc>
+    <lastmod>2024-02-13T17:19:08.983Z</lastmod>
   </url>
   <url>
     <loc>https://math3570-s24.github.io/website/exercise/lab02-quarto.html</loc>
-    <lastmod>2024-02-08T19:24:04.218Z</lastmod>
+    <lastmod>2024-02-13T17:19:09.360Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math3570-s24.github.io/website/exercise/lab10-import.html</loc>
+    <lastmod>2024-02-13T17:19:09.911Z</lastmod>
   </url>
   <url>
     <loc>https://math3570-s24.github.io/website/exercise/lab00-git.html</loc>
-    <lastmod>2024-02-08T19:24:05.207Z</lastmod>
+    <lastmod>2024-02-13T17:19:10.404Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math3570-s24.github.io/website/exercise/lab00-posit.html</loc>
+    <lastmod>2024-02-13T17:19:10.788Z</lastmod>
   </url>
   <url>
     <loc>https://math3570-s24.github.io/website/exercise/lab15-dplyr.html</loc>
-    <lastmod>2024-02-08T19:24:05.999Z</lastmod>
+    <lastmod>2024-02-13T17:19:11.327Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math3570-s24.github.io/website/exercise/lab07-plot.html</loc>
+    <lastmod>2024-02-13T17:19:11.702Z</lastmod>
   </url>
   <url>
     <loc>https://math3570-s24.github.io/website/project-description.html</loc>
-    <lastmod>2024-02-08T19:24:06.701Z</lastmod>
+    <lastmod>2024-02-13T17:19:12.125Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math3570-s24.github.io/website/course-syllabus.html</loc>
+    <lastmod>2024-02-13T17:19:12.608Z</lastmod>
   </url>
 </urlset>
