@@ -1499,39 +1499,39 @@ pd._____________(dic)
 :::
 
 
-<!-- ## Lab Bonus! -->
+## Lab Bonus!
 
-<!-- - Happy **R**alentine's Day! ❤️ -->
+- Happy **R**alentine's Day! ❤️
 
-<!-- ```{r} -->
-<!-- #| eval: false -->
-<!-- x <- seq(0, 2*pi, by = 0.01) -->
-<!-- xhrt <- 16 * sin(x) ^ 3 -->
-<!-- yhrt <- 13 * cos(x) - 5 * cos(2*x) - 2 * cos(3*x) - cos(4*x) -->
-<!-- par(mar = c(0, 0, 0, 0)) -->
-<!-- plot(xhrt, yhrt, type = "l", axes = FALSE, xlab = "", ylab = "") -->
-<!-- polygon(xhrt, yhrt, col = "red", border = NA) -->
-<!-- points(c(10,-10, -15, 15), c(-10, -10, 10, 10), pch = 169, font = 5) -->
-<!-- text(0, 0, "Happy Valentine's Day!", font = 2, cex = 2, col = "pink") -->
-<!-- ``` -->
+```{r}
+#| eval: false
+x <- seq(0, 2*pi, by = 0.01)
+xhrt <- 16 * sin(x) ^ 3
+yhrt <- 13 * cos(x) - 5 * cos(2*x) - 2 * cos(3*x) - cos(4*x)
+par(mar = c(0, 0, 0, 0))
+plot(xhrt, yhrt, type = "l", axes = FALSE, xlab = "", ylab = "")
+polygon(xhrt, yhrt, col = "red", border = NA)
+points(c(10,-10, -15, 15), c(-10, -10, 10, 10), pch = 169, font = 5)
+text(0, 0, "Happy Valentine's Day!", font = 2, cex = 2, col = "pink")
+```
 
-<!-- ## Lab Bonus! -->
+## Lab Bonus!
 
-<!-- - Happy **Py**lentine's Day! ❤️ -->
+- Happy **Py**lentine's Day! ❤️
 
-<!-- ```{python} -->
-<!-- #| eval: false -->
-<!-- lines = [] -->
-<!-- msg = "~Happy Valentine's Day!~" -->
-<!-- for y in range(15, -15, -1): -->
-<!--     line = "" -->
-<!--     for x in range(-30, 30): -->
-<!--         f = ((x * 0.05) ** 2 + (y * 0.1) ** 2 - 1) ** 3 - (x * 0.05) ** 2 * (y * 0.1) ** 3 -->
-<!--         line += msg[(x - y) % len(msg)] if f <= 0 else " " -->
-<!--     lines.append(line) -->
+```{python}
+#| eval: false
+lines = []
+msg = "~Happy Valentine's Day!~"
+for y in range(15, -15, -1):
+    line = ""
+    for x in range(-30, 30):
+        f = ((x * 0.05) ** 2 + (y * 0.1) ** 2 - 1) ** 3 - (x * 0.05) ** 2 * (y * 0.1) ** 3
+        line += msg[(x - y) % len(msg)] if f <= 0 else " "
+    lines.append(line)
 
-<!-- print("\n".join(lines)) -->
-<!-- ``` -->
+print("\n".join(lines))
+```
 
 
 ## Resources
