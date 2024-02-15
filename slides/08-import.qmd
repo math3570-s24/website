@@ -137,7 +137,7 @@ import matplotlib.pyplot as plt
 
 # {background-color="#A7D5E8"}
 
-![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/readr.png){width="180"}![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/readxl.png){width="180"}![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/feather.png){width="180"}![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/haven.png){width="180"}![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/rvest.png){width="180"}![](./images/08-import/vroom_logo.png){width="180"}![](./images/08-import/datatable_logo.png){width="180"}![](./images/08-import/rio_logo.png){width="180"}![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/googlesheets4.png){width="180"}![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/sparklyr.png){width="180"}
+![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/readr.png){width="180"}![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/readxl.png){width="180"}![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/haven.png){width="180"}![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/rvest.png){width="180"}![](./images/08-import/arrow.png){width="180"}![](./images/08-import/vroom_logo.png){width="180"}![](./images/08-import/datatable_logo.png){width="180"}![](https://raw.githubusercontent.com/gesistsa/rio/main/man/figures/logo.svg){width="180"}![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/googlesheets4.png){width="180"}![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/sparklyr.png){width="180"}
 <h3>DBI, jsonline, xml2, httr</h3> 
 
 <h1>R Data Importing</h1>
@@ -616,104 +616,131 @@ mydf = pd.read_csv('./data/wdf.csv')
 mydf.head()
 ```
 
-## `pd.read_excel`
 
-:::{.callout-warning}
+<!-- ## `pd.read_excel` {visibility="hidden"} -->
 
-:::{style="font-size: 1.2em;"}
-[`pd.read_excel()`](https://pandas.pydata.org/docs/reference/api/pandas.read_excel.html) needs other libraries installed.
+<!-- :::{.callout-warning} -->
 
--  `openpyxl` for `.xlsx` format
--  `xlrd` for `xls` format
-- `py_install("xlrd")` in R or `pip install pandas` or `conda install pandas` in the terminal.
-:::
+<!-- :::{style="font-size: 1.2em;"} -->
+<!-- [`pd.read_excel()`](https://pandas.pydata.org/docs/reference/api/pandas.read_excel.html) needs other libraries installed. -->
 
-:::
+<!-- -  `openpyxl` for `.xlsx` format -->
+<!-- -  `xlrd` for `xls` format -->
+<!-- - `py_install("xlrd")` in R or `pip install pandas` or `conda install pandas` in the terminal. -->
+<!-- ::: -->
 
-```{r}
-#| echo: false
-py_install("xlrd")
-```
+<!-- ::: -->
 
-```{python}
-df_x = pd.read_excel('./data/2010_bigfive_regents.xls', engine='xlrd',
-sheet_name="Sheet3", skiprows=1)
-df_x.head()
-```
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- py_install("xlrd") -->
+<!-- ``` -->
 
-
-
+<!-- ```{python} -->
+<!-- df_x = pd.read_excel('./data/2010_bigfive_regents.xls', engine='xlrd', -->
+<!-- sheet_name="Sheet3", skiprows=1) -->
+<!-- df_x.head() -->
+<!-- ``` -->
 
 
+<!-- ::: notes -->
+<!-- ImportError: Missing optional dependency 'openpyxl'.  Use pip or conda to install openpyxl. -->
+<!-- https://stackoverflow.com/questions/65250207/pandas-cannot-open-an-excel-xlsx-file -->
+<!-- ::: -->
 
 
-::: notes
-ImportError: Missing optional dependency 'openpyxl'.  Use pip or conda to install openpyxl.
-
-https://stackoverflow.com/questions/65250207/pandas-cannot-open-an-excel-xlsx-file
-:::
+<!-- # Other Importing Methods* -->
 
 
-# Other Importing Methods*
+<!-- # {background-color="#A7D5E8" background-image="./images/08-import/arrow.png" background-size="40%" background-position="70% 50%"} {visibility="hidden"} -->
+
+<!-- ::: {.left} -->
+<!-- <h2>Fast Reading and Writing</h2> -->
+<!-- <h2>Data Format in R and Python*</h2> -->
+<!-- ::: -->
+
+<!-- ## Apache Arrow for [R](https://arrow.apache.org/docs/r/) and [Python](https://arrow.apache.org/docs/python/) {visibility="hidden"} -->
+
+<!-- - Apache Arrow develops big data systems to process and move data fast. -->
+
+<!-- - Arrow -->
+
+<!--   + allows users to read and write data in a variety formats -->
+<!--   + provides data analysis tools for both in-memory and larger-than-memory data sets -->
+<!--   + provides access to remote filesystems and servers -->
+<!--   + zero-copy data sharing between R and Python -->
+
+<!-- - [R package](https://arrow.apache.org/docs/r/) -->
+<!-- ```{r} -->
+<!-- #| eval: false -->
+<!-- install.packages("arrow") -->
+<!-- library(arrow) -->
+<!-- ``` -->
+
+<!-- - [Python package](https://arrow.apache.org/docs/python/) -->
+
+<!-- ```bash -->
+<!-- pip install pyarrow -->
+<!-- ``` -->
+
+<!-- ```{python} -->
+<!-- #| eval: false -->
+<!-- import pyarrow as pa -->
+<!-- ``` -->
 
 
-# {background-color="#A7D5E8" background-image="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/feather.png" background-size="40%" background-position="70% 50%"}
-
-::: {.left}
-<h2>Fast Reading and Writing</h2>
-<h2>Data Format in R and Python</h2>
-:::
 
 
-## feather `r emo::ji("package")`
 
-- [**feather**](https://github.com/wesm/feather) is a binary file format for storing data frames.
-  + **Lightweight**: file size is smaller than CSV files (but larger than R native binary .Rds/.RData files)
-  + **Language agnostic**: feather files are the same in R and Python
-  + **High read and write performance**: faster than `read_csv()` and `read_rds()`.
+<!-- ## feather `r emo::ji("package")` {visibility="hidden"} -->
 
-
-```{r}
-#| label: feather
-#| purl: false
-
-library(feather)
-challenge <- read_csv(file = readr_example("challenge.csv"),
-                      col_types = readr::cols(x = readr::col_double(), 
-                                              y = readr::col_date()))
-# It is a `.feather` file
-feather::write_feather(x = challenge, 
-                       path = "./data/challenge.feather")
-```
+<!-- - [**feather**](https://github.com/wesm/feather) is a binary file format for storing data frames. -->
+<!--   + **Lightweight**: file size is smaller than CSV files (but larger than R native binary .Rds/.RData files) -->
+<!--   + **Language agnostic**: feather files are the same in R and Python -->
+<!--   + **High read and write performance**: faster than `read_csv()` and `read_rds()`. -->
 
 
-## Read `.feather` Data in Python
+<!-- ```{r} -->
+<!-- #| label: feather -->
+<!-- #| purl: false -->
 
-```{r}
-#| echo: false
-reticulate::py_install("pyarrow")
-```
-
-```{python}
-## Need to install PyArrow package `r py_install("pyarrow")`
-import pyarrow.feather as feather
-
-py_feather_df = feather.read_feather("./data/challenge.feather")
-py_feather_df.head()
-```
+<!-- library(feather) -->
+<!-- challenge <- read_csv(file = readr_example("challenge.csv"), -->
+<!--                       col_types = readr::cols(x = readr::col_double(),  -->
+<!--                                               y = readr::col_date())) -->
+<!-- # It is a `.feather` file -->
+<!-- feather::write_feather(x = challenge,  -->
+<!--                        path = "./data/challenge.feather") -->
+<!-- ``` -->
 
 
-## How Fast is feather ?!
+<!-- ## Read `.feather` Data in Python {visibility="hidden"} -->
 
-```{r, purl=FALSE}
-## Unit: seconds
-##                  expr   min    lq       mean median    uq   max neval
-## readr::read_csv()      27.0  28.0  29.770890   29.0  32.0  33.0    10
-## base::readRDS()         4.6   4.7   5.053674    5.1   5.3   5.6    10
-## feather::read_feather   1.5   1.8   2.988021    3.4   3.6   4.1    10
-```
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- reticulate::py_install("pyarrow") -->
+<!-- ``` -->
+
+<!-- ```{python} -->
+<!-- ## Need to install PyArrow package `r py_install("pyarrow")` -->
+<!-- import pyarrow.feather as feather -->
+
+<!-- py_feather_df = feather.read_feather("./data/challenge.feather") -->
+<!-- py_feather_df.head() -->
+<!-- ``` -->
 
 
-# {background-color="#A7D5E8"}
+<!-- ## How Fast is feather ?! {visibility="hidden"} -->
 
-![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/haven.png){width="180"}![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/rvest.png){width="180"}![](./images/08-import/vroom_logo.png){width="180"}![](./images/08-import/datatable_logo.png){width="180"}![](./images/08-import/rio_logo.png){width="180"}![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/googlesheets4.png){width="180"}![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/sparklyr.png){width="180"}
+<!-- ```{r, purl=FALSE} -->
+<!-- ## Unit: seconds -->
+<!-- ##                  expr   min    lq       mean median    uq   max neval -->
+<!-- ## readr::read_csv()      27.0  28.0  29.770890   29.0  32.0  33.0    10 -->
+<!-- ## base::readRDS()         4.6   4.7   5.053674    5.1   5.3   5.6    10 -->
+<!-- ## feather::read_feather   1.5   1.8   2.988021    3.4   3.6   4.1    10 -->
+<!-- ``` -->
+
+
+<!-- # {background-color="#A7D5E8"} {visibility="hidden"} -->
+
+<!-- ![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/haven.png){width="180"}![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/rvest.png){width="180"}![](./images/08-import/vroom_logo.png){width="180"}![](./images/08-import/datatable_logo.png){width="180"}![](./images/08-import/rio_logo.png){width="180"}![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/googlesheets4.png){width="180"}![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/sparklyr.png){width="180"} -->
