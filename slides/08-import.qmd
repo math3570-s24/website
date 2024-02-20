@@ -196,6 +196,7 @@ readr::read_lines("./data/murders.csv", n_max = 3)  ## there is a header
 ```{r}
 #| label: read_csv
 murders_csv <- read_csv(file = "./data/murders.csv")
+# Rows: 51 Columns: 5
 # ── Column specification ─────────────
 # Delimiter: ","
 # chr (3): state, abb, region
@@ -214,7 +215,7 @@ view(murders_csv)
 ::: notes
 - OK. Let's try to read the murders.csv file into R. We use read_csv(), and in the first argument, we tell R its file path. Your path is generally not the same as my path, so you get to change it to your path.
 - When we run `read_csv()`, it prints out a column specification that gives the **name** and **type** of each column.
-- You can see the data set is actually the one in the dslabs package, and we use it in a previous lab exercise, right?
+<!-- - You can see the data set is actually the one in the dslabs package, and we use it in a previous lab exercise, right? -->
 :::
 
 
@@ -575,13 +576,14 @@ excel_sheets("./data/2010_bigfive_regents.xls")
 - For example, here we ask R to read the Sheet1 in the favourite-food excel file.
 - We can also specify an integer that indicates the position of the sheet.
 - We don't have a lab exercise on this. You have data and code is right here. You can practice and see if you can read the excel file.
+range = cell_rows(102:151)
 :::
 
 
 # {background-color="#ffde57" background-image="https://upload.wikimedia.org/wikipedia/commons/e/ed/Pandas_logo.svg" background-size="40%" background-position="70% 50%"}
 ::: {.left}
 <h2>`pd.read_csv`</h2>
-<h2>`pd.read_excel`</h2>
+<!-- <h2>`pd.read_excel`</h2> -->
 <h2>`pd.DataFrame.to_csv`</h2>
 :::
 
