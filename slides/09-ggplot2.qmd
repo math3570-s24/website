@@ -136,36 +136,37 @@ import matplotlib.pyplot as plt
 <!-- # {background-color="#A7D5E8" background-image="https://raw.githubusercontent.com/hadley/r4ds/main/diagrams/data-science/visualize.png" background-size="contain"} -->
 
 
-## [Exploratory Data Analysis (EDA)](https://r4ds.hadley.nz/eda)
-- EDA is an approach to analyzing data sets to *summarize their main characteristics*.
+<!-- ## [Exploratory Data Analysis (EDA)](https://r4ds.hadley.nz/eda) {visibility="hidden"} -->
+
+<!-- - EDA is an approach to analyzing data sets to *summarize their main characteristics*. -->
+<!-- <!-- - Many widely used data analysis tools were initiated by discoveries made via EDA.  --> -->
+<!-- - EDA is perhaps the most important part of data analysis, yet it is one that is often overlooked. -->
+
+<!-- <!-- - Often, the strongest tool of EDA is **data visualization**.  --> -->
+
+<!-- > "The simple graph has brought more information to the data analyst’s mind than any other device." — John Tukey -->
+
+<!-- - We also calculate summary statistics and perform data wrangling/manipulation/transformation at (or before) this stage of doing data science.  -->
+
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- knitr::include_graphics("https://raw.githubusercontent.com/hadley/r4ds/main/diagrams/data-science/visualize.png") -->
+<!-- ``` -->
+
+<!-- ::: notes -->
+<!-- - After importing or reading data into R, the first thing we need to do is to understand our data.  -->
+<!--     - What are variables in the data set?  -->
+<!--     - Are the variables related in some way?  -->
+<!--     - Are there any missing values, outliers, or other weird values? -->
+<!--     - Do we need to transform some variables to make it easier to answer our research questions or to do our analysis. -->
+<!-- - So before doing data analysis, we should understand our data well, and be able to answer all those questions. This understanding helps us choose the correct model and algorithm and helps us do the correct analysis.  -->
+<!-- - The process of understanding our data is called Exploratory Data Analysis or EDA. -->
+<!-- - So I said here, EDA is an approach to analyzing data sets to summarize their main characteristics. -->
 <!-- - Many widely used data analysis tools were initiated by discoveries made via EDA.  -->
-- EDA is perhaps the most important part of data analysis, yet it is one that is often overlooked.
-
-<!-- - Often, the strongest tool of EDA is **data visualization**.  -->
-
-> "The simple graph has brought more information to the data analyst’s mind than any other device." — John Tukey
-
-- We also calculate summary statistics and perform data wrangling/manipulation/transformation at (or before) this stage of doing data science. 
-
-```{r}
-#| echo: false
-knitr::include_graphics("https://raw.githubusercontent.com/hadley/r4ds/main/diagrams/data-science/visualize.png")
-```
-
-::: notes
-- After importing or reading data into R, the first thing we need to do is to understand our data. 
-    - What are variables in the data set? 
-    - Are the variables related in some way? 
-    - Are there any missing values, outliers, or other weird values?
-    - Do we need to transform some variables to make it easier to answer our research questions or to do our analysis.
-- So before doing data analysis, we should understand our data well, and be able to answer all those questions. This understanding helps us choose the correct model and algorithm and helps us do the correct analysis. 
-- The process of understanding our data is called Exploratory Data Analysis or EDA.
-- So I said here, EDA is an approach to analyzing data sets to summarize their main characteristics.
-- Many widely used data analysis tools were initiated by discoveries made via EDA. 
-- EDA is perhaps the most important part of data analysis, yet it is one that is often overlooked. Again, without understanding our data, we may end up choosing a bad model for analysis because we may neglect some important information stored in the data set.
-- Often, the strongest tool of EDA is data visualization, and let's why we spend two weeks talking about it. 
-- We might also calculate summary statistics and perform data wrangling/manipulation/transformation at (or before) this stage of doing data science, which will be discussed after data visualization.
-:::
+<!-- - EDA is perhaps the most important part of data analysis, yet it is one that is often overlooked. Again, without understanding our data, we may end up choosing a bad model for analysis because we may neglect some important information stored in the data set. -->
+<!-- - Often, the strongest tool of EDA is data visualization, and let's why we spend two weeks talking about it.  -->
+<!-- - We might also calculate summary statistics and perform data wrangling/manipulation/transformation at (or before) this stage of doing data science, which will be discussed after data visualization. -->
+<!-- ::: -->
 
 
 
@@ -179,6 +180,12 @@ knitr::include_graphics("https://raw.githubusercontent.com/hadley/r4ds/main/diag
 
 
 ::: notes
+- After importing or reading data into R, the first thing we need to do is to understand our data. 
+    - What are variables in the data set? 
+    - Are the variables related in some way? 
+    - Are there any missing values, outliers, or other weird values?
+    - Do we need to transform some variables to make it easier to answer our research questions or to do our analysis.
+- So before doing data analysis, we should understand our data well, and be able to answer all those questions. This understanding helps us choose the correct model and algorithm and helps us do the correct analysis. 
 - this week and and next week, we will be talking about data visualization. 
 - So it is great to master this package because with the package you can produce lots of beautiful and amazing plots. All right. Let's dive in and see how to create a ggplot!
 :::
@@ -1481,7 +1488,7 @@ ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
 - For example, the top right one is the scatter plot of hwy mpg and displacement when drive is 4 and cylinder is 8.
 :::
 
-##
+## {visibility="hidden"}
 ```{r}
 #| cache: true
 #| warning: false
@@ -1499,7 +1506,7 @@ ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
 - And the ggplot will automatically create a display, so that each smaller plot is normally rectangular.
 :::
 
-##
+## {visibility="hidden"}
 ```{r}
 #| cache: true
 #| warning: false
@@ -1520,17 +1527,21 @@ ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
 #| out-width: "70%"
 ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
     geom_point() + 
-    facet_wrap(~ cyl, ncol = 3) #<<
+    facet_wrap(~ cyl, ncol = 2) #<<
 ```
 
 ::: notes
+- How about we want to create a scatter plot conditional on just one variable, say cylinder?
+- Instead of facet_grid(), we can use facet_wrap() function. 
+- Inside the parenthesis, we use ~ followed by the variable name cyl.
+- And the ggplot will automatically create a display, so that each smaller plot is normally rectangular.
 - If you don't like the default display, you can specify any number of rows or columns you like.
 - For example, here the number of column is 3.
 :::
 
 
 
-## Faceting Summary
+## Faceting Summary  {visibility="hidden"}
 
 - `facet_grid()`:
     - 2d grid
