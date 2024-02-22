@@ -404,20 +404,14 @@ Dr.&nbsp;Cheng-Han Yu <br> Department of Mathematical and Statistical Sciences <
 </div>
 </div>
 
-</section><section><section id="exploratory-data-analysis-eda" class="slide level2"><h2><a href="https://r4ds.hadley.nz/eda">Exploratory Data Analysis (EDA)</a></h2>
-<ul>
-<li>EDA is an approach to analyzing data sets to <em>summarize their main characteristics</em>. <!-- - Many widely used data analysis tools were initiated by discoveries made via EDA.  -->
-</li>
-<li>EDA is perhaps the most important part of data analysis, yet it is one that is often overlooked.</li>
-</ul>
-<!-- - Often, the strongest tool of EDA is **data visualization**.  --><blockquote>
-<p>“The simple graph has brought more information to the data analyst’s mind than any other device.” — John Tukey</p>
-</blockquote>
-<ul>
-<li>We also calculate summary statistics and perform data wrangling/manipulation/transformation at (or before) this stage of doing data science.</li>
-</ul>
-
-<img data-src="https://raw.githubusercontent.com/hadley/r4ds/main/diagrams/data-science/visualize.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><aside class="notes"><ul>
+</section><section><section id="section-1" class="title-slide slide level1 center" data-background-color="#A7D5E8"><h1></h1>
+<img data-src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/ggplot2.png" width="380"><img data-src="https://raw.githubusercontent.com/slowkow/ggrepel/master/man/figures/logo.svg" width="180"><img data-src="https://raw.githubusercontent.com/thomasp85/gganimate/master/man/figures/logo.png" width="180"><img data-src="https://raw.githubusercontent.com/sjmgarnier/viridis/master/hex_logo/viridis.svg" width="180"><img data-src="./images/09-ggplot2/patchwork_logo.png" width="180"><img data-src="./images/09-ggplot2/ggiraph_logo.png" width="180"><img data-src="https://raw.githubusercontent.com/ropensci/plotly/master/man/figures/plotly.png" width="380"><h3>
+gthemes, ggridges, ggbeeswarm, ggdendro, ggpubr, ggmap, ggradar, ggcorrplot, GGally, and more!
+</h3>
+<h1>
+Visualizing Data
+</h1>
+<aside class="notes"><ul>
 <li>After importing or reading data into R, the first thing we need to do is to understand our data.
 <ul>
 <li>What are variables in the data set?</li>
@@ -427,30 +421,6 @@ Dr.&nbsp;Cheng-Han Yu <br> Department of Mathematical and Statistical Sciences <
 </ul>
 </li>
 <li>So before doing data analysis, we should understand our data well, and be able to answer all those questions. This understanding helps us choose the correct model and algorithm and helps us do the correct analysis.</li>
-<li>The process of understanding our data is called Exploratory Data Analysis or EDA.</li>
-<li>So I said here, EDA is an approach to analyzing data sets to summarize their main characteristics.</li>
-<li>Many widely used data analysis tools were initiated by discoveries made via EDA.</li>
-<li>EDA is perhaps the most important part of data analysis, yet it is one that is often overlooked. Again, without understanding our data, we may end up choosing a bad model for analysis because we may neglect some important information stored in the data set.</li>
-<li>Often, the strongest tool of EDA is data visualization, and let’s why we spend two weeks talking about it.</li>
-<li>We might also calculate summary statistics and perform data wrangling/manipulation/transformation at (or before) this stage of doing data science, which will be discussed after data visualization.</li>
-</ul><style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside></section></section><section><section id="section-1" class="title-slide slide level1 center" data-background-color="#A7D5E8"><h1></h1>
-<img data-src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/ggplot2.png" width="380"><img data-src="https://raw.githubusercontent.com/slowkow/ggrepel/master/man/figures/logo.svg" width="180"><img data-src="https://raw.githubusercontent.com/thomasp85/gganimate/master/man/figures/logo.png" width="180"><img data-src="https://raw.githubusercontent.com/sjmgarnier/viridis/master/hex_logo/viridis.svg" width="180"><img data-src="./images/09-ggplot2/patchwork_logo.png" width="180"><img data-src="./images/09-ggplot2/ggiraph_logo.png" width="180"><img data-src="https://raw.githubusercontent.com/ropensci/plotly/master/man/figures/plotly.png" width="380"><h3>
-gthemes, ggridges, ggbeeswarm, ggdendro, ggpubr, ggmap, ggradar, ggcorrplot, GGally, and more!
-</h3>
-<h1>
-Visualizing Data
-</h1>
-<aside class="notes"><ul>
 <li>this week and and next week, we will be talking about data visualization.</li>
 <li>So it is great to master this package because with the package you can produce lots of beautiful and amazing plots. All right. Let’s dive in and see how to create a ggplot!</li>
 </ul><style type="text/css">
@@ -471,6 +441,15 @@ Visualizing Data
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
 <figure><p><img data-src="images/09-ggplot2/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
@@ -481,15 +460,6 @@ Visualizing Data
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure><p><img data-src="images/09-ggplot2/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:33%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -630,14 +600,14 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 <div id="tabset-1-2">
-<div class="cell" data-layout-align="center" data-labrel="mpg" data-hash="09-ggplot2_cache/revealjs/mpg_b207c4428c7333b2261860be5c9582fb">
+<div class="cell" data-layout-align="center" data-labrel="mpg">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg,</span>
 <span id="cb5-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, </span>
 <span id="cb5-3"><a></a>                     <span class="at">y =</span> hwy, </span>
@@ -682,7 +652,7 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -709,7 +679,7 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 </blockquote>
 <div class="columns">
 <div class="column" style="width:40%;">
-<div class="cell" data-layout-align="center" data-hash="09-ggplot2_cache/revealjs/mpg-1_d78590deeb0cd3c65c8445f3e820fe53">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>,</span>
 <span>       mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span><span class="op">)</span><span class="op">)</span> <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -721,7 +691,7 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -753,7 +723,7 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 </blockquote>
 <div class="columns">
 <div class="column" style="width:40%;">
-<div class="cell" data-layout-align="center" data-hash="09-ggplot2_cache/revealjs/mpg-2_ae3f717a41dbe61e92009fd15b068373">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>,</span>
 <span>       mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>,</span>
 <span>                     y <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span> <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -765,7 +735,7 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -794,7 +764,7 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 </blockquote>
 <div class="columns">
 <div class="column" style="width:40%;">
-<div class="cell" data-layout-align="center" data-hash="09-ggplot2_cache/revealjs/mpg-3_07d02c18d37a9a43d0d64ddbe2420ae4">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>,</span>
 <span>       mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, </span>
 <span>                     y <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
@@ -814,7 +784,7 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -838,7 +808,7 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 </blockquote>
 <div class="columns">
 <div class="column" style="width:40%;">
-<div class="cell" data-layout-align="center" data-hash="09-ggplot2_cache/revealjs/mpg-4_d1c1c3455d13ee42ab66e6c46a936834">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>,</span>
 <span>       mapping <span class="op">=</span> </span>
 <span>         <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, </span>
@@ -854,7 +824,7 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -883,7 +853,7 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 <div class="midi">
 <div class="columns">
 <div class="column" style="width:40%;">
-<div class="cell" data-layout-align="center" data-hash="09-ggplot2_cache/revealjs/mpg-5_afcc9a7a301c0cf71715bd611976521a">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>,</span>
 <span>       mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, </span>
 <span>                     y <span class="op">=</span> <span class="va">hwy</span>, </span>
@@ -900,7 +870,7 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-22-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-21-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -928,7 +898,7 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 <div class="midi">
 <div class="columns">
 <div class="column" style="width:40%;">
-<div class="cell" data-layout-align="center" data-hash="09-ggplot2_cache/revealjs/mpg-6_244054664d75d06f07ab027d02e87947">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>,</span>
 <span>       mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, </span>
 <span>                     y <span class="op">=</span> <span class="va">hwy</span>, </span>
@@ -947,7 +917,7 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-24-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-23-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -980,7 +950,7 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 <div class="midi">
 <div class="columns">
 <div class="column" style="width:40%;">
-<div class="cell" data-layout-align="center" data-hash="09-ggplot2_cache/revealjs/mpg-7_18fd02028ec5a5cd41993e60151040d2">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>,</span>
 <span>       mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, </span>
 <span>                     y <span class="op">=</span> <span class="va">hwy</span>, </span>
@@ -997,7 +967,7 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-26-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-25-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1024,7 +994,7 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 <div class="midi">
 <div class="columns">
 <div class="column" style="width:40%;">
-<div class="cell" data-layout-align="center" data-hash="09-ggplot2_cache/revealjs/mpg-8_9f31fc292b8fc72fcd100b0cb18d6672">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>,</span>
 <span>       mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, </span>
 <span>                     y <span class="op">=</span> <span class="va">hwy</span>, </span>
@@ -1045,7 +1015,7 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-28-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-27-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1074,7 +1044,7 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 <div class="midi">
 <div class="columns">
 <div class="column" style="width:40%;">
-<div class="cell" data-layout-align="center" data-hash="09-ggplot2_cache/revealjs/mpg-9_80f5e5f2a84a46da639276c25fbb3d22">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>,</span>
 <span>       mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, </span>
 <span>                     y <span class="op">=</span> <span class="va">hwy</span>, </span>
@@ -1093,7 +1063,7 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-30-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-29-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1121,7 +1091,7 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 <div class="midi">
 <div class="columns">
 <div class="column" style="width:40%;">
-<div class="cell" data-layout-align="center" data-hash="09-ggplot2_cache/revealjs/mpg-10_10af92e776fbe54a215e33b02ee3938f">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>,</span>
 <span>       mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, </span>
 <span>                     y <span class="op">=</span> <span class="va">hwy</span>, </span>
@@ -1141,7 +1111,7 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-32-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-31-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1173,10 +1143,10 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 <li><p>Use <code><a href="https://readr.tidyverse.org/reference/read_delim.html">readr::read_csv()</a></code> to import the data <strong>penguins.csv</strong> into your R workspace.</p></li>
 <li><p>Generate the following ggplot:</p></li>
 </ul>
-<div class="cell" data-layout-align="center" data-hash="09-ggplot2_cache/revealjs/unnamed-chunk-33_ab89954e1b455efb2e5520c7f3afd0f3">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-33-1.png" class="quarto-figure quarto-figure-center" style="width:55.0%"></p>
+<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-32-1.png" class="quarto-figure quarto-figure-center" style="width:55.0%"></p>
 </figure>
 </div>
 </div>
@@ -1199,7 +1169,7 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 </section><section id="assign-a-plot-to-an-object" class="slide level2"><h2>Assign a Plot to an Object</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center" data-hash="09-ggplot2_cache/revealjs/assign_26369fb388bfcaef076ef05d5b5ab14a">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>,</span>
 <span>            mapping <span class="op">=</span> </span>
 <span>                <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, </span>
@@ -1219,7 +1189,7 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center" data-hash="09-ggplot2_cache/revealjs/unnamed-chunk-36_28f786028cd235cb837bd3af4e0b986b">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span></span>
 <span>      title <span class="op">=</span> <span class="st">"Engine Size vs. Fuel Efficiency"</span>,</span>
 <span>      subtitle <span class="op">=</span> <span class="st">"Dimensions for class"</span>,</span>
@@ -1230,7 +1200,7 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 <span>    <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-36-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-35-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1260,7 +1230,7 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 <p><code><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_grey()</a></code> (default), <code><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw()</a></code>, <code><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_dark()</a></code>, <code><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic()</a></code>, etc.</p>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center" data-hash="09-ggplot2_cache/revealjs/theme-1_505098d71e7cdded40291bb6c425369a">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>p <span class="sc">+</span> <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -1270,7 +1240,7 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center" data-hash="09-ggplot2_cache/revealjs/theme-2_0c15cfa0652997ed2b65f6e44b4965a9">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>p <span class="sc">+</span> <span class="fu">theme_dark</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -1304,7 +1274,7 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 </ul>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center" data-hash="09-ggplot2_cache/revealjs/ggthemes-1_d20d2ed886bbdfe169e9194e37e1f941">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>p <span class="sc">+</span> ggthemes<span class="sc">::</span><span class="fu">theme_economist</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -1314,7 +1284,7 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center" data-hash="09-ggplot2_cache/revealjs/ggthemes-2_f46c0ce17f17a4d4eaa2fa46575e29be">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>p <span class="sc">+</span> ggthemes<span class="sc">::</span><span class="fu">theme_fivethirtyeight</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -1364,7 +1334,7 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-43-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-42-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1424,7 +1394,7 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
       }</style></aside></section><section id="colour" class="slide level2"><h2>Colour</h2>
 <div class="columns">
 <div class="column" style="width:35%;">
-<div class="cell" data-layout-align="center" data-hash="09-ggplot2_cache/revealjs/colour_2642d2c5b88e031f2910254bfec35892">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="fu">ggplot</span>(</span>
 <span id="cb27-2"><a></a>    <span class="at">data =</span> mpg,</span>
 <span id="cb27-3"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
@@ -1434,10 +1404,10 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 <span id="cb27-7"><a></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:65%;">
-<div class="cell" data-layout-align="center" data-hash="09-ggplot2_cache/revealjs/unnamed-chunk-45_095bf003f81f3fc6a3fc09089cabbf8e">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-45-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-44-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1459,7 +1429,7 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 <p>Mapped to a different variable than <code>colour</code></p>
 <div class="columns">
 <div class="column" style="width:35%;">
-<div class="cell" data-layout-align="center" data-hash="09-ggplot2_cache/revealjs/shape-trans_8bc11e344ce133cc3a080decc447da4e">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="fu">ggplot</span>(</span>
 <span id="cb28-2"><a></a>    <span class="at">data =</span> mpg,</span>
 <span id="cb28-3"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
@@ -1470,10 +1440,10 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 <span id="cb28-8"><a></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:65%;">
-<div class="cell" data-layout-align="center" data-hash="09-ggplot2_cache/revealjs/unnamed-chunk-47_73f6dff0593f665bdd84d6f25d61d31d">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-47-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-46-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1497,7 +1467,7 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 <p>Mapped to same variable as <code>colour</code></p>
 <div class="columns">
 <div class="column" style="width:35%;">
-<div class="cell" data-layout-align="center" data-hash="09-ggplot2_cache/revealjs/shape-class_27611bbae3504ba134174cdbacbec2be">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="fu">ggplot</span>(</span>
 <span id="cb29-2"><a></a>    <span class="at">data =</span> mpg,</span>
 <span id="cb29-3"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
@@ -1508,10 +1478,10 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 <span id="cb29-8"><a></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:65%;">
-<div class="cell" data-layout-align="center" data-hash="09-ggplot2_cache/revealjs/unnamed-chunk-49_d4770702868e02443b7767ff7f32d68f">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-49-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-48-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1535,7 +1505,7 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
       }</style></aside></section><section id="size" class="slide level2"><h2>Size</h2>
 <div class="columns">
 <div class="column" style="width:35%;">
-<div class="cell" data-layout-align="center" data-hash="09-ggplot2_cache/revealjs/size_3812750e7a261f107de97f92bf15a98e">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a><span class="fu">ggplot</span>(</span>
 <span id="cb30-2"><a></a>    <span class="at">data =</span> mpg,</span>
 <span id="cb30-3"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
@@ -1547,10 +1517,10 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 <span id="cb30-9"><a></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:65%;">
-<div class="cell" data-layout-align="center" data-hash="09-ggplot2_cache/revealjs/unnamed-chunk-51_8470ad480150b42b47730d93f54a0ebb">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-51-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-50-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1574,7 +1544,7 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
       }</style></aside></section><section id="alpha" class="slide level2"><h2>Alpha</h2>
 <div class="columns">
 <div class="column" style="width:35%;">
-<div class="cell" data-layout-align="center" data-hash="09-ggplot2_cache/revealjs/alpha_eaf8104b054859bc5a62e84db88372b5">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="fu">ggplot</span>(</span>
 <span id="cb31-2"><a></a>    <span class="at">data =</span> mpg,</span>
 <span id="cb31-3"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
@@ -1587,10 +1557,10 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 <span id="cb31-10"><a></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:65%;">
-<div class="cell" data-layout-align="center" data-hash="09-ggplot2_cache/revealjs/unnamed-chunk-53_2efa167e8167813b068c1e02204740b1">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-53-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-52-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1623,7 +1593,7 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 <li>Goes into <code><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes()</a></code>.</li>
 </ul>
 </div><div class="column" style="width:65%;">
-<div class="cell" data-layout-align="center" data-hash="09-ggplot2_cache/revealjs/unnamed-chunk-54_dd05dfc8a1111514b873e0f6bcf8d41b">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg,</span>
 <span id="cb32-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, </span>
 <span id="cb32-3"><a></a>                     <span class="at">y =</span> hwy, </span>
@@ -1632,7 +1602,7 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 <span id="cb32-6"><a></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-54-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-53-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1669,14 +1639,14 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 <li>goes into <code>geom_*()</code>.</li>
 </ul>
 </div><div class="column" style="width:65%;">
-<div class="cell" data-layout-align="center" data-hash="09-ggplot2_cache/revealjs/unnamed-chunk-55_54b8f0dc74897c093a2eb1d95c58cade">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg,</span>
 <span id="cb33-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, </span>
 <span id="cb33-3"><a></a>                     <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
 <span id="cb33-4"><a></a>    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">5</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-55-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-54-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1733,13 +1703,13 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
           overflow: hidden!important;
           display:block!important;
       }</style></aside></section><section id="section-17" class="slide level2"><h2></h2>
-<div class="cell" data-layout-align="center" data-hash="09-ggplot2_cache/revealjs/unnamed-chunk-56_03b50d5ee9e7188ab232300337561489">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>
 <span id="cb34-2"><a></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
 <span id="cb34-3"><a></a>    <span class="fu">facet_grid</span>(drv <span class="sc">~</span> cyl)  <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="images/09-ggplot2/unnamed-chunk-56-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><aside class="notes"><ul>
+<img data-src="images/09-ggplot2/unnamed-chunk-55-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><aside class="notes"><ul>
 <li>Suppose again we would like to see the relationship between hwy and displacement.</li>
 <li>But now we want to see their relationship given at a different number of cylinders and type of drive trains.</li>
 <li>And we can create several scatterplots, each at a particular number of cylinders and type of drive trains.</li>
@@ -1758,55 +1728,18 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
           width: 1px!important;
           overflow: hidden!important;
           display:block!important;
-      }</style></aside></section><section id="section-18" class="slide level2"><h2></h2>
-<div class="cell" data-layout-align="center" data-hash="09-ggplot2_cache/revealjs/unnamed-chunk-57_f2d414305c53ddd89172c4516a6886f8">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>
-<span id="cb35-2"><a></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb35-3"><a></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span> cyl)  <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+      }</style></aside></section><section id="section-20" class="slide level2"><h2></h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>
+<span id="cb37-2"><a></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb37-3"><a></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span> cyl, <span class="at">ncol =</span> <span class="dv">2</span>) <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="images/09-ggplot2/unnamed-chunk-57-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><aside class="notes"><ul>
+<img data-src="images/09-ggplot2/unnamed-chunk-58-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><aside class="notes"><ul>
 <li>How about we want to create a scatter plot conditional on just one variable, say cylinder?</li>
 <li>Instead of facet_grid(), we can use facet_wrap() function.</li>
 <li>Inside the parenthesis, we use ~ followed by the variable name cyl.</li>
 <li>And the ggplot will automatically create a display, so that each smaller plot is normally rectangular.</li>
-</ul><style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside></section><section id="section-19" class="slide level2"><h2></h2>
-<div class="cell" data-layout-align="center" data-hash="09-ggplot2_cache/revealjs/unnamed-chunk-58_32199c8b0e782babac45440cd74f2755">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>
-<span id="cb36-2"><a></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb36-3"><a></a>    <span class="fu">facet_wrap</span>(<span class="st">"cyl"</span>)  <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="images/09-ggplot2/unnamed-chunk-58-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><aside class="notes"><ul>
-<li>If you don’t like vars(), you can use ““. It gives you the same plot as well. OK</li>
-</ul><style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside></section><section id="section-20" class="slide level2"><h2></h2>
-<div class="cell" data-layout-align="center" data-hash="09-ggplot2_cache/revealjs/unnamed-chunk-59_cd742a6389657e0786343563ea054e93">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>
-<span id="cb37-2"><a></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb37-3"><a></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span> cyl, <span class="at">ncol =</span> <span class="dv">3</span>) <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="images/09-ggplot2/unnamed-chunk-59-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><aside class="notes"><ul>
 <li>If you don’t like the default display, you can specify any number of rows or columns you like.</li>
 <li>For example, here the number of column is 3.</li>
 </ul><style type="text/css">
@@ -1819,41 +1752,8 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
           width: 1px!important;
           overflow: hidden!important;
           display:block!important;
-      }</style></aside></section><section id="faceting-summary" class="slide level2"><h2>Faceting Summary</h2>
-<ul>
-<li>
-<code><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid()</a></code>:
-<ul>
-<li>2d grid</li>
-<li><code>rows ~ cols</code></li>
-</ul>
-</li>
-<li>
-<code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap()</a></code>: 1d ribbon wrapped according to number of rows and columns specified or available plotting area</li>
-</ul>
-<aside class="notes"><ul>
-<li>
-<code><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid()</a></code>:
-<ul>
-<li>2d grid</li>
-<li><code>rows ~ cols</code></li>
-<li>use <code>.</code> for no split (no rows or no cols)</li>
-</ul>
-</li>
-<li>
-<code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap()</a></code>: 1d ribbon wrapped according to number of rows and columns specified or available plotting area</li>
-</ul><style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
       }</style></aside></section><section id="facet-and-color" class="slide level2"><h2>Facet and Color</h2>
-<div class="cell" data-layout-align="center" data-hash="09-ggplot2_cache/revealjs/facet-color-legend_429d36dcc926838bc54751bfe0e8c8ef">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, </span>
 <span id="cb38-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy,</span>
 <span id="cb38-3"><a></a>                     <span class="at">color =</span> drv)) <span class="sc">+</span></span>
@@ -1876,7 +1776,7 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
           overflow: hidden!important;
           display:block!important;
       }</style></aside></section><section id="facet-and-color-with-no-legend" class="slide level2"><h2>Facet and Color with no Legend</h2>
-<div class="cell" data-layout-align="center" data-hash="09-ggplot2_cache/revealjs/facet-color-no-legend_b8ffa2c60e1d9e7e88df18b7fa9a51d8">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, </span>
 <span id="cb39-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> drv)) <span class="sc">+</span></span>
 <span id="cb39-3"><a></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
@@ -1899,17 +1799,17 @@ Using the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Grammar of 
 <div class="lab">
 <p><span style="color:blue"> <strong>12-Faceting</strong> </span></p>
 <p>In <strong>lab.qmd</strong> <code>## Lab 12</code> section, <!-- - Create a R script named **lab10-facet.R** and load the **ggplot2** package. Generate --></p>
-<div class="cell" data-layout-align="center" data-hash="09-ggplot2_cache/revealjs/unnamed-chunk-62_13f33aaaa29715bbdac0cd529d51f523">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> _______, </span>
 <span id="cb40-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> ______, <span class="at">y =</span> ______, <span class="at">______ =</span> drv, <span class="at">shape =</span> _____)) <span class="sc">+</span></span>
 <span id="cb40-3"><a></a>    <span class="fu">geom______</span>(<span class="at">______ =</span> <span class="dv">3</span>, <span class="at">______ =</span> <span class="fl">0.8</span>) <span class="sc">+</span> </span>
 <span id="cb40-4"><a></a>    <span class="fu">facet_grid</span>(______ <span class="sc">~</span> _______) <span class="sc">+</span></span>
 <span id="cb40-5"><a></a>    <span class="fu">guides</span>(<span class="at">______ =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-layout-align="center" data-hash="09-ggplot2_cache/revealjs/unnamed-chunk-63_124b203aa81e53e1ebe0c817d984174a">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-63-1.png" class="quarto-figure quarto-figure-center" style="width:48.0%"></p>
+<figure><p><img data-src="images/09-ggplot2/unnamed-chunk-62-1.png" class="quarto-figure quarto-figure-center" style="width:48.0%"></p>
 </figure>
 </div>
 </div>

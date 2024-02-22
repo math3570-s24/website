@@ -1539,13 +1539,6 @@
     "text": "21-Logistic Regression \nIn lab.qmd ## Lab 21 section,\n\nUse our fitted logistic regression model to predict whether you are male or female! Change 175 to your height (cm).\nUse the converter to get your height in cm!\n\n\n# Fit the logistic regression\n\npredict(logis_out$fit, newdata = data.frame(HEIGHT = 175), \n        type = \"response\")\n\n    1 \n0.853 \n\n\n\n\n\n\n\n\n\n\nmath3570-s24.github.io/website"
   },
   {
-    "objectID": "slides/09-ggplot2.html#exploratory-data-analysis-eda",
-    "href": "slides/09-ggplot2.html#exploratory-data-analysis-eda",
-    "title": "Data Visualization – ggplot2 📊",
-    "section": "Exploratory Data Analysis (EDA)",
-    "text": "Exploratory Data Analysis (EDA)\n\nEDA is an approach to analyzing data sets to summarize their main characteristics. \n\nEDA is perhaps the most important part of data analysis, yet it is one that is often overlooked.\n\n\n“The simple graph has brought more information to the data analyst’s mind than any other device.” — John Tukey\n\n\nWe also calculate summary statistics and perform data wrangling/manipulation/transformation at (or before) this stage of doing data science.\n\n\n\nAfter importing or reading data into R, the first thing we need to do is to understand our data.\n\nWhat are variables in the data set?\nAre the variables related in some way?\nAre there any missing values, outliers, or other weird values?\nDo we need to transform some variables to make it easier to answer our research questions or to do our analysis.\n\n\nSo before doing data analysis, we should understand our data well, and be able to answer all those questions. This understanding helps us choose the correct model and algorithm and helps us do the correct analysis.\nThe process of understanding our data is called Exploratory Data Analysis or EDA.\nSo I said here, EDA is an approach to analyzing data sets to summarize their main characteristics.\nMany widely used data analysis tools were initiated by discoveries made via EDA.\nEDA is perhaps the most important part of data analysis, yet it is one that is often overlooked. Again, without understanding our data, we may end up choosing a bad model for analysis because we may neglect some important information stored in the data set.\nOften, the strongest tool of EDA is data visualization, and let’s why we spend two weeks talking about it.\nWe might also calculate summary statistics and perform data wrangling/manipulation/transformation at (or before) this stage of doing data science, which will be discussed after data visualization."
-  },
-  {
     "objectID": "slides/09-ggplot2.html#plotting-systems-base-lattice-and-ggplot2",
     "href": "slides/09-ggplot2.html#plotting-systems-base-lattice-and-ggplot2",
     "title": "Data Visualization – ggplot2 📊",
@@ -1763,32 +1756,11 @@
     "text": "ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + \n    geom_point() + \n    facet_grid(drv ~ cyl)  #&lt;&lt;\n\n\n\nSuppose again we would like to see the relationship between hwy and displacement.\nBut now we want to see their relationship given at a different number of cylinders and type of drive trains.\nAnd we can create several scatterplots, each at a particular number of cylinders and type of drive trains.\nHow do we create facets?\nWe can use facet_grid() command to create a matrix-like plot defined by row and column faceting variables, which are usually categorical variables. Inside the parenthesis, we put the row variable ~ column variable.\nSo here, drive values, 4, f, r defines the rows, and cylinder values 4, 5, 6, 8 defines the columns.\nAnd each smaller plot is a scatter plot with some value of drive and some value of cylinder.\nFor example, the top right one is the scatter plot of hwy mpg and displacement when drive is 4 and cylinder is 8."
   },
   {
-    "objectID": "slides/09-ggplot2.html#section-18",
-    "href": "slides/09-ggplot2.html#section-18",
-    "title": "Data Visualization – ggplot2 📊",
-    "section": "",
-    "text": "ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + \n    geom_point() + \n    facet_wrap(~ cyl)  #&lt;&lt;\n\n\n\nHow about we want to create a scatter plot conditional on just one variable, say cylinder?\nInstead of facet_grid(), we can use facet_wrap() function.\nInside the parenthesis, we use ~ followed by the variable name cyl.\nAnd the ggplot will automatically create a display, so that each smaller plot is normally rectangular."
-  },
-  {
-    "objectID": "slides/09-ggplot2.html#section-19",
-    "href": "slides/09-ggplot2.html#section-19",
-    "title": "Data Visualization – ggplot2 📊",
-    "section": "",
-    "text": "ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + \n    geom_point() + \n    facet_wrap(\"cyl\")  #&lt;&lt;\n\n\n\nIf you don’t like vars(), you can use ““. It gives you the same plot as well. OK"
-  },
-  {
     "objectID": "slides/09-ggplot2.html#section-20",
     "href": "slides/09-ggplot2.html#section-20",
     "title": "Data Visualization – ggplot2 📊",
     "section": "",
-    "text": "ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + \n    geom_point() + \n    facet_wrap(~ cyl, ncol = 3) #&lt;&lt;\n\n\n\nIf you don’t like the default display, you can specify any number of rows or columns you like.\nFor example, here the number of column is 3."
-  },
-  {
-    "objectID": "slides/09-ggplot2.html#faceting-summary",
-    "href": "slides/09-ggplot2.html#faceting-summary",
-    "title": "Data Visualization – ggplot2 📊",
-    "section": "Faceting Summary",
-    "text": "Faceting Summary\n\n\nfacet_grid():\n\n2d grid\nrows ~ cols\n\n\n\nfacet_wrap(): 1d ribbon wrapped according to number of rows and columns specified or available plotting area\n\n\n\nfacet_grid():\n\n2d grid\nrows ~ cols\nuse . for no split (no rows or no cols)\n\n\n\nfacet_wrap(): 1d ribbon wrapped according to number of rows and columns specified or available plotting area"
+    "text": "ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + \n    geom_point() + \n    facet_wrap(~ cyl, ncol = 2) #&lt;&lt;\n\n\n\nHow about we want to create a scatter plot conditional on just one variable, say cylinder?\nInstead of facet_grid(), we can use facet_wrap() function.\nInside the parenthesis, we use ~ followed by the variable name cyl.\nAnd the ggplot will automatically create a display, so that each smaller plot is normally rectangular.\nIf you don’t like the default display, you can specify any number of rows or columns you like.\nFor example, here the number of column is 3."
   },
   {
     "objectID": "slides/09-ggplot2.html#facet-and-color",
@@ -2638,7 +2610,7 @@
     "href": "weeks/week-6.html#participate",
     "title": "Week 6",
     "section": "Participate",
-    "text": "Participate\n🖥️ Slides - ggplot2\n🖥️ Slides -Visualizing Data\nr fontawesome::fa(\"table\") openintro::loans_full_schema",
+    "text": "Participate\n🖥️ Slides - ggplot2\nr fontawesome::fa(\"table\") openintro::loans_full_schema",
     "crumbs": [
       "Weekly materials",
       "Week 6"
@@ -2660,7 +2632,7 @@
     "href": "weeks/week-6.html#exercise",
     "title": "Week 6",
     "section": "Exercise",
-    "text": "Exercise\n📋 Lab-11 ggplot2\n📋 Lab-12 Faceting\n📋 Lab-13 Visualization\nr fontawesome::fa(\"table\") penguins.csv\n\n\nBack to course schedule ⏎",
+    "text": "Exercise\n📋 Lab-11 ggplot2\nr fontawesome::fa(\"table\") penguins.csv\n\n\nBack to course schedule ⏎",
     "crumbs": [
       "Weekly materials",
       "Week 6"
@@ -2700,7 +2672,7 @@
     "href": "weeks/week-7.html#participate",
     "title": "Week 7",
     "section": "Participate",
-    "text": "Participate\n🖥️ Slides - Interactive Data Vaisualization\n🖥️ Slides - Data Wrangling (one data frame)\nr fontawesome::fa(\"table\") Data - loans\nr fontawesome::fa(\"table\") Data - Murders",
+    "text": "Participate\n🖥️ Slides -Visualizing Data\n🖥️ Slides - Data Wrangling (one data frame)\nr fontawesome::fa(\"table\") Data - loans\nr fontawesome::fa(\"table\") Data - Murders",
     "crumbs": [
       "Weekly materials",
       "Week 7"
@@ -2711,7 +2683,7 @@
     "href": "weeks/week-7.html#reading-and-resources",
     "title": "Week 7",
     "section": "Reading and Resources",
-    "text": "Reading and Resources\n📖 R for Data Science - Data Transformation",
+    "text": "Reading and Resources\n📖 More add-on r emo::ji(\"package\"): ggplot2 extensions\n📖 The R Graph Gallery\n📖 R Graphics Cookbook\n📖 R CHARTS\n📖 R for Data Science - Data Transformation",
     "crumbs": [
       "Weekly materials",
       "Week 7"
@@ -2722,7 +2694,7 @@
     "href": "weeks/week-7.html#exercise",
     "title": "Week 7",
     "section": "Exercise",
-    "text": "Exercise\n📋 Lab-14 Interactive Visualization (Present)\n📋 Lab-15 dplyr\nr fontawesome::fa(\"table\") Data - Murders\n\n\nBack to course schedule ⏎",
+    "text": "Exercise\n📋 Lab-12 Faceting\n📋 Lab-13 Visualization\n📋 Lab-14 Interactive Visualization (Present)\n📋 Lab-15 dplyr\nr fontawesome::fa(\"table\") Data - Murders\n\n\nBack to course schedule ⏎",
     "crumbs": [
       "Weekly materials",
       "Week 7"
@@ -2997,7 +2969,7 @@
     "href": "index.html",
     "title": "MATH/COSC 3570 - Introduction to Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nTopic\nTo Do\nSlides\nLab Exercise\nHomework\nLab Presentation\n\n\n\n\n1\nTue, Jan 16\nGreetings + Overview of Data Science\n📖\n🖥️ 🖥️\n\n\n\n\n\n\nThu, Jan 18\nPosit Cloud and Git/GitHub Introduction\n\n🖥️\n📋📋\n\n\n\n\n2\nTue, Jan 23\nConnecting Posit Cloud with GitHub\n📖\n🖥️\n📋\n\n\n\n\n\nThu, Jan 25\nQuarto\n\n🖥️\n📋📋📋\n\n\n\n\n3\nTue, Jan 30\nQuarto\n\n\n\n\n\n\n\n\nThu, Feb 1\nR/Python Programming\n📖\n🖥️\n\n\n\n\n\n4\nTue, Feb 6\nPython Programming\n\n\n📋📋\n\n\n\n\n\nThu, Feb 8\nR Tidyverse\n📖\n🖥️\n\n✍️\n\n\n\n5\nTue, Feb 13\nPython Pandas/NumPy\n\n\n📋📋\n\n✅\n\n\n\nThu, Feb 15\nData Importing\n📖\n🖥️\n📋\n\n\n\n\n6\nTue, Feb 20\nData Importing\n\n\n\n\n\n\n\n\nThu, Feb 22\nData Visualization\n📖\n🖥️\n📋\n\n\n\n\n7\nTue, Feb 27\nData Visualization\n📖\n🖥️\n\n\n\n\n\n\nThu, Feb 29\nData Wrangling\n\n🖥️\n📋\n\n✅\n\n\n8\nTue, Mar 5\nData Wrangling\n📖\n🖥️\n📋\n\n\n\n\n\nThu, Mar 7\nData Wrangling\n\n🖥️\n📋\n✍️\n\n\n\n9\nTue, Mar 12\nNO CLASS: Spring break\n\n\n\n\n\n\n\n\nThu, Mar 14\nNO CLASS: Spring break\n\n\n\n\n\n\n\n10\nTue, Mar 19\nProbabilistic and Statistical Simulation\n📖\n🖥️\n📋📋\n\n\n\n\n\nThu, Mar 21\nLinear Regression\n\n🖥️\n\n\n\n\n\n11\nTue, Mar 26\nLinear Regression\n📖\n\n📋\n\n\n\n\n\nThu, Mar 28\nNO CLASS: Easter break\n\n\n\n\n\n\n\n12\nTue, Apr 2\nLogistic Regression\n📖\n🖥️\n\n\n\n\n\n\nThu, Apr 4\nLogistic Regression\n\n\n📋\n\n\n\n\n13\nTue, Apr 9\nK-Nearest Neighbors\n📖\n🖥️\n\n\n\n\n\n\nThu, Apr 11\nK-Nearest Neighbors\n\n\n📋\n✍️\n\n\n\n14\nTue, Apr 16\nPrincipal Component Analysis\n📖\n🖥️\n\n\n📂\n\n\n\nThu, Apr 18\nPrincipal Component Analysis\n\n\n📋\n\n\n\n\n15\nTue, Apr 23\nK-Means Clustering\n📖\n🖥️\n\n\n\n\n\n\nThu, Apr 25\nK-Means Clustering\n\n\n📋\n\n\n\n\n16\nTue, Apr 30\nData Dashboards\n📖\n🖥️\n\n\n📂\n\n\n16\nThu, May 2\nQuarto Websites\n\n\n\n\n\n\n\n\n\nI reserve the right to make changes to the schedule.",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nTopic\nTo Do\nSlides\nLab Exercise\nHomework\nLab Presentation\n\n\n\n\n1\nTue, Jan 16\nGreetings + Overview of Data Science\n📖\n🖥️ 🖥️\n\n\n\n\n\n\nThu, Jan 18\nPosit Cloud and Git/GitHub Introduction\n\n🖥️\n📋📋\n\n\n\n\n2\nTue, Jan 23\nConnecting Posit Cloud with GitHub\n📖\n🖥️\n📋\n\n\n\n\n\nThu, Jan 25\nQuarto\n\n🖥️\n📋📋📋\n\n\n\n\n3\nTue, Jan 30\nQuarto\n\n\n\n\n\n\n\n\nThu, Feb 1\nR/Python Programming\n📖\n🖥️\n\n\n\n\n\n4\nTue, Feb 6\nPython Programming\n\n\n📋📋\n\n\n\n\n\nThu, Feb 8\nR Tidyverse\n📖\n🖥️\n\n✍️\n\n\n\n5\nTue, Feb 13\nPython Pandas/NumPy\n\n\n📋📋\n\n✅\n\n\n\nThu, Feb 15\nData Importing\n📖\n🖥️\n📋\n\n\n\n\n6\nTue, Feb 20\nData Importing\n\n\n\n\n\n\n\n\nThu, Feb 22\nData Visualization-ggplot2\n📖\n🖥️\n📋\n\n\n\n\n7\nTue, Feb 27\nData Visualization-categorical and numerical data\n📖\n🖥️\n📋\n\n\n\n\n\nThu, Feb 29\nInteractive Data Visualization and Data Wrangling\n\n🖥️\n\n\n\n\n\n8\nTue, Mar 5\nData Wrangling\n📖\n🖥️\n📋\n\n✅\n\n\n\nThu, Mar 7\nData Wrangling\n\n🖥️\n📋\n✍️\n\n\n\n9\nTue, Mar 12\nNO CLASS: Spring break\n\n\n\n\n\n\n\n\nThu, Mar 14\nNO CLASS: Spring break\n\n\n\n\n\n\n\n10\nTue, Mar 19\nProbabilistic and Statistical Simulation\n📖\n🖥️\n📋📋\n\n\n\n\n\nThu, Mar 21\nLinear Regression\n\n🖥️\n\n\n\n\n\n11\nTue, Mar 26\nLinear Regression\n📖\n\n📋\n\n\n\n\n\nThu, Mar 28\nNO CLASS: Easter break\n\n\n\n\n\n\n\n12\nTue, Apr 2\nLogistic Regression\n📖\n🖥️\n\n\n\n\n\n\nThu, Apr 4\nLogistic Regression\n\n\n📋\n\n\n\n\n13\nTue, Apr 9\nK-Nearest Neighbors\n📖\n🖥️\n\n\n\n\n\n\nThu, Apr 11\nK-Nearest Neighbors\n\n\n📋\n✍️\n\n\n\n14\nTue, Apr 16\nPrincipal Component Analysis\n📖\n🖥️\n\n\n📂\n\n\n\nThu, Apr 18\nPrincipal Component Analysis\n\n\n📋\n\n\n\n\n15\nTue, Apr 23\nK-Means Clustering\n📖\n🖥️\n\n\n\n\n\n\nThu, Apr 25\nK-Means Clustering\n\n\n📋\n\n\n\n\n16\nTue, Apr 30\nData Dashboards\n📖\n🖥️\n\n\n📂\n\n\n16\nThu, May 2\nQuarto Websites\n\n\n\n\n\n\n\n\n\nI reserve the right to make changes to the schedule.",
     "crumbs": [
       "Course information",
       "Schedule"
