@@ -1,6 +1,6 @@
 ---
 title: "Week 7"
-subtitle: "Interactive Visualization and Data Wrangling (one data frame)"
+subtitle: "Data Visualization"
 editor: visual
 ---
 
