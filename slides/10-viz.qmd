@@ -135,14 +135,12 @@ import matplotlib.pyplot as plt
 
 
 
-```{r packages, echo=FALSE, message=FALSE, warning=FALSE, purl=FALSE}
+```{r}
 #| echo: false
 #| message: false
 #| warning: false
 #| purl: false
 #| label: packages
-
-
 library(tidyverse)
 library(openintro)
 loans_full_schema <- loans_full_schema |> mutate(grade = factor(grade, ordered = TRUE))
@@ -188,7 +186,7 @@ knitr::opts_knit$set(global.par = TRUE)
 
 - Data includes **loans made**, these are not loan applications.
 
-```{r lending-club, echo=FALSE, out.width = "70%"}
+```{r}
 #| echo: false
 #| label: lending-club
 #| out-width: "70%"
@@ -212,7 +210,6 @@ knitr::include_graphics("./images/10-viz/lending-club.png")
 #| cache: true
 #| class-output: "my_class800"
 library(openintro) ## for loading the data set
-library(tidyverse)
 dplyr::glimpse(loans_full_schema)
 ```
 
@@ -342,13 +339,14 @@ freq_tbl
 
 ::: {.fragment}
 
-```{r geom_bar_identity, out.width="100%"}
+```{r}
+#| label: geom_bar_identity
+#| out-width: "100%"
 bar <- freq_tbl |> 
     ggplot(aes(x = "", 
                y = count, 
                fill = type)) + 
-    geom_bar(stat = "identity") +
-    theme_minimal()
+    geom_bar(stat = "identity")
 bar
 ```
 
@@ -441,10 +439,11 @@ loans |> ggplot(aes(x = homeownership, fill = grade)) +
 - We may want to add another argument in the geom_bar layer, which is position = "fill".
 - `position = "fill"` works like stacking, but makes each set of stacked bars the same height.
 - And now the y-axis is not count anymore. Now the y limit is from 0 to 1, and each grade segment represents the relative frequency of a particular homeownership.
+- Which bar plot is a more useful representation for visualizing the relationship between homeownership and grade?
 :::
 
 
-##
+## {visibility="hidden"}
 :::{.question}
 Which bar plot is a more useful representation for visualizing the relationship between homeownership and grade?
 :::
@@ -525,7 +524,7 @@ loans |>
     title = "Homeownership Counts"
   ) +
   geom_text(
-    aes(label = ..count..), 
+    aes(label = after_stat(count)), 
         stat = 'count', 
         hjust = 3, 
         color = "red", 

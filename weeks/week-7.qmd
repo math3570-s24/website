@@ -11,7 +11,7 @@ editor: visual
 
 🖥️ [Slides -Visualizing Data](/slides/10-viz.html)
 
-🖥️ [Slides - Data Wrangling (one data frame)](/slides/12-dplyr-1.html)
+🖥️ [Slides - Interactive Visualization](/slides/10-interactive-viz.html)
 
 `r fontawesome::fa("table")` [Data - loans](/slides/data/loans.csv)
 
@@ -36,10 +36,6 @@ editor: visual
 📋 [Lab-13 Visualization](/exercise/lab13-visualization.html)
 
 📋 [Lab-14 Interactive Visualization](/exercise/lab14-interactive.html) (Present)
-
-📋 [Lab-15 dplyr](/exercise/lab15-dplyr.html)
-
-`r fontawesome::fa("table")` [Data - Murders](/slides/data/murders.csv)
 
 <br><br>
 
