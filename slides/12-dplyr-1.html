@@ -1378,76 +1378,7 @@ $rate
           width: 1px!important;
           overflow: hidden!important;
           display:block!important;
-      }</style></aside></section><section id="summarizing-data-pull" class="slide level2"><h2>Summarizing Data – <code>pull()</code>
-</h2>
-<ul>
-<li>
-<code>pull()</code> accesses values or extract a single column in a data frame.</li>
-</ul>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a>rate_num <span class="ot">&lt;-</span> rate_df <span class="sc">|&gt;</span>  </span>
-<span id="cb56-2"><a href="#cb56-2"></a>    <span class="fu">pull</span>()</span>
-<span id="cb56-3"><a href="#cb56-3"></a><span class="fu">class</span>(rate_num)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "numeric"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a><span class="fu">rep</span>(rate_num, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3.03 3.03 3.03</code></pre>
-</div>
-</div>
-<div class="fragment">
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a>murders <span class="sc">|&gt;</span> <span class="fu">select</span>(total)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 51 × 1
-  total
-  &lt;dbl&gt;
-1   135
-2    19
-3   232
-4    93
-5  1257
-6    65
-# ℹ 45 more rows</code></pre>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1"></a>murders <span class="sc">|&gt;</span> <span class="fu">pull</span>(total)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1]  135   19  232   93 1257   65   97   38   99  669  376    7   12  364  142
-[16]   21   63  116  351   11  293  118  413   53  120  321   12   32   84    5
-[31]  246   67  517  286    4  310  111   36  457   16  207    8  219  805   22
-[46]    2  250   93   27   97    5</code></pre>
-</div>
-</div>
-</div>
-</div>
-<aside class="notes"><ul>
-<li>If we want a number or a vector in general, we can use pull() function with the variable name rate inside the function.</li>
-<li>Basically, pull() extract a single column as a vector, not a data frame. It’s like <code>$</code> for selecting a column. <code>murder_rate_df$rate</code>
-</li>
-<li>If we wanna keep the pipe operation style, using pull() function looks nicer. murder_rate_df %&gt;% <code>$</code>(rate)</li>
-<li>murders_tbl[“total”]: tibble</li>
-<li>murders_tbl %&gt;% select(total): tibble</li>
-<li>murders_tbl[[“total”]]: vector</li>
-<li>murders_tbl %&gt;% pull(total): vector</li>
-</ul><style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</div>
-</section><section id="grouping-group_by" class="slide level2"><h2>Grouping – <code>group_by()</code>
+      }</style></aside></section><section id="grouping-group_by" class="slide level2"><h2>Grouping – <code>group_by()</code>
 </h2>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a>(heights_group <span class="ot">&lt;-</span> heights <span class="sc">|&gt;</span> </span>
@@ -1585,41 +1516,6 @@ $rate
           width: 1px!important;
           overflow: hidden!important;
           display:block!important;
-      }</style></aside></section><section id="sorting-rows-in-data-frames-arrange-1" class="slide level2"><h2>Sorting Rows in Data Frames – <code>arrange()</code>
-</h2>
-<ul>
-<li>The function <code>desc()</code> transforms a vector so that it is in descending order.</li>
-</ul>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1"></a><span class="do">## see the states by murder rate, from highest to lowest</span></span>
-<span id="cb74-2"><a href="#cb74-2"></a>murders <span class="sc">|&gt;</span> </span>
-<span id="cb74-3"><a href="#cb74-3"></a>    <span class="fu">arrange</span>(<span class="fu">desc</span>(rate))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 51 × 6
-  state                abb   region        population total  rate
-  &lt;chr&gt;                &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-1 District of Columbia DC    South             601723    99 16.5 
-2 Louisiana            LA    South            4533372   351  7.74
-3 Missouri             MO    North Central    5988927   321  5.36
-4 Maryland             MD    South            5773552   293  5.07
-5 South Carolina       SC    South            4625364   207  4.48
-6 Delaware             DE    South             897934    38  4.23
-# ℹ 45 more rows</code></pre>
-</div>
-</div>
-<aside class="notes"><ul>
-<li>The function <code>desc()</code> transforms a vector so that it is in descending order.</li>
-<li>With this function, we arrange states by murder rate in descending order.</li>
-</ul><style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
       }</style></aside></section><section id="section-3" class="slide level2"><h2></h2>
 <div class="lab">
 <p><span style="color:blue"> <strong>15-dplyr</strong> </span> <!-- - Create the R script **lab13-dplyr.R** --></p>
@@ -1666,8 +1562,8 @@ $rate
 <pre><code># A tibble: 2 × 3
   region      avg std_dev
   &lt;fct&gt;     &lt;dbl&gt;   &lt;dbl&gt;
-1 West      0.781   0.164
-2 Northeast 0.509   0.278</code></pre>
+1 Northeast 0.509   0.278
+2 West      0.781   0.164</code></pre>
 </div>
 </div>
 </div>
@@ -1819,7 +1715,7 @@ Data Manipulation
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a href="#cb90-1"></a>heights.groupby(<span class="st">'sex'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x28ff30d10&gt;</code></pre>
+<pre><code>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x2a16e1c50&gt;</code></pre>
 </div>
 </div>
 <div class="fragment">

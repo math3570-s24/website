@@ -221,14 +221,14 @@
     "href": "weeks/week-10.html#participate",
     "title": "Week 10",
     "section": "Participate",
-    "text": "Participate\n🖥️ Slides - Probability and Statistics\n🖥️ Slides - Linear Regression\n ggplot2::mpg"
+    "text": "Participate\n🖥️ Slides - Tidying Data\n🖥️ Slides - Probability and Statistics"
   },
   {
     "objectID": "weeks/week-10.html#exercise",
     "href": "weeks/week-10.html#exercise",
     "title": "Week 10",
     "section": "Exercise",
-    "text": "Exercise\n📋 Lab-18 Probability\n📋 Lab-19 Confidence Interval\n\n\nBack to course schedule ⏎"
+    "text": "Exercise\n📋 Lab-17 tidyr\n trump.csv\n📋 Lab-18 Probability\n📋 Lab-19 Confidence Interval\n\n\nBack to course schedule ⏎"
   },
   {
     "objectID": "weeks/week-11.html",
@@ -354,7 +354,7 @@
     "href": "weeks/week-8.html#participate",
     "title": "Week 8",
     "section": "Participate",
-    "text": "Participate\n🖥️ Slides - Data Wrangling (one data frame)\n🖥️ Slides - Data Wrangling - two data frames\n🖥️ Slides - Tidying Data\n Data - Pop_x and elec_vote_y\n\nlibrary(tidyverse)\nlibrary(dslabs)\npop_x <- murders |> \n    slice(1:6) |>\n    select(state, population)\n\nelec_vote_y <- results_us_election_2016 |> \n    filter(state %in% c(\"Alabama\", \"Alaska\", \"Arizona\", \n                        \"California\", \"Connecticut\", \"Delaware\")) |> \n    select(state, electoral_votes) |> \n    rename(elec_vote = electoral_votes)\n\n Data - Customers"
+    "text": "Participate\n🖥️ Slides - Data Wrangling (one data frame)\n🖥️ Slides - Data Wrangling - two data frames\n Data - Pop_x and elec_vote_y\n\nlibrary(tidyverse)\nlibrary(dslabs)\npop_x <- murders |> \n    slice(1:6) |>\n    select(state, population)\n\nelec_vote_y <- results_us_election_2016 |> \n    filter(state %in% c(\"Alabama\", \"Alaska\", \"Arizona\", \n                        \"California\", \"Connecticut\", \"Delaware\")) |> \n    select(state, electoral_votes) |> \n    rename(elec_vote = electoral_votes)\n\n Data - Customers"
   },
   {
     "objectID": "weeks/week-8.html#reading-and-resources",
@@ -368,7 +368,7 @@
     "href": "weeks/week-8.html#exercise",
     "title": "Week 8",
     "section": "Exercise",
-    "text": "Exercise\n📋 Lab-15 dplyr\n Data - Murders\n📋 Lab-16 Joining tables\n https://www.jaredlander.com/data/DiamondColors.csv\n ggplot2::diamonds\n📋 Lab-17 tidyr\n trump.csv\n\n\nBack to course schedule ⏎"
+    "text": "Exercise\n📋 Lab-15 dplyr\n Data - Murders\n📋 Lab-16 Joining tables\n https://www.jaredlander.com/data/DiamondColors.csv\n ggplot2::diamonds\n\n\nBack to course schedule ⏎"
   },
   {
     "objectID": "weeks/week-15.html",
@@ -466,7 +466,7 @@
     "href": "index.html",
     "title": "MATH/COSC 3570 - Introduction to Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nTopic\nTo Do\nSlides\nLab Exercise\nHomework\nLab Presentation\nProject\n\n\n\n\n1\nTue, Jan 16\nGreetings + Overview of Data Science\n📖\n🖥️ 🖥️\n\n\n\n\n\n\n\nThu, Jan 18\nPosit Cloud and Git/GitHub Introduction\n\n🖥️\n📋📋\n\n\n\n\n\n2\nTue, Jan 23\nConnecting Posit Cloud with GitHub\n📖\n🖥️\n📋\n\n\n\n\n\n\nThu, Jan 25\nQuarto\n\n🖥️\n📋📋📋\n\n\n\n\n\n3\nTue, Jan 30\nQuarto\n\n\n\n\n\n\n\n\n\nThu, Feb 1\nR/Python Programming\n📖\n🖥️\n\n\n\n\n\n\n4\nTue, Feb 6\nPython Programming\n\n\n📋📋\n\n\n\n\n\n\nThu, Feb 8\nR Tidyverse\n📖\n🖥️\n\n✍️\n\n\n\n\n5\nTue, Feb 13\nPython Pandas/NumPy\n\n\n📋📋\n\n✅\n\n\n\n\nThu, Feb 15\nData Importing\n📖\n🖥️\n📋\n\n\n\n\n\n6\nTue, Feb 20\nData Importing\n\n\n\n\n\n\n\n\n\nThu, Feb 22\nData Visualization-ggplot2\n📖\n🖥️\n📋\n\n\n\n\n\n7\nTue, Feb 27\nData Visualization-categorical and numerical data\n📖\n🖥️\n📋📋\n\n\n\n\n\n\nThu, Feb 29\nInteractive Data Visualization\n\n🖥️\n\n\n\n\n\n\n8\nTue, Mar 5\nData Wrangling -one data frame\n📖\n🖥️\n📋\n\n✅\n\n\n\n\nThu, Mar 7\nData Wrangling - two data frames\n\n🖥️\n📋\n✍️\n\n\n\n\n9\nTue, Mar 12\nNO CLASS: Spring break\n\n\n\n\n\n\n\n\n\nThu, Mar 14\nNO CLASS: Spring break\n\n\n\n\n\n\n\n\n10\nTue, Mar 19\nData Wrangling - tidyr\n📖\n🖥️\n📋📋\n\n\n\n\n\n\nThu, Mar 21\nProbabilistic and Statistical Simulation\n📖\n🖥️\n\n\n\n\n\n\n11\nTue, Mar 26\nProbabilistic and Statistical Simulation\n\n\n📋\n\n\n\n\n\n\nThu, Mar 28\nNO CLASS: Easter break\n\n\n\n\n\n\n\n\n12\nTue, Apr 2\nLinear Regression\n📖\n🖥️\n\n\n\nGuideline 📂\n\n\n\nThu, Apr 4\nLinear Regression\n\n\n📋\n\n\n\n\n\n13\nTue, Apr 9\nLogistic Regression\n📖\n🖥️\n\n\n\n\n\n\n\nThu, Apr 11\nLogistic Regression\n\n\n📋\n✍️\n\n\n\n\n14\nTue, Apr 16\nK-Nearest Neighbors\n📖\n🖥️\n\n\n\n\n\n\n\nThu, Apr 18\nK-Nearest Neighbors\n\n\n📋\n\n\n\n\n\n15\nTue, Apr 23\nPrincipal Component Analysis\n📖\n🖥️\n\n\n\n\n\n\n\nThu, Apr 25\nPrincipal Component Analysis\n\n\n📋\n\n\nProposal 📂\n\n\n16\nTue, Apr 30\nK-Means Clustering\n📖\n🖥️\n\n\n\n\n\n\n\nThu, May 2\nQuarto Dashboard and Website\n\n\n\n\n\n\n\n\n\n\nI reserve the right to make changes to the schedule."
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nTopic\nTo Do\nSlides\nLab Exercise\nHomework\nLab Presentation\nProject\n\n\n\n\n1\nTue, Jan 16\nGreetings + Overview of Data Science\n📖\n🖥️ 🖥️\n\n\n\n\n\n\n\nThu, Jan 18\nPosit Cloud and Git/GitHub Introduction\n\n🖥️\n📋📋\n\n\n\n\n\n2\nTue, Jan 23\nConnecting Posit Cloud with GitHub\n📖\n🖥️\n📋\n\n\n\n\n\n\nThu, Jan 25\nQuarto\n\n🖥️\n📋📋📋\n\n\n\n\n\n3\nTue, Jan 30\nQuarto\n\n\n\n\n\n\n\n\n\nThu, Feb 1\nR/Python Programming\n📖\n🖥️\n\n\n\n\n\n\n4\nTue, Feb 6\nPython Programming\n\n\n📋📋\n\n\n\n\n\n\nThu, Feb 8\nR Tidyverse\n📖\n🖥️\n\n✍️\n\n\n\n\n5\nTue, Feb 13\nPython Pandas/NumPy\n\n\n📋📋\n\n✅\n\n\n\n\nThu, Feb 15\nData Importing\n📖\n🖥️\n📋\n\n\n\n\n\n6\nTue, Feb 20\nData Importing\n\n\n\n\n\n\n\n\n\nThu, Feb 22\nData Visualization-ggplot2\n📖\n🖥️\n📋\n\n\n\n\n\n7\nTue, Feb 27\nData Visualization-categorical and numerical data\n📖\n🖥️\n📋📋\n\n\n\n\n\n\nThu, Feb 29\nInteractive Data Visualization\n\n🖥️\n\n\n\n\n\n\n8\nTue, Mar 5\nData Wrangling - one data frame\n📖\n🖥️\n📋\n\n✅\n\n\n\n\nThu, Mar 7\nData Wrangling - two data frames\n\n🖥️\n📋\n✍️\n\n\n\n\n9\nTue, Mar 12\nNO CLASS: Spring break\n\n\n\n\n\n\n\n\n\nThu, Mar 14\nNO CLASS: Spring break\n\n\n\n\n\n\n\n\n10\nTue, Mar 19\nData Wrangling - tidyr\n📖\n🖥️\n📋📋\n\n\n\n\n\n\nThu, Mar 21\nProbabilistic and Statistical Simulation\n📖\n🖥️\n\n\n\n\n\n\n11\nTue, Mar 26\nProbabilistic and Statistical Simulation\n\n\n📋\n\n\n\n\n\n\nThu, Mar 28\nNO CLASS: Easter break\n\n\n\n\n\n\n\n\n12\nTue, Apr 2\nLinear Regression\n📖\n🖥️\n\n\n\nGuideline 📂\n\n\n\nThu, Apr 4\nLinear Regression\n\n\n📋\n\n\n\n\n\n13\nTue, Apr 9\nLogistic Regression\n📖\n🖥️\n\n\n\n\n\n\n\nThu, Apr 11\nLogistic Regression\n\n\n📋\n✍️\n\n\n\n\n14\nTue, Apr 16\nK-Nearest Neighbors\n📖\n🖥️\n\n\n\n\n\n\n\nThu, Apr 18\nK-Nearest Neighbors\n\n\n📋\n\n\n\n\n\n15\nTue, Apr 23\nPrincipal Component Analysis\n📖\n🖥️\n\n\n\n\n\n\n\nThu, Apr 25\nPrincipal Component Analysis\n\n\n📋\n\n\nProposal 📂\n\n\n16\nTue, Apr 30\nK-Means Clustering\n📖\n🖥️\n\n\n\n\n\n\n\nThu, May 2\nQuarto Dashboard and Website\n\n\n\n\n\n\n\n\n\n\nI reserve the right to make changes to the schedule."
   },
   {
     "objectID": "course-news.html",
@@ -2730,13 +2730,6 @@
     "text": "Summarizing Data – summarize()\n\n\n\nsummarize() always returns a data frame, which might be problematic when we want to use it as a numeric value with other operations or functions.\n\n\n(rate_df <- murders |> \n    summarize(rate = sum(total) / sum(population) * 100000))\n\n# A tibble: 1 × 1\n   rate\n  <dbl>\n1  3.03\n\nclass(rate_df)\n\n[1] \"tbl_df\"     \"tbl\"        \"data.frame\"\n\nrep(rate_df, 3) ## want a (atomic) vector of length 3, but get a list of length 3!\n\n$rate\n[1] 3.03\n\n$rate\n[1] 3.03\n\n$rate\n[1] 3.03\n\n\n\nWe use summarize() function and compute the variable rate. The result is a 1 by 1 data frame."
   },
   {
-    "objectID": "slides/12-dplyr-1.html#summarizing-data-pull",
-    "href": "slides/12-dplyr-1.html#summarizing-data-pull",
-    "title": "Data Wrangling - one data frame 🛠",
-    "section": "Summarizing Data – pull()\n",
-    "text": "Summarizing Data – pull()\n\n\n\npull() accesses values or extract a single column in a data frame.\n\n\nrate_num <- rate_df |>  \n    pull()\nclass(rate_num)\n\n[1] \"numeric\"\n\nrep(rate_num, 3)\n\n[1] 3.03 3.03 3.03\n\n\n\n\n\n\nmurders |> select(total)\n\n# A tibble: 51 × 1\n  total\n  <dbl>\n1   135\n2    19\n3   232\n4    93\n5  1257\n6    65\n# ℹ 45 more rows\n\n\n\n\nmurders |> pull(total)\n\n [1]  135   19  232   93 1257   65   97   38   99  669  376    7   12  364  142\n[16]   21   63  116  351   11  293  118  413   53  120  321   12   32   84    5\n[31]  246   67  517  286    4  310  111   36  457   16  207    8  219  805   22\n[46]    2  250   93   27   97    5\n\n\n\n\n\nIf we want a number or a vector in general, we can use pull() function with the variable name rate inside the function.\nBasically, pull() extract a single column as a vector, not a data frame. It’s like $ for selecting a column. murder_rate_df$rate\n\nIf we wanna keep the pipe operation style, using pull() function looks nicer. murder_rate_df %>% $(rate)\nmurders_tbl[“total”]: tibble\nmurders_tbl %>% select(total): tibble\nmurders_tbl[[“total”]]: vector\nmurders_tbl %>% pull(total): vector"
-  },
-  {
     "objectID": "slides/12-dplyr-1.html#grouping-group_by",
     "href": "slides/12-dplyr-1.html#grouping-group_by",
     "title": "Data Wrangling - one data frame 🛠",
@@ -2758,13 +2751,6 @@
     "text": "Sorting Rows in Data Frames – arrange()\n\n\n\narrange() orders entire data tables.\n\n\n## order the states by population size\nmurders |>  \n    arrange(population)\n\n# A tibble: 51 × 6\n  state                abb   region        population total   rate\n  <chr>                <chr> <chr>              <dbl> <dbl>  <dbl>\n1 Wyoming              WY    West              563626     5  0.887\n2 District of Columbia DC    South             601723    99 16.5  \n3 Vermont              VT    Northeast         625741     2  0.320\n4 North Dakota         ND    North Central     672591     4  0.595\n5 Alaska               AK    West              710231    19  2.68 \n6 South Dakota         SD    North Central     814180     8  0.983\n# ℹ 45 more rows\n\n\n\nFor ordering entire data tables, the dplyr function arrange() is useful.\nWe get to decide which column to sort by.\nIf we want to sort the observations of murders data set by population size, we just need to pipe the data set into arrange function and specify population variable.\nHow do we do the same thing with base R grammar, not tidyverse grammar?\nmurders[order(murders$population), ]"
   },
   {
-    "objectID": "slides/12-dplyr-1.html#sorting-rows-in-data-frames-arrange-1",
-    "href": "slides/12-dplyr-1.html#sorting-rows-in-data-frames-arrange-1",
-    "title": "Data Wrangling - one data frame 🛠",
-    "section": "Sorting Rows in Data Frames – arrange()\n",
-    "text": "Sorting Rows in Data Frames – arrange()\n\n\nThe function desc() transforms a vector so that it is in descending order.\n\n\n## see the states by murder rate, from highest to lowest\nmurders |> \n    arrange(desc(rate))\n\n# A tibble: 51 × 6\n  state                abb   region        population total  rate\n  <chr>                <chr> <chr>              <dbl> <dbl> <dbl>\n1 District of Columbia DC    South             601723    99 16.5 \n2 Louisiana            LA    South            4533372   351  7.74\n3 Missouri             MO    North Central    5988927   321  5.36\n4 Maryland             MD    South            5773552   293  5.07\n5 South Carolina       SC    South            4625364   207  4.48\n6 Delaware             DE    South             897934    38  4.23\n# ℹ 45 more rows\n\n\n\nThe function desc() transforms a vector so that it is in descending order.\nWith this function, we arrange states by murder rate in descending order."
-  },
-  {
     "objectID": "slides/12-dplyr-1.html#section-3",
     "href": "slides/12-dplyr-1.html#section-3",
     "title": "Data Wrangling - one data frame 🛠",
@@ -2776,7 +2762,7 @@
     "href": "slides/12-dplyr-1.html#section-4",
     "title": "Data Wrangling - one data frame 🛠",
     "section": "",
-    "text": "_______ <- _______ |> \n    mutate(_______) |> \n    filter(_______) |> \n    select(_______)\n\n_______ |>  \n    group_by(______) |> \n    summarize(______) |> \n    arrange(_______)\n\n\n\n\n          state    region  rate\n1        Hawaii      West 0.515\n2         Idaho      West 0.766\n3         Maine Northeast 0.828\n4 New Hampshire Northeast 0.380\n5        Oregon      West 0.940\n6          Utah      West 0.796\n7       Vermont Northeast 0.320\n8       Wyoming      West 0.887\n\n\n# A tibble: 2 × 3\n  region      avg std_dev\n  <fct>     <dbl>   <dbl>\n1 West      0.781   0.164\n2 Northeast 0.509   0.278"
+    "text": "_______ <- _______ |> \n    mutate(_______) |> \n    filter(_______) |> \n    select(_______)\n\n_______ |>  \n    group_by(______) |> \n    summarize(______) |> \n    arrange(_______)\n\n\n\n\n          state    region  rate\n1        Hawaii      West 0.515\n2         Idaho      West 0.766\n3         Maine Northeast 0.828\n4 New Hampshire Northeast 0.380\n5        Oregon      West 0.940\n6          Utah      West 0.796\n7       Vermont Northeast 0.320\n8       Wyoming      West 0.887\n\n\n# A tibble: 2 × 3\n  region      avg std_dev\n  <fct>     <dbl>   <dbl>\n1 Northeast 0.509   0.278\n2 West      0.781   0.164"
   },
   {
     "objectID": "slides/12-dplyr-1.html#section-6",
@@ -2811,7 +2797,7 @@
     "href": "slides/12-dplyr-1.html#grouping-.groupby-.agg",
     "title": "Data Wrangling - one data frame 🛠",
     "section": "Grouping .groupby + .agg\n",
-    "text": "Grouping .groupby + .agg\n\n\ndplyr::group_by() + dplyr::summarize()\n\n\nheights = pd.read_csv('./data/heights.csv')\n\n\nheights.groupby('sex')\n\n<pandas.core.groupby.generic.DataFrameGroupBy object at 0x28ff30d10>\n\n\n\n\n## a data frame\nheights.groupby('sex').agg(['mean', 'std', 'median', 'min'])\n\n           height                           \n             mean       std     median   min\nsex                                         \nFemale  64.939424  3.760656  64.980315  51.0\nMale    69.314755  3.611024  69.000000  50.0"
+    "text": "Grouping .groupby + .agg\n\n\ndplyr::group_by() + dplyr::summarize()\n\n\nheights = pd.read_csv('./data/heights.csv')\n\n\nheights.groupby('sex')\n\n<pandas.core.groupby.generic.DataFrameGroupBy object at 0x2a16e1c50>\n\n\n\n\n## a data frame\nheights.groupby('sex').agg(['mean', 'std', 'median', 'min'])\n\n           height                           \n             mean       std     median   min\nsex                                         \nFemale  64.939424  3.760656  64.980315  51.0\nMale    69.314755  3.611024  69.000000  50.0"
   },
   {
     "objectID": "slides/12-dplyr-1.html#sorting-.sort_values",
