@@ -651,7 +651,7 @@ rep(rate_df, 3) ## want a (atomic) vector of length 3, but get a list of length 
 :::
 
 
-## Summarizing Data -- `pull()`
+## Summarizing Data -- `pull()`  {visibility="hidden"}
 - `pull()` accesses values or extract a single column in a data frame.
 
 ```{r pull}
@@ -773,7 +773,7 @@ murders |>
 - murders[order(murders$population), ]
 :::
 
-## Sorting Rows in Data Frames -- `arrange()`
+## Sorting Rows in Data Frames -- `arrange()`  {visibility="hidden"}
 - The function `desc()` transforms a vector so that it is in descending order.
 
 ```{r}
@@ -836,14 +836,14 @@ _______ |>
 library(dplyr)
 library(dslabs)
 data(murders)
-(my_states <- murders %>% 
-    mutate(rate = total / population * 100000) %>% 
-    filter(region %in% c("West", "Northeast"), rate < 1) %>% 
+(my_states <- murders |>  
+    mutate(rate = total / population * 100000) |>  
+    filter(region %in% c("West", "Northeast"), rate < 1) |>  
     select(state, region, rate))
-my_states %>% 
-    group_by(region) %>% 
-    summarize(avg = mean(rate), std_dev = sd(rate)) %>% 
-    arrange(desc(avg))
+my_states |>  
+    group_by(region) |>  
+    summarize(avg = mean(rate), std_dev = sd(rate)) |>  
+    arrange(avg)
 ```
 :::
 ::::

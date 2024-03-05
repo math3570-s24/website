@@ -1,6 +1,6 @@
 ---
 title: "Week 10"
-subtitle: "Probabilistic and Statistical Simulation and Linear Regression"
+subtitle: "Tidyr and Probabilistic and Statistical Simulation"
 editor: visual
 ---
 
@@ -9,13 +9,15 @@ editor: visual
 
 ## Participate
 
+🖥️ [Slides - Tidying Data](/slides/14-tidyr.html)
+
 🖥️ [Slides - Probability and Statistics](/slides/15-probstat.html)
 
-🖥️ [Slides - Linear Regression](/slides/16-linear-reg.html)
-
-`r fontawesome::fa("table")` **`ggplot2::mpg`**
-
 ## Exercise
+
+📋 [Lab-17 tidyr](/exercise/lab17-tidyr.html)
+
+`r fontawesome::fa("table")` [trump.csv](/slides/data/trump.csv)
 
 📋 [Lab-18 Probability](/exercise/lab18-prob.html)
 
