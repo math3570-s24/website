@@ -228,7 +228,7 @@
     "href": "weeks/week-10.html#exercise",
     "title": "Week 10",
     "section": "Exercise",
-    "text": "Exercise\n📋 Lab-17 tidyr\n trump.csv\n📋 Lab-18 Probability\n📋 Lab-19 Confidence Interval\n\n\nBack to course schedule ⏎"
+    "text": "Exercise\n📋 Lab-17 tidyr\n trump.csv\n📋 Lab-18 Probability\n\n\nBack to course schedule ⏎"
   },
   {
     "objectID": "weeks/week-11.html",
@@ -242,14 +242,14 @@
     "href": "weeks/week-11.html#participate",
     "title": "Week 11",
     "section": "Participate",
-    "text": "Participate\n🖥️ Slides - Linear Regression\n ggplot2::mpg"
+    "text": "Participate\n🖥️ Slides - Probability and Statistics"
   },
   {
     "objectID": "weeks/week-11.html#exercise",
     "href": "weeks/week-11.html#exercise",
     "title": "Week 11",
     "section": "Exercise",
-    "text": "Exercise\n📋 Lab-20 Simple Linear Regression\n\n\nBack to course schedule ⏎"
+    "text": "Exercise\n📋 Lab-19 Confidence Interval\n\n\nBack to course schedule ⏎"
   },
   {
     "objectID": "weeks/week-13.html",
@@ -263,7 +263,7 @@
     "href": "weeks/week-13.html#participate",
     "title": "Week 13",
     "section": "Participate",
-    "text": "Participate\n🖥️ Slides - K Nearest Neighbors\n Data - body"
+    "text": "Participate\n🖥️ Slides - Logistic Regression\n Data - body"
   },
   {
     "objectID": "weeks/week-13.html#reading",
@@ -277,7 +277,7 @@
     "href": "weeks/week-13.html#exercise",
     "title": "Week 13",
     "section": "Exercise",
-    "text": "Exercise\n📋 Lab-22 K Nearest Neighbors\n\n\nBack to course schedule ⏎"
+    "text": "Exercise\n📋 Lab-21 Logistic Regression\n\n\nBack to course schedule ⏎"
   },
   {
     "objectID": "weeks/week-12.html",
@@ -291,7 +291,7 @@
     "href": "weeks/week-12.html#participate",
     "title": "Week 12",
     "section": "Participate",
-    "text": "Participate\n🖥️ Slides - Logistic Regression\n Data - body"
+    "text": "Participate\n🖥️ Slides - Linear Regression\n ggplot2::mpg"
   },
   {
     "objectID": "weeks/week-12.html#reading",
@@ -305,7 +305,7 @@
     "href": "weeks/week-12.html#exercise",
     "title": "Week 12",
     "section": "Exercise",
-    "text": "Exercise\n📋 Lab-21 Logistic Regression\n\n\nBack to course schedule ⏎"
+    "text": "Exercise\n📋 Lab-20 Simple Linear Regression\n\n\nBack to course schedule ⏎"
   },
   {
     "objectID": "weeks/week-9.html",
@@ -382,7 +382,7 @@
     "href": "weeks/week-15.html#participate",
     "title": "Week 15",
     "section": "Participate",
-    "text": "Participate\n🖥️ Slides - K-Means Clustering\n Data - clus_data"
+    "text": "Participate\n🖥️ Slides - Principal Component Analysis\n USArrests"
   },
   {
     "objectID": "weeks/week-15.html#reading",
@@ -396,7 +396,7 @@
     "href": "weeks/week-15.html#exercise",
     "title": "Week 15",
     "section": "Exercise",
-    "text": "Exercise\n📋 Lab-24 K-Means Clustering\n palmerpenguins::penguins\n\nlibrary(palmerpenguins)\npeng <- penguins[complete.cases(penguins), ] |> \n    select(flipper_length_mm, bill_length_mm)\n\n\n\nBack to course schedule ⏎"
+    "text": "Exercise\n📋 Lab-23 Principal Component Analysis\n iris\n\n\nBack to course schedule ⏎"
   },
   {
     "objectID": "weeks/week-14.html",
@@ -410,7 +410,7 @@
     "href": "weeks/week-14.html#participate",
     "title": "Week 14",
     "section": "Participate",
-    "text": "Participate\n🖥️ Slides - Principal Component Analysis\n USArrests"
+    "text": "Participate\n🖥️ Slides - K Nearest Neighbors\n Data - body"
   },
   {
     "objectID": "weeks/week-14.html#reading",
@@ -424,7 +424,7 @@
     "href": "weeks/week-14.html#exercise",
     "title": "Week 14",
     "section": "Exercise",
-    "text": "Exercise\n📋 Lab-23 Principal Component Analysis\n iris\n\n\nBack to course schedule ⏎"
+    "text": "Exercise\n📋 Lab-22 K Nearest Neighbors\n\n\nBack to course schedule ⏎"
   },
   {
     "objectID": "hw/hw1.html",
@@ -455,6 +455,27 @@
     "text": "4 Basic Python\n\nimport numpy as np\nimport pandas as pd\n\n\n4.1 Data Frame\n\nImport the data set mtcars.csv using pd.read_csv(). Then print the first five rows.\n\n\n\n\n\nUse method .iloc to obtain the first and fourth rows, and the second and third columns. Name the data dfcar.\n\n\n\n\n\nSet the row names of dfcar to Mazda and Hornet.\n\n\n\n\n\nUse method .loc to obtain row Hornet and column disp."
   },
   {
+    "objectID": "hw/hw2.html",
+    "href": "hw/hw2.html",
+    "title": "Homework 2: Data Visualization and Data Wrangling",
+    "section": "",
+    "text": "Import the data set murders. Use the pipe operator |> and the dplyr functions mutate(), filter(), and select() to get the following data output. Call the data set df.\n\nThe filtering conditions are\n\nregion in “Northeast” or “West”\nrate = total / population * 100000 is less than 1.\n\nThe new variable rank is based on rate. The highest rate is ranked 1st. [Hint:] Use the function rank().\n\n## code\n\n# # A tibble: 8 × 4\n#    rate  rank state         total\n#   <dbl> <dbl> <chr>         <dbl>\n# 1 0.515    49 Hawaii            7\n# 2 0.766    46 Idaho            12\n# 3 0.828    44 Maine            11\n# 4 0.380    50 New Hampshire     5\n# 5 0.940    42 Oregon           36\n# 6 0.796    45 Utah             22\n# 7 0.320    51 Vermont           2\n# 8 0.887    43 Wyoming           5\n\n\nChange the type of column rank to factor, and total to integer. (You can use the built-in as.factor() and as.integer() or the convert() function in the hablar package.\n\n\n## code\n\n\nCreate a list named df_lst of two elements. The first element is a subset of df whose rows have total less than 10, and the second element is a subset of df so that each of its row has total higher than 10. Print it out.\n\n\n## code\n\n\n# [[1]]\n# # A tibble: 4 × 4\n#    rate rank  state         total\n#   <dbl> <fct> <chr>         <dbl>\n# 1 0.515 49    Hawaii            7\n# 2 0.380 50    New Hampshire     5\n# 3 0.320 51    Vermont           2\n# 4 0.887 43    Wyoming           5\n# \n# [[2]]\n# # A tibble: 4 × 4\n#    rate rank  state  total\n#   <dbl> <fct> <chr>  <dbl>\n# 1 0.766 46    Idaho     12\n# 2 0.828 44    Maine     11\n# 3 0.940 42    Oregon    36\n# 4 0.796 45    Utah      22\n\n\nCombine the two data sets in df_lst using rbind().\n\n\n## code\n\n\nThe dplyr provides dplyr::bind_rows() and dplyr::bind_cols() that are analogs to rbind() and cbind() in the R base. Combine the two data sets in df_lst using bind_rows(). The result should be exactly the same as the previous one.\n\n\n## code\n\n\nCombine the two data frames data1 and data2 below using bind_rows() and rbind(). Describe what happened and their difference. (Note that the two data sets have different column names)\n\n\ndata1 <- tibble(x = letters[1:5])\ndata2 <- tibble(y = 1:3)\n\n\n## code (Error may happen. set eval: false if you'd like to render the document.)\n\n\nWith df, select state and total, and arrange df by total in an increasing order.\n\n\n## code\n\n\nWith df, use contains() to select column variables whose name contains the string “at”.\n\n\n## code\n\n\nBack to murders. Extract the rows whose has the largest population in its region as the shown output. The population is ranked in a decreasing order.\n\n\n## code\n\n# # A tibble: 4 × 5\n#   state      abb   region        population total\n#   <chr>      <chr> <chr>              <dbl> <dbl>\n# 1 California CA    West            37253956  1257\n# 2 Texas      TX    South           25145561   805\n# 3 New York   NY    Northeast       19378102   517\n# 4 Illinois   IL    North Central   12830632   364\n\n\n\n\n\nInstall and load the Lahman library. This database includes data related to baseball teams. It includes summary statistics about how the players performed on offense and defense for several years. It also includes personal information about the players. The Batting data frame contains the offensive statistics for all players for many years:\n\n\n\nRows: 112,184\nColumns: 22\n$ playerID <chr> \"abercda01\", \"addybo01\", \"allisar01\", \"allisdo01\", \"ansonca01…\n$ yearID   <int> 1871, 1871, 1871, 1871, 1871, 1871, 1871, 1871, 1871, 1871, 1…\n$ stint    <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…\n$ teamID   <fct> TRO, RC1, CL1, WS3, RC1, FW1, RC1, BS1, FW1, BS1, CL1, CL1, W…\n$ lgID     <fct> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ G        <int> 1, 25, 29, 27, 25, 12, 1, 31, 1, 18, 22, 1, 10, 3, 20, 29, 1,…\n$ AB       <int> 4, 118, 137, 133, 120, 49, 4, 157, 5, 86, 89, 3, 36, 15, 94, …\n$ R        <int> 0, 30, 28, 28, 29, 9, 0, 66, 1, 13, 18, 0, 6, 7, 24, 26, 0, 0…\n$ H        <int> 0, 32, 40, 44, 39, 11, 1, 63, 1, 13, 27, 0, 7, 6, 33, 32, 0, …\n$ X2B      <int> 0, 6, 4, 10, 11, 2, 0, 10, 1, 2, 1, 0, 0, 0, 9, 3, 0, 0, 1, 0…\n$ X3B      <int> 0, 0, 5, 2, 3, 1, 0, 9, 0, 1, 10, 0, 0, 0, 1, 3, 0, 0, 1, 0, …\n$ HR       <int> 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0…\n$ RBI      <int> 0, 13, 19, 27, 16, 5, 2, 34, 1, 11, 18, 0, 1, 5, 21, 23, 0, 0…\n$ SB       <int> 0, 8, 3, 1, 6, 0, 0, 11, 0, 1, 0, 0, 2, 2, 4, 4, 0, 0, 3, 0, …\n$ CS       <int> 0, 1, 1, 1, 2, 1, 0, 6, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 1, 0, 0…\n$ BB       <int> 0, 4, 2, 0, 2, 0, 1, 13, 0, 0, 3, 1, 2, 0, 2, 9, 0, 0, 4, 1, …\n$ SO       <int> 0, 0, 5, 2, 1, 1, 0, 1, 0, 0, 4, 0, 0, 0, 2, 2, 3, 0, 2, 0, 2…\n$ IBB      <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ HBP      <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ SH       <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ SF       <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ GIDP     <int> 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 2, 0, 1, 2, 0, 0, 0, 0, 3…\n\n\nUse Batting data to obtain the top 10 player observations that hit the most home runs (in descending order) in 2022. Call the data set top10, make it as a tibble and print it out.\n\n## code\n\n\nBut who are these players? In the top10 data, we see an ID, but not the names. The player names are in the People data set:\n\n\n\nRows: 20,676\nColumns: 26\n$ playerID     <chr> \"aardsda01\", \"aaronha01\", \"aaronto01\", \"aasedo01\", \"abada…\n$ birthYear    <int> 1981, 1934, 1939, 1954, 1972, 1985, 1850, 1877, 1869, 186…\n$ birthMonth   <int> 12, 2, 8, 9, 8, 12, 11, 4, 11, 10, 9, 3, 10, 2, 8, 9, 6, …\n$ birthDay     <int> 27, 5, 5, 8, 25, 17, 4, 15, 11, 14, 20, 16, 22, 16, 17, 1…\n$ birthCountry <chr> \"USA\", \"USA\", \"USA\", \"USA\", \"USA\", \"D.R.\", \"USA\", \"USA\", …\n$ birthState   <chr> \"CO\", \"AL\", \"AL\", \"CA\", \"FL\", \"La Romana\", \"PA\", \"PA\", \"V…\n$ birthCity    <chr> \"Denver\", \"Mobile\", \"Mobile\", \"Orange\", \"Palm Beach\", \"La…\n$ deathYear    <int> NA, 2021, 1984, NA, NA, NA, 1905, 1957, 1962, 1926, NA, 1…\n$ deathMonth   <int> NA, 1, 8, NA, NA, NA, 5, 1, 6, 4, NA, 2, 6, NA, NA, NA, N…\n$ deathDay     <int> NA, 22, 16, NA, NA, NA, 17, 6, 11, 27, NA, 13, 11, NA, NA…\n$ deathCountry <chr> NA, \"USA\", \"USA\", NA, NA, NA, \"USA\", \"USA\", \"USA\", \"USA\",…\n$ deathState   <chr> NA, \"GA\", \"GA\", NA, NA, NA, \"NJ\", \"FL\", \"VT\", \"CA\", NA, \"…\n$ deathCity    <chr> NA, \"Atlanta\", \"Atlanta\", NA, NA, NA, \"Pemberton\", \"Fort …\n$ nameFirst    <chr> \"David\", \"Hank\", \"Tommie\", \"Don\", \"Andy\", \"Fernando\", \"Jo…\n$ nameLast     <chr> \"Aardsma\", \"Aaron\", \"Aaron\", \"Aase\", \"Abad\", \"Abad\", \"Aba…\n$ nameGiven    <chr> \"David Allan\", \"Henry Louis\", \"Tommie Lee\", \"Donald Willi…\n$ weight       <int> 215, 180, 190, 190, 184, 235, 192, 170, 175, 169, 220, 19…\n$ height       <int> 75, 72, 75, 75, 73, 74, 72, 71, 71, 68, 74, 71, 70, 78, 7…\n$ bats         <fct> R, R, R, R, L, L, R, R, R, L, R, R, R, R, R, L, R, L, L, …\n$ throws       <fct> R, R, R, R, L, L, R, R, R, L, R, R, R, R, L, L, R, L, R, …\n$ debut        <chr> \"2004-04-06\", \"1954-04-13\", \"1962-04-10\", \"1977-07-26\", \"…\n$ finalGame    <chr> \"2015-08-23\", \"1976-10-03\", \"1971-09-26\", \"1990-10-03\", \"…\n$ retroID      <chr> \"aardd001\", \"aaroh101\", \"aarot101\", \"aased001\", \"abada001…\n$ bbrefID      <chr> \"aardsda01\", \"aaronha01\", \"aaronto01\", \"aasedo01\", \"abada…\n$ deathDate    <date> NA, 2021-01-22, 1984-08-16, NA, NA, NA, 1905-05-17, 1957…\n$ birthDate    <date> 1981-12-27, 1934-02-05, 1939-08-05, 1954-09-08, 1972-08-…\n\n\nWe can see column names nameFirst and nameLast. Use the left_join() function to create a table of the top home run hitters. The data table should have variables playerID, nameFirst, nameLast, and HR. Overwrite the object top10 with this new table, and print it out.\n\n## code\n\n\nUse the Fielding data frame to add each player’s position to the table you created in (2). Make sure that you filter for the year 2022 first, then use right_join(). This time show nameFirst, nameLast, teamID, HR, and POS.\n\n\n## code\n\n\n\n\n\nThe R built-in co2 data set is not tidy. Let’s make it tidy. Run the following code to define the co2_wide object:\n\n\nco2_wide <- data.frame(matrix(co2, ncol = 12, byrow = TRUE)) |> \n    setNames(1:12) |> \n    mutate(year = as.character(1959:1997))\n\nUse the pivot_longer() function to make it tidy. Call the column with the CO2 measurements co2 and call the month column month. Call the resulting object co2_tidy. Print it out.\n\n## code\n\n\n## # A tibble: 468 x 3\n##    year  month   co2\n##    <chr> <chr> <dbl>\n##  1 1959  1      315.\n##  2 1959  2      316.\n##  3 1959  3      316.\n##  4 1959  4      318.\n##  5 1959  5      318.\n##  6 1959  6      318 \n##  7 1959  7      316.\n##  8 1959  8      315.\n##  9 1959  9      314.\n## 10 1959  10     313.\n## # … with 458 more rows\n\n\n\n\n\n\nimport numpy as np\nimport pandas as pd\n\n\nUse Python to do Section 1.1 question 1.\n\n\n\n## code\n\n\nUse Python to do Section 1.1 question 7.\n\n\n\n## code\n\n\nUse Python to do Section 1.1 question 9. [Hint:] The method pandas.DataFrame.drop_duplicates() is analogous to dplyr::distinct(). Please figure out what we should use in the argument subset and keep.\n\n\n## code\n\n\nUse Python to do Section 1.2 question 1. (Import the data Batting.csv).\n\n\n## code\n\n\nUse Python to do Section 1.2 question 2. (Import the data People.csv).\n\n\n## code"
+  },
+  {
+    "objectID": "hw/hw2.html#murders",
+    "href": "hw/hw2.html#murders",
+    "title": "Homework 2: Data Visualization and Data Wrangling",
+    "section": "2.1 murders",
+    "text": "2.1 murders\nUse murders to make plots.\n\nCreate a scatter plot of total murders (x-axis) versus population sizes (y-axis) using the pipe operator |> that the murders data set is on the left to |>.\n\n\n## code\n\n\nGenerate the plot below using label and color aesthetics in aes() and a geometry layer geom_label(). Save the ggplot object as p. Here, we add abbreviation as the label, and make the labels’ color be determined by the state’s region.\n\n\n## code\n\n\n\n\n\n\n\nUse the object p in (2) and\n\n\nChange both axes to be in the \\(\\log_{10}\\) scale using scale_x_log10() and scale_y_log10()\nAdd a title “Gun murder data”\nUse the wall street journal theme in ggthemes.\n\n\n## code"
+  },
+  {
+    "objectID": "hw/hw2.html#mpg",
+    "href": "hw/hw2.html#mpg",
+    "title": "Homework 2: Data Visualization and Data Wrangling",
+    "section": "2.2 mpg",
+    "text": "2.2 mpg\nUse mpg to make plots.\n\nWhat’s gone wrong with this code? Why are the points not blue? Change it so that the points are colored in blue.\n\n\nmpg |> ggplot(mapping = aes(x = displ, y = hwy, colour = \"blue\")) +\n    geom_point()\n\n\n\n\n\nGenerate the bar chart below.\n\n\n## code\n\n\n\n\n\n\n\nComplete the code to generate the boxplot below. Note that x = class and y = hwy, so the coordinates need to be flipped.\n\n\n## code\n\n\n\n\n\n\n\nGenerate the histogram below with density scale. Map y to the internal variable ..density.. (after_stat(density)) to show density values. Put the legend inside the plot at c(0.9, 0.15). (check ?theme help page)\n\n\n## code\n\n\n\n\n\n\n\nGenerate the scatter plot below.\n\n\n## code"
+  },
+  {
     "objectID": "course-overview.html",
     "href": "course-overview.html",
     "title": "MATH/COSC 3570: Introduction to Data Science",
@@ -466,7 +487,7 @@
     "href": "index.html",
     "title": "MATH/COSC 3570 - Introduction to Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nTopic\nTo Do\nSlides\nLab Exercise\nHomework\nLab Presentation\nProject\n\n\n\n\n1\nTue, Jan 16\nGreetings + Overview of Data Science\n📖\n🖥️ 🖥️\n\n\n\n\n\n\n\nThu, Jan 18\nPosit Cloud and Git/GitHub Introduction\n\n🖥️\n📋📋\n\n\n\n\n\n2\nTue, Jan 23\nConnecting Posit Cloud with GitHub\n📖\n🖥️\n📋\n\n\n\n\n\n\nThu, Jan 25\nQuarto\n\n🖥️\n📋📋📋\n\n\n\n\n\n3\nTue, Jan 30\nQuarto\n\n\n\n\n\n\n\n\n\nThu, Feb 1\nR/Python Programming\n📖\n🖥️\n\n\n\n\n\n\n4\nTue, Feb 6\nPython Programming\n\n\n📋📋\n\n\n\n\n\n\nThu, Feb 8\nR Tidyverse\n📖\n🖥️\n\n✍️\n\n\n\n\n5\nTue, Feb 13\nPython Pandas/NumPy\n\n\n📋📋\n\n✅\n\n\n\n\nThu, Feb 15\nData Importing\n📖\n🖥️\n📋\n\n\n\n\n\n6\nTue, Feb 20\nData Importing\n\n\n\n\n\n\n\n\n\nThu, Feb 22\nData Visualization-ggplot2\n📖\n🖥️\n📋\n\n\n\n\n\n7\nTue, Feb 27\nData Visualization-categorical and numerical data\n📖\n🖥️\n📋📋\n\n\n\n\n\n\nThu, Feb 29\nInteractive Data Visualization\n\n🖥️\n\n\n\n\n\n\n8\nTue, Mar 5\nData Wrangling - one data frame\n📖\n🖥️\n📋\n\n✅\n\n\n\n\nThu, Mar 7\nData Wrangling - two data frames\n\n🖥️\n📋\n✍️\n\n\n\n\n9\nTue, Mar 12\nNO CLASS: Spring break\n\n\n\n\n\n\n\n\n\nThu, Mar 14\nNO CLASS: Spring break\n\n\n\n\n\n\n\n\n10\nTue, Mar 19\nData Wrangling - tidyr\n📖\n🖥️\n📋📋\n\n\n\n\n\n\nThu, Mar 21\nProbabilistic and Statistical Simulation\n📖\n🖥️\n\n\n\n\n\n\n11\nTue, Mar 26\nProbabilistic and Statistical Simulation\n\n\n📋\n\n\n\n\n\n\nThu, Mar 28\nNO CLASS: Easter break\n\n\n\n\n\n\n\n\n12\nTue, Apr 2\nLinear Regression\n📖\n🖥️\n\n\n\nGuideline 📂\n\n\n\nThu, Apr 4\nLinear Regression\n\n\n📋\n\n\n\n\n\n13\nTue, Apr 9\nLogistic Regression\n📖\n🖥️\n\n\n\n\n\n\n\nThu, Apr 11\nLogistic Regression\n\n\n📋\n✍️\n\n\n\n\n14\nTue, Apr 16\nK-Nearest Neighbors\n📖\n🖥️\n\n\n\n\n\n\n\nThu, Apr 18\nK-Nearest Neighbors\n\n\n📋\n\n\n\n\n\n15\nTue, Apr 23\nPrincipal Component Analysis\n📖\n🖥️\n\n\n\n\n\n\n\nThu, Apr 25\nPrincipal Component Analysis\n\n\n📋\n\n\nProposal 📂\n\n\n16\nTue, Apr 30\nK-Means Clustering\n📖\n🖥️\n\n\n\n\n\n\n\nThu, May 2\nQuarto Dashboard and Website\n\n\n\n\n\n\n\n\n\n\nI reserve the right to make changes to the schedule."
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nTopic\nTo Do\nSlides\nLab Exercise\nHomework\nLab Presentation\nProject\n\n\n\n\n1\nTue, Jan 16\nGreetings + Overview of Data Science\n📖\n🖥️ 🖥️\n\n\n\n\n\n\n\nThu, Jan 18\nPosit Cloud and Git/GitHub Introduction\n\n🖥️\n📋📋\n\n\n\n\n\n2\nTue, Jan 23\nConnecting Posit Cloud with GitHub\n📖\n🖥️\n📋\n\n\n\n\n\n\nThu, Jan 25\nQuarto\n\n🖥️\n📋📋📋\n\n\n\n\n\n3\nTue, Jan 30\nQuarto\n\n\n\n\n\n\n\n\n\nThu, Feb 1\nR/Python Programming\n📖\n🖥️\n\n\n\n\n\n\n4\nTue, Feb 6\nPython Programming\n\n\n📋📋\n\n\n\n\n\n\nThu, Feb 8\nR Tidyverse\n📖\n🖥️\n\n✍️\n\n\n\n\n5\nTue, Feb 13\nPython Pandas/NumPy\n\n\n📋📋\n\n✅\n\n\n\n\nThu, Feb 15\nData Importing\n📖\n🖥️\n📋\n\n\n\n\n\n6\nTue, Feb 20\nData Importing\n\n\n\n\n\n\n\n\n\nThu, Feb 22\nData Visualization-ggplot2\n📖\n🖥️\n📋\n\n\n\n\n\n7\nTue, Feb 27\nData Visualization-categorical and numerical data\n📖\n🖥️\n📋📋\n\n\n\n\n\n\nThu, Feb 29\nInteractive Data Visualization\n\n🖥️\n\n\n\n\n\n\n8\nTue, Mar 5\nData Wrangling - one data frame\n📖\n🖥️\n📋\n\n✅\n\n\n\n\nThu, Mar 7\nData Wrangling - two data frames\n\n🖥️\n📋\n\n\n\n\n\n9\nTue, Mar 12\nNO CLASS: Spring break\n\n\n\n\n\n\n\n\n\nThu, Mar 14\nNO CLASS: Spring break\n\n\n\n\n\n\n\n\n10\nTue, Mar 19\nData Wrangling - tidyr\n📖\n🖥️\n📋\n✍️\n\n\n\n\n\nThu, Mar 21\nProbabilistic and Statistical Simulation\n\n🖥️\n📋\n\n\n\n\n\n11\nTue, Mar 26\nProbabilistic and Statistical Simulation\n\n\n📋\n\n\n\n\n\n\nThu, Mar 28\nNO CLASS: Easter break\n\n\n\n\n\n\n\n\n12\nTue, Apr 2\nLinear Regression\n📖\n🖥️\n\n\n\nGuideline 📂\n\n\n\nThu, Apr 4\nLinear Regression\n\n\n📋\n\n\n\n\n\n13\nTue, Apr 9\nLogistic Regression\n📖\n🖥️\n\n\n\n\n\n\n\nThu, Apr 11\nLogistic Regression\n\n\n📋\n✍️\n\n\n\n\n14\nTue, Apr 16\nK-Nearest Neighbors\n📖\n🖥️\n\n\n\n\n\n\n\nThu, Apr 18\nK-Nearest Neighbors\n\n\n📋\n\n\n\n\n\n15\nTue, Apr 23\nPrincipal Component Analysis\n📖\n🖥️\n\n\n\n\n\n\n\nThu, Apr 25\nPrincipal Component Analysis\n\n\n📋\n\n\nProposal 📂\n\n\n16\nTue, Apr 30\nK-Means Clustering\n📖\n🖥️\n\n\n\n\n\n\n\nThu, May 2\nQuarto Dashboard and Website\n\n\n\n\n\n\n\n\n\n\nI reserve the right to make changes to the schedule."
   },
   {
     "objectID": "course-news.html",
@@ -2377,7 +2398,7 @@
     "href": "slides/15-probstat.html#why-study-probability",
     "title": "Probability and Statistics 🎲",
     "section": "Why Study Probability",
-    "text": "Why Study Probability\n\nWe live in a world full of chances and uncertainty!\n\n\n\nMar 29, 2022\n\n\n\n\n\n\n\n\n\nMar 22, 2023"
+    "text": "Why Study Probability\n\nWe live in a world full of chances and uncertainty!\n\n\n\n\nMar 29, 2022\n\n\n\n\n\n\n\n\n\nMar 22, 2023\n\n\n\n\n\n\n\n\n\nMar 18, 2024"
   },
   {
     "objectID": "slides/15-probstat.html#why-study-probability-1",
@@ -2489,21 +2510,7 @@
     "href": "slides/15-probstat.html#terminology",
     "title": "Probability and Statistics 🎲",
     "section": "Terminology",
-    "text": "Terminology\n\nPopulation: a group of individuals or objects we are interested in studying\nSample: a (representative) subset of our population of interest\nParameter: a unknown fixed numerical quantity derived from the population 1\nStatistic: a numerical quantity derived from a sample\nCommon population parameters of interest and their corresponding sample statistic:\n\n\n\nQuantity\nParameter\nStatistic (Point estimate)\n\n\n\nMean\n\\(\\mu\\)\n\\(\\overline{x}\\)\n\n\nVariance\n\\(\\sigma^2\\)\n\\(s^2\\)\n\n\nStandard deviation\n\\(\\sigma\\)\n\\(s\\)\n\n\nproportion\n\\(p\\)\n\\(\\hat{p}\\)\n\n\n\n\nFirst just review some terminologies.\nA Populationis a group of individuals or objects we are interested in studying. It could be as small as a single family. Other examples are all Marquette students, all Marquette faculty, all American people, or all people in the world.\nA Sample is a (representative) subset of our population of interest.\nAn important word here is representative. The sample should look like its population. The more alike, the better for the accuracy of statistical inference. So if your population is all people in the US. The sample collected in Wisconsin is not representative at all. If your population is all Marquette students, the sample collected from computer science is not representative. The sample should include all different majors and years that have proportions similar to the proportions of all students. Right.\nA Parameter a unknown fixed numerical quantity derived from the population\nA Statistic: a numerical quantity derived from a sample\nOne goal of statistical inference is to estimate population parameters using our sample data, or statistics calculated from our sample data. (proportion of fraternity/sororities)\nAnother methodology called Bayesian statistics assumes parameters are unknown but random."
-  },
-  {
-    "objectID": "slides/15-probstat.html#point-estimates-are-not-enough",
-    "href": "slides/15-probstat.html#point-estimates-are-not-enough",
-    "title": "Probability and Statistics 🎲",
-    "section": "Point Estimates Are Not Enough",
-    "text": "Point Estimates Are Not Enough\n\nIf you want to estimate \\(\\mu\\), do you prefer to report a range of values the parameter might be in, or a single estimate like \\(\\overline{x}\\)?\n\n\n\nIf you want to catch a fish, do you prefer a spear or a net?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDue to variation of \\(\\overline{X}\\), if we report a point estimate \\(\\overline{x}\\), we probably won’t hit the exact \\(\\mu\\).\nIf we report a range of plausible values, we have a better shot at capturing the parameter!\n\n\nIf you want to catch a fish, do you prefer a spear or a net?\nUnless you are an expert spear fisher, I guess you would prefer using a net, right? Because you are more likely to actually catch the fish than if you are actually fishing with a spear."
-  },
-  {
-    "objectID": "slides/15-probstat.html#confidence-intervals-1",
-    "href": "slides/15-probstat.html#confidence-intervals-1",
-    "title": "Probability and Statistics 🎲",
-    "section": "Confidence Intervals",
-    "text": "Confidence Intervals\nA plausible range of values for \\(\\mu\\) is called a confidence interval (CI).\n\n\nDo we know the sampling distribution of \\(\\overline{X}\\)?\n\n\n\n\nCentral Limit Theorem: \\(\\overline{X} \\sim N(\\mu, \\frac{\\sigma^2}{n})\\) regardless of what the population distribution is.\n\n\n\n\n\n\nSource: Wiki"
+    "text": "Terminology\n\nPopulation (Data generating process): a group of subjects we are interested in studying\nSample (Data): a (representative) subset of our population of interest\nParameter: a unknown fixed numerical quantity derived from the population 1\nStatistic: a numerical quantity derived from a sample\nCommon population parameters of interest and their corresponding sample statistic:\n\n\n\nQuantity\nParameter\nStatistic (Point estimate)\n\n\n\nMean\n\\(\\mu\\)\n\\(\\overline{x}\\)\n\n\nVariance\n\\(\\sigma^2\\)\n\\(s^2\\)\n\n\nStandard deviation\n\\(\\sigma\\)\n\\(s\\)\n\n\nproportion\n\\(p\\)\n\\(\\hat{p}\\)\n\n\n\n\nFirst just review some terminologies.\nA Populationis a group of individuals or objects we are interested in studying. It could be as small as a single family. Other examples are all Marquette students, all Marquette faculty, all American people, or all people in the world.\nA Sample is a (representative) subset of our population of interest.\nAn important word here is representative. The sample should look like its population. The more alike, the better for the accuracy of statistical inference. So if your population is all people in the US. The sample collected in Wisconsin is not representative at all. If your population is all Marquette students, the sample collected from computer science is not representative. The sample should include all different majors and years that have proportions similar to the proportions of all students. Right.\nA Parameter a unknown fixed numerical quantity derived from the population\nA Statistic: a numerical quantity derived from a sample\nOne goal of statistical inference is to estimate population parameters using our sample data, or statistics calculated from our sample data. (proportion of fraternity/sororities)\nAnother methodology called Bayesian statistics assumes parameters are unknown but random."
   },
   {
     "objectID": "slides/15-probstat.html#alpha100-confidence-interval-for-mu",
@@ -2552,7 +2559,7 @@
     "href": "slides/15-probstat.html#normal-distribution-from-scipy",
     "title": "Probability and Statistics 🎲",
     "section": "Normal Distribution from SciPy\n",
-    "text": "Normal Distribution from SciPy\n\n\nlibrary(reticulate); py_install(\"scipy\")\n\n\nimport scipy\nfrom scipy.stats import norm\n\n\n\nx = 0\nnorm.pdf(x, loc=0, scale=1) ## R dnorm()\n\n0.3989422804014327\n\n\n\n\n\n\nnorm.cdf(x, 0, 1) ## R pnorm()\n\n0.5\n\n\n\n\n\n\nq = 0.95\nnorm.ppf(q, 0, 1)  ## R qnorm()\n\n1.6448536269514722\n\n\n\n\n\n\nnorm.rvs(loc=0, scale=1, size=1) ## R rnorm()\n\narray([-0.80774419])"
+    "text": "Normal Distribution from SciPy\n\n\nlibrary(reticulate); py_install(\"scipy\")\n\n\nimport scipy\nfrom scipy.stats import norm\n\n\n\nx = 0\nnorm.pdf(x, loc=0, scale=1) ## R dnorm()\n\n0.3989422804014327\n\n\n\n\n\n\nnorm.cdf(x, 0, 1) ## R pnorm()\n\n0.5\n\n\n\n\n\n\nq = 0.95\nnorm.ppf(q, 0, 1)  ## R qnorm()\n\n1.6448536269514722\n\n\n\n\n\n\nnorm.rvs(loc=0, scale=1, size=1) ## R rnorm()\n\narray([0.72775615])"
   },
   {
     "objectID": "slides/15-probstat.html#normal-curve-plotting",
@@ -2723,13 +2730,6 @@
     "text": "Summarizing Data – summarize()\n\n\nOne variable quans that has 3 values. The output is a 3 by 1 data frame.\n\n\n(s2 <- heights |>  \n    filter(sex == \"Female\") |> \n    summarize(quans = quantile(height, c(0.1, 0.5, 0.9))))\n\n# A tibble: 3 × 1\n  quans\n  <dbl>\n1  61  \n2  65.0\n3  69  \n\n\n\nwe will get a data frame with more than one row if the function we use in summarize() return a vector.\nFor example here, we compute the 01, 0.5, and 0.9 quantile of variable height, and call it quantiles. Then the resulting data frame will have 3 rows, basically a column vector with 3 elements. str(s2)"
   },
   {
-    "objectID": "slides/12-dplyr-1.html#summarizing-data-summarize-3",
-    "href": "slides/12-dplyr-1.html#summarizing-data-summarize-3",
-    "title": "Data Wrangling - one data frame 🛠",
-    "section": "Summarizing Data – summarize()\n",
-    "text": "Summarizing Data – summarize()\n\n\n\nsummarize() always returns a data frame, which might be problematic when we want to use it as a numeric value with other operations or functions.\n\n\n(rate_df <- murders |> \n    summarize(rate = sum(total) / sum(population) * 100000))\n\n# A tibble: 1 × 1\n   rate\n  <dbl>\n1  3.03\n\nclass(rate_df)\n\n[1] \"tbl_df\"     \"tbl\"        \"data.frame\"\n\nrep(rate_df, 3) ## want a (atomic) vector of length 3, but get a list of length 3!\n\n$rate\n[1] 3.03\n\n$rate\n[1] 3.03\n\n$rate\n[1] 3.03\n\n\n\nWe use summarize() function and compute the variable rate. The result is a 1 by 1 data frame."
-  },
-  {
     "objectID": "slides/12-dplyr-1.html#grouping-group_by",
     "href": "slides/12-dplyr-1.html#grouping-group_by",
     "title": "Data Wrangling - one data frame 🛠",
@@ -2797,7 +2797,7 @@
     "href": "slides/12-dplyr-1.html#grouping-.groupby-.agg",
     "title": "Data Wrangling - one data frame 🛠",
     "section": "Grouping .groupby + .agg\n",
-    "text": "Grouping .groupby + .agg\n\n\ndplyr::group_by() + dplyr::summarize()\n\n\nheights = pd.read_csv('./data/heights.csv')\n\n\nheights.groupby('sex')\n\n<pandas.core.groupby.generic.DataFrameGroupBy object at 0x2a16e1c50>\n\n\n\n\n## a data frame\nheights.groupby('sex').agg(['mean', 'std', 'median', 'min'])\n\n           height                           \n             mean       std     median   min\nsex                                         \nFemale  64.939424  3.760656  64.980315  51.0\nMale    69.314755  3.611024  69.000000  50.0"
+    "text": "Grouping .groupby + .agg\n\n\ndplyr::group_by() + dplyr::summarize()\n\n\nheights = pd.read_csv('./data/heights.csv')\n\n\nheights.groupby('sex')\n\n<pandas.core.groupby.generic.DataFrameGroupBy object at 0x145164fd0>\n\n\n\n\n## a data frame\nheights.groupby('sex').agg(['mean', 'std', 'median', 'min'])\n\n           height                           \n             mean       std     median   min\nsex                                         \nFemale  64.939424  3.760656  64.980315  51.0\nMale    69.314755  3.611024  69.000000  50.0"
   },
   {
     "objectID": "slides/12-dplyr-1.html#sorting-.sort_values",
@@ -4445,62 +4445,6 @@
     "text": "purchases \\(\\rightarrow\\) customers\n\n\n\n\ndata: data frame\n\nnames_from: which column variable in the long format contains the what should be column names in the wide format\n\nvalues_from: which column variable in the long format contains the what should be (cell) values in the new columns in the wide format\n\n\n\npurchases\n\n# A tibble: 6 × 3\n  customer_id item_no item        \n        <dbl> <chr>   <chr>       \n1           1 item_1  bread       \n2           1 item_2  milk        \n3           1 item_3  banana      \n4           2 item_1  milk        \n5           2 item_2  toilet paper\n6           2 item_3  <NA>        \n\npurchases |> \n    pivot_wider(              \n        names_from = item_no, \n        values_from = item    \n    ) \n\n# A tibble: 2 × 4\n  customer_id item_1 item_2       item_3\n        <dbl> <chr>  <chr>        <chr> \n1           1 bread  milk         banana\n2           2 milk   toilet paper <NA>  \n\n\n\n\n\nAll right. In fact we can also go back from a longer data to a wider data, which is the original data set we start with.\n\ndata: data frame\n\nnames_from: which column variable in the long format contains what should be column names in the wide format\n\nvalues_from: which column variable in the long format contains what should be (cell) values in the new columns in the wide format\nNotice that item_no and item are not quoted because they are variables that exist in our data frame purchases.\nWe don’t construct new variables as we do when creating a data set in a longer format.\nOK. That’s pivoting, changing data set from wider to longer, or longer to wider format."
   },
   {
-    "objectID": "slides/14-tidyr.html#separate",
-    "href": "slides/14-tidyr.html#separate",
-    "title": "Tidying Data 🧹",
-    "section": "separate()",
-    "text": "separate()\n\n\nseparate() pulls apart one column into multiple ones, by splitting wherever a separator character appears.\nBy default separate() splits values wherever it sees a character that isn’t a number or letter.\n\n\n\n\n# number of TB cases documented by WHO\ntidyr::table3\n\n# A tibble: 6 × 3\n  country      year rate             \n  <chr>       <dbl> <chr>            \n1 Afghanistan  1999 745/19987071     \n2 Afghanistan  2000 2666/20595360    \n3 Brazil       1999 37737/172006362  \n4 Brazil       2000 80488/174504898  \n5 China        1999 212258/1272915272\n6 China        2000 213766/1280428583\n\n\n\n\ntable3 |> \n  separate(col = rate, \n           into = c(\"cases\", \"population\"))\n\n# A tibble: 6 × 4\n  country      year cases  population\n  <chr>       <dbl> <chr>  <chr>     \n1 Afghanistan  1999 745    19987071  \n2 Afghanistan  2000 2666   20595360  \n3 Brazil       1999 37737  172006362 \n4 Brazil       2000 80488  174504898 \n5 China        1999 212258 1272915272\n6 China        2000 213766 1280428583\n\n\n\n\n\nNow let’s see how split or combine character columns\n\nseparate() pulls apart one column into multiple columns, by splitting wherever a separator character appears.\nBy default, separate() splits values wherever it sees a character that isn’t a number or letter.\nExample is here. Here we have a data set called table3.\nNote that its column rate is of type character, having a form some number divided by some number.\nIn fact, the rate is computed as the total number of cases divided by the population size, and the rate variable actually contains two types of information.\nSo we can separate rate into two columns, one for cases, the other for population.\nIn the separate() function, we specify the column we want to split, which is rate, then in the into argument, we put the column names of the new splitted columns.\nAnd you see the separate() function automatically choose the slash “/” to be the separator that separate the two numbers.\nUse type_convert() to convert data type."
-  },
-  {
-    "objectID": "slides/14-tidyr.html#separate-1",
-    "href": "slides/14-tidyr.html#separate-1",
-    "title": "Tidying Data 🧹",
-    "section": "separate()",
-    "text": "separate()\n\n\n\n## explicitly specify separator \ntable3 |> \n  separate(\n      rate, \n      into = c(\"cases\", \"population\"), \n      sep = \"/\"\n      )\n\n# A tibble: 6 × 4\n  country      year cases  population\n  <chr>       <dbl> <chr>  <chr>     \n1 Afghanistan  1999 745    19987071  \n2 Afghanistan  2000 2666   20595360  \n3 Brazil       1999 37737  172006362 \n4 Brazil       2000 80488  174504898 \n5 China        1999 212258 1272915272\n6 China        2000 213766 1280428583\n\n\n\n\n## convert to better data types (chr to int)\ntable3 |>  \n  separate(\n      rate, \n      into = c(\"cases\", \"population\"), \n      convert = TRUE\n      )\n\n# A tibble: 6 × 4\n  country      year  cases population\n  <chr>       <dbl>  <int>      <int>\n1 Afghanistan  1999    745   19987071\n2 Afghanistan  2000   2666   20595360\n3 Brazil       1999  37737  172006362\n4 Brazil       2000  80488  174504898\n5 China        1999 212258 1272915272\n6 China        2000 213766 1280428583\n\n\n\n\n\nAnd of course, you can explicitly specify your separator to split the column using the argument sep.\nAnd the separate() function is conservative, meaning that it leaves the type of the column as it is. So the new cases and population variables are both character types too.\nIf we want them to be numeric type, we can add convert = TRUE. The function will try to find an appropriate data type for the variables. Here they are all integers."
-  },
-  {
-    "objectID": "slides/14-tidyr.html#unite",
-    "href": "slides/14-tidyr.html#unite",
-    "title": "Tidying Data 🧹",
-    "section": "unite()",
-    "text": "unite()\n\n\nunite() is the inverse of separate(): it combines multiple columns into a single column.\n\n\n\n\ntidyr::table5\n\n# A tibble: 6 × 4\n  country     century year  rate             \n  <chr>       <chr>   <chr> <chr>            \n1 Afghanistan 19      99    745/19987071     \n2 Afghanistan 20      00    2666/20595360    \n3 Brazil      19      99    37737/172006362  \n4 Brazil      20      00    80488/174504898  \n5 China       19      99    212258/1272915272\n6 China       20      00    213766/1280428583\n\n\n\n\n## default separator is \"_\"\ntable5 |>  \n  unite(col = \"long_year\",\n        century, year)\n\n# A tibble: 6 × 3\n  country     long_year rate             \n  <chr>       <chr>     <chr>            \n1 Afghanistan 19_99     745/19987071     \n2 Afghanistan 20_00     2666/20595360    \n3 Brazil      19_99     37737/172006362  \n4 Brazil      20_00     80488/174504898  \n5 China       19_99     212258/1272915272\n6 China       20_00     213766/1280428583\n\n\n\n\n\n\nunite() is the inverse of separate(): it combines multiple columns into a single column.\nThis table5 has two columns, century and year, which is kinda redundant.\nSo we can combine the two columns into one single column.\nTo combine them, we use the unite() function. We specify the new single column name in the col argument called “long_year”, followed by the columns to unite, century and year.\nBy default, the two columns will be combined with the separator “_“."
-  },
-  {
-    "objectID": "slides/14-tidyr.html#unite-1",
-    "href": "slides/14-tidyr.html#unite-1",
-    "title": "Tidying Data 🧹",
-    "section": "unite()",
-    "text": "unite()\n\n\nunite() is the inverse of separate(): it combines multiple columns into a single column.\n\n\n\n\n# separator is \"*\"\ntable5 |>\n  unite(col = \"long_year\",\n        century, year,\n        sep = \"*\")\n\n# A tibble: 6 × 3\n  country     long_year rate             \n  <chr>       <chr>     <chr>            \n1 Afghanistan 19*99     745/19987071     \n2 Afghanistan 20*00     2666/20595360    \n3 Brazil      19*99     37737/172006362  \n4 Brazil      20*00     80488/174504898  \n5 China       19*99     212258/1272915272\n6 China       20*00     213766/1280428583\n\n\n\n\n# separator is \"\"\ntable5 |> \n  unite(col = \"long_year\",\n        century, year,\n        sep = \"\")\n\n# A tibble: 6 × 3\n  country     long_year rate             \n  <chr>       <chr>     <chr>            \n1 Afghanistan 1999      745/19987071     \n2 Afghanistan 2000      2666/20595360    \n3 Brazil      1999      37737/172006362  \n4 Brazil      2000      80488/174504898  \n5 China       1999      212258/1272915272\n6 China       2000      213766/1280428583\n\n\n\n\n\nAs separate(), you can use other separators using the “sep” argument.\nWhen unite(), always character\nUse type_convert() to convert data type."
-  },
-  {
-    "objectID": "slides/14-tidyr.html#missing-values",
-    "href": "slides/14-tidyr.html#missing-values",
-    "title": "Tidying Data 🧹",
-    "section": "Missing Values",
-    "text": "Missing Values\n\n\nExplicitly: flagged with NA or other character/string representing a missing value.\n\nImplicitly: simply not present in the data.\n\n\n(stocks <- tibble(yr  = c(2015, 2015, 2015, 2015, 2016, 2016, 2016),\n                  qtr = c(   1,    2,    3,    4,    2,    3,    4),\n                  ret = c(1.88, 0.59, 0.35,   NA, 0.92, 0.17, 2.66)))\n\n# A tibble: 7 × 3\n     yr   qtr   ret\n  <dbl> <dbl> <dbl>\n1  2015     1  1.88\n2  2015     2  0.59\n3  2015     3  0.35\n4  2015     4 NA   \n5  2016     2  0.92\n6  2016     3  0.17\n7  2016     4  2.66\n\n\n\n\nRow 4: The stock return for the 4th quarter of 2015 is explicitly missing\n\nRow 5: The stock return for the 1st quarter of 2016 is implicitly missing\n\n\nOK let’s spend a little time talking about missing values.\nMissing values can be Explicitly missing, meaning that they are flagged with NA or other character/string representing a missing value.\nOr missing values can be Implicitly missing: meaning that they are simply not present in the data.\nSuppose we have a stocks data with variable, tear, qtr, and return.\nThe return for the fourth quarter of 2015 is explicitly missing, because the cell where its value should be instead contains NA.\nThe return for the first quarter of 2016 is implicitly missing, because it simply does not appear in the dataset."
-  },
-  {
-    "objectID": "slides/14-tidyr.html#pivot_wider-make-implicit-values-explicit",
-    "href": "slides/14-tidyr.html#pivot_wider-make-implicit-values-explicit",
-    "title": "Tidying Data 🧹",
-    "section": "pivot_wider() Make Implicit Values Explicit",
-    "text": "pivot_wider() Make Implicit Values Explicit\n\nAn explicit missing value is the presence of an absence.\n\n\nAn implicit missing value is the absence of a presence.\n\n\nstocks |> \n    pivot_wider(names_from = yr, values_from = ret)\n\n# A tibble: 4 × 3\n    qtr `2015` `2016`\n  <dbl>  <dbl>  <dbl>\n1     1   1.88  NA   \n2     2   0.59   0.92\n3     3   0.35   0.17\n4     4  NA      2.66\n\n\n\nSo basically, An explicit missing value is the presence of an absence; an implicit missing value is the absence of a presence.\nOne way to make implicit missing values explicit is to make the data set wider by putting years in the columns.\nEach year is supposed to have 4 quarters, 2016 has no first quarter and so has no return value, so we got an NA here."
-  },
-  {
-    "objectID": "slides/14-tidyr.html#complete-making-missing-values-explicit",
-    "href": "slides/14-tidyr.html#complete-making-missing-values-explicit",
-    "title": "Tidying Data 🧹",
-    "section": "\ncomplete(): Making Missing Values Explicit",
-    "text": "complete(): Making Missing Values Explicit\n\n\n\nstocks\n\n# A tibble: 7 × 3\n     yr   qtr   ret\n  <dbl> <dbl> <dbl>\n1  2015     1  1.88\n2  2015     2  0.59\n3  2015     3  0.35\n4  2015     4 NA   \n5  2016     2  0.92\n6  2016     3  0.17\n7  2016     4  2.66\n\n\n\n\nstocks |>  \n    complete(yr, qtr)\n\n# A tibble: 8 × 3\n     yr   qtr   ret\n  <dbl> <dbl> <dbl>\n1  2015     1  1.88\n2  2015     2  0.59\n3  2015     3  0.35\n4  2015     4 NA   \n5  2016     1 NA   \n6  2016     2  0.92\n7  2016     3  0.17\n8  2016     4  2.66\n\n\n\n\n\nAnother way to make implicit missing values explicit is to use the complete() function.\ncomplete() takes a set of columns, and finds all unique combinations. It then ensures the original data set contains all those values, filling in explicit NAs where necessary.\nSo here we find all unique combinations of year and quarter, and because there is no year 2016 and first quarter in the original data set, its return is NA."
-  },
-  {
-    "objectID": "slides/14-tidyr.html#fill-fill-in-missing-values",
-    "href": "slides/14-tidyr.html#fill-fill-in-missing-values",
-    "title": "Tidying Data 🧹",
-    "section": "\nfill(): Fill in Missing Values",
-    "text": "fill(): Fill in Missing Values\n\n\n\n\n\n\ntrt_data\n\n# A tibble: 4 × 3\n  person           treatment result\n  <chr>                <dbl>  <dbl>\n1 Derrick Whitmore         1      7\n2 <NA>                     2     10\n3 <NA>                     3      9\n4 Katherine Burke          1      4\n\n\n\n\ntrt_data |> \n    fill(person)\n\n# A tibble: 4 × 3\n  person           treatment result\n  <chr>                <dbl>  <dbl>\n1 Derrick Whitmore         1      7\n2 Derrick Whitmore         2     10\n3 Derrick Whitmore         3      9\n4 Katherine Burke          1      4\n\n\n\n\n\nfill() will find the most recent or the last observation that is not a missing value.\n\n\nSometimes when a data source has primarily been used for data entry, missing values indicate that the previous value should be carried forward:\nYou can fill in missing values with fill(). It takes a set of columns where you want missing values to be replaced by the most recent non-missing value. (sometimes called last observation carried forward).\nLike this treatment data set, the fill() function will find the most recent or the last observation that is not a missing value, which is Derrick, and the two missing values are replaced with Derrick."
-  },
-  {
     "objectID": "slides/14-tidyr.html#section-2",
     "href": "slides/14-tidyr.html#section-2",
     "title": "Tidying Data 🧹",
@@ -4519,7 +4463,7 @@
     "href": "slides/14-tidyr.html#section-4",
     "title": "Tidying Data 🧹",
     "section": "",
-    "text": "BONUS 🤑: Use trump_longer to generate a plot like the one below."
+    "text": "BONUS 💳: Use trump_longer to generate a plot like the one below."
   },
   {
     "objectID": "slides/14-tidyr.html#pd.wide_to_long",
@@ -4673,7 +4617,7 @@
     "href": "exercise/lab17-tidyr.html",
     "title": "Lab 17: tidyr",
     "section": "",
-    "text": "Note\n\n\n\n\n\n\nIn lab.qmd ## Lab 17 section,\n\n\nImport trump.csv. Call it trump_data as below on the left.\nUse pivot_longer() to transform trump_data into the data set trump_longer on the right.\n\n\n\n\n\ntrump_data\n\n# A tibble: 2,702 × 4\n   subgroup date       approval disapproval\n   <chr>    <date>        <dbl>       <dbl>\n 1 Voters   2020-10-04     44.7        52.2\n 2 Adults   2020-10-04     43.2        52.6\n 3 Adults   2020-10-03     43.2        52.6\n 4 Voters   2020-10-03     45.0        51.7\n 5 Adults   2020-10-02     43.3        52.4\n 6 Voters   2020-10-02     44.5        52.1\n 7 Voters   2020-10-01     44.1        52.8\n 8 Adults   2020-10-01     42.7        53.3\n 9 Adults   2020-09-30     42.2        53.7\n10 Voters   2020-09-30     44.2        52.7\n# ℹ 2,692 more rows\n\n\n\ntrump_longer <- ______________\n    pivot_longer(\n        cols = ____________,\n        names_to = _______________,\n        values_to = _______________\n    ) \n\n\n\n# A tibble: 5,404 × 4\n   subgroup date       rating_type rating_value\n   <chr>    <date>     <chr>              <dbl>\n 1 Voters   2020-10-04 approval            44.7\n 2 Voters   2020-10-04 disapproval         52.2\n 3 Adults   2020-10-04 approval            43.2\n 4 Adults   2020-10-04 disapproval         52.6\n 5 Adults   2020-10-03 approval            43.2\n 6 Adults   2020-10-03 disapproval         52.6\n 7 Voters   2020-10-03 approval            45.0\n 8 Voters   2020-10-03 disapproval         51.7\n 9 Adults   2020-10-02 approval            43.3\n10 Adults   2020-10-02 disapproval         52.4\n# ℹ 5,394 more rows\n\n\nBONUS 💳: Use trump_longer to generate a plot like the one below."
+    "text": "Note\n\n\n\n\n\n\nIn lab.qmd ## Lab 17 section,\n\n\nImport trump.csv. Call it trump_data as below on the left.\nUse pivot_longer() to transform trump_data into the data set trump_longer on the right.\n\n\n\n\n\ntrump_data\n\n# A tibble: 2,702 × 4\n   subgroup date       approval disapproval\n   <chr>    <date>        <dbl>       <dbl>\n 1 Voters   2020-10-04     44.7        52.2\n 2 Adults   2020-10-04     43.2        52.6\n 3 Adults   2020-10-03     43.2        52.6\n 4 Voters   2020-10-03     45.0        51.7\n 5 Adults   2020-10-02     43.3        52.4\n 6 Voters   2020-10-02     44.5        52.1\n 7 Voters   2020-10-01     44.1        52.8\n 8 Adults   2020-10-01     42.7        53.3\n 9 Adults   2020-09-30     42.2        53.7\n10 Voters   2020-09-30     44.2        52.7\n# ℹ 2,692 more rows\n\n\n\ntrump_longer <- ______________\n    pivot_longer(\n        cols = ____________,\n        names_to = _______________,\n        values_to = _______________\n    ) \n\n\n\n# A tibble: 5,404 × 4\n   subgroup date       rating_type rating_value\n   <chr>    <date>     <chr>              <dbl>\n 1 Voters   2020-10-04 approval            44.7\n 2 Voters   2020-10-04 disapproval         52.2\n 3 Adults   2020-10-04 approval            43.2\n 4 Adults   2020-10-04 disapproval         52.6\n 5 Adults   2020-10-03 approval            43.2\n 6 Adults   2020-10-03 disapproval         52.6\n 7 Voters   2020-10-03 approval            45.0\n 8 Voters   2020-10-03 disapproval         51.7\n 9 Adults   2020-10-02 approval            43.3\n10 Adults   2020-10-02 disapproval         52.4\n# ℹ 5,394 more rows\n\n\nBONUS 💵: Use trump_longer to generate a plot like the one below."
   },
   {
     "objectID": "exercise/lab02-quarto.html",
@@ -4869,7 +4813,70 @@
     "href": "project-description.html",
     "title": "MATH/COSC 3570 Project Description",
     "section": "",
-    "text": "To be announced."
+    "text": "Team up! You will be working as a group of 4 (one team with 5). One of you, please email me\n\nyour group member list\nyour team name (Last year we have team names “ggsquard”, “Data Alpha”, “Analytics and Beyond”, “YU”, “Metadata”)\n\nby Friday, 4/5 11:59 PM.\nProposal. Please send me a one-page PDF describing what you are going to do for your project (no word limit) with your project title by Friday, 4/26 11:59 PM.\nMeeting. Schedule a group meeting with Dr. Yu discussing your project. Please book a time slot in the Excel form.\nPresentation. You will be presenting your project on Monday, 5/6 10:30 AM - 12:30 PM.\nMaterials. Please share your entire work (slides, code, data, etc) by Monday, 5/6 11:59 PM."
+  },
+  {
+    "objectID": "project-description.html#team-up",
+    "href": "project-description.html#team-up",
+    "title": "MATH/COSC 3570 Project Description",
+    "section": "Team up!",
+    "text": "Team up!\n\nEach one of you loses 3 points of your project grade if you don’t meet the requirement or miss the deadline.\nYou will be randomly assigned to a group if you do not belong to any group before the deadline."
+  },
+  {
+    "objectID": "project-description.html#proposal",
+    "href": "project-description.html#proposal",
+    "title": "MATH/COSC 3570 Project Description",
+    "section": "Proposal",
+    "text": "Proposal\n\nEach one of you loses 3 points of your project grade if you don’t meet the requirement or miss the deadline.\nAlthough it is risky, you can change your project topic after you submit your proposal if you decide to do something else."
+  },
+  {
+    "objectID": "project-description.html#meeting",
+    "href": "project-description.html#meeting",
+    "title": "MATH/COSC 3570 Project Description",
+    "section": "Meeting",
+    "text": "Meeting\n\nYou loses 3 points of your project grade if you don’t meet the requirement or don’t meet with Dr. Yu at least once.\nPlease choose a meeting time in the Excel form.\nYou must let Dr. Yu know in advance if you need to change your meeting time.\nYou can change your meeting time once.\nEvery team member needs to show up in the meeting.\nPrepare briefly talk about your project."
+  },
+  {
+    "objectID": "project-description.html#presentation",
+    "href": "project-description.html#presentation",
+    "title": "MATH/COSC 3570 Project Description",
+    "section": "Presentation",
+    "text": "Presentation\n\nEvery student has to participate (in-person) in the final presentation in order to pass the course.\nEach group presentation should be between 14 and 15 minute long, followed by 1 to 2 minute Q&A. If your presentation is too short or too long, every one of you loses 3 points of your project grade.\nEvery group member has to present some part of the group work. The one who does not present receives no point.\n\n\n\nQuestions are encouraged during Q&A. Everyone is welcome to ask any questions about the projects. It helps everyone evaluate every group’s project and presentation performance. See Section 4 for grading policy.\nEach group is required to ask as least one question.\n\nThe \\(k\\)-th group should ask at least one question to the \\((k-1)\\)-th group in Q&A, \\(k = 2, \\dots, 7\\).\nThe 1st group will ask the last (7th) group questions about their project.\n\nIf you, as a group, don’t ask a question when you should, every one of you loses 3 points of your project grade."
+  },
+  {
+    "objectID": "project-description.html#materials",
+    "href": "project-description.html#materials",
+    "title": "MATH/COSC 3570 Project Description",
+    "section": "Materials",
+    "text": "Materials\n\nEach one of you loses 3 points of your project grade if you don’t meet the requirement or miss the deadline.\nYou need to share your entire work, including slides, code, and data if applicable.\nYour code should be able to reproduce all the numerical results, outputs, tables, and figures shown in the slides, including the source of the raw data (where you find and load the data) if the project is about data analysis."
+  },
+  {
+    "objectID": "project-description.html#data-analysis",
+    "href": "project-description.html#data-analysis",
+    "title": "MATH/COSC 3570 Project Description",
+    "section": "Data Analysis",
+    "text": "Data Analysis\nFor your data analysis project,\n\nYou need to show that you are good at asking meaningful questions and answering them with results of data analysis.\nYour presentation should include data visualization. Your graphics should be informative that help you\n\nexplore relationships between variables in your data\ndecide which statistical model is used, so that your research questions can be properly answered.\n\n\n\n\nYou should discuss how and why statistical methods/machine learning algorithms are chosen for analyzing your data set.\n\nThe methods we learn in class may not be appropriate for your data and answering your research questions. If this happens, critique your own methods and provide suggestions for improving your analysis. Any issues of your data, and appropriateness of the statistical analysis should be discussed.\n\n\n\n\n\nYou can choose a data set that is publicly available or you may collect your own data using a survey or by conducting an experiment. The dataset you choose cannot be any datasets used in class, including homework assignments and lab exercises.\nBelow are a list of data repositories you can start with, but you are encouraged to explore more and find your favorite one, for example COVID-19 data if you are interested.\n\nTidyTuesday\nKaggle\nAwesome Public Datasets\nHarvard Dataverse\nUCI Machine Learning Repository\nFiveThirtyEight"
+  },
+  {
+    "objectID": "project-description.html#rpython-packages",
+    "href": "project-description.html#rpython-packages",
+    "title": "MATH/COSC 3570 Project Description",
+    "section": "R/Python Packages",
+    "text": "R/Python Packages\nFor your R/Python package project,\n\nyou need to\n\nshow how and why the package greatly helps us do data science.\nexplain how to use the functions in the packages by providing data science examples with some real data set. Please don’t use the toy examples in the package documentation.\n\nIf the functions of the package return any results or outputs, please explain them, teaching your audience how to appropriately read the outputs.\nIf the functions return graphics, explain why the visualizations are informative and useful for understanding data and analysis results.\nYou can choose a package that helps us do what we cannot do with the packages and tools learned in class.\n\nFor example, we only learn and packages to help us import data files into R, and we don’t know how to extract data from a website. The  package helps us scrape data from web pages.\n\nIf you choose a package that provides the same functionality as the packages we learned, please show the packages you choose are better.\n\nFor example, its code is shorter, it is run faster, its output is more clear, its plot is prettier, etc. For example, (https://rdatatable.gitlab.io/data.table/) package provides a high-performance version of base R’s with syntax and feature enhancements for ease of use, convenience and programming speed.\n\nBelow are a list of popular R packages that you can start with.\n\nQuick list of useful R packages\nFavorite R Packages by Roel Verbelen\nGreat R packages for data import, wrangling, and visualization\nggplot2 extensions\n\n\nBelow are a list of popular Python packages that you can start with.\n\n20 Must-Have Python Libraries for Data Science for 2024\nTop 38 Python Libraries for Data Science, Data Visualization & Machine Learning"
+  },
+  {
+    "objectID": "project-description.html#group-performance-evaluation",
+    "href": "project-description.html#group-performance-evaluation",
+    "title": "MATH/COSC 3570 Project Description",
+    "section": "Group Performance Evaluation",
+    "text": "Group Performance Evaluation\n\nYou will need to evaluate all group projects except the one you work on.\nYou evaluate group performance based on the rubric attached. Four evaluation criteria are considered:\n\nProject Content and Organization (8 pts)\nSlides Quality (4 pts)\nOral Presentation Skill and Delivery (4 pts)\nInteractions and Q&A (4 pts)\n\nThe total points of a project presentation is 20 points.\nEvaluation sheets will be provided on the presentation day.\nHow do you get the full points for each category? Check the requirements below. Note that for Content and Organization, data analysis and package projects have different requirements.\nContent and Organization (Data Analysis)\n\nBeautiful visualization helps find out relationship of variables and specification of models\nAll questions are answered accurately by the models\nDiscuss how and why the models are chosen\nApply sophisticated models and detailed analysis\nAll ideas are presented in logical order\n\nContent and Organization (Packages)\n\nShow how and why the package greatly helps us do data science\nExplain how to use the functions in the package by providing concrete real data science applications and examples with data sets\nTeach audience with understandable examples of how to appropriately read the outputs and/or why the visualizations are informative and useful for understanding data and analysis results\nShow the package is better in some sense, its code is shorter, it is run faster, its output is more clear, its plot is prettier, etc\nAll ideas are presented in logical order\n\nSlides Quality\n\nSlides show code and output beautifully\nSlides clearly aid the speaker in telling a coherent story\nAll tables and graphics are informative and related to the topic and make it easier to understand\nAttractive design, layout, and neatness.\n\nOral Presentation Skill\n\nGood volume and energy\nProper pace and diction\nAvoidance of distracting gestures\n\nInteractions and Q&A\n\nGood eye contact with audience\nExcellent listening skills\nAnswers audience questions with authority and accuracy\n\nAfter you evaluate 6 group project presentations, you rank them from 1st to 6th based on their earned points.\nNo two groups receive the same ranking. If you give two or more groups some points, you still need to give them a different ranking, deciding which teams deserve a higher ranking according to your preference."
+  },
+  {
+    "objectID": "project-description.html#individual-performance-evaluation",
+    "href": "project-description.html#individual-performance-evaluation",
+    "title": "MATH/COSC 3570 Project Description",
+    "section": "Individual Performance Evaluation",
+    "text": "Individual Performance Evaluation\n\n\nYou choose one single person who you think contributes the most to your group project.\nYou cannot vote for yourself, and you can only vote for one of your teammates.\nIf you don’t vote, you can’t be the best contributor even if you obtain the most votes. The person with the second highest votes wins the best contribution reward.\nIf there is no one single person who gets the most votes, every team member remains the same grade. For example, if your group finish in third place, and there is no best contributor, all members receive 91 (See Table 1)."
   },
   {
     "objectID": "course-syllabus.html",

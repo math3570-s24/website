@@ -1335,49 +1335,6 @@ Grammar of Data Manipulation
           width: 1px!important;
           overflow: hidden!important;
           display:block!important;
-      }</style></aside></section><section id="summarizing-data-summarize-3" class="slide level2"><h2>Summarizing Data – <code>summarize()</code>
-</h2>
-<ul>
-<li>
-<code>summarize()</code> always returns a data frame, which might be problematic when we want to use it as a numeric value with other operations or functions.</li>
-</ul>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a>(rate_df <span class="ot">&lt;-</span> murders <span class="sc">|&gt;</span> </span>
-<span id="cb50-2"><a href="#cb50-2"></a>    <span class="fu">summarize</span>(<span class="at">rate =</span> <span class="fu">sum</span>(total) <span class="sc">/</span> <span class="fu">sum</span>(population) <span class="sc">*</span> <span class="dv">100000</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 1
-   rate
-  &lt;dbl&gt;
-1  3.03</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a><span class="fu">class</span>(rate_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "tbl_df"     "tbl"        "data.frame"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a><span class="fu">rep</span>(rate_df, <span class="dv">3</span>) <span class="do">## want a (atomic) vector of length 3, but get a list of length 3!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>$rate
-[1] 3.03
-
-$rate
-[1] 3.03
-
-$rate
-[1] 3.03</code></pre>
-</div>
-</div>
-<aside class="notes"><ul>
-<li>We use summarize() function and compute the variable rate. The result is a 1 by 1 data frame.</li>
-</ul><style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
       }</style></aside></section><section id="grouping-group_by" class="slide level2"><h2>Grouping – <code>group_by()</code>
 </h2>
 <div class="cell" data-layout-align="center">
@@ -1715,7 +1672,7 @@ Data Manipulation
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a href="#cb90-1"></a>heights.groupby(<span class="st">'sex'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x2a16e1c50&gt;</code></pre>
+<pre><code>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x145164fd0&gt;</code></pre>
 </div>
 </div>
 <div class="fragment">
