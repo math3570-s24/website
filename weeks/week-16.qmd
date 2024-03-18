@@ -1,6 +1,6 @@
 ---
 title: "Week 16"
-subtitle: "Quarto Website"
+subtitle: "K-Means Clustering"
 editor: visual
 ---
 

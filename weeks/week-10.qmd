@@ -21,8 +21,6 @@ editor: visual
 
 📋 [Lab-18 Probability](/exercise/lab18-prob.html)
 
-📋 [Lab-19 Confidence Interval](/exercise/lab19-ci.html)
-
 <br><br>
 
 ::: {style="font-size: 0.875em;"}

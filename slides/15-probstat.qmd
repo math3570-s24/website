@@ -147,28 +147,42 @@ knitr::include_graphics("./images/02-datascience/data-science-model.png")
 
 - We live in a world full of chances and uncertainty!
 
+
+<br>
+
 :::: {.columns}
 
-::: {.column width="50%"}
-
+::: {.column width="33%"}
 **Mar 29, 2022**
 ```{r}
 #| purl: false
 #| echo: false
-#| out-width: "80%"
+#| out-width: 100%
 knitr::include_graphics("./images/15-probstat/chance_03292022.png")
 ```
 :::
 
-::: {.column width="50%"}
+::: {.column width="33%"}
 **Mar 22, 2023**
 ```{r}
 #| purl: false
 #| echo: false
-#| out-width: "88%"
+#| out-width: "100%"
 knitr::include_graphics("./images/15-probstat/chance03222023.png")
 ```
 :::
+
+::: {.column width="33%"}
+**Mar 18, 2024**
+```{r}
+#| purl: false
+#| echo: false
+#| out-width: "100%"
+knitr::include_graphics("./images/15-probstat/chance_2024.png")
+```
+:::
+
+
 ::::
 
 
@@ -752,7 +766,7 @@ binom_df |> ggplot(aes(x = x, y = y)) +
 ```{r}
 #| purl: false
 #| echo: false
-#| out-width: "100%"
+#| out-width: "90%"
 #| fig-align: center
 #| fig-cap: "Figure 1.1 in All of Statistics (Wasserman 2003)"
 knitr::include_graphics("./images/15-probstat/data_generating.png")
@@ -762,9 +776,9 @@ knitr::include_graphics("./images/15-probstat/data_generating.png")
 
 
 ## Terminology
-- **Population**: a group of individuals or objects we are interested in studying
+- **Population** [(**Data generating process**)]{.green}: a group of subjects we are interested in studying
 
-- **Sample**: a (*representative*) subset of our population of interest
+- **Sample** [(**Data**)]{.green}: a (*representative*) subset of our population of interest
 
 - **Parameter**: a *unknown* *fixed* numerical quantity derived from the population ^[Another methodology called Bayesian statistics assumes parameters are unknown but *random*.]
 
@@ -822,12 +836,11 @@ The one single point used to estimate the unknown parameter is called a **point 
 
 
 
-## Point Estimates Are Not Enough
+## Point Estimates Are Not Enough {visibility="hidden"}
 ::: {.question}
 If you want to estimate $\mu$, do you prefer to report a range of values the parameter might be in, or a single estimate like $\overline{x}$?
 :::
 
-. . .
 
 :::{.question}
 If you want to catch a fish, do you prefer a spear or a net?
@@ -894,17 +907,15 @@ Do we know the sampling distribution of $\overline{X}$?
 :::
 
 
-## Confidence Intervals
+## Confidence Intervals {visibility="hidden"}
 
 A plausible range of values for $\mu$ is called a **confidence interval (CI)**.
 
-. . .
 
 ::: {.question}
 Do we know the sampling distribution of $\overline{X}$? 
 :::
 
-. . .
 
 - Central Limit Theorem: $\overline{X} \sim N(\mu, \frac{\sigma^2}{n})$ **regardless of what the population distribution is**.
 

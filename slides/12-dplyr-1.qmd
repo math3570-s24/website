@@ -636,7 +636,7 @@ str(s2)
 :::
 
 
-## Summarizing Data -- `summarize()`
+## Summarizing Data -- `summarize()` {visibility="hidden"}
 - `summarize()` always returns a data frame, which might be problematic when we want to use it as a numeric value with other operations or functions.
 
 ```{r}

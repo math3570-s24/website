@@ -624,7 +624,7 @@ purchases |>
 :::
 
 
-## `separate()`
+## `separate()`   {visibility="hidden"}
 - `separate()` pulls apart *one column into multiple ones*, by splitting wherever a separator character appears.
 - By default `separate()` splits values wherever it sees a **character that isn't a number or letter**.
 
@@ -663,7 +663,7 @@ table3 |>
 :::
 
 
-## `separate()`
+## `separate()`  {visibility="hidden"}
 
 
 :::: {.columns}
@@ -703,7 +703,7 @@ table3 |>
 :::
 
 
-## `unite()`
+## `unite()`  {visibility="hidden"}
 
 - `unite()` is the inverse of `separate()`: it combines multiple columns into a single column. 
 
@@ -738,7 +738,7 @@ table5 |>
 :::
 
 
-## `unite()`
+## `unite()`  {visibility="hidden"}
 
 - `unite()` is the inverse of `separate()`: it combines multiple columns into a single column. 
 
@@ -776,7 +776,7 @@ table5 |>
 
 
 
-## Missing Values
+## Missing Values {visibility="hidden"}
 
 - **Explicitly**: flagged with `NA` or other character/string representing a missing value.
 - **Implicitly**: simply not present in the data.
@@ -803,7 +803,7 @@ table5 |>
 :::
 
 
-## pivot_wider() Make Implicit Values Explicit
+## pivot_wider() Make Implicit Values Explicit {visibility="hidden"}
 
 > An **explicit** missing value is the **presence of an absence**.
 
@@ -823,7 +823,7 @@ stocks |>
 :::
 
 
-## `complete()`: Making Missing Values Explicit
+## `complete()`: Making Missing Values Explicit {visibility="hidden"}
 
 :::: {.columns}
 
@@ -850,7 +850,7 @@ stocks |>
 - So here we find all unique combinations of year and quarter, and because there is no year 2016 and first quarter in the original data set, its return is NA.
 :::
 
-## `fill()`: Fill in Missing Values
+## `fill()`: Fill in Missing Values {visibility="hidden"}
 
 :::: {.columns}
 

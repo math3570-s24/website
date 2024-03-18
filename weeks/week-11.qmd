@@ -1,6 +1,6 @@
 ---
 title: "Week 11"
-subtitle: "Linear Regression"
+subtitle: "Probabilistic and Statistical Simulation"
 editor: visual
 ---
 
@@ -9,13 +9,11 @@ editor: visual
 
 ## Participate
 
-🖥️ [Slides - Linear Regression](/slides/16-linear-reg.html)
-
-`r fontawesome::fa("table")` `ggplot2::mpg`
+🖥️ [Slides - Probability and Statistics](/slides/15-probstat.html)
 
 ## Exercise
 
-📋 [Lab-20 Simple Linear Regression](/exercise/lab20-slr.html)
+📋 [Lab-19 Confidence Interval](/exercise/lab19-ci.html)
 
 <br><br>
 

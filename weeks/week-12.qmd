@@ -1,6 +1,6 @@
 ---
 title: "Week 12"
-subtitle: "Logistic Regression"
+subtitle: "Linear Regression"
 editor: visual
 ---
 
@@ -9,9 +9,9 @@ editor: visual
 
 ## Participate
 
-🖥️ [Slides - Logistic Regression](/slides/17-logistic-reg.html)
+🖥️ [Slides - Linear Regression](/slides/16-linear-reg.html)
 
-`r fontawesome::fa("table")` [Data - body](/slides/data/body.csv)
+`r fontawesome::fa("table")` `ggplot2::mpg`
 
 ## Reading
 
@@ -19,7 +19,7 @@ editor: visual
 
 ## Exercise
 
-📋 [Lab-21 Logistic Regression](/exercise/lab21-logistic.html)
+📋 [Lab-20 Simple Linear Regression](/exercise/lab20-slr.html)
 
 <br><br>
 
