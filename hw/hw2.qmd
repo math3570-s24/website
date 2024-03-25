@@ -285,7 +285,7 @@ import pandas as pd
 ```
 
 
-4. Use Python to do @sec-baseball question 1. (Import the data Batting.csv).
+4. Use Python to do @sec-baseball question 1. (Import the data [Batting.csv](./Batting.csv)).
 
 ```{python}
 ## code
@@ -294,7 +294,7 @@ import pandas as pd
 ```
 
 
-5. Use Python to do @sec-baseball question 2. (Import the data People.csv).
+5. Use Python to do @sec-baseball question 2. (Import the data [People.csv](./People.csv)).
 
 ```{python}
 ## code
