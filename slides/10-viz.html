@@ -5,10 +5,11 @@
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.4.551">
 <meta name="author" content="Dr.&nbsp;Cheng-Han Yu   Department of Mathematical and Statistical Sciences   Marquette University">
 <title>MATH/COSC 3570 - Spring 2024 - Visualizing Data r emo::ji('chart_with_upwards_trend')</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -25,11 +26,12 @@
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
       width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -93,7 +95,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-<link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css" id="theme">
+<link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css">
 <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
 <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
 <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -136,44 +138,44 @@
     font-weight: 400;
   }
 
-  .callout.callout-captioned.callout-style-simple .callout-body {
+  .callout.callout-titled.callout-style-simple .callout-body {
     margin-top: 0.2em;
   }
 
-  .callout:not(.callout-captioned) .callout-body {
+  .callout:not(.callout-titled) .callout-body {
       display: flex;
   }
 
-  .callout:not(.no-icon).callout-captioned.callout-style-simple .callout-content {
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
     padding-left: 1.6em;
   }
 
-  .callout.callout-captioned .callout-header {
+  .callout.callout-titled .callout-header {
     padding-top: 0.2em;
     margin-bottom: -0.2em;
   }
 
-  .callout.callout-captioned .callout-caption  p {
+  .callout.callout-titled .callout-title  p {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
   }
     
-  .callout.callout-captioned.callout-style-simple .callout-content  p {
+  .callout.callout-titled.callout-style-simple .callout-content  p {
     margin-top: 0;
   }
 
-  .callout.callout-captioned.callout-style-default .callout-content  p {
+  .callout.callout-titled.callout-style-default .callout-content  p {
     margin-top: 0.7em;
   }
 
-  .callout.callout-style-simple div.callout-caption {
+  .callout.callout-style-simple div.callout-title {
     border-bottom: none;
     font-size: .9rem;
     font-weight: 600;
     opacity: 75%;
   }
 
-  .callout.callout-style-default  div.callout-caption {
+  .callout.callout-style-default  div.callout-title {
     border-bottom: none;
     font-weight: 600;
     opacity: 85%;
@@ -205,7 +207,7 @@
     background-size: 0.9rem 0.9rem;
   }
 
-  .callout-caption {
+  .callout-title {
     display: flex
   }
     
@@ -218,16 +220,17 @@
     display: none !important;
   }
 
-  .callout.callout-captioned .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
-  .callout.callout-captioned .callout-icon::before {
+  .callout.callout-titled .callout-icon::before {
     margin-top: .5rem;
     padding-right: .5rem;
   }
 
-  .callout:not(.callout-captioned) .callout-icon::before {
+  .callout:not(.callout-titled) .callout-icon::before {
     margin-top: 1rem;
     padding-right: .5rem;
   }
@@ -242,7 +245,7 @@
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
   }
 
-  div.callout-note.callout-style-default .callout-caption {
+  div.callout-note.callout-style-default .callout-title {
     background-color: #dae6fb
   }
 
@@ -254,7 +257,7 @@
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
   }
 
-  div.callout-important.callout-style-default .callout-caption {
+  div.callout-important.callout-style-default .callout-title {
     background-color: #f7dddc
   }
 
@@ -266,7 +269,7 @@
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
   }
 
-  div.callout-warning.callout-style-default .callout-caption {
+  div.callout-warning.callout-style-default .callout-title {
     background-color: #fcefdc
   }
 
@@ -278,7 +281,7 @@
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
   }
 
-  div.callout-tip.callout-style-default .callout-caption {
+  div.callout-tip.callout-style-default .callout-title {
     background-color: #ccf1e3
   }
 
@@ -290,7 +293,7 @@
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
   }
 
-  div.callout-caution.callout-style-default .callout-caption {
+  div.callout-caution.callout-style-default .callout-title {
     background-color: #ffe5d0
   }
 
@@ -384,7 +387,7 @@
   </style>
 <meta property="og:title" content="MATH/COSC 3570 - Spring 2024 - Visualizing Data r emo::ji('chart_with_upwards_trend')">
 <meta property="og:description" content="MATH/COSC 3570 Introduction to Data Science">
-<meta property="og:site-name" content="MATH/COSC 3570 - Spring 2024">
+<meta property="og:site_name" content="MATH/COSC 3570 - Spring 2024">
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -431,7 +434,7 @@ Dr.&nbsp;Cheng-Han Yu <br> Department of Mathematical and Statistical Sciences <
 <li><p>Data includes <strong>loans made</strong>, these are not loan applications.</p></li>
 </ul>
 
-<img data-src="./images/10-viz/lending-club.png" style="width:70.0%" class="r-stretch quarto-figure-center"><aside class="notes"><ul>
+<img data-src="./images/10-viz/lending-club.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><aside class="notes"><ul>
 <li>OK. The data set we will be working with comes from the lending club.</li>
 <li>Thousands of loans made through the Lending Club, which is a platform that allows individuals to lend to other individuals.</li>
 <li>If you are finance or econ major, or you know about loans, you know that Not all loans are created equal – ease of getting a loan depends on (apparent) ability to pay back the loan.</li>
@@ -449,66 +452,66 @@ Dr.&nbsp;Cheng-Han Yu <br> Department of Mathematical and Statistical Sciences <
           display:block!important;
       }</style></aside></section><section id="take-a-peek-at-data" class="slide level2"><h2>Take a Peek at Data</h2>
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/loans_full_schema_4a9b9fee1ccbabc7cdb3d60acdcd40ed">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(openintro) <span class="do">## for loading the data set</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a>dplyr<span class="sc">::</span><span class="fu">glimpse</span>(loans_full_schema)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">library</span>(openintro) <span class="do">## for loading the data set</span></span>
+<span id="cb2-2"><a></a>dplyr<span class="sc">::</span><span class="fu">glimpse</span>(loans_full_schema)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource my_class800 number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href="#cb3-1"></a>Rows: 10,000</span>
-<span id="cb3-2"><a href="#cb3-2"></a>Columns: 55</span>
-<span id="cb3-3"><a href="#cb3-3"></a>$ emp_title                        &lt;chr&gt; "global config engineer ", "warehouse…</span>
-<span id="cb3-4"><a href="#cb3-4"></a>$ emp_length                       &lt;dbl&gt; 3, 10, 3, 1, 10, NA, 10, 10, 10, 3, 1…</span>
-<span id="cb3-5"><a href="#cb3-5"></a>$ state                            &lt;fct&gt; NJ, HI, WI, PA, CA, KY, MI, AZ, NV, I…</span>
-<span id="cb3-6"><a href="#cb3-6"></a>$ homeownership                    &lt;fct&gt; MORTGAGE, RENT, RENT, RENT, RENT, OWN…</span>
-<span id="cb3-7"><a href="#cb3-7"></a>$ annual_income                    &lt;dbl&gt; 90000, 40000, 40000, 30000, 35000, 34…</span>
-<span id="cb3-8"><a href="#cb3-8"></a>$ verified_income                  &lt;fct&gt; Verified, Not Verified, Source Verifi…</span>
-<span id="cb3-9"><a href="#cb3-9"></a>$ debt_to_income                   &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.4…</span>
-<span id="cb3-10"><a href="#cb3-10"></a>$ annual_income_joint              &lt;dbl&gt; NA, NA, NA, NA, 57000, NA, 155000, NA…</span>
-<span id="cb3-11"><a href="#cb3-11"></a>$ verification_income_joint        &lt;fct&gt; , , , , Verified, , Not Verified, , ,…</span>
-<span id="cb3-12"><a href="#cb3-12"></a>$ debt_to_income_joint             &lt;dbl&gt; NA, NA, NA, NA, 37.7, NA, 13.1, NA, N…</span>
-<span id="cb3-13"><a href="#cb3-13"></a>$ delinq_2y                        &lt;int&gt; 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0…</span>
-<span id="cb3-14"><a href="#cb3-14"></a>$ months_since_last_delinq         &lt;int&gt; 38, NA, 28, NA, NA, 3, NA, 19, 18, NA…</span>
-<span id="cb3-15"><a href="#cb3-15"></a>$ earliest_credit_line             &lt;dbl&gt; 2001, 1996, 2006, 2007, 2008, 1990, 2…</span>
-<span id="cb3-16"><a href="#cb3-16"></a>$ inquiries_last_12m               &lt;int&gt; 6, 1, 4, 0, 7, 6, 1, 1, 3, 0, 4, 4, 8…</span>
-<span id="cb3-17"><a href="#cb3-17"></a>$ total_credit_lines               &lt;int&gt; 28, 30, 31, 4, 22, 32, 12, 30, 35, 9,…</span>
-<span id="cb3-18"><a href="#cb3-18"></a>$ open_credit_lines                &lt;int&gt; 10, 14, 10, 4, 16, 12, 10, 15, 21, 6,…</span>
-<span id="cb3-19"><a href="#cb3-19"></a>$ total_credit_limit               &lt;int&gt; 70795, 28800, 24193, 25400, 69839, 42…</span>
-<span id="cb3-20"><a href="#cb3-20"></a>$ total_credit_utilized            &lt;int&gt; 38767, 4321, 16000, 4997, 52722, 3898…</span>
-<span id="cb3-21"><a href="#cb3-21"></a>$ num_collections_last_12m         &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
-<span id="cb3-22"><a href="#cb3-22"></a>$ num_historical_failed_to_pay     &lt;int&gt; 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0…</span>
-<span id="cb3-23"><a href="#cb3-23"></a>$ months_since_90d_late            &lt;int&gt; 38, NA, 28, NA, NA, 60, NA, 71, 18, N…</span>
-<span id="cb3-24"><a href="#cb3-24"></a>$ current_accounts_delinq          &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
-<span id="cb3-25"><a href="#cb3-25"></a>$ total_collection_amount_ever     &lt;int&gt; 1250, 0, 432, 0, 0, 0, 0, 0, 0, 0, 0,…</span>
-<span id="cb3-26"><a href="#cb3-26"></a>$ current_installment_accounts     &lt;int&gt; 2, 0, 1, 1, 1, 0, 2, 2, 6, 1, 2, 1, 2…</span>
-<span id="cb3-27"><a href="#cb3-27"></a>$ accounts_opened_24m              &lt;int&gt; 5, 11, 13, 1, 6, 2, 1, 4, 10, 5, 6, 7…</span>
-<span id="cb3-28"><a href="#cb3-28"></a>$ months_since_last_credit_inquiry &lt;int&gt; 5, 8, 7, 15, 4, 5, 9, 7, 4, 17, 3, 4,…</span>
-<span id="cb3-29"><a href="#cb3-29"></a>$ num_satisfactory_accounts        &lt;int&gt; 10, 14, 10, 4, 16, 12, 10, 15, 21, 6,…</span>
-<span id="cb3-30"><a href="#cb3-30"></a>$ num_accounts_120d_past_due       &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, NA, 0, 0, 0, 0, …</span>
-<span id="cb3-31"><a href="#cb3-31"></a>$ num_accounts_30d_past_due        &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
-<span id="cb3-32"><a href="#cb3-32"></a>$ num_active_debit_accounts        &lt;int&gt; 2, 3, 3, 2, 10, 1, 3, 5, 11, 3, 2, 2,…</span>
-<span id="cb3-33"><a href="#cb3-33"></a>$ total_debit_limit                &lt;int&gt; 11100, 16500, 4300, 19400, 32700, 272…</span>
-<span id="cb3-34"><a href="#cb3-34"></a>$ num_total_cc_accounts            &lt;int&gt; 14, 24, 14, 3, 20, 27, 8, 16, 19, 7, …</span>
-<span id="cb3-35"><a href="#cb3-35"></a>$ num_open_cc_accounts             &lt;int&gt; 8, 14, 8, 3, 15, 12, 7, 12, 14, 5, 8,…</span>
-<span id="cb3-36"><a href="#cb3-36"></a>$ num_cc_carrying_balance          &lt;int&gt; 6, 4, 6, 2, 13, 5, 6, 10, 14, 3, 5, 3…</span>
-<span id="cb3-37"><a href="#cb3-37"></a>$ num_mort_accounts                &lt;int&gt; 1, 0, 0, 0, 0, 3, 2, 7, 2, 0, 2, 3, 3…</span>
-<span id="cb3-38"><a href="#cb3-38"></a>$ account_never_delinq_percent     &lt;dbl&gt; 92.9, 100.0, 93.5, 100.0, 100.0, 78.1…</span>
-<span id="cb3-39"><a href="#cb3-39"></a>$ tax_liens                        &lt;int&gt; 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
-<span id="cb3-40"><a href="#cb3-40"></a>$ public_record_bankrupt           &lt;int&gt; 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0…</span>
-<span id="cb3-41"><a href="#cb3-41"></a>$ loan_purpose                     &lt;fct&gt; moving, debt_consolidation, other, de…</span>
-<span id="cb3-42"><a href="#cb3-42"></a>$ application_type                 &lt;fct&gt; individual, individual, individual, i…</span>
-<span id="cb3-43"><a href="#cb3-43"></a>$ loan_amount                      &lt;int&gt; 28000, 5000, 2000, 21600, 23000, 5000…</span>
-<span id="cb3-44"><a href="#cb3-44"></a>$ term                             &lt;dbl&gt; 60, 36, 36, 36, 36, 36, 60, 60, 36, 3…</span>
-<span id="cb3-45"><a href="#cb3-45"></a>$ interest_rate                    &lt;dbl&gt; 14.07, 12.61, 17.09, 6.72, 14.07, 6.7…</span>
-<span id="cb3-46"><a href="#cb3-46"></a>$ installment                      &lt;dbl&gt; 652.5, 167.5, 71.4, 664.2, 786.9, 153…</span>
-<span id="cb3-47"><a href="#cb3-47"></a>$ grade                            &lt;ord&gt; C, C, D, A, C, A, C, B, C, A, C, B, C…</span>
-<span id="cb3-48"><a href="#cb3-48"></a>$ sub_grade                        &lt;fct&gt; C3, C1, D1, A3, C3, A3, C2, B5, C2, A…</span>
-<span id="cb3-49"><a href="#cb3-49"></a>$ issue_month                      &lt;fct&gt; Mar-2018, Feb-2018, Feb-2018, Jan-201…</span>
-<span id="cb3-50"><a href="#cb3-50"></a>$ loan_status                      &lt;fct&gt; Current, Current, Current, Current, C…</span>
-<span id="cb3-51"><a href="#cb3-51"></a>$ initial_listing_status           &lt;fct&gt; whole, whole, fractional, whole, whol…</span>
-<span id="cb3-52"><a href="#cb3-52"></a>$ disbursement_method              &lt;fct&gt; Cash, Cash, Cash, Cash, Cash, Cash, C…</span>
-<span id="cb3-53"><a href="#cb3-53"></a>$ balance                          &lt;dbl&gt; 27016, 4651, 1825, 18853, 21430, 4257…</span>
-<span id="cb3-54"><a href="#cb3-54"></a>$ paid_total                       &lt;dbl&gt; 1999, 499, 282, 3313, 2325, 873, 2731…</span>
-<span id="cb3-55"><a href="#cb3-55"></a>$ paid_principal                   &lt;dbl&gt; 984, 349, 175, 2747, 1570, 743, 1440,…</span>
-<span id="cb3-56"><a href="#cb3-56"></a>$ paid_interest                    &lt;dbl&gt; 1015.2, 150.5, 106.4, 566.1, 754.8, 1…</span>
-<span id="cb3-57"><a href="#cb3-57"></a>$ paid_late_fees                   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource my_class800 number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a></a>Rows: 10,000</span>
+<span id="cb3-2"><a></a>Columns: 55</span>
+<span id="cb3-3"><a></a>$ emp_title                        &lt;chr&gt; "global config engineer ", "warehouse…</span>
+<span id="cb3-4"><a></a>$ emp_length                       &lt;dbl&gt; 3, 10, 3, 1, 10, NA, 10, 10, 10, 3, 1…</span>
+<span id="cb3-5"><a></a>$ state                            &lt;fct&gt; NJ, HI, WI, PA, CA, KY, MI, AZ, NV, I…</span>
+<span id="cb3-6"><a></a>$ homeownership                    &lt;fct&gt; MORTGAGE, RENT, RENT, RENT, RENT, OWN…</span>
+<span id="cb3-7"><a></a>$ annual_income                    &lt;dbl&gt; 90000, 40000, 40000, 30000, 35000, 34…</span>
+<span id="cb3-8"><a></a>$ verified_income                  &lt;fct&gt; Verified, Not Verified, Source Verifi…</span>
+<span id="cb3-9"><a></a>$ debt_to_income                   &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.4…</span>
+<span id="cb3-10"><a></a>$ annual_income_joint              &lt;dbl&gt; NA, NA, NA, NA, 57000, NA, 155000, NA…</span>
+<span id="cb3-11"><a></a>$ verification_income_joint        &lt;fct&gt; , , , , Verified, , Not Verified, , ,…</span>
+<span id="cb3-12"><a></a>$ debt_to_income_joint             &lt;dbl&gt; NA, NA, NA, NA, 37.7, NA, 13.1, NA, N…</span>
+<span id="cb3-13"><a></a>$ delinq_2y                        &lt;int&gt; 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0…</span>
+<span id="cb3-14"><a></a>$ months_since_last_delinq         &lt;int&gt; 38, NA, 28, NA, NA, 3, NA, 19, 18, NA…</span>
+<span id="cb3-15"><a></a>$ earliest_credit_line             &lt;dbl&gt; 2001, 1996, 2006, 2007, 2008, 1990, 2…</span>
+<span id="cb3-16"><a></a>$ inquiries_last_12m               &lt;int&gt; 6, 1, 4, 0, 7, 6, 1, 1, 3, 0, 4, 4, 8…</span>
+<span id="cb3-17"><a></a>$ total_credit_lines               &lt;int&gt; 28, 30, 31, 4, 22, 32, 12, 30, 35, 9,…</span>
+<span id="cb3-18"><a></a>$ open_credit_lines                &lt;int&gt; 10, 14, 10, 4, 16, 12, 10, 15, 21, 6,…</span>
+<span id="cb3-19"><a></a>$ total_credit_limit               &lt;int&gt; 70795, 28800, 24193, 25400, 69839, 42…</span>
+<span id="cb3-20"><a></a>$ total_credit_utilized            &lt;int&gt; 38767, 4321, 16000, 4997, 52722, 3898…</span>
+<span id="cb3-21"><a></a>$ num_collections_last_12m         &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
+<span id="cb3-22"><a></a>$ num_historical_failed_to_pay     &lt;int&gt; 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0…</span>
+<span id="cb3-23"><a></a>$ months_since_90d_late            &lt;int&gt; 38, NA, 28, NA, NA, 60, NA, 71, 18, N…</span>
+<span id="cb3-24"><a></a>$ current_accounts_delinq          &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
+<span id="cb3-25"><a></a>$ total_collection_amount_ever     &lt;int&gt; 1250, 0, 432, 0, 0, 0, 0, 0, 0, 0, 0,…</span>
+<span id="cb3-26"><a></a>$ current_installment_accounts     &lt;int&gt; 2, 0, 1, 1, 1, 0, 2, 2, 6, 1, 2, 1, 2…</span>
+<span id="cb3-27"><a></a>$ accounts_opened_24m              &lt;int&gt; 5, 11, 13, 1, 6, 2, 1, 4, 10, 5, 6, 7…</span>
+<span id="cb3-28"><a></a>$ months_since_last_credit_inquiry &lt;int&gt; 5, 8, 7, 15, 4, 5, 9, 7, 4, 17, 3, 4,…</span>
+<span id="cb3-29"><a></a>$ num_satisfactory_accounts        &lt;int&gt; 10, 14, 10, 4, 16, 12, 10, 15, 21, 6,…</span>
+<span id="cb3-30"><a></a>$ num_accounts_120d_past_due       &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, NA, 0, 0, 0, 0, …</span>
+<span id="cb3-31"><a></a>$ num_accounts_30d_past_due        &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
+<span id="cb3-32"><a></a>$ num_active_debit_accounts        &lt;int&gt; 2, 3, 3, 2, 10, 1, 3, 5, 11, 3, 2, 2,…</span>
+<span id="cb3-33"><a></a>$ total_debit_limit                &lt;int&gt; 11100, 16500, 4300, 19400, 32700, 272…</span>
+<span id="cb3-34"><a></a>$ num_total_cc_accounts            &lt;int&gt; 14, 24, 14, 3, 20, 27, 8, 16, 19, 7, …</span>
+<span id="cb3-35"><a></a>$ num_open_cc_accounts             &lt;int&gt; 8, 14, 8, 3, 15, 12, 7, 12, 14, 5, 8,…</span>
+<span id="cb3-36"><a></a>$ num_cc_carrying_balance          &lt;int&gt; 6, 4, 6, 2, 13, 5, 6, 10, 14, 3, 5, 3…</span>
+<span id="cb3-37"><a></a>$ num_mort_accounts                &lt;int&gt; 1, 0, 0, 0, 0, 3, 2, 7, 2, 0, 2, 3, 3…</span>
+<span id="cb3-38"><a></a>$ account_never_delinq_percent     &lt;dbl&gt; 92.9, 100.0, 93.5, 100.0, 100.0, 78.1…</span>
+<span id="cb3-39"><a></a>$ tax_liens                        &lt;int&gt; 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
+<span id="cb3-40"><a></a>$ public_record_bankrupt           &lt;int&gt; 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0…</span>
+<span id="cb3-41"><a></a>$ loan_purpose                     &lt;fct&gt; moving, debt_consolidation, other, de…</span>
+<span id="cb3-42"><a></a>$ application_type                 &lt;fct&gt; individual, individual, individual, i…</span>
+<span id="cb3-43"><a></a>$ loan_amount                      &lt;int&gt; 28000, 5000, 2000, 21600, 23000, 5000…</span>
+<span id="cb3-44"><a></a>$ term                             &lt;dbl&gt; 60, 36, 36, 36, 36, 36, 60, 60, 36, 3…</span>
+<span id="cb3-45"><a></a>$ interest_rate                    &lt;dbl&gt; 14.07, 12.61, 17.09, 6.72, 14.07, 6.7…</span>
+<span id="cb3-46"><a></a>$ installment                      &lt;dbl&gt; 652.5, 167.5, 71.4, 664.2, 786.9, 153…</span>
+<span id="cb3-47"><a></a>$ grade                            &lt;ord&gt; C, C, D, A, C, A, C, B, C, A, C, B, C…</span>
+<span id="cb3-48"><a></a>$ sub_grade                        &lt;fct&gt; C3, C1, D1, A3, C3, A3, C2, B5, C2, A…</span>
+<span id="cb3-49"><a></a>$ issue_month                      &lt;fct&gt; Mar-2018, Feb-2018, Feb-2018, Jan-201…</span>
+<span id="cb3-50"><a></a>$ loan_status                      &lt;fct&gt; Current, Current, Current, Current, C…</span>
+<span id="cb3-51"><a></a>$ initial_listing_status           &lt;fct&gt; whole, whole, fractional, whole, whol…</span>
+<span id="cb3-52"><a></a>$ disbursement_method              &lt;fct&gt; Cash, Cash, Cash, Cash, Cash, Cash, C…</span>
+<span id="cb3-53"><a></a>$ balance                          &lt;dbl&gt; 27016, 4651, 1825, 18853, 21430, 4257…</span>
+<span id="cb3-54"><a></a>$ paid_total                       &lt;dbl&gt; 1999, 499, 282, 3313, 2325, 873, 2731…</span>
+<span id="cb3-55"><a></a>$ paid_principal                   &lt;dbl&gt; 984, 349, 175, 2747, 1570, 743, 1440,…</span>
+<span id="cb3-56"><a></a>$ paid_interest                    &lt;dbl&gt; 1015.2, 150.5, 106.4, 566.1, 754.8, 1…</span>
+<span id="cb3-57"><a></a>$ paid_late_fees                   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <aside class="notes"><ul>
@@ -529,13 +532,13 @@ Dr.&nbsp;Cheng-Han Yu <br> Department of Mathematical and Statistical Sciences <
           display:block!important;
       }</style></aside></section><section id="selected-variables" class="slide level2"><h2>Selected Variables</h2>
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/loans_e367202a2b653aae7393b19dccf8bfd4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>loans <span class="ot">&lt;-</span> loans_full_schema <span class="sc">|&gt;</span> </span>
-<span id="cb4-2"><a href="#cb4-2"></a>    dplyr<span class="sc">::</span><span class="fu">select</span>(loan_amount, </span>
-<span id="cb4-3"><a href="#cb4-3"></a>                  interest_rate, </span>
-<span id="cb4-4"><a href="#cb4-4"></a>                  grade, </span>
-<span id="cb4-5"><a href="#cb4-5"></a>                  homeownership, </span>
-<span id="cb4-6"><a href="#cb4-6"></a>                  debt_to_income)</span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="fu">glimpse</span>(loans)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>loans <span class="ot">&lt;-</span> loans_full_schema <span class="sc">|&gt;</span> </span>
+<span id="cb4-2"><a></a>    dplyr<span class="sc">::</span><span class="fu">select</span>(loan_amount, </span>
+<span id="cb4-3"><a></a>                  interest_rate, </span>
+<span id="cb4-4"><a></a>                  grade, </span>
+<span id="cb4-5"><a></a>                  homeownership, </span>
+<span id="cb4-6"><a></a>                  debt_to_income)</span>
+<span id="cb4-7"><a></a><span class="fu">glimpse</span>(loans)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 10,000
 Columns: 5
@@ -630,12 +633,12 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 <li>A bar chart shows the <strong>frequency table</strong> of a <strong>categorical</strong> variable.</li>
 </ul>
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/geom_bar_2db4419f5a0338f1a32de163a2da503c">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="do">## geom_bar(stat = "count")</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a>loans <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> homeownership)) <span class="sc">+</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a>    <span class="fu">geom_bar</span>()  <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="do">## geom_bar(stat = "count")</span></span>
+<span id="cb6-2"><a></a>loans <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> homeownership)) <span class="sc">+</span></span>
+<span id="cb6-3"><a></a>    <span class="fu">geom_bar</span>()  <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="images/10-viz/geom_bar-1.png" style="width:62.0%" class="r-stretch quarto-figure-center"><aside class="notes"><ul>
+<img data-src="images/10-viz/geom_bar-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:62.0%"><aside class="notes"><ul>
 <li>One way representing categorical data is using bar plot.</li>
 <li>Here we don’t use geom_point anymore. Instead, we use the geom_bar function.</li>
 <li>Here we would like to see the frequency distribution of variable homeownership, so I map x to the homeownership variable.</li>
@@ -657,10 +660,10 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 <div class="columns">
 <div class="column" style="width:45%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>(freq_tbl <span class="ot">&lt;-</span> </span>
-<span id="cb8-2"><a href="#cb8-2"></a>    <span class="fu">as.data.frame</span>(</span>
-<span id="cb8-3"><a href="#cb8-3"></a>        <span class="fu">table</span>(loans<span class="sc">$</span>homeownership)</span>
-<span id="cb8-4"><a href="#cb8-4"></a>        ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>(freq_tbl <span class="ot">&lt;-</span> </span>
+<span id="cb8-2"><a></a>    <span class="fu">as.data.frame</span>(</span>
+<span id="cb8-3"><a></a>        <span class="fu">table</span>(loans<span class="sc">$</span>homeownership)</span>
+<span id="cb8-4"><a></a>        ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      Var1 Freq
 1             0
@@ -669,12 +672,12 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 4      OWN 1353
 5     RENT 3858</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="do">## remove count 0 item</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a>freq_tbl <span class="ot">&lt;-</span> freq_tbl[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), ]</span>
-<span id="cb10-3"><a href="#cb10-3"></a></span>
-<span id="cb10-4"><a href="#cb10-4"></a><span class="do">## column names</span></span>
-<span id="cb10-5"><a href="#cb10-5"></a><span class="fu">names</span>(freq_tbl) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"type"</span>,<span class="st">"count"</span>)</span>
-<span id="cb10-6"><a href="#cb10-6"></a>freq_tbl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="do">## remove count 0 item</span></span>
+<span id="cb10-2"><a></a>freq_tbl <span class="ot">&lt;-</span> freq_tbl[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), ]</span>
+<span id="cb10-3"><a></a></span>
+<span id="cb10-4"><a></a><span class="do">## column names</span></span>
+<span id="cb10-5"><a></a><span class="fu">names</span>(freq_tbl) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"type"</span>,<span class="st">"count"</span>)</span>
+<span id="cb10-6"><a></a>freq_tbl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      type count
 3 MORTGAGE  4789
@@ -688,15 +691,15 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 </div><div class="column" style="width:55%;">
 <div class="fragment">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>bar <span class="ot">&lt;-</span> freq_tbl <span class="sc">|&gt;</span> </span>
-<span id="cb12-2"><a href="#cb12-2"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="st">""</span>, </span>
-<span id="cb12-3"><a href="#cb12-3"></a>               <span class="at">y =</span> count, </span>
-<span id="cb12-4"><a href="#cb12-4"></a>               <span class="at">fill =</span> type)) <span class="sc">+</span> </span>
-<span id="cb12-5"><a href="#cb12-5"></a>    <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>)</span>
-<span id="cb12-6"><a href="#cb12-6"></a>bar</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>bar <span class="ot">&lt;-</span> freq_tbl <span class="sc">|&gt;</span> </span>
+<span id="cb12-2"><a></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="st">""</span>, </span>
+<span id="cb12-3"><a></a>               <span class="at">y =</span> count, </span>
+<span id="cb12-4"><a></a>               <span class="at">fill =</span> type)) <span class="sc">+</span> </span>
+<span id="cb12-5"><a></a>    <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>)</span>
+<span id="cb12-6"><a></a>bar</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/10-viz/geom_bar_identity-1.png" style="width:100.0%"></p>
+<figure><p><img data-src="images/10-viz/geom_bar_identity-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -727,22 +730,22 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>pie <span class="ot">&lt;-</span> bar <span class="sc">+</span> </span>
-<span id="cb13-2"><a href="#cb13-2"></a>    <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">"y"</span>)</span>
-<span id="cb13-3"><a href="#cb13-3"></a>pie</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>pie <span class="ot">&lt;-</span> bar <span class="sc">+</span> </span>
+<span id="cb13-2"><a></a>    <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">"y"</span>)</span>
+<span id="cb13-3"><a></a>pie</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/10-viz/pie-1.png" style="width:100.0%"></p>
+<figure><p><img data-src="images/10-viz/pie-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>pie <span class="sc">+</span> <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>pie <span class="sc">+</span> <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/10-viz/pie_void-1.png" style="width:100.0%"></p>
+<figure><p><img data-src="images/10-viz/pie_void-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -762,12 +765,12 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
           display:block!important;
       }</style></aside></section><section id="segmented-bar-plot-stacked" class="slide level2"><h2>Segmented Bar Plot: Stacked</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>loans <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> homeownership, </span>
-<span id="cb15-2"><a href="#cb15-2"></a>                    <span class="at">fill =</span> grade)) <span class="sc">+</span> <span class="co">#&lt;&lt;</span></span>
-<span id="cb15-3"><a href="#cb15-3"></a>    <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>loans <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> homeownership, </span>
+<span id="cb15-2"><a></a>                    <span class="at">fill =</span> grade)) <span class="sc">+</span> <span class="co">#&lt;&lt;</span></span>
+<span id="cb15-3"><a></a>    <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="images/10-viz/bar_stacked-1.png" style="width:75.0%" class="r-stretch quarto-figure-center"><aside class="notes"><ul>
+<img data-src="images/10-viz/bar_stacked-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><aside class="notes"><ul>
 <li>We can use Segmented Bar Plot, which is helpful when you want to represent two variables.</li>
 <li>So here we fill these bars based on the grade of the loan, which we know ranges from A to G.</li>
 <li>So each one of theses segments tells us how many of that grade of loan was observed within a particular homeownership.</li>
@@ -787,11 +790,11 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 <code>position = "fill"</code> makes each set of stacked bars the <em>same height</em>.</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>loans <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> homeownership, <span class="at">fill =</span> grade)) <span class="sc">+</span></span>
-<span id="cb16-2"><a href="#cb16-2"></a>    <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>) <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>loans <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> homeownership, <span class="at">fill =</span> grade)) <span class="sc">+</span></span>
+<span id="cb16-2"><a></a>    <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>) <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="images/10-viz/bar_pos_fill-1.png" style="width:68.0%" class="r-stretch quarto-figure-center"><aside class="notes"><ul>
+<img data-src="images/10-viz/bar_pos_fill-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:68.0%"><aside class="notes"><ul>
 <li>We may want to add another argument in the geom_bar layer, which is position = “fill”.</li>
 <li>
 <code>position = "fill"</code> works like stacking, but makes each set of stacked bars the same height.</li>
@@ -813,11 +816,11 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 <code>position = "dodge"</code> places overlapping objects directly <em>beside</em> one another.</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>loans <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> homeownership, <span class="at">fill =</span> grade)) <span class="sc">+</span></span>
-<span id="cb17-2"><a href="#cb17-2"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>loans <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> homeownership, <span class="at">fill =</span> grade)) <span class="sc">+</span></span>
+<span id="cb17-2"><a></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="images/10-viz/bar_pos_dodge-1.png" style="width:60.0%" class="r-stretch quarto-figure-center"><aside class="notes"><ul>
+<img data-src="images/10-viz/bar_pos_dodge-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><aside class="notes"><ul>
 <li>If you wanna compare Individual Values, here the individual category of the grade of loan in each ownership type, <code>position = "dodge"</code> may be a goo option.</li>
 <li>The option places the grade of loans directly <em>beside</em> one another.</li>
 <li>This way, it’s easier to see the counts of grade of loan within each ownership.</li>
@@ -835,35 +838,35 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/bar-custom_069d6b75f82aa418c1354f9ce61844e8">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r my_classfull number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>loans <span class="sc">|&gt;</span> </span>
-<span id="cb18-2"><a href="#cb18-2"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb18-3"><a href="#cb18-3"></a>    <span class="fu">aes</span>(<span class="at">x =</span> homeownership,</span>
-<span id="cb18-4"><a href="#cb18-4"></a>        <span class="at">fill =</span> homeownership)</span>
-<span id="cb18-5"><a href="#cb18-5"></a>  ) <span class="sc">+</span> </span>
-<span id="cb18-6"><a href="#cb18-6"></a>  <span class="fu">geom_bar</span>(</span>
-<span id="cb18-7"><a href="#cb18-7"></a>    <span class="at">color =</span> <span class="st">"blue"</span>, </span>
-<span id="cb18-8"><a href="#cb18-8"></a>    <span class="at">width =</span> <span class="fl">0.2</span>, </span>
-<span id="cb18-9"><a href="#cb18-9"></a>    <span class="at">alpha =</span> <span class="fl">0.5</span></span>
-<span id="cb18-10"><a href="#cb18-10"></a>  ) <span class="sc">+</span> </span>
-<span id="cb18-11"><a href="#cb18-11"></a>  <span class="fu">labs</span>(</span>
-<span id="cb18-12"><a href="#cb18-12"></a>    <span class="at">x =</span> <span class="st">"Homeownership"</span>, </span>
-<span id="cb18-13"><a href="#cb18-13"></a>    <span class="at">title =</span> <span class="st">"Homeownership Counts"</span></span>
-<span id="cb18-14"><a href="#cb18-14"></a>  ) <span class="sc">+</span></span>
-<span id="cb18-15"><a href="#cb18-15"></a>  <span class="fu">geom_text</span>(</span>
-<span id="cb18-16"><a href="#cb18-16"></a>    <span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">after_stat</span>(count)), </span>
-<span id="cb18-17"><a href="#cb18-17"></a>        <span class="at">stat =</span> <span class="st">'count'</span>, </span>
-<span id="cb18-18"><a href="#cb18-18"></a>        <span class="at">hjust =</span> <span class="dv">3</span>, </span>
-<span id="cb18-19"><a href="#cb18-19"></a>        <span class="at">color =</span> <span class="st">"red"</span>, </span>
-<span id="cb18-20"><a href="#cb18-20"></a>        <span class="at">size =</span> <span class="dv">5</span></span>
-<span id="cb18-21"><a href="#cb18-21"></a>  ) <span class="sc">+</span> </span>
-<span id="cb18-22"><a href="#cb18-22"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
-<span id="cb18-23"><a href="#cb18-23"></a>  <span class="fu">coord_flip</span>() <span class="do">## y = homeownership</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r my_classfull number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>loans <span class="sc">|&gt;</span> </span>
+<span id="cb18-2"><a></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb18-3"><a></a>    <span class="fu">aes</span>(<span class="at">x =</span> homeownership,</span>
+<span id="cb18-4"><a></a>        <span class="at">fill =</span> homeownership)</span>
+<span id="cb18-5"><a></a>  ) <span class="sc">+</span> </span>
+<span id="cb18-6"><a></a>  <span class="fu">geom_bar</span>(</span>
+<span id="cb18-7"><a></a>    <span class="at">color =</span> <span class="st">"blue"</span>, </span>
+<span id="cb18-8"><a></a>    <span class="at">width =</span> <span class="fl">0.2</span>, </span>
+<span id="cb18-9"><a></a>    <span class="at">alpha =</span> <span class="fl">0.5</span></span>
+<span id="cb18-10"><a></a>  ) <span class="sc">+</span> </span>
+<span id="cb18-11"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb18-12"><a></a>    <span class="at">x =</span> <span class="st">"Homeownership"</span>, </span>
+<span id="cb18-13"><a></a>    <span class="at">title =</span> <span class="st">"Homeownership Counts"</span></span>
+<span id="cb18-14"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb18-15"><a></a>  <span class="fu">geom_text</span>(</span>
+<span id="cb18-16"><a></a>    <span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">after_stat</span>(count)), </span>
+<span id="cb18-17"><a></a>        <span class="at">stat =</span> <span class="st">'count'</span>, </span>
+<span id="cb18-18"><a></a>        <span class="at">hjust =</span> <span class="dv">3</span>, </span>
+<span id="cb18-19"><a></a>        <span class="at">color =</span> <span class="st">"red"</span>, </span>
+<span id="cb18-20"><a></a>        <span class="at">size =</span> <span class="dv">5</span></span>
+<span id="cb18-21"><a></a>  ) <span class="sc">+</span> </span>
+<span id="cb18-22"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
+<span id="cb18-23"><a></a>  <span class="fu">coord_flip</span>() <span class="do">## y = homeownership</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/unnamed-chunk-20_c6e463d25f7277b99b3f786a58fc1fc1">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/10-viz/unnamed-chunk-20-1.png" style="width:100.0%"></p>
+<figure><p><img data-src="images/10-viz/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -904,14 +907,14 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 
 </section><section id="histogram" class="slide level2"><h2>Histogram</h2>
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/hist_cd1bc24ca027274b51d4203db976bc93">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>loans <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> loan_amount)) <span class="sc">+</span></span>
-<span id="cb19-2"><a href="#cb19-2"></a>    <span class="fu">geom_histogram</span>() <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>loans <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> loan_amount)) <span class="sc">+</span></span>
+<span id="cb19-2"><a></a>    <span class="fu">geom_histogram</span>() <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
 
 </div>
-<img data-src="images/10-viz/hist-1.png" style="width:70.0%" class="r-stretch quarto-figure-center"><aside class="notes"><ul>
+<img data-src="images/10-viz/hist-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><aside class="notes"><ul>
 <li>One of the most commonly used ways of visualizing numerical data is with histograms.</li>
 <li>In ggplot2, we use geom_histogram to create a histogram.</li>
 <li>When you use this function, ggplot2 send you a message saying that it uses 30 bins, or the number of classes created from the data, each representing one coloumn in the histogram.</li>
@@ -936,11 +939,11 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 <div class="tab-content">
 <div id="tabset-1-1">
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/hist-1000_d24587b5762796452c621c8437639d93">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> loan_amount)) <span class="sc">+</span></span>
-<span id="cb21-2"><a href="#cb21-2"></a>    <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> loan_amount)) <span class="sc">+</span></span>
+<span id="cb21-2"><a></a>    <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/10-viz/hist-1000-1.png" style="width:70.0%"></p>
+<figure><p><img data-src="images/10-viz/hist-1000-1.png" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
 </figure>
 </div>
 </div>
@@ -948,11 +951,11 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 </div>
 <div id="tabset-1-2">
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/hist-5000_00a576ce29544fc85516f55286d2723c">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> loan_amount)) <span class="sc">+</span></span>
-<span id="cb22-2"><a href="#cb22-2"></a>    <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> loan_amount)) <span class="sc">+</span></span>
+<span id="cb22-2"><a></a>    <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/10-viz/hist-5000-1.png" style="width:70.0%"></p>
+<figure><p><img data-src="images/10-viz/hist-5000-1.png" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
 </figure>
 </div>
 </div>
@@ -960,11 +963,11 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 </div>
 <div id="tabset-1-3">
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/hist-20000_bd03d6b6ac519516bf6a94b1ae2ccf2b">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> loan_amount)) <span class="sc">+</span></span>
-<span id="cb23-2"><a href="#cb23-2"></a>    <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">20000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> loan_amount)) <span class="sc">+</span></span>
+<span id="cb23-2"><a></a>    <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">20000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/10-viz/hist-20000-1.png" style="width:70.0%"></p>
+<figure><p><img data-src="images/10-viz/hist-20000-1.png" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
 </figure>
 </div>
 </div>
@@ -991,29 +994,29 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r my_class800 number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>loans <span class="sc">|&gt;</span> </span>
-<span id="cb24-2"><a href="#cb24-2"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb24-3"><a href="#cb24-3"></a>    <span class="fu">aes</span>(<span class="at">x =</span> loan_amount)</span>
-<span id="cb24-4"><a href="#cb24-4"></a>  ) <span class="sc">+</span></span>
-<span id="cb24-5"><a href="#cb24-5"></a>  <span class="fu">geom_histogram</span>(</span>
-<span id="cb24-6"><a href="#cb24-6"></a>    <span class="at">binwidth =</span> <span class="dv">5000</span>,</span>
-<span id="cb24-7"><a href="#cb24-7"></a>    <span class="at">fill =</span> <span class="st">"#003366"</span>,  </span>
-<span id="cb24-8"><a href="#cb24-8"></a>    <span class="at">colour =</span> <span class="st">"#FFCC00"</span>,  </span>
-<span id="cb24-9"><a href="#cb24-9"></a>    <span class="at">alpha =</span> <span class="fl">0.8</span>,  </span>
-<span id="cb24-10"><a href="#cb24-10"></a>    <span class="at">linetype =</span> <span class="st">"dashed"</span></span>
-<span id="cb24-11"><a href="#cb24-11"></a>  ) <span class="sc">+</span>  </span>
-<span id="cb24-12"><a href="#cb24-12"></a>  <span class="fu">labs</span>(</span>
-<span id="cb24-13"><a href="#cb24-13"></a>    <span class="at">x =</span> <span class="st">"Loan amount ($)"</span>, </span>
-<span id="cb24-14"><a href="#cb24-14"></a>    <span class="at">y =</span> <span class="st">"Frequency"</span>, </span>
-<span id="cb24-15"><a href="#cb24-15"></a>    <span class="at">title =</span> <span class="st">"Lending Club loans"</span></span>
-<span id="cb24-16"><a href="#cb24-16"></a>  ) <span class="sc">+</span> </span>
-<span id="cb24-17"><a href="#cb24-17"></a>  <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r my_class800 number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>loans <span class="sc">|&gt;</span> </span>
+<span id="cb24-2"><a></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb24-3"><a></a>    <span class="fu">aes</span>(<span class="at">x =</span> loan_amount)</span>
+<span id="cb24-4"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb24-5"><a></a>  <span class="fu">geom_histogram</span>(</span>
+<span id="cb24-6"><a></a>    <span class="at">binwidth =</span> <span class="dv">5000</span>,</span>
+<span id="cb24-7"><a></a>    <span class="at">fill =</span> <span class="st">"#003366"</span>,  </span>
+<span id="cb24-8"><a></a>    <span class="at">colour =</span> <span class="st">"#FFCC00"</span>,  </span>
+<span id="cb24-9"><a></a>    <span class="at">alpha =</span> <span class="fl">0.8</span>,  </span>
+<span id="cb24-10"><a></a>    <span class="at">linetype =</span> <span class="st">"dashed"</span></span>
+<span id="cb24-11"><a></a>  ) <span class="sc">+</span>  </span>
+<span id="cb24-12"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb24-13"><a></a>    <span class="at">x =</span> <span class="st">"Loan amount ($)"</span>, </span>
+<span id="cb24-14"><a></a>    <span class="at">y =</span> <span class="st">"Frequency"</span>, </span>
+<span id="cb24-15"><a></a>    <span class="at">title =</span> <span class="st">"Lending Club loans"</span></span>
+<span id="cb24-16"><a></a>  ) <span class="sc">+</span> </span>
+<span id="cb24-17"><a></a>  <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/unnamed-chunk-26_479cbcd48022d29766f5010324c1683c">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/10-viz/unnamed-chunk-26-1.png" style="width:100.0%"></p>
+<figure><p><img data-src="images/10-viz/unnamed-chunk-26-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1043,25 +1046,25 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/hist-fill_af03c872750a87cb31afddf73dd15b27">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r my_class600 number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>loans <span class="sc">|&gt;</span> </span>
-<span id="cb25-2"><a href="#cb25-2"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb25-3"><a href="#cb25-3"></a>    <span class="fu">aes</span>(<span class="at">x =</span> loan_amount,</span>
-<span id="cb25-4"><a href="#cb25-4"></a>        <span class="at">fill =</span> homeownership) <span class="co">#&lt;&lt;</span></span>
-<span id="cb25-5"><a href="#cb25-5"></a>  ) <span class="sc">+</span></span>
-<span id="cb25-6"><a href="#cb25-6"></a>  <span class="fu">geom_histogram</span>(</span>
-<span id="cb25-7"><a href="#cb25-7"></a>    <span class="at">binwidth =</span> <span class="dv">5000</span></span>
-<span id="cb25-8"><a href="#cb25-8"></a>  ) <span class="sc">+</span></span>
-<span id="cb25-9"><a href="#cb25-9"></a>  <span class="fu">labs</span>(</span>
-<span id="cb25-10"><a href="#cb25-10"></a>    <span class="at">x =</span> <span class="st">"Loan amount ($)"</span>,</span>
-<span id="cb25-11"><a href="#cb25-11"></a>    <span class="at">y =</span> <span class="st">"Frequency"</span></span>
-<span id="cb25-12"><a href="#cb25-12"></a>  ) <span class="sc">+</span></span>
-<span id="cb25-13"><a href="#cb25-13"></a>  <span class="fu">theme_linedraw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r my_class600 number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>loans <span class="sc">|&gt;</span> </span>
+<span id="cb25-2"><a></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb25-3"><a></a>    <span class="fu">aes</span>(<span class="at">x =</span> loan_amount,</span>
+<span id="cb25-4"><a></a>        <span class="at">fill =</span> homeownership) <span class="co">#&lt;&lt;</span></span>
+<span id="cb25-5"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb25-6"><a></a>  <span class="fu">geom_histogram</span>(</span>
+<span id="cb25-7"><a></a>    <span class="at">binwidth =</span> <span class="dv">5000</span></span>
+<span id="cb25-8"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb25-9"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb25-10"><a></a>    <span class="at">x =</span> <span class="st">"Loan amount ($)"</span>,</span>
+<span id="cb25-11"><a></a>    <span class="at">y =</span> <span class="st">"Frequency"</span></span>
+<span id="cb25-12"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb25-13"><a></a>  <span class="fu">theme_linedraw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/unnamed-chunk-28_477e7cd2d6890d13bbfbcefa4fa4478c">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/10-viz/unnamed-chunk-28-1.png" style="width:100.0%"></p>
+<figure><p><img data-src="images/10-viz/unnamed-chunk-28-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1086,27 +1089,27 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/hist-fill-iden-1_e4b4c32f28ed5a47163cf65aa097038b">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r my_class800 number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>loans <span class="sc">|&gt;</span> </span>
-<span id="cb26-2"><a href="#cb26-2"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb26-3"><a href="#cb26-3"></a>    <span class="fu">aes</span>(<span class="at">x =</span> loan_amount,</span>
-<span id="cb26-4"><a href="#cb26-4"></a>        <span class="at">fill =</span> homeownership)</span>
-<span id="cb26-5"><a href="#cb26-5"></a>  ) <span class="sc">+</span></span>
-<span id="cb26-6"><a href="#cb26-6"></a>  <span class="fu">geom_histogram</span>(</span>
-<span id="cb26-7"><a href="#cb26-7"></a>    <span class="at">binwidth =</span> <span class="dv">5000</span>,</span>
-<span id="cb26-8"><a href="#cb26-8"></a>    <span class="at">position =</span> <span class="st">"identity"</span> <span class="co">#&lt;&lt;</span></span>
-<span id="cb26-9"><a href="#cb26-9"></a>  ) <span class="sc">+</span></span>
-<span id="cb26-10"><a href="#cb26-10"></a>  <span class="fu">labs</span>(</span>
-<span id="cb26-11"><a href="#cb26-11"></a>    <span class="at">x =</span> <span class="st">"Loan amount ($)"</span>,</span>
-<span id="cb26-12"><a href="#cb26-12"></a>    <span class="at">y =</span> <span class="st">"Frequency"</span>,</span>
-<span id="cb26-13"><a href="#cb26-13"></a>    <span class="at">title =</span> <span class="st">"Lending Club loans"</span></span>
-<span id="cb26-14"><a href="#cb26-14"></a>  ) <span class="sc">+</span></span>
-<span id="cb26-15"><a href="#cb26-15"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r my_class800 number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>loans <span class="sc">|&gt;</span> </span>
+<span id="cb26-2"><a></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb26-3"><a></a>    <span class="fu">aes</span>(<span class="at">x =</span> loan_amount,</span>
+<span id="cb26-4"><a></a>        <span class="at">fill =</span> homeownership)</span>
+<span id="cb26-5"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb26-6"><a></a>  <span class="fu">geom_histogram</span>(</span>
+<span id="cb26-7"><a></a>    <span class="at">binwidth =</span> <span class="dv">5000</span>,</span>
+<span id="cb26-8"><a></a>    <span class="at">position =</span> <span class="st">"identity"</span> <span class="co">#&lt;&lt;</span></span>
+<span id="cb26-9"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb26-10"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb26-11"><a></a>    <span class="at">x =</span> <span class="st">"Loan amount ($)"</span>,</span>
+<span id="cb26-12"><a></a>    <span class="at">y =</span> <span class="st">"Frequency"</span>,</span>
+<span id="cb26-13"><a></a>    <span class="at">title =</span> <span class="st">"Lending Club loans"</span></span>
+<span id="cb26-14"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb26-15"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/unnamed-chunk-30_528986470eda86f397d11cdfdc1f01e1">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/10-viz/unnamed-chunk-30-1.png" style="width:100.0%"></p>
+<figure><p><img data-src="images/10-viz/unnamed-chunk-30-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1137,28 +1140,28 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/hist-fill-iden_8f5f68afd1d9ca592fb78c21f9f70d81">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r my_class800 number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>loans <span class="sc">|&gt;</span> </span>
-<span id="cb27-2"><a href="#cb27-2"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb27-3"><a href="#cb27-3"></a>    <span class="fu">aes</span>(<span class="at">x =</span> loan_amount,</span>
-<span id="cb27-4"><a href="#cb27-4"></a>        <span class="at">fill =</span> homeownership)</span>
-<span id="cb27-5"><a href="#cb27-5"></a>  ) <span class="sc">+</span></span>
-<span id="cb27-6"><a href="#cb27-6"></a>  <span class="fu">geom_histogram</span>(</span>
-<span id="cb27-7"><a href="#cb27-7"></a>    <span class="at">binwidth =</span> <span class="dv">5000</span>,</span>
-<span id="cb27-8"><a href="#cb27-8"></a>    <span class="at">alpha =</span> <span class="fl">0.5</span>,  <span class="co">#&lt;&lt;</span></span>
-<span id="cb27-9"><a href="#cb27-9"></a>    <span class="at">position =</span> <span class="st">"identity"</span></span>
-<span id="cb27-10"><a href="#cb27-10"></a>  ) <span class="sc">+</span></span>
-<span id="cb27-11"><a href="#cb27-11"></a>  <span class="fu">labs</span>(</span>
-<span id="cb27-12"><a href="#cb27-12"></a>    <span class="at">x =</span> <span class="st">"Loan amount ($)"</span>,</span>
-<span id="cb27-13"><a href="#cb27-13"></a>    <span class="at">y =</span> <span class="st">"Frequency"</span>,</span>
-<span id="cb27-14"><a href="#cb27-14"></a>    <span class="at">title =</span> <span class="st">"Lending Club loans"</span></span>
-<span id="cb27-15"><a href="#cb27-15"></a>  ) <span class="sc">+</span></span>
-<span id="cb27-16"><a href="#cb27-16"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r my_class800 number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>loans <span class="sc">|&gt;</span> </span>
+<span id="cb27-2"><a></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb27-3"><a></a>    <span class="fu">aes</span>(<span class="at">x =</span> loan_amount,</span>
+<span id="cb27-4"><a></a>        <span class="at">fill =</span> homeownership)</span>
+<span id="cb27-5"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb27-6"><a></a>  <span class="fu">geom_histogram</span>(</span>
+<span id="cb27-7"><a></a>    <span class="at">binwidth =</span> <span class="dv">5000</span>,</span>
+<span id="cb27-8"><a></a>    <span class="at">alpha =</span> <span class="fl">0.5</span>,  <span class="co">#&lt;&lt;</span></span>
+<span id="cb27-9"><a></a>    <span class="at">position =</span> <span class="st">"identity"</span></span>
+<span id="cb27-10"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb27-11"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb27-12"><a></a>    <span class="at">x =</span> <span class="st">"Loan amount ($)"</span>,</span>
+<span id="cb27-13"><a></a>    <span class="at">y =</span> <span class="st">"Frequency"</span>,</span>
+<span id="cb27-14"><a></a>    <span class="at">title =</span> <span class="st">"Lending Club loans"</span></span>
+<span id="cb27-15"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb27-16"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/unnamed-chunk-32_df4d54943e7cdf1b7a019b11c5f7a65c">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/10-viz/unnamed-chunk-32-1.png" style="width:100.0%"></p>
+<figure><p><img data-src="images/10-viz/unnamed-chunk-32-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1184,29 +1187,29 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/hist-facet_264abac87c0f1d9b3f9f0ec998dcaf0a">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r my_class800 number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>loans <span class="sc">|&gt;</span> </span>
-<span id="cb28-2"><a href="#cb28-2"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb28-3"><a href="#cb28-3"></a>    <span class="fu">aes</span>(<span class="at">x =</span> loan_amount,</span>
-<span id="cb28-4"><a href="#cb28-4"></a>        <span class="at">fill =</span> homeownership)</span>
-<span id="cb28-5"><a href="#cb28-5"></a>  ) <span class="sc">+</span></span>
-<span id="cb28-6"><a href="#cb28-6"></a>  <span class="fu">geom_histogram</span>(</span>
-<span id="cb28-7"><a href="#cb28-7"></a>    <span class="at">binwidth =</span> <span class="dv">5000</span></span>
-<span id="cb28-8"><a href="#cb28-8"></a>  ) <span class="sc">+</span></span>
-<span id="cb28-9"><a href="#cb28-9"></a>  <span class="fu">labs</span>(</span>
-<span id="cb28-10"><a href="#cb28-10"></a>    <span class="at">x =</span> <span class="st">"Loan amount ($)"</span>,</span>
-<span id="cb28-11"><a href="#cb28-11"></a>    <span class="at">y =</span> <span class="st">"Frequency"</span>,</span>
-<span id="cb28-12"><a href="#cb28-12"></a>    <span class="at">title =</span> <span class="st">"Lending Club loans"</span></span>
-<span id="cb28-13"><a href="#cb28-13"></a>  ) <span class="sc">+</span></span>
-<span id="cb28-14"><a href="#cb28-14"></a>  <span class="fu">facet_wrap</span>(</span>
-<span id="cb28-15"><a href="#cb28-15"></a>    <span class="sc">~</span> homeownership, <span class="co">#&lt;&lt;</span></span>
-<span id="cb28-16"><a href="#cb28-16"></a>    <span class="at">nrow =</span> <span class="dv">3</span>  <span class="co">#&lt;&lt;</span></span>
-<span id="cb28-17"><a href="#cb28-17"></a>  )       </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r my_class800 number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>loans <span class="sc">|&gt;</span> </span>
+<span id="cb28-2"><a></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb28-3"><a></a>    <span class="fu">aes</span>(<span class="at">x =</span> loan_amount,</span>
+<span id="cb28-4"><a></a>        <span class="at">fill =</span> homeownership)</span>
+<span id="cb28-5"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb28-6"><a></a>  <span class="fu">geom_histogram</span>(</span>
+<span id="cb28-7"><a></a>    <span class="at">binwidth =</span> <span class="dv">5000</span></span>
+<span id="cb28-8"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb28-9"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb28-10"><a></a>    <span class="at">x =</span> <span class="st">"Loan amount ($)"</span>,</span>
+<span id="cb28-11"><a></a>    <span class="at">y =</span> <span class="st">"Frequency"</span>,</span>
+<span id="cb28-12"><a></a>    <span class="at">title =</span> <span class="st">"Lending Club loans"</span></span>
+<span id="cb28-13"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb28-14"><a></a>  <span class="fu">facet_wrap</span>(</span>
+<span id="cb28-15"><a></a>    <span class="sc">~</span> homeownership, <span class="co">#&lt;&lt;</span></span>
+<span id="cb28-16"><a></a>    <span class="at">nrow =</span> <span class="dv">3</span>  <span class="co">#&lt;&lt;</span></span>
+<span id="cb28-17"><a></a>  )       </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/unnamed-chunk-34_9ac6391126cc4d28c3de13fb3c75e336">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/10-viz/unnamed-chunk-34-1.png" style="width:100.0%"></p>
+<figure><p><img data-src="images/10-viz/unnamed-chunk-34-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1243,7 +1246,7 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/10-viz/unnamed-chunk-35-1.png" style="width:100.0%"></p>
+<figure><p><img data-src="images/10-viz/unnamed-chunk-35-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1252,7 +1255,7 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/10-viz/unnamed-chunk-36-1.png" style="width:100.0%"></p>
+<figure><p><img data-src="images/10-viz/unnamed-chunk-36-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1261,19 +1264,19 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 </div>
 </section><section id="section-4" class="slide level2"><h2></h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="co"># library(tidyverse)</span></span>
-<span id="cb29-2"><a href="#cb29-2"></a>penguins <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(__________________)</span>
-<span id="cb29-3"><a href="#cb29-3"></a>________ <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(_______________________) <span class="sc">+</span>  <span class="do">## mapping layer  </span></span>
-<span id="cb29-4"><a href="#cb29-4"></a>    ___________________ <span class="sc">+</span>  <span class="do">## geometry layer</span></span>
-<span id="cb29-5"><a href="#cb29-5"></a>    _____________________________  <span class="do">## label layer</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="co"># library(tidyverse)</span></span>
+<span id="cb29-2"><a></a>penguins <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(__________________)</span>
+<span id="cb29-3"><a></a>________ <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(_______________________) <span class="sc">+</span>  <span class="do">## mapping layer  </span></span>
+<span id="cb29-4"><a></a>    ___________________ <span class="sc">+</span>  <span class="do">## geometry layer</span></span>
+<span id="cb29-5"><a></a>    _____________________________  <span class="do">## label layer</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br><br><br></p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>________ <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(______________________________) <span class="sc">+</span>  <span class="do">## mapping layer  </span></span>
-<span id="cb30-2"><a href="#cb30-2"></a>    _______________ <span class="sc">+</span>  <span class="do">## geometry layer</span></span>
-<span id="cb30-3"><a href="#cb30-3"></a>    _______________ <span class="sc">+</span>  <span class="do">## label layer</span></span>
-<span id="cb30-4"><a href="#cb30-4"></a>    ______________________________  <span class="sc">+</span>   <span class="do">## facet layer</span></span>
-<span id="cb30-5"><a href="#cb30-5"></a>    ______________________________      <span class="do">## theme layer (set legend.position = "none")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>________ <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(______________________________) <span class="sc">+</span>  <span class="do">## mapping layer  </span></span>
+<span id="cb30-2"><a></a>    _______________ <span class="sc">+</span>  <span class="do">## geometry layer</span></span>
+<span id="cb30-3"><a></a>    _______________ <span class="sc">+</span>  <span class="do">## label layer</span></span>
+<span id="cb30-4"><a></a>    ______________________________  <span class="sc">+</span>   <span class="do">## facet layer</span></span>
+<span id="cb30-5"><a></a>    ______________________________      <span class="do">## theme layer (set legend.position = "none")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="density-plot" class="slide level2"><h2>Density Plot</h2>
 <!-- kernel = c("gaussian", "epanechnikov", "rectangular", -->
@@ -1284,11 +1287,11 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 <code>geom_density()</code> uses <strong>kernel density estimation</strong> to smooth the histogram or our data. (MATH 4750 Statistical Computing)</li>
 </ul>
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/den_9e592bf8e789099102d0e9fe27d1ca1d">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> loan_amount)) <span class="sc">+</span></span>
-<span id="cb31-2"><a href="#cb31-2"></a>    <span class="fu">geom_density</span>()  <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> loan_amount)) <span class="sc">+</span></span>
+<span id="cb31-2"><a></a>    <span class="fu">geom_density</span>()  <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="images/10-viz/den-1.png" style="width:55.0%" class="r-stretch quarto-figure-center"><aside class="notes"><ul>
+<img data-src="images/10-viz/den-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"><aside class="notes"><ul>
 <li>Let’s continue. Another way we can visualize numerical data is using a density plot.</li>
 <li>A density plot is basically a smoothed version of a histogram.</li>
 <li>Remember that a continuous random variable has a continuous probability distribution that is a density curve as a plot. Right?</li>
@@ -1320,11 +1323,11 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 <div class="tab-content">
 <div id="tabset-2-1">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> loan_amount)) <span class="sc">+</span></span>
-<span id="cb32-2"><a href="#cb32-2"></a>    <span class="fu">geom_density</span>(<span class="at">adjust =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> loan_amount)) <span class="sc">+</span></span>
+<span id="cb32-2"><a></a>    <span class="fu">geom_density</span>(<span class="at">adjust =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/10-viz/den05-1.png" style="width:65.0%"></p>
+<figure><p><img data-src="images/10-viz/den05-1.png" class="quarto-figure quarto-figure-center" style="width:65.0%"></p>
 </figure>
 </div>
 </div>
@@ -1332,11 +1335,11 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 </div>
 <div id="tabset-2-2">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> loan_amount)) <span class="sc">+</span></span>
-<span id="cb33-2"><a href="#cb33-2"></a>    <span class="fu">geom_density</span>(<span class="at">adjust =</span> <span class="dv">1</span>) <span class="co"># default bandwidth</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> loan_amount)) <span class="sc">+</span></span>
+<span id="cb33-2"><a></a>    <span class="fu">geom_density</span>(<span class="at">adjust =</span> <span class="dv">1</span>) <span class="co"># default bandwidth</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/10-viz/den1-1.png" style="width:65.0%"></p>
+<figure><p><img data-src="images/10-viz/den1-1.png" class="quarto-figure quarto-figure-center" style="width:65.0%"></p>
 </figure>
 </div>
 </div>
@@ -1344,11 +1347,11 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 </div>
 <div id="tabset-2-3">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> loan_amount)) <span class="sc">+</span></span>
-<span id="cb34-2"><a href="#cb34-2"></a>    <span class="fu">geom_density</span>(<span class="at">adjust =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> loan_amount)) <span class="sc">+</span></span>
+<span id="cb34-2"><a></a>    <span class="fu">geom_density</span>(<span class="at">adjust =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/10-viz/den2-1.png" style="width:65.0%"></p>
+<figure><p><img data-src="images/10-viz/den2-1.png" class="quarto-figure quarto-figure-center" style="width:65.0%"></p>
 </figure>
 </div>
 </div>
@@ -1376,28 +1379,28 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/density-custom_ccbc28f16509a7ab6f7805ed6ee9c616">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r my_class800 number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>loans <span class="sc">|&gt;</span> </span>
-<span id="cb35-2"><a href="#cb35-2"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb35-3"><a href="#cb35-3"></a>    <span class="fu">aes</span>(<span class="at">x =</span> loan_amount)</span>
-<span id="cb35-4"><a href="#cb35-4"></a>  ) <span class="sc">+</span></span>
-<span id="cb35-5"><a href="#cb35-5"></a>  <span class="fu">geom_density</span>(</span>
-<span id="cb35-6"><a href="#cb35-6"></a>    <span class="at">adjust =</span> <span class="dv">2</span>,</span>
-<span id="cb35-7"><a href="#cb35-7"></a>    <span class="at">fill =</span> <span class="st">"#FFCC00"</span>, </span>
-<span id="cb35-8"><a href="#cb35-8"></a>    <span class="at">color =</span> <span class="st">"#003366"</span>, </span>
-<span id="cb35-9"><a href="#cb35-9"></a>    <span class="at">alpha =</span> <span class="fl">0.5</span>, </span>
-<span id="cb35-10"><a href="#cb35-10"></a>    <span class="at">linetype =</span> <span class="st">"dashed"</span></span>
-<span id="cb35-11"><a href="#cb35-11"></a>  ) <span class="sc">+</span> </span>
-<span id="cb35-12"><a href="#cb35-12"></a>  <span class="fu">labs</span>(</span>
-<span id="cb35-13"><a href="#cb35-13"></a>    <span class="at">x =</span> <span class="st">"Loan amount ($)"</span>, </span>
-<span id="cb35-14"><a href="#cb35-14"></a>    <span class="at">y =</span> <span class="st">"Density"</span>, </span>
-<span id="cb35-15"><a href="#cb35-15"></a>    <span class="at">title =</span> <span class="st">"Lending Club loans"</span></span>
-<span id="cb35-16"><a href="#cb35-16"></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r my_class800 number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>loans <span class="sc">|&gt;</span> </span>
+<span id="cb35-2"><a></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb35-3"><a></a>    <span class="fu">aes</span>(<span class="at">x =</span> loan_amount)</span>
+<span id="cb35-4"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb35-5"><a></a>  <span class="fu">geom_density</span>(</span>
+<span id="cb35-6"><a></a>    <span class="at">adjust =</span> <span class="dv">2</span>,</span>
+<span id="cb35-7"><a></a>    <span class="at">fill =</span> <span class="st">"#FFCC00"</span>, </span>
+<span id="cb35-8"><a></a>    <span class="at">color =</span> <span class="st">"#003366"</span>, </span>
+<span id="cb35-9"><a></a>    <span class="at">alpha =</span> <span class="fl">0.5</span>, </span>
+<span id="cb35-10"><a></a>    <span class="at">linetype =</span> <span class="st">"dashed"</span></span>
+<span id="cb35-11"><a></a>  ) <span class="sc">+</span> </span>
+<span id="cb35-12"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb35-13"><a></a>    <span class="at">x =</span> <span class="st">"Loan amount ($)"</span>, </span>
+<span id="cb35-14"><a></a>    <span class="at">y =</span> <span class="st">"Density"</span>, </span>
+<span id="cb35-15"><a></a>    <span class="at">title =</span> <span class="st">"Lending Club loans"</span></span>
+<span id="cb35-16"><a></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/unnamed-chunk-44_379ea3ab8565ec195f219f5313eff9f2">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/10-viz/unnamed-chunk-44-1.png" style="width:100.0%"></p>
+<figure><p><img data-src="images/10-viz/unnamed-chunk-44-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1424,31 +1427,31 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/density-hist_eaa8d1607520dba35bdd2e6d0d5258ac">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r my_class800 number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>loans <span class="sc">|&gt;</span> </span>
-<span id="cb36-2"><a href="#cb36-2"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb36-3"><a href="#cb36-3"></a>    <span class="fu">aes</span>(<span class="at">x =</span> loan_amount)</span>
-<span id="cb36-4"><a href="#cb36-4"></a>  ) <span class="sc">+</span> </span>
-<span id="cb36-5"><a href="#cb36-5"></a>  <span class="do">## scale down to </span></span>
-<span id="cb36-6"><a href="#cb36-6"></a>  <span class="do">## match the density</span></span>
-<span id="cb36-7"><a href="#cb36-7"></a>  <span class="fu">geom_histogram</span>(</span>
-<span id="cb36-8"><a href="#cb36-8"></a>    <span class="at">binwidth =</span> <span class="dv">5000</span>, </span>
-<span id="cb36-9"><a href="#cb36-9"></a>    <span class="fu">aes</span>(<span class="at">y =</span> ..density..) <span class="co">#&lt;&lt;</span></span>
-<span id="cb36-10"><a href="#cb36-10"></a>  ) <span class="sc">+</span> </span>
-<span id="cb36-11"><a href="#cb36-11"></a>  <span class="fu">geom_density</span>(</span>
-<span id="cb36-12"><a href="#cb36-12"></a>    <span class="at">alpha =</span> <span class="fl">0.1</span>, </span>
-<span id="cb36-13"><a href="#cb36-13"></a>    <span class="at">fill =</span> <span class="st">"#FF6666"</span></span>
-<span id="cb36-14"><a href="#cb36-14"></a>  ) <span class="sc">+</span></span>
-<span id="cb36-15"><a href="#cb36-15"></a>  <span class="fu">labs</span>(</span>
-<span id="cb36-16"><a href="#cb36-16"></a>    <span class="at">x =</span> <span class="st">"Loan amount ($)"</span>,</span>
-<span id="cb36-17"><a href="#cb36-17"></a>    <span class="at">y =</span> <span class="st">"Density"</span>,</span>
-<span id="cb36-18"><a href="#cb36-18"></a>    <span class="at">title =</span> <span class="st">"Lending Club loans"</span></span>
-<span id="cb36-19"><a href="#cb36-19"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r my_class800 number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a>loans <span class="sc">|&gt;</span> </span>
+<span id="cb36-2"><a></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb36-3"><a></a>    <span class="fu">aes</span>(<span class="at">x =</span> loan_amount)</span>
+<span id="cb36-4"><a></a>  ) <span class="sc">+</span> </span>
+<span id="cb36-5"><a></a>  <span class="do">## scale down to </span></span>
+<span id="cb36-6"><a></a>  <span class="do">## match the density</span></span>
+<span id="cb36-7"><a></a>  <span class="fu">geom_histogram</span>(</span>
+<span id="cb36-8"><a></a>    <span class="at">binwidth =</span> <span class="dv">5000</span>, </span>
+<span id="cb36-9"><a></a>    <span class="fu">aes</span>(<span class="at">y =</span> ..density..) <span class="co">#&lt;&lt;</span></span>
+<span id="cb36-10"><a></a>  ) <span class="sc">+</span> </span>
+<span id="cb36-11"><a></a>  <span class="fu">geom_density</span>(</span>
+<span id="cb36-12"><a></a>    <span class="at">alpha =</span> <span class="fl">0.1</span>, </span>
+<span id="cb36-13"><a></a>    <span class="at">fill =</span> <span class="st">"#FF6666"</span></span>
+<span id="cb36-14"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb36-15"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb36-16"><a></a>    <span class="at">x =</span> <span class="st">"Loan amount ($)"</span>,</span>
+<span id="cb36-17"><a></a>    <span class="at">y =</span> <span class="st">"Density"</span>,</span>
+<span id="cb36-18"><a></a>    <span class="at">title =</span> <span class="st">"Lending Club loans"</span></span>
+<span id="cb36-19"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/unnamed-chunk-45_7200500c593ac40d72b781d135759178">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/10-viz/unnamed-chunk-45-1.png" style="width:100.0%"></p>
+<figure><p><img data-src="images/10-viz/unnamed-chunk-45-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1474,27 +1477,27 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/density-cat_0cb2f8cb08ebaf8b78b81bb680b0a318">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r my_class800 number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>loans <span class="sc">|&gt;</span> </span>
-<span id="cb37-2"><a href="#cb37-2"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb37-3"><a href="#cb37-3"></a>    <span class="fu">aes</span>(<span class="at">x =</span> loan_amount,</span>
-<span id="cb37-4"><a href="#cb37-4"></a>        <span class="at">fill =</span> homeownership)</span>
-<span id="cb37-5"><a href="#cb37-5"></a>  ) <span class="sc">+</span></span>
-<span id="cb37-6"><a href="#cb37-6"></a>  <span class="fu">geom_density</span>(</span>
-<span id="cb37-7"><a href="#cb37-7"></a>    <span class="at">adjust =</span> <span class="dv">2</span>,</span>
-<span id="cb37-8"><a href="#cb37-8"></a>    <span class="at">alpha =</span> <span class="fl">0.4</span></span>
-<span id="cb37-9"><a href="#cb37-9"></a>  ) <span class="sc">+</span></span>
-<span id="cb37-10"><a href="#cb37-10"></a>  <span class="fu">labs</span>(</span>
-<span id="cb37-11"><a href="#cb37-11"></a>    <span class="at">x =</span> <span class="st">"Loan amount ($)"</span>,</span>
-<span id="cb37-12"><a href="#cb37-12"></a>    <span class="at">y =</span> <span class="st">"Density"</span>,</span>
-<span id="cb37-13"><a href="#cb37-13"></a>    <span class="at">title =</span> <span class="st">"Amounts of loans"</span>,</span>
-<span id="cb37-14"><a href="#cb37-14"></a>    <span class="at">fill =</span> <span class="st">"Homeownership"</span></span>
-<span id="cb37-15"><a href="#cb37-15"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r my_class800 number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a>loans <span class="sc">|&gt;</span> </span>
+<span id="cb37-2"><a></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb37-3"><a></a>    <span class="fu">aes</span>(<span class="at">x =</span> loan_amount,</span>
+<span id="cb37-4"><a></a>        <span class="at">fill =</span> homeownership)</span>
+<span id="cb37-5"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb37-6"><a></a>  <span class="fu">geom_density</span>(</span>
+<span id="cb37-7"><a></a>    <span class="at">adjust =</span> <span class="dv">2</span>,</span>
+<span id="cb37-8"><a></a>    <span class="at">alpha =</span> <span class="fl">0.4</span></span>
+<span id="cb37-9"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb37-10"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb37-11"><a></a>    <span class="at">x =</span> <span class="st">"Loan amount ($)"</span>,</span>
+<span id="cb37-12"><a></a>    <span class="at">y =</span> <span class="st">"Density"</span>,</span>
+<span id="cb37-13"><a></a>    <span class="at">title =</span> <span class="st">"Amounts of loans"</span>,</span>
+<span id="cb37-14"><a></a>    <span class="at">fill =</span> <span class="st">"Homeownership"</span></span>
+<span id="cb37-15"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/unnamed-chunk-47_52f1ead7d11fe53a5bb8fb948d9ba3b5">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/10-viz/unnamed-chunk-47-1.png" style="width:100.0%"></p>
+<figure><p><img data-src="images/10-viz/unnamed-chunk-47-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1517,12 +1520,12 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
           display:block!important;
       }</style></aside></section><section id="box-plot-1" class="slide level2"><h2>Box Plot</h2>
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/box_1c0aac99ef3b2c93c19a01aac1f061c1">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a>loans <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> interest_rate)) <span class="sc">+</span></span>
-<span id="cb38-2"><a href="#cb38-2"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb38-3"><a href="#cb38-3"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"interest rate (%)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a>loans <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> interest_rate)) <span class="sc">+</span></span>
+<span id="cb38-2"><a></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb38-3"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"interest rate (%)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="images/10-viz/box-1.png" style="width:73.0%" class="r-stretch quarto-figure-center"><aside class="notes"><ul>
+<img data-src="images/10-viz/box-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:73.0%"><aside class="notes"><ul>
 <li>Remember in base R, we can use boxplot function to create a boxplot.</li>
 <li>In ggplot, we add the geometry layer, geom_boxplot().</li>
 <li>One of things that boxplots are good at is uncovering our potential outliers, and here, the distribution of interest rates is right-skewed, and has several outliers.</li>
@@ -1541,35 +1544,35 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 <div class="columns">
 <div class="column" style="width:45%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r my_classfull number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>loans <span class="sc">|&gt;</span> </span>
-<span id="cb39-2"><a href="#cb39-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> interest_rate)) <span class="sc">+</span></span>
-<span id="cb39-3"><a href="#cb39-3"></a>  <span class="fu">geom_boxplot</span>(</span>
-<span id="cb39-4"><a href="#cb39-4"></a>    <span class="co"># custom outliers</span></span>
-<span id="cb39-5"><a href="#cb39-5"></a>    <span class="at">outlier.colour =</span> <span class="st">"red"</span>,</span>
-<span id="cb39-6"><a href="#cb39-6"></a>    <span class="at">outlier.shape =</span> <span class="dv">8</span>,</span>
-<span id="cb39-7"><a href="#cb39-7"></a>    <span class="at">outlier.size =</span> <span class="dv">3</span>,</span>
-<span id="cb39-8"><a href="#cb39-8"></a>    <span class="co"># Notch?</span></span>
-<span id="cb39-9"><a href="#cb39-9"></a>    <span class="at">notch =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb39-10"><a href="#cb39-10"></a>    <span class="at">notchwidth =</span> <span class="fl">0.1</span>,</span>
-<span id="cb39-11"><a href="#cb39-11"></a>    <span class="co"># custom boxes</span></span>
-<span id="cb39-12"><a href="#cb39-12"></a>    <span class="at">fill =</span> <span class="st">"#FFCC00"</span>,</span>
-<span id="cb39-13"><a href="#cb39-13"></a>    <span class="at">colour =</span> <span class="st">"#003366"</span>,</span>
-<span id="cb39-14"><a href="#cb39-14"></a>    <span class="at">alpha =</span> <span class="fl">0.2</span></span>
-<span id="cb39-15"><a href="#cb39-15"></a>  ) <span class="sc">+</span></span>
-<span id="cb39-16"><a href="#cb39-16"></a>  <span class="fu">labs</span>(</span>
-<span id="cb39-17"><a href="#cb39-17"></a>    <span class="at">x =</span> <span class="st">"Interest rate (%)"</span>,</span>
-<span id="cb39-18"><a href="#cb39-18"></a>    <span class="at">title =</span> <span class="st">"Interest rates of loans"</span></span>
-<span id="cb39-19"><a href="#cb39-19"></a>  ) <span class="sc">+</span></span>
-<span id="cb39-20"><a href="#cb39-20"></a>  <span class="fu">theme</span>(</span>
-<span id="cb39-21"><a href="#cb39-21"></a>    <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb39-22"><a href="#cb39-22"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>()</span>
-<span id="cb39-23"><a href="#cb39-23"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r my_classfull number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>loans <span class="sc">|&gt;</span> </span>
+<span id="cb39-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> interest_rate)) <span class="sc">+</span></span>
+<span id="cb39-3"><a></a>  <span class="fu">geom_boxplot</span>(</span>
+<span id="cb39-4"><a></a>    <span class="co"># custom outliers</span></span>
+<span id="cb39-5"><a></a>    <span class="at">outlier.colour =</span> <span class="st">"red"</span>,</span>
+<span id="cb39-6"><a></a>    <span class="at">outlier.shape =</span> <span class="dv">8</span>,</span>
+<span id="cb39-7"><a></a>    <span class="at">outlier.size =</span> <span class="dv">3</span>,</span>
+<span id="cb39-8"><a></a>    <span class="co"># Notch?</span></span>
+<span id="cb39-9"><a></a>    <span class="at">notch =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb39-10"><a></a>    <span class="at">notchwidth =</span> <span class="fl">0.1</span>,</span>
+<span id="cb39-11"><a></a>    <span class="co"># custom boxes</span></span>
+<span id="cb39-12"><a></a>    <span class="at">fill =</span> <span class="st">"#FFCC00"</span>,</span>
+<span id="cb39-13"><a></a>    <span class="at">colour =</span> <span class="st">"#003366"</span>,</span>
+<span id="cb39-14"><a></a>    <span class="at">alpha =</span> <span class="fl">0.2</span></span>
+<span id="cb39-15"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb39-16"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb39-17"><a></a>    <span class="at">x =</span> <span class="st">"Interest rate (%)"</span>,</span>
+<span id="cb39-18"><a></a>    <span class="at">title =</span> <span class="st">"Interest rates of loans"</span></span>
+<span id="cb39-19"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb39-20"><a></a>  <span class="fu">theme</span>(</span>
+<span id="cb39-21"><a></a>    <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb39-22"><a></a>    <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb39-23"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:55%;">
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/unnamed-chunk-51_de8ba5df0a0dae52b152661f5068e962">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/10-viz/unnamed-chunk-51-1.png" style="width:100.0%"></p>
+<figure><p><img data-src="images/10-viz/unnamed-chunk-51-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1603,24 +1606,24 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/box-cat_491f90f133ab2844bb6a5f836e0473a8">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r my_class600 number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a>loans <span class="sc">|&gt;</span> </span>
-<span id="cb40-2"><a href="#cb40-2"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb40-3"><a href="#cb40-3"></a>    <span class="fu">aes</span>(<span class="at">x =</span> interest_rate,</span>
-<span id="cb40-4"><a href="#cb40-4"></a>        <span class="at">y =</span> grade) <span class="co">#&lt;&lt;</span></span>
-<span id="cb40-5"><a href="#cb40-5"></a>  ) <span class="sc">+</span> </span>
-<span id="cb40-6"><a href="#cb40-6"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb40-7"><a href="#cb40-7"></a>  <span class="fu">labs</span>(</span>
-<span id="cb40-8"><a href="#cb40-8"></a>    <span class="at">x =</span> <span class="st">"Interest rate (%)"</span>,</span>
-<span id="cb40-9"><a href="#cb40-9"></a>    <span class="at">y =</span> <span class="st">"Grade"</span>,</span>
-<span id="cb40-10"><a href="#cb40-10"></a>    <span class="at">title =</span> <span class="st">"Interest Rates of Loans"</span>,</span>
-<span id="cb40-11"><a href="#cb40-11"></a>    <span class="at">subtitle =</span> <span class="st">"by grade of loan"</span></span>
-<span id="cb40-12"><a href="#cb40-12"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r my_class600 number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a>loans <span class="sc">|&gt;</span> </span>
+<span id="cb40-2"><a></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb40-3"><a></a>    <span class="fu">aes</span>(<span class="at">x =</span> interest_rate,</span>
+<span id="cb40-4"><a></a>        <span class="at">y =</span> grade) <span class="co">#&lt;&lt;</span></span>
+<span id="cb40-5"><a></a>  ) <span class="sc">+</span> </span>
+<span id="cb40-6"><a></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb40-7"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb40-8"><a></a>    <span class="at">x =</span> <span class="st">"Interest rate (%)"</span>,</span>
+<span id="cb40-9"><a></a>    <span class="at">y =</span> <span class="st">"Grade"</span>,</span>
+<span id="cb40-10"><a></a>    <span class="at">title =</span> <span class="st">"Interest Rates of Loans"</span>,</span>
+<span id="cb40-11"><a></a>    <span class="at">subtitle =</span> <span class="st">"by grade of loan"</span></span>
+<span id="cb40-12"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/unnamed-chunk-53_c758578cb95f163c48a25f7a7b327cb4">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/10-viz/unnamed-chunk-53-1.png" style="width:100.0%"></p>
+<figure><p><img data-src="images/10-viz/unnamed-chunk-53-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1647,29 +1650,29 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/box-cat-2_8233888c8c77b0f6854ea41ec9ebab97">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r my_class800 number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>loans <span class="sc">|&gt;</span> </span>
-<span id="cb41-2"><a href="#cb41-2"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb41-3"><a href="#cb41-3"></a>    <span class="fu">aes</span>(<span class="at">x =</span> interest_rate,</span>
-<span id="cb41-4"><a href="#cb41-4"></a>        <span class="at">y =</span> grade,</span>
-<span id="cb41-5"><a href="#cb41-5"></a>        <span class="at">fill =</span> homeownership) <span class="co">#&lt;&lt;</span></span>
-<span id="cb41-6"><a href="#cb41-6"></a>  ) <span class="sc">+</span></span>
-<span id="cb41-7"><a href="#cb41-7"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb41-8"><a href="#cb41-8"></a>  <span class="fu">labs</span>(</span>
-<span id="cb41-9"><a href="#cb41-9"></a>    <span class="at">x =</span> <span class="st">"Interest rate (%)"</span>,</span>
-<span id="cb41-10"><a href="#cb41-10"></a>    <span class="at">y =</span> <span class="st">"Grade"</span>,</span>
-<span id="cb41-11"><a href="#cb41-11"></a>    <span class="at">fill =</span> <span class="st">"Homeowership"</span>,</span>
-<span id="cb41-12"><a href="#cb41-12"></a>    <span class="at">title =</span> <span class="st">"Interest Rates of Loans"</span>,</span>
-<span id="cb41-13"><a href="#cb41-13"></a>    <span class="at">subtitle =</span> <span class="st">"by grade and ownership"</span></span>
-<span id="cb41-14"><a href="#cb41-14"></a>  ) <span class="sc">+</span></span>
-<span id="cb41-15"><a href="#cb41-15"></a>  <span class="fu">theme</span>(</span>
-<span id="cb41-16"><a href="#cb41-16"></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span></span>
-<span id="cb41-17"><a href="#cb41-17"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r my_class800 number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a>loans <span class="sc">|&gt;</span> </span>
+<span id="cb41-2"><a></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb41-3"><a></a>    <span class="fu">aes</span>(<span class="at">x =</span> interest_rate,</span>
+<span id="cb41-4"><a></a>        <span class="at">y =</span> grade,</span>
+<span id="cb41-5"><a></a>        <span class="at">fill =</span> homeownership) <span class="co">#&lt;&lt;</span></span>
+<span id="cb41-6"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb41-7"><a></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb41-8"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb41-9"><a></a>    <span class="at">x =</span> <span class="st">"Interest rate (%)"</span>,</span>
+<span id="cb41-10"><a></a>    <span class="at">y =</span> <span class="st">"Grade"</span>,</span>
+<span id="cb41-11"><a></a>    <span class="at">fill =</span> <span class="st">"Homeowership"</span>,</span>
+<span id="cb41-12"><a></a>    <span class="at">title =</span> <span class="st">"Interest Rates of Loans"</span>,</span>
+<span id="cb41-13"><a></a>    <span class="at">subtitle =</span> <span class="st">"by grade and ownership"</span></span>
+<span id="cb41-14"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb41-15"><a></a>  <span class="fu">theme</span>(</span>
+<span id="cb41-16"><a></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span></span>
+<span id="cb41-17"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/unnamed-chunk-55_bf77fbea9c70fc815fad622020bac708">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/10-viz/unnamed-chunk-55-1.png" style="width:100.0%"></p>
+<figure><p><img data-src="images/10-viz/unnamed-chunk-55-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1693,12 +1696,12 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
           display:block!important;
       }</style></aside></section><section id="adding-points-on-box-plots" class="slide level2"><h2>Adding Points on Box Plots</h2>
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/box-pt_326bfb4f82fe3c56710a284525c9be30">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> homeownership, <span class="at">y =</span> interest_rate)) <span class="sc">+</span></span>
-<span id="cb42-2"><a href="#cb42-2"></a>    <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb42-3"><a href="#cb42-3"></a>    <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.1</span>, <span class="at">shape =</span> <span class="dv">1</span>) <span class="co">#&lt;&lt; geom_jitter(width = 0.2, alpha = 0.1, shape = 1)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> homeownership, <span class="at">y =</span> interest_rate)) <span class="sc">+</span></span>
+<span id="cb42-2"><a></a>    <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb42-3"><a></a>    <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.1</span>, <span class="at">shape =</span> <span class="dv">1</span>) <span class="co">#&lt;&lt; geom_jitter(width = 0.2, alpha = 0.1, shape = 1)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="images/10-viz/box-pt-1.png" style="width:72.0%" class="r-stretch quarto-figure-center"><aside class="notes"><ul>
+<img data-src="images/10-viz/box-pt-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:72.0%"><aside class="notes"><ul>
 <li>If we don’t just want the boxplot, and we also want to show data points along with the boxplot, we can add the another layer geom_point(), as shown here.</li>
 <li>But this plot is a little misleading. Anybody see why?</li>
 <li>The boxplot tell us 50% of the data points should be inside the box, right?</li>
@@ -1719,11 +1722,11 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 
 </section><section id="scatterplot" class="slide level2"><h2>Scatterplot</h2>
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/scatter_5a8b47e9384408bc1dcea85608d15b1a">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> debt_to_income, <span class="at">y =</span> interest_rate)) <span class="sc">+</span></span>
-<span id="cb43-2"><a href="#cb43-2"></a>    <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">23</span>, <span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="fl">0.8</span>)  <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> debt_to_income, <span class="at">y =</span> interest_rate)) <span class="sc">+</span></span>
+<span id="cb43-2"><a></a>    <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">23</span>, <span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="fl">0.8</span>)  <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="images/10-viz/scatter-1.png" style="width:72.0%" class="r-stretch quarto-figure-center"><aside class="notes"><ul>
+<img data-src="images/10-viz/scatter-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:72.0%"><aside class="notes"><ul>
 <li>We already talked about scatter plot using geom_point().</li>
 <li>Here we have a scatter plot of interest rate and the debt to income ratio.</li>
 <li>One potential problem here is that like adding points to boxplot, we have so many data points overlapped together, and their relationship cannot be truly revealed. and so it’s really difficult to make sense of this scatter plot built with geom_point.</li>
@@ -1739,11 +1742,11 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
           display:block!important;
       }</style></aside></section><section id="hex-plot" class="slide level2"><h2>Hex Plot</h2>
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/hex_f33218a15e0e9733481a7745782b42cd">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> debt_to_income, <span class="at">y =</span> interest_rate)) <span class="sc">+</span></span>
-<span id="cb44-2"><a href="#cb44-2"></a>    <span class="fu">geom_hex</span>()  <span class="co">#&lt;&lt; (hexbin pkg)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> debt_to_income, <span class="at">y =</span> interest_rate)) <span class="sc">+</span></span>
+<span id="cb44-2"><a></a>    <span class="fu">geom_hex</span>()  <span class="co">#&lt;&lt; (hexbin pkg)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="images/10-viz/hex-1.png" style="width:72.0%" class="r-stretch quarto-figure-center"><aside class="notes"><ul>
+<img data-src="images/10-viz/hex-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:72.0%"><aside class="notes"><ul>
 <li>So one solution is using Hex Plot instead by using geom_hex() function.</li>
 <li>The idea is that we first bin these data with the hex shape, grouping data points together for each hex bin.</li>
 <li>And the color of these hexes is what tells us how many data points or how dense my data are.</li>
@@ -1761,14 +1764,14 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
           display:block!important;
       }</style></aside></section><section id="hex-plot-zoom-in" class="slide level2"><h2>Hex Plot Zoom-in</h2>
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/hex-zoom_22fe0594268c401e1c92595f90d0d88f">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>loans <span class="sc">|&gt;</span> </span>
-<span id="cb45-2"><a href="#cb45-2"></a>    <span class="fu">filter</span>(debt_to_income <span class="sc">&lt;</span> <span class="dv">100</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb45-3"><a href="#cb45-3"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> debt_to_income, <span class="at">y =</span> interest_rate)) <span class="sc">+</span></span>
-<span id="cb45-4"><a href="#cb45-4"></a>    <span class="fu">geom_hex</span>() <span class="sc">+</span></span>
-<span id="cb45-5"><a href="#cb45-5"></a>    viridis<span class="sc">::</span><span class="fu">scale_fill_viridis</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a>loans <span class="sc">|&gt;</span> </span>
+<span id="cb45-2"><a></a>    <span class="fu">filter</span>(debt_to_income <span class="sc">&lt;</span> <span class="dv">100</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb45-3"><a></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> debt_to_income, <span class="at">y =</span> interest_rate)) <span class="sc">+</span></span>
+<span id="cb45-4"><a></a>    <span class="fu">geom_hex</span>() <span class="sc">+</span></span>
+<span id="cb45-5"><a></a>    viridis<span class="sc">::</span><span class="fu">scale_fill_viridis</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="images/10-viz/hex-zoom-1.png" style="width:62.0%" class="r-stretch quarto-figure-center"><aside class="notes"><ul>
+<img data-src="images/10-viz/hex-zoom-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:62.0%"><aside class="notes"><ul>
 <li>Here just show you that we can further zoom in the plot, focusing on the the data that has debt_to_income ratio less that 100%.</li>
 <li>And now we can more clearly see what’s going on.</li>
 <li>Basically, more data points happen around debt_to_income ratio 12 to 15% and interest rate 10%.</li>
@@ -1788,14 +1791,14 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 </section><section id="line-chart-for-time-series-ggplot2geom_line" class="slide level2"><h2>Line Chart for Time Series <code>ggplot2::geom_line()</code>
 </h2>
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/line_6cb82684568e32a6d0b6ac69f003b7f7">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a>economics_long <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> value01, </span>
-<span id="cb46-2"><a href="#cb46-2"></a>                             <span class="at">colour =</span> variable, <span class="at">linetype =</span> variable)) <span class="sc">+</span></span>
-<span id="cb46-3"><a href="#cb46-3"></a>    <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
-<span id="cb46-4"><a href="#cb46-4"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb46-5"><a href="#cb46-5"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a></a>economics_long <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> value01, </span>
+<span id="cb46-2"><a></a>                             <span class="at">colour =</span> variable, <span class="at">linetype =</span> variable)) <span class="sc">+</span></span>
+<span id="cb46-3"><a></a>    <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb46-4"><a></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb46-5"><a></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="images/10-viz/line-1.png" style="width:70.0%" class="r-stretch quarto-figure-center"><aside class="notes"><ul>
+<img data-src="images/10-viz/line-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><aside class="notes"><ul>
 <li>If you have time series data, line plot is your good friend, which shows the trend of some variable.</li>
 <li>For example here, the unemployment number.</li>
 </ul><style type="text/css">
@@ -1813,10 +1816,10 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 <li>Quantile-Quantile plots are used to check if data are normally distributed (or follow any distribution).</li>
 </ul>
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/qq_78553cd075547822c738b6e04b6b5abc">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">sample =</span> hwy)) <span class="sc">+</span> <span class="fu">geom_qq</span>() <span class="sc">+</span> <span class="fu">geom_qq_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">sample =</span> hwy)) <span class="sc">+</span> <span class="fu">geom_qq</span>() <span class="sc">+</span> <span class="fu">geom_qq_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="images/10-viz/qq-1.png" style="width:70.0%" class="r-stretch quarto-figure-center"><aside class="notes"><ul>
+<img data-src="images/10-viz/qq-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><aside class="notes"><ul>
 <li>To create a qqplot, we add the geometry geom_qq(), and geom_qq_line() if you want to add a straight line that helps you determine whether the data are normally distributed.</li>
 </ul><style type="text/css">
         span.MJX_Assistive_MathML {
@@ -1833,25 +1836,25 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 <li>Violin plots are similar to box plots, but show the smooth density of the data.</li>
 </ul>
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/unnamed-chunk-61_697dcc7c50198d7e342da5861110869e">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a>f <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> loan_amount, <span class="at">y =</span> grade))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a></a>f <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> loan_amount, <span class="at">y =</span> grade))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a>f <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a>f <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/10-viz/unnamed-chunk-62-1.png" style="width:100.0%"></p>
+<figure><p><img data-src="images/10-viz/unnamed-chunk-62-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a>f <span class="sc">+</span> <span class="fu">geom_violin</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a></a>f <span class="sc">+</span> <span class="fu">geom_violin</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/10-viz/violin-1.png" style="width:100.0%"></p>
+<figure><p><img data-src="images/10-viz/violin-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1874,12 +1877,12 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
           display:block!important;
       }</style></aside></section><section id="add-on-ggridges-for-ridge-plots" class="slide level2"><h2>Add-on 📦: <a href="https://wilkelab.org/ggridges/"><code>ggridges</code></a> for Ridge Plots</h2>
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/ridges_a2f10744eb93949bb5c9260f7fadfb9a">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="fu">library</span>(ggridges)</span>
-<span id="cb51-2"><a href="#cb51-2"></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> loan_amount, <span class="at">y =</span> grade, <span class="at">fill =</span> grade, <span class="at">color =</span> grade)) <span class="sc">+</span></span>
-<span id="cb51-3"><a href="#cb51-3"></a>    <span class="fu">geom_density_ridges</span>(<span class="at">alpha =</span> <span class="fl">0.9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a></a><span class="fu">library</span>(ggridges)</span>
+<span id="cb51-2"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> loan_amount, <span class="at">y =</span> grade, <span class="at">fill =</span> grade, <span class="at">color =</span> grade)) <span class="sc">+</span></span>
+<span id="cb51-3"><a></a>    <span class="fu">geom_density_ridges</span>(<span class="at">alpha =</span> <span class="fl">0.9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="images/10-viz/ridges-1.png" style="width:100.0%" class="r-stretch quarto-figure-center"><aside class="notes"><ul>
+<img data-src="images/10-viz/ridges-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><aside class="notes"><ul>
 <li>To show better smooth density plots, we can create the so-called ridge plots provided by the add-on package called ggridges.</li>
 <li>everything is basically the same. You just need to install and load the package, and add the geometry called geom_density_ridges().</li>
 </ul><style type="text/css">
@@ -1899,30 +1902,30 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 <strong>ggrepel</strong> provides geoms for ggplot2 to repel overlapping text labels.</li>
 </ul>
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/ggrepel0_cb0284cdb4bea2fc5ba056382b435016">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a><span class="fu">library</span>(ggrepel)</span>
-<span id="cb52-2"><a href="#cb52-2"></a>p <span class="ot">&lt;-</span> mtcars <span class="sc">|&gt;</span> <span class="fu">filter</span>(wt <span class="sc">&gt;</span> <span class="fl">2.75</span> <span class="sc">&amp;</span> wt <span class="sc">&lt;</span> <span class="fl">3.45</span>) <span class="sc">|&gt;</span> <span class="fu">rownames_to_column</span>(<span class="st">"car"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb52-3"><a href="#cb52-3"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(wt, mpg, <span class="at">label =</span> car)) <span class="sc">+</span></span>
-<span id="cb52-4"><a href="#cb52-4"></a>    <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a></a><span class="fu">library</span>(ggrepel)</span>
+<span id="cb52-2"><a></a>p <span class="ot">&lt;-</span> mtcars <span class="sc">|&gt;</span> <span class="fu">filter</span>(wt <span class="sc">&gt;</span> <span class="fl">2.75</span> <span class="sc">&amp;</span> wt <span class="sc">&lt;</span> <span class="fl">3.45</span>) <span class="sc">|&gt;</span> <span class="fu">rownames_to_column</span>(<span class="st">"car"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb52-3"><a></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(wt, mpg, <span class="at">label =</span> car)) <span class="sc">+</span></span>
+<span id="cb52-4"><a></a>    <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/ggrepel1_62473895fff39be0226029a42e698944">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a>p <span class="sc">+</span> <span class="fu">geom_text</span>() <span class="sc">+</span> </span>
-<span id="cb53-2"><a href="#cb53-2"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"geom_text()"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a></a>p <span class="sc">+</span> <span class="fu">geom_text</span>() <span class="sc">+</span> </span>
+<span id="cb53-2"><a></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"geom_text()"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/10-viz/ggrepel1-1.png" style="width:100.0%"></p>
+<figure><p><img data-src="images/10-viz/ggrepel1-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/ggrepel2_cfd04e7436da9eac2902671ede907c88">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a>p <span class="sc">+</span> <span class="fu">geom_text_repel</span>() <span class="sc">+</span> </span>
-<span id="cb54-2"><a href="#cb54-2"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"geom_text_repel()"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a></a>p <span class="sc">+</span> <span class="fu">geom_text_repel</span>() <span class="sc">+</span> </span>
+<span id="cb54-2"><a></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"geom_text_repel()"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/10-viz/ggrepel2-1.png" style="width:100.0%"></p>
+<figure><p><img data-src="images/10-viz/ggrepel2-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1956,7 +1959,7 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/10-viz/unnamed-chunk-67-1.png" style="width:80.0%"></p>
+<figure><p><img data-src="images/10-viz/unnamed-chunk-67-1.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
 </figure>
 </div>
 </div>
@@ -1964,18 +1967,18 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 </div>
 <div id="tabset-3-2">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a><span class="fu">library</span>(ggwordcloud)</span>
-<span id="cb55-2"><a href="#cb55-2"></a><span class="fu">library</span>(showtext)</span>
-<span id="cb55-3"><a href="#cb55-3"></a>where <span class="ot">&lt;-</span> <span class="fu">font_files</span>()[<span class="fu">which</span>(<span class="fu">str_detect</span>(<span class="fu">font_files</span>()<span class="sc">$</span>family, <span class="st">"Arial Unicode MS"</span>)), ]</span>
-<span id="cb55-4"><a href="#cb55-4"></a>thankyou_words_small <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">label =</span> word, <span class="at">size =</span> speakers, <span class="at">color =</span> name)) <span class="sc">+</span> </span>
-<span id="cb55-5"><a href="#cb55-5"></a>    <span class="fu">geom_text_wordcloud</span>(<span class="at">area_corr =</span> <span class="cn">TRUE</span>, <span class="at">rm_outside =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb55-6"><a href="#cb55-6"></a>                        <span class="at">family =</span> where[<span class="dv">1</span>, ]<span class="sc">$</span>family) <span class="sc">+</span></span>
-<span id="cb55-7"><a href="#cb55-7"></a>    <span class="fu">scale_size_area</span>(<span class="at">max_size =</span> <span class="dv">24</span>) <span class="sc">+</span> </span>
-<span id="cb55-8"><a href="#cb55-8"></a>    <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb55-9"><a href="#cb55-9"></a>    <span class="fu">theme</span>(<span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">0</span>,  <span class="co"># Top margin</span></span>
-<span id="cb55-10"><a href="#cb55-10"></a>                               <span class="at">r =</span> <span class="dv">0</span>,  <span class="co"># Right margin</span></span>
-<span id="cb55-11"><a href="#cb55-11"></a>                               <span class="at">b =</span> <span class="dv">0</span>,  <span class="co"># Bottom margin</span></span>
-<span id="cb55-12"><a href="#cb55-12"></a>                               <span class="at">l =</span> <span class="dv">0</span>)) <span class="co"># Left margin</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a></a><span class="fu">library</span>(ggwordcloud)</span>
+<span id="cb55-2"><a></a><span class="fu">library</span>(showtext)</span>
+<span id="cb55-3"><a></a>where <span class="ot">&lt;-</span> <span class="fu">font_files</span>()[<span class="fu">which</span>(<span class="fu">str_detect</span>(<span class="fu">font_files</span>()<span class="sc">$</span>family, <span class="st">"Arial Unicode MS"</span>)), ]</span>
+<span id="cb55-4"><a></a>thankyou_words_small <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">label =</span> word, <span class="at">size =</span> speakers, <span class="at">color =</span> name)) <span class="sc">+</span> </span>
+<span id="cb55-5"><a></a>    <span class="fu">geom_text_wordcloud</span>(<span class="at">area_corr =</span> <span class="cn">TRUE</span>, <span class="at">rm_outside =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb55-6"><a></a>                        <span class="at">family =</span> where[<span class="dv">1</span>, ]<span class="sc">$</span>family) <span class="sc">+</span></span>
+<span id="cb55-7"><a></a>    <span class="fu">scale_size_area</span>(<span class="at">max_size =</span> <span class="dv">24</span>) <span class="sc">+</span> </span>
+<span id="cb55-8"><a></a>    <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb55-9"><a></a>    <span class="fu">theme</span>(<span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">0</span>,  <span class="co"># Top margin</span></span>
+<span id="cb55-10"><a></a>                               <span class="at">r =</span> <span class="dv">0</span>,  <span class="co"># Right margin</span></span>
+<span id="cb55-11"><a></a>                               <span class="at">b =</span> <span class="dv">0</span>,  <span class="co"># Bottom margin</span></span>
+<span id="cb55-12"><a></a>                               <span class="at">l =</span> <span class="dv">0</span>)) <span class="co"># Left margin</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -2004,7 +2007,7 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/unnamed-chunk-69_d3a5cd0e6e106b520e7bc71844f3c804">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/10-viz/unnamed-chunk-69-1.png" style="width:100.0%"></p>
+<figure><p><img data-src="images/10-viz/unnamed-chunk-69-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -2013,7 +2016,7 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/unnamed-chunk-70_f9dee46728d0a309f07a7bd9bfc15d75">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/10-viz/unnamed-chunk-70-1.png" style="width:100.0%"></p>
+<figure><p><img data-src="images/10-viz/unnamed-chunk-70-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -2025,49 +2028,49 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r my_classfull number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a><span class="fu">library</span>(fmsb)</span>
-<span id="cb56-2"><a href="#cb56-2"></a>radar_data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(</span>
-<span id="cb56-3"><a href="#cb56-3"></a>    <span class="at">file =</span> <span class="st">"./data/radar_data.csv"</span>)</span>
-<span id="cb56-4"><a href="#cb56-4"></a><span class="co"># Color vector</span></span>
-<span id="cb56-5"><a href="#cb56-5"></a>colors_border <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rgb</span>(<span class="fl">0.2</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>,<span class="fl">0.9</span>), </span>
-<span id="cb56-6"><a href="#cb56-6"></a>                   <span class="fu">rgb</span>(<span class="fl">0.8</span>,<span class="fl">0.2</span>,<span class="fl">0.5</span>,<span class="fl">0.9</span>), </span>
-<span id="cb56-7"><a href="#cb56-7"></a>                   <span class="fu">rgb</span>(<span class="fl">0.7</span>,<span class="fl">0.5</span>,<span class="fl">0.1</span>,<span class="fl">0.9</span>))</span>
-<span id="cb56-8"><a href="#cb56-8"></a>colors_in <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rgb</span>(<span class="fl">0.2</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>,<span class="fl">0.4</span>), </span>
-<span id="cb56-9"><a href="#cb56-9"></a>               <span class="fu">rgb</span>(<span class="fl">0.8</span>,<span class="fl">0.2</span>,<span class="fl">0.5</span>,<span class="fl">0.4</span>), </span>
-<span id="cb56-10"><a href="#cb56-10"></a>               <span class="fu">rgb</span>(<span class="fl">0.7</span>,<span class="fl">0.5</span>,<span class="fl">0.1</span>,<span class="fl">0.4</span>))</span>
-<span id="cb56-11"><a href="#cb56-11"></a><span class="fu">radarchart</span>(radar_data, <span class="at">axistype =</span> <span class="dv">1</span>, </span>
-<span id="cb56-12"><a href="#cb56-12"></a>           <span class="co">#custom polygon</span></span>
-<span id="cb56-13"><a href="#cb56-13"></a>           <span class="at">pcol =</span> colors_border, </span>
-<span id="cb56-14"><a href="#cb56-14"></a>           <span class="at">pfcol =</span> colors_in, </span>
-<span id="cb56-15"><a href="#cb56-15"></a>           <span class="at">plwd =</span> <span class="dv">4</span>, <span class="at">plty =</span> <span class="dv">1</span>,</span>
-<span id="cb56-16"><a href="#cb56-16"></a>           <span class="co">#custom the grid</span></span>
-<span id="cb56-17"><a href="#cb56-17"></a>           <span class="at">cglcol =</span> <span class="st">"grey"</span>, <span class="at">cglty =</span> <span class="dv">1</span>, </span>
-<span id="cb56-18"><a href="#cb56-18"></a>           <span class="at">axislabcol =</span> <span class="st">"grey"</span>, </span>
-<span id="cb56-19"><a href="#cb56-19"></a>           <span class="at">caxislabels =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">20</span>, <span class="dv">5</span>), </span>
-<span id="cb56-20"><a href="#cb56-20"></a>           <span class="at">cglwd =</span> <span class="fl">0.8</span>,</span>
-<span id="cb56-21"><a href="#cb56-21"></a>           <span class="co">#custom labels</span></span>
-<span id="cb56-22"><a href="#cb56-22"></a>           <span class="at">vlcex =</span> <span class="fl">1.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r my_classfull number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a><span class="co"># legend("topright", legend = rownames(radar_data[-c(1, 2), ]), bty = "n", pch = 20 , </span></span>
-<span id="cb57-2"><a href="#cb57-2"></a><span class="co">#        col = colors_in, text.col = "grey", cex = 1.2, pt.cex = 3)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r my_classfull number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a></a><span class="fu">library</span>(fmsb)</span>
+<span id="cb56-2"><a></a>radar_data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(</span>
+<span id="cb56-3"><a></a>    <span class="at">file =</span> <span class="st">"./data/radar_data.csv"</span>)</span>
+<span id="cb56-4"><a></a><span class="co"># Color vector</span></span>
+<span id="cb56-5"><a></a>colors_border <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rgb</span>(<span class="fl">0.2</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>,<span class="fl">0.9</span>), </span>
+<span id="cb56-6"><a></a>                   <span class="fu">rgb</span>(<span class="fl">0.8</span>,<span class="fl">0.2</span>,<span class="fl">0.5</span>,<span class="fl">0.9</span>), </span>
+<span id="cb56-7"><a></a>                   <span class="fu">rgb</span>(<span class="fl">0.7</span>,<span class="fl">0.5</span>,<span class="fl">0.1</span>,<span class="fl">0.9</span>))</span>
+<span id="cb56-8"><a></a>colors_in <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rgb</span>(<span class="fl">0.2</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>,<span class="fl">0.4</span>), </span>
+<span id="cb56-9"><a></a>               <span class="fu">rgb</span>(<span class="fl">0.8</span>,<span class="fl">0.2</span>,<span class="fl">0.5</span>,<span class="fl">0.4</span>), </span>
+<span id="cb56-10"><a></a>               <span class="fu">rgb</span>(<span class="fl">0.7</span>,<span class="fl">0.5</span>,<span class="fl">0.1</span>,<span class="fl">0.4</span>))</span>
+<span id="cb56-11"><a></a><span class="fu">radarchart</span>(radar_data, <span class="at">axistype =</span> <span class="dv">1</span>, </span>
+<span id="cb56-12"><a></a>           <span class="co">#custom polygon</span></span>
+<span id="cb56-13"><a></a>           <span class="at">pcol =</span> colors_border, </span>
+<span id="cb56-14"><a></a>           <span class="at">pfcol =</span> colors_in, </span>
+<span id="cb56-15"><a></a>           <span class="at">plwd =</span> <span class="dv">4</span>, <span class="at">plty =</span> <span class="dv">1</span>,</span>
+<span id="cb56-16"><a></a>           <span class="co">#custom the grid</span></span>
+<span id="cb56-17"><a></a>           <span class="at">cglcol =</span> <span class="st">"grey"</span>, <span class="at">cglty =</span> <span class="dv">1</span>, </span>
+<span id="cb56-18"><a></a>           <span class="at">axislabcol =</span> <span class="st">"grey"</span>, </span>
+<span id="cb56-19"><a></a>           <span class="at">caxislabels =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">20</span>, <span class="dv">5</span>), </span>
+<span id="cb56-20"><a></a>           <span class="at">cglwd =</span> <span class="fl">0.8</span>,</span>
+<span id="cb56-21"><a></a>           <span class="co">#custom labels</span></span>
+<span id="cb56-22"><a></a>           <span class="at">vlcex =</span> <span class="fl">1.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r my_classfull number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a></a><span class="co"># legend("topright", legend = rownames(radar_data[-c(1, 2), ]), bty = "n", pch = 20 , </span></span>
+<span id="cb57-2"><a></a><span class="co">#        col = colors_in, text.col = "grey", cex = 1.2, pt.cex = 3)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r my_classfull number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a><span class="fu">library</span>(ggradar)</span>
-<span id="cb58-2"><a href="#cb58-2"></a></span>
-<span id="cb58-3"><a href="#cb58-3"></a>ggradar_data <span class="ot">&lt;-</span> radar_data <span class="sc">|&gt;</span></span>
-<span id="cb58-4"><a href="#cb58-4"></a>    <span class="fu">as_tibble</span>(<span class="at">rownames =</span> <span class="st">"group"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb58-5"><a href="#cb58-5"></a>    <span class="fu">mutate_at</span>(<span class="fu">vars</span>(<span class="sc">-</span>group), rescale) <span class="sc">|&gt;</span></span>
-<span id="cb58-6"><a href="#cb58-6"></a>    <span class="fu">tail</span>(<span class="dv">3</span>)</span>
-<span id="cb58-7"><a href="#cb58-7"></a></span>
-<span id="cb58-8"><a href="#cb58-8"></a><span class="fu">ggradar</span>(ggradar_data,</span>
-<span id="cb58-9"><a href="#cb58-9"></a>        <span class="at">base.size =</span> <span class="dv">5</span>,</span>
-<span id="cb58-10"><a href="#cb58-10"></a>        <span class="at">grid.label.size =</span> <span class="dv">6</span>,</span>
-<span id="cb58-11"><a href="#cb58-11"></a>        <span class="at">axis.label.size =</span> <span class="dv">5</span>,</span>
-<span id="cb58-12"><a href="#cb58-12"></a>        <span class="at">group.point.size =</span> <span class="dv">3</span>,</span>
-<span id="cb58-13"><a href="#cb58-13"></a>        <span class="at">fill.alpha =</span> <span class="fl">0.2</span>,</span>
-<span id="cb58-14"><a href="#cb58-14"></a>        <span class="at">grid.line.width =</span> <span class="fl">0.4</span>,</span>
-<span id="cb58-15"><a href="#cb58-15"></a>        <span class="at">plot.legend =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb58-16"><a href="#cb58-16"></a>        <span class="at">fill =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r my_classfull number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a></a><span class="fu">library</span>(ggradar)</span>
+<span id="cb58-2"><a></a></span>
+<span id="cb58-3"><a></a>ggradar_data <span class="ot">&lt;-</span> radar_data <span class="sc">|&gt;</span></span>
+<span id="cb58-4"><a></a>    <span class="fu">as_tibble</span>(<span class="at">rownames =</span> <span class="st">"group"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb58-5"><a></a>    <span class="fu">mutate_at</span>(<span class="fu">vars</span>(<span class="sc">-</span>group), rescale) <span class="sc">|&gt;</span></span>
+<span id="cb58-6"><a></a>    <span class="fu">tail</span>(<span class="dv">3</span>)</span>
+<span id="cb58-7"><a></a></span>
+<span id="cb58-8"><a></a><span class="fu">ggradar</span>(ggradar_data,</span>
+<span id="cb58-9"><a></a>        <span class="at">base.size =</span> <span class="dv">5</span>,</span>
+<span id="cb58-10"><a></a>        <span class="at">grid.label.size =</span> <span class="dv">6</span>,</span>
+<span id="cb58-11"><a></a>        <span class="at">axis.label.size =</span> <span class="dv">5</span>,</span>
+<span id="cb58-12"><a></a>        <span class="at">group.point.size =</span> <span class="dv">3</span>,</span>
+<span id="cb58-13"><a></a>        <span class="at">fill.alpha =</span> <span class="fl">0.2</span>,</span>
+<span id="cb58-14"><a></a>        <span class="at">grid.line.width =</span> <span class="fl">0.4</span>,</span>
+<span id="cb58-15"><a></a>        <span class="at">plot.legend =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb58-16"><a></a>        <span class="at">fill =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -2096,7 +2099,7 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/unnamed-chunk-73_756a060129359f129ab0dee5f49f0641">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/10-viz/unnamed-chunk-73-1.png" style="width:75.0%"></p>
+<figure><p><img data-src="images/10-viz/unnamed-chunk-73-1.png" class="quarto-figure quarto-figure-center" style="width:75.0%"></p>
 </figure>
 </div>
 </div>
@@ -2104,14 +2107,14 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 </div>
 <div id="tabset-5-2">
 <div class="cell" data-layout-align="center" data-hash="10-viz_cache/revealjs/network_a42ec4416478f8206b8bd7e09124fc1d">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a><span class="fu">library</span>(igraph)</span>
-<span id="cb59-2"><a href="#cb59-2"></a>network_data <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="at">file =</span> <span class="st">"./data/network_data.rds"</span>)</span>
-<span id="cb59-3"><a href="#cb59-3"></a></span>
-<span id="cb59-4"><a href="#cb59-4"></a><span class="co"># build the graph object</span></span>
-<span id="cb59-5"><a href="#cb59-5"></a>network <span class="ot">&lt;-</span> <span class="fu">graph_from_adjacency_matrix</span>(network_data)</span>
-<span id="cb59-6"><a href="#cb59-6"></a> </span>
-<span id="cb59-7"><a href="#cb59-7"></a><span class="co"># plot it</span></span>
-<span id="cb59-8"><a href="#cb59-8"></a><span class="fu">plot</span>(network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a></a><span class="fu">library</span>(igraph)</span>
+<span id="cb59-2"><a></a>network_data <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="at">file =</span> <span class="st">"./data/network_data.rds"</span>)</span>
+<span id="cb59-3"><a></a></span>
+<span id="cb59-4"><a></a><span class="co"># build the graph object</span></span>
+<span id="cb59-5"><a></a>network <span class="ot">&lt;-</span> <span class="fu">graph_from_adjacency_matrix</span>(network_data)</span>
+<span id="cb59-6"><a></a> </span>
+<span id="cb59-7"><a></a><span class="co"># plot it</span></span>
+<span id="cb59-8"><a></a><span class="fu">plot</span>(network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -2127,7 +2130,7 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="./images/10-viz/ggextension.png" style="width:100.0%"></p>
+<figure><p><img data-src="./images/10-viz/ggextension.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -2146,9 +2149,11 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+<div class="quarto-auto-generated-content">
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Marquette_Golden_Eagles_logo.svg" class="slide-logo"></p>
 <div class="footer footer-default">
 <p><a href="https://math3570-s24.github.io/website/">math3570-s24.github.io/website</a></p>
+</div>
 </div>
 </section></section>
 </div>
@@ -2161,12 +2166,11 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
 'multiplex': {"secret":null,"id":"f700c600817be491","url":"https://reveal-multiplex.glitch.me/"},
 'smaller': false,
  
@@ -2405,9 +2409,23 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
       tabsets.forEach(function(tabset) {
         const tabby = new Tabby('#' + tabset.id);
       });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
       const clipboard = new window.ClipboardJS('.code-copy-button', {
-        target: function(trigger) {
-          return trigger.previousElementSibling;
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
         }
       });
       clipboard.on('success', function(e) {
@@ -2443,10 +2461,27 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn) {
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp("https:\/\/math3570-s24\.github\.io\/website\/");
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -2455,9 +2490,18 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
           },
           interactive: true,
           interactiveBorder: 10,
-          theme: 'quarto-reveal',
-          placement: 'bottom-start'
+          theme: 'light-border',
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -2471,7 +2515,11 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6.46, 23.66, 16.1
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {
