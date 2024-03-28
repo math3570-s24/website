@@ -182,7 +182,7 @@ other_ind <- c(97, 94, 91, 85)
 # grade <- tibble(first_ind, other_ind)
 # grade <- as.data.frame(grade)
 grade <- data.frame(first_ind, other_ind)
-rownames(grade) <- c("Gold 🥇 1st", "Silver 🥈 2nd", "Bronze 🥉 3rd", "Other players")
+rownames(grade) <- c("Gold 🥇 1st", "Silver 🥈 2nd", "Bronze 🥉 3rd", "Other teams")
 colnames(grade) <- c("Best contributor 🎖️", "Other members")
 knitr::kable(grade, align = "c", caption = "Performance Grade Sheet", label = "tbl:grade")
 ```
