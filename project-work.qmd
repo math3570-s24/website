@@ -6,9 +6,9 @@ Here shows group project's proposal.
 
 -   **GitClub**: Ally Olsen, Josh Wilder, Aniya Lentz, Jazmin Muro, Christian Kasiake
 
--   **Group 2**:
+-   **ggplot3**: Arik Zintel, Iris Murphy, Yesenia Tavizon, Lauren Barrile
 
--   **Group 3**:
+-   **Group 3**: Michael Gephart, Rich Lukas, Candice Watson, ONE MORE
 
 -   **Group 4**:
 

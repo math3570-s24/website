@@ -3,6 +3,8 @@ title: "MATH/COSC 3570 Project Competition"
 date-modified: today
 ---
 
+**Show your fun project! Let's go!!** 😎
+
 # Timeline and Things to Do
 
 -   **Team up!** You will be working as **a group of 4** (one team with 5). One of you, please email me
@@ -34,10 +36,11 @@ date-modified: today
 
 -   *Each one of you loses 3 points of your project grade if you don't meet the requirement or miss the deadline.*
 
-- Your proposal (in PDF) should include three parts:
-    + Project title
-    + The goal of your project. For example, what is the research question you'd like to answer? What packages/tools you'd like to introduce?
-    + The description of the data set you use in your project. For example, where is the data set from, how large is the data, the variables you use for your project, etc.
+-   Your proposal (in PDF) should include three parts:
+
+    -   Project title
+    -   The goal of your project. For example, what is the research question you'd like to answer? What packages/tools you'd like to introduce?
+    -   The description of the data set you use in your project. For example, where is the data set from, how large is the data, the variables you use for your project, etc.
 
 -   Although it is risky, you can change your project topic after you submit your proposal if you decide to do something else.
 
@@ -164,21 +167,23 @@ For your R/Python package project,
 
 # Project Evaluation and Grading {#sec-grading}
 
+**Get the Gold medal!** 🥇
+
 -   Your project performance grade is *determined by your classmates and Dr. Yu*.
 
--   Table 1 shows your possible performance grade. For example, if your group finish in fourth place and you are elected as the best contributor, your grade is 92. If your group finish in second place, and you are not the best contributor, you get 94.
+-   Table 1 shows your possible performance grade. For example, if your group finish in second place (Silver) and you are elected as the best contributor, your grade is 98. If your group finish in third place (Bronze), and you are not the best contributor, you get 91.
 
 -   Your project grade will be \quote{\texttt{project grade = performance grade - points lost due to violation of policy}}
 
 ```{r, echo=FALSE}
 # library(tidyverse)
-first_ind <- c(100, 98, 95, 92, 89, 87, 85)
-other_ind <- c(97, 94, 91, 88, 86, 84, 82)
+first_ind <- c(100, 98, 95, 90)
+other_ind <- c(97, 94, 91, 85)
 # grade <- tibble(first_ind, other_ind)
 # grade <- as.data.frame(grade)
 grade <- data.frame(first_ind, other_ind)
-rownames(grade) <- paste("Group Rank", 1:7)
-colnames(grade) <- c("Best contributor", "Other members")
+rownames(grade) <- c("Gold 🥇 1st", "Silver 🥈 2nd", "Bronze 🥉 3rd", "Other players")
+colnames(grade) <- c("Best contributor 🎖️", "Other members")
 knitr::kable(grade, align = "c", caption = "Performance Grade Sheet", label = "tbl:grade")
 ```
 
@@ -248,4 +253,4 @@ knitr::kable(grade, align = "c", caption = "Performance Grade Sheet", label = "t
 
 -   If you don't vote, you can't be the best contributor even if you obtain the most votes. The person with the second highest votes wins the best contribution reward.
 
--   If there is no one single person who gets the most votes, every team member remains the same grade. For example, if your group finish in third place, and there is no best contributor, all members receive 91 (See Table 1).
+-   If there is no one single person who gets the most votes, every team member remains the same grade. For example, if your group finish in third place (Bronze), and there is no best contributor, all members receive 91 (See Table 1).
