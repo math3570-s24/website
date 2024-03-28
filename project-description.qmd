@@ -178,7 +178,7 @@ For your R/Python package project,
 ```{r, echo=FALSE}
 # library(tidyverse)
 first_ind <- c(100, 98, 95, 90)
-other_ind <- c(97, 94, 91, 85)
+other_ind <- c(97, 94, 91, 87)
 # grade <- tibble(first_ind, other_ind)
 # grade <- as.data.frame(grade)
 grade <- data.frame(first_ind, other_ind)
