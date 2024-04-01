@@ -452,11 +452,14 @@ y_i &amp;= f(x_i) +  \epsilon_i \\
 </div>
 </div>
 </div>
+<div class="fragment">
 <div class="question">
 <p>What are the assumption on <span class="math inline">\(\epsilon_i\)</span>?</p>
 </div>
+</div>
 <div class="fragment">
-<p><span class="math inline">\(\epsilon_i \sim N(0, \sigma^2)\)</span> and hence <span class="math inline">\(y_i \mid x_i \sim N(\beta_0+\beta_1x_i, \sigma^2)\)</span> or <span class="math inline">\(\mu_{y\mid x_i} = \beta_0+\beta_1x_i\)</span>.</p>
+<p><span class="math inline">\(\epsilon_i \sim N(0, \sigma^2)\)</span> and hence <span class="math inline">\(y_i \mid x_i \sim N(\beta_0+\beta_1x_i, \sigma^2)\)</span></p>
+<!-- or $\mu_{y\mid x_i} = \beta_0+\beta_1x_i$. -->
 <aside class="notes"><ul>
 <li>OK we start with the simple linear regression, the linear regression a Single Predictor <span class="math inline">\(x\)</span>.</li>
 <li>In linear regression, our regression function <span class="math inline">\(f\)</span> is a linear function <span class="math inline">\(\beta_0 + \beta_1~x\)</span>.</li>
@@ -482,7 +485,7 @@ y_i &amp;= f(x_i) +  \epsilon_i \\
 <img data-src="./images/16-linear-reg/regression_line_data.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section><section id="simple-linear-regression-assumptions-2" class="slide level2"><h2>Simple Linear Regression Assumptions</h2>
 
 <img data-src="./images/16-linear-reg/regression_line_data_blue.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section><section id="ordinary-least-squares-ols" class="slide level2"><h2>Ordinary Least Squares (OLS)</h2>
-<p>Given the <strong>training data</strong> <span class="math inline">\((x_1, y_1), \dots, (x_n, y_n)\)</span>, use <em>sample statistics</em> <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span> computed from the training data to</p>
+<p>Given the <strong>training data</strong> <span class="math inline">\((x_1, y_1), \dots, (x_n, y_n)\)</span>, use <em>sample statistics</em> <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span> computed from the data to</p>
 <ul>
 <li><p><span class="green">inference:</span> estimate <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span></p></li>
 <li><p><span class="green">fitting:</span> estimate <span class="math inline">\(y_i\)</span> or <span class="math inline">\(f(x_i)\)</span> at <span class="math inline">\(x_i\)</span> by its <strong>fitted value</strong> <span class="math display">\[\hat{y}_{i} = \hat{f}(x_i) = b_0 + b_1~x_{i}\]</span></p></li>
@@ -491,7 +494,7 @@ y_i &amp;= f(x_i) +  \epsilon_i \\
 <div class="fragment">
 <ul>
 <li>
-<span class="green">Ordinary Least Squares:</span> We find <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span>, or regression line <span class="math inline">\(b_0 + b_1x\)</span> that minimizes the <strong>sum of squared residuals</strong>.</li>
+<span class="green">Ordinary Least Squares:</span> Find <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span>, or regression line <span class="math inline">\(b_0 + b_1x\)</span> that minimizes the <strong>sum of squared residuals</strong>.</li>
 <li>The residual <span class="math inline">\(e_i = y_i - \hat{y}_i\)</span>. The sample regression line minimizes <span class="math inline">\(\sum_{i = 1}^n e_i^2\)</span>.</li>
 </ul>
 <aside class="notes"><ul>
@@ -616,7 +619,7 @@ Computational engine: lm </code></pre>
       }</style></aside></section><section id="step-2-set-model-fitting-engine" class="slide level2"><h2>Step 2: Set Model Fitting <em>Engine</em>
 </h2>
 <ul>
-<li>Use <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> in the built-in <strong>stats</strong> package.</li>
+<li>By default, use <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> in the built-in <strong>stats</strong> package.</li>
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">linear_reg</span>() <span class="sc">|&gt;</span> </span>
@@ -666,8 +669,7 @@ Computational engine: lm </code></pre>
 <p>… using <strong>formula syntax</strong></p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">linear_reg</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb21-2"><a></a>    <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb21-3"><a></a>    <span class="fu">fit</span>(hwy <span class="sc">~</span> displ, <span class="at">data =</span> mpg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-2"><a></a>    <span class="fu">fit</span>(hwy <span class="sc">~</span> displ, <span class="at">data =</span> mpg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>parsnip model object
 
@@ -707,9 +709,8 @@ Coefficients:
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">linear_reg</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb23-2"><a></a>    <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb23-3"><a></a>    <span class="fu">fit</span>(hwy <span class="sc">~</span> displ, <span class="at">data =</span> mpg) <span class="sc">|&gt;</span> </span>
-<span id="cb23-4"><a></a>    <span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-2"><a></a>    <span class="fu">fit</span>(hwy <span class="sc">~</span> displ, <span class="at">data =</span> mpg) <span class="sc">|&gt;</span> </span>
+<span id="cb23-3"><a></a>    <span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 5
   term        estimate std.error statistic   p.value
@@ -781,21 +782,20 @@ Coefficients:
 <li>Uncertainty about regression coefficients <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>
 </li>
 </ul>
-<div class="cell" data-layout-align="center" data-hash="16-linear-reg_cache/revealjs/unnamed-chunk-23_fd41acaa086e8119cdd57fc9f98ca774">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>tidymdl <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb28-2"><a></a>    <span class="fu">set_engine</span>(<span class="st">"lm"</span>)</span>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>reg_out <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb28-2"><a></a>    <span class="fu">fit</span>(hwy <span class="sc">~</span> displ, <span class="at">data =</span> mpg)</span>
 <span id="cb28-3"><a></a></span>
-<span id="cb28-4"><a></a>reg_out <span class="ot">&lt;-</span> tidymdl <span class="sc">|&gt;</span> </span>
-<span id="cb28-5"><a></a>    <span class="fu">fit</span>(hwy <span class="sc">~</span> displ, <span class="at">data =</span> mpg)</span>
-<span id="cb28-6"><a></a></span>
-<span id="cb28-7"><a></a>reg_out<span class="sc">$</span>fit<span class="sc">$</span>coefficients</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb28-4"><a></a>reg_out_fit <span class="ot">&lt;-</span> reg_out<span class="sc">$</span>fit</span>
+<span id="cb28-5"><a></a></span>
+<span id="cb28-6"><a></a>reg_out_fit<span class="sc">$</span>coefficients</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(Intercept)       displ 
       35.70       -3.53 </code></pre>
 </div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a><span class="fu">confint</span>(reg_out<span class="sc">$</span>fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a><span class="fu">confint</span>(reg_out_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            2.5 % 97.5 %
 (Intercept) 34.28  37.12
@@ -808,20 +808,16 @@ displ       -3.91  -3.15</code></pre>
 <!-- ::: -->
 </section><section id="quantify-uncertainty-about-mean-of-y" class="slide level2"><h2>Quantify Uncertainty about Mean of <span class="math inline">\(y\)</span>
 </h2>
-<div class="columns">
-<div class="column" style="width:40%;">
+<!-- :::: {.columns} -->
+<!-- ::: {.column width="40%"} -->
 <ul>
 <li>Uncertainty about the <span class="green"><strong>mean</strong></span> value of <span class="math inline">\(y\)</span> given <span class="math inline">\(X = x\)</span> <span class="math display">\[\mu_{Y \mid X = x} = \beta_0 + \beta_1x\]</span>
 </li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>new_input <span class="ot">&lt;-</span> </span>
-<span id="cb32-2"><a></a>    <span class="fu">data.frame</span>(<span class="at">displ =</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">6</span>)</span>
-<span id="cb32-3"><a></a></span>
-<span id="cb32-4"><a></a><span class="fu">predict</span>(reg_out<span class="sc">$</span>fit,</span>
-<span id="cb32-5"><a></a>        <span class="at">newdata =</span> new_input,</span>
-<span id="cb32-6"><a></a>        <span class="at">interval =</span> <span class="st">"confidence"</span>,</span>
-<span id="cb32-7"><a></a>        <span class="at">level =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>new_input <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">displ =</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">6</span>)</span>
+<span id="cb32-2"><a></a></span>
+<span id="cb32-3"><a></a><span class="fu">predict</span>(reg_out_fit, <span class="at">newdata =</span> new_input, <span class="at">interval =</span> <span class="st">"confidence"</span>, <span class="at">level =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   fit  lwr  upr
 1 25.1 24.6 25.6
@@ -830,42 +826,10 @@ displ       -3.91  -3.15</code></pre>
 4 14.5 13.4 15.6</code></pre>
 </div>
 </div>
-</div><div class="column" style="width:60%;">
-<div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby">
-<li><a data-tabby-default="" href="#tabset-1-1">Fit with uncertainty band</a></li>
-<li><a href="#tabset-1-2">ggplot object p</a></li>
-</ul>
-<div class="tab-content">
-<div id="tabset-1-1">
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a>(p_ci <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, </span>
-<span id="cb34-2"><a></a>                         <span class="at">color =</span> <span class="st">"#003366"</span>, </span>
-<span id="cb34-3"><a></a>                         <span class="at">fill =</span> <span class="st">"blue"</span>,</span>
-<span id="cb34-4"><a></a>                         <span class="at">se =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/16-linear-reg/unnamed-chunk-26-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div id="tabset-1-2">
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> reg_out<span class="sc">$</span>fit, </span>
-<span id="cb35-2"><a></a>            <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
-<span id="cb35-3"><a></a>     <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span> </span>
-<span id="cb35-4"><a></a>     <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Highway MPG vs. Engine Displacement"</span>,</span>
-<span id="cb35-5"><a></a>          <span class="at">x =</span> <span class="st">"Displacement (litres)"</span>,</span>
-<span id="cb35-6"><a></a>          <span class="at">y =</span> <span class="st">"Highway miles per gallon"</span>) <span class="sc">+</span></span>
-<span id="cb35-7"><a></a>      <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">11</span>, <span class="dv">44</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<!-- ::: -->
+<!-- ::: {.column width="60%"} -->
+<!-- ::: -->
+<!-- :::: -->
 <aside class="notes"><ul>
 <li>We are also interested in uncertainty about the mean value of <span class="math inline">\(y\)</span> given some value of <span class="math inline">\(x\)</span>, especially when we are predicting <span class="math inline">\(y\)</span>.</li>
 <li>To get the CI for the mean of <span class="math inline">\(y\)</span> at any value of <span class="math inline">\(x\)</span>, we can use the predict() function.</li>
@@ -887,19 +851,52 @@ displ       -3.91  -3.15</code></pre>
           width: 1px!important;
           overflow: hidden!important;
           display:block!important;
-      }</style></aside></section><section id="quantify-uncertainty-about-individual-y" class="slide level2"><h2>Quantify Uncertainty about Individual <span class="math inline">\(y\)</span>
+      }</style></aside></section><section id="quantify-uncertainty-about-mean-of-y-1" class="slide level2"><h2>Quantify Uncertainty about Mean of <span class="math inline">\(y\)</span>
 </h2>
-<div class="columns">
-<div class="column" style="width:40%;">
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby">
+<li><a data-tabby-default="" href="#tabset-1-1">Fit with uncertainty band</a></li>
+<li><a href="#tabset-1-2">ggplot code</a></li>
+</ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="images/16-linear-reg/unnamed-chunk-26-1.png" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> reg_out_fit, </span>
+<span id="cb34-2"><a></a>            <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
+<span id="cb34-3"><a></a>     <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span> </span>
+<span id="cb34-4"><a></a>     <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Highway MPG vs. Engine Displacement"</span>,</span>
+<span id="cb34-5"><a></a>          <span class="at">x =</span> <span class="st">"Displacement (litres)"</span>,</span>
+<span id="cb34-6"><a></a>          <span class="at">y =</span> <span class="st">"Highway miles per gallon"</span>) <span class="sc">+</span></span>
+<span id="cb34-7"><a></a>      <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">11</span>, <span class="dv">44</span>))</span>
+<span id="cb34-8"><a></a></span>
+<span id="cb34-9"><a></a>p_ci <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, </span>
+<span id="cb34-10"><a></a>                        <span class="at">color =</span> <span class="st">"#003366"</span>, </span>
+<span id="cb34-11"><a></a>                        <span class="at">fill =</span> <span class="st">"blue"</span>,</span>
+<span id="cb34-12"><a></a>                        <span class="at">se =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section><section id="quantify-uncertainty-about-individual-y" class="slide level2"><h2>Quantify Uncertainty about Individual <span class="math inline">\(y\)</span>
+</h2>
+<!-- :::: {.columns} -->
+<!-- ::: {.column width="40%"} -->
 <ul>
 <li>Uncertainty about the <span class="green"><strong>individual</strong></span> value of <span class="math inline">\(y\)</span> given <span class="math inline">\(X = x\)</span>, <span class="math inline">\(Y \mid X = x\)</span>
 </li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a><span class="fu">predict</span>(reg_out<span class="sc">$</span>fit, </span>
-<span id="cb36-2"><a></a>        <span class="at">newdata =</span> new_input, </span>
-<span id="cb36-3"><a></a>        <span class="at">interval =</span> <span class="st">"prediction"</span>, </span>
-<span id="cb36-4"><a></a>        <span class="at">level =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a><span class="fu">predict</span>(reg_out_fit, <span class="at">newdata =</span> new_input, <span class="at">interval =</span> <span class="st">"prediction"</span>, <span class="at">level =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   fit   lwr  upr
 1 25.1 17.53 32.7
@@ -907,28 +904,31 @@ displ       -3.91  -3.15</code></pre>
 3 18.0 10.45 25.6
 4 14.5  6.88 22.1</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a><span class="do">## predict at current inputs</span></span>
-<span id="cb38-2"><a></a>df <span class="ot">&lt;-</span> <span class="fu">as.tibble</span>(</span>
-<span id="cb38-3"><a></a>    <span class="fu">predict</span>(</span>
-<span id="cb38-4"><a></a>        reg_out<span class="sc">$</span>fit, </span>
-<span id="cb38-5"><a></a>        <span class="at">interval =</span> <span class="st">"prediction"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div><div class="column" style="width:60%;">
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>p_ci <span class="sc">+</span> </span>
-<span id="cb39-2"><a></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> df<span class="sc">$</span>lwr), </span>
-<span id="cb39-3"><a></a>              <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
-<span id="cb39-4"><a></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> df<span class="sc">$</span>upr), </span>
-<span id="cb39-5"><a></a>              <span class="at">color =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/16-linear-reg/unnamed-chunk-29-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
-</figure>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a><span class="do">## predict at current inputs</span></span>
+<span id="cb37-2"><a></a>pred_y <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg_out_fit, <span class="at">interval =</span> <span class="st">"prediction"</span>)</span>
+<span id="cb37-3"><a></a><span class="fu">head</span>(pred_y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   fit  lwr  upr
+1 29.3 21.7 36.9
+2 29.3 21.7 36.9
+3 28.6 21.0 36.2
+4 28.6 21.0 36.2
+5 25.8 18.2 33.4
+6 25.8 18.2 33.4</code></pre>
 </div>
 </div>
-</div>
-</div>
-</div>
+<!-- ::: -->
+<!-- ::: {.column width="60%"} -->
+<!-- ```{r} -->
+<!-- #| out-width: "100%" -->
+<!-- p_ci +  -->
+<!--     geom_line(aes(x = displ, y = df$lwr),  -->
+<!--               color = "red") + -->
+<!--     geom_line(aes(x = displ, y = df$upr),  -->
+<!--               color = "red") -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- :::: -->
 <aside class="notes"><ul>
 <li>We can also quantify the uncertainty about the value individual <span class="math inline">\(y\)</span> given <span class="math inline">\(x\)</span>.</li>
 <li>As you can imagine, this is more difficult to predict value of individual <span class="math inline">\(y\)</span> than to predict value of mean of <span class="math inline">\(y\)</span>, right?</li>
@@ -947,7 +947,15 @@ displ       -3.91  -3.15</code></pre>
           width: 1px!important;
           overflow: hidden!important;
           display:block!important;
-      }</style></aside></section></section><section><section id="model-checking" class="title-slide slide level1 center"><h1>Model Checking</h1>
+      }</style></aside></section><section id="quantify-uncertainty-about-individual-y-1" class="slide level2"><h2>Quantify Uncertainty about Individual <span class="math inline">\(y\)</span>
+</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>p_ci <span class="sc">+</span> </span>
+<span id="cb39-2"><a></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> pred_y[, <span class="st">"lwr"</span>]), <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb39-3"><a></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> pred_y[, <span class="st">"upr"</span>]), <span class="at">color =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="images/16-linear-reg/unnamed-chunk-29-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section></section><section><section id="model-checking" class="title-slide slide level1 center"><h1>Model Checking</h1>
 <aside class="notes"><ul>
 <li>OK. Model checking. How do we know linear regression model is a good model for fitting our data. Well, we can assess the quality of the model by looking at residuals. Let’s see how.</li>
 </ul><style type="text/css">
@@ -1051,7 +1059,7 @@ displ       -3.91  -3.15</code></pre>
           display:block!important;
       }</style></aside></section><section id="mpg-data-residuals" class="slide level2"><h2>MPG Data Residuals</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a><span class="fu">plot</span>(reg_out<span class="sc">$</span>fit, <span class="at">which =</span> <span class="dv">1</span>, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">las =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a><span class="fu">plot</span>(reg_out_fit, <span class="at">which =</span> <span class="dv">1</span>, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">las =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="images/16-linear-reg/unnamed-chunk-35-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section></section><section><section id="models-with-categorical-predictors" class="title-slide slide level1 center"><h1>Models with Categorical Predictors</h1>
@@ -1135,7 +1143,7 @@ displ       -3.91  -3.15</code></pre>
 </div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a>tidymdl <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a><span class="fu">linear_reg</span>() <span class="sc">|&gt;</span> </span>
 <span id="cb47-2"><a></a>    <span class="fu">fit</span>(hwy <span class="sc">~</span> trans, <span class="at">data =</span> mpg_new) <span class="sc">|&gt;</span> </span>
 <span id="cb47-3"><a></a>    <span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
