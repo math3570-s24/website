@@ -217,13 +217,17 @@ legend("bottomright", c("true unknown population regression line", "sample fitte
 :::
 ::::
 
+. . .
+
 :::{.question}
 What are the assumption on $\epsilon_i$?
 :::
 
 . . .
 
-$\epsilon_i \sim N(0, \sigma^2)$ and hence $y_i \mid x_i \sim N(\beta_0+\beta_1x_i, \sigma^2)$ or $\mu_{y\mid x_i} = \beta_0+\beta_1x_i$.
+$\epsilon_i \sim N(0, \sigma^2)$ and hence $y_i \mid x_i \sim N(\beta_0+\beta_1x_i, \sigma^2)$ 
+
+<!-- or $\mu_{y\mid x_i} = \beta_0+\beta_1x_i$. -->
 
 
 
@@ -265,7 +269,7 @@ knitr::include_graphics("./images/16-linear-reg/regression_line_data_blue.png")
 
 
 ## Ordinary Least Squares (OLS)
-Given the **training data** $(x_1, y_1), \dots, (x_n, y_n)$, use *sample statistics* $b_0$ and $b_1$ computed from the training data to
+Given the **training data** $(x_1, y_1), \dots, (x_n, y_n)$, use *sample statistics* $b_0$ and $b_1$ computed from the data to
 
 - [inference:]{.green} estimate $\beta_0$ and $\beta_1$ 
 
@@ -275,7 +279,7 @@ Given the **training data** $(x_1, y_1), \dots, (x_n, y_n)$, use *sample statist
 
 . . .
 
-- [Ordinary Least Squares:]{.green} We find $b_0$ and $b_1$, or regression line $b_0 + b_1x$ that minimizes the **sum of squared residuals**.
+- [Ordinary Least Squares:]{.green} Find $b_0$ and $b_1$, or regression line $b_0 + b_1x$ that minimizes the **sum of squared residuals**.
 - The residual $e_i = y_i - \hat{y}_i$. The sample regression line minimizes $\sum_{i = 1}^n e_i^2$.
 
 
@@ -297,8 +301,8 @@ Given the **training data** $(x_1, y_1), \dots, (x_n, y_n)$, use *sample statist
 mpg_data <- mpg
 # mpg_data$displ <- mpg_data$displ + rnorm(length(mpg$displ), 0, 1)
 # mpg_data$hwy <- mpg_data$hwy
-reg_fit <- linear_reg() %>%
-    set_engine("lm") %>%
+reg_fit <- linear_reg() |> 
+    set_engine("lm") |> 
     fit(hwy ~ displ, data = mpg_data)
 
 reg_fit_tidy <- tidy(reg_fit$fit) 
@@ -504,7 +508,7 @@ One challenge with different modeling functions available in R that do the same 
 
 ## Step 2: Set Model Fitting *Engine*
 
-- Use `lm()` in the built-in **stats** package.
+- By default, use `lm()` in the built-in **stats** package.
 
 ```{r}
 linear_reg() |> 
@@ -537,7 +541,6 @@ show_engines("linear_reg")
 
 ```{r fit-model}
 linear_reg() |> 
-    set_engine("lm") |> 
     fit(hwy ~ displ, data = mpg)
 ```
 
@@ -567,7 +570,6 @@ $$\widehat{hwy}_{i} = 35.7  -3.53 \times displ_{i}$$
 
 ```{r}
 linear_reg() |> 
-    set_engine("lm") |> 
     fit(hwy ~ displ, data = mpg) |> 
     tidy()
 ```
@@ -637,18 +639,17 @@ ggplot(data = mpg, aes(x = cty, y = hwy)) +
 
 - Uncertainty about regression coefficients $\beta_0$ and $\beta_1$
 ```{r, cache=TRUE}
-tidymdl <- linear_reg() |> 
-    set_engine("lm")
-
-reg_out <- tidymdl |> 
+reg_out <- linear_reg() |> 
     fit(hwy ~ displ, data = mpg)
 
-reg_out$fit$coefficients
+reg_out_fit <- reg_out$fit
+
+reg_out_fit$coefficients
 ```
 
 
 ```{r}
-confint(reg_out$fit)
+confint(reg_out_fit)
 ```
 
 <!-- . . . -->
@@ -660,55 +661,26 @@ confint(reg_out$fit)
 
 
 ## Quantify Uncertainty about Mean of $y$ 
-:::: {.columns}
+<!-- :::: {.columns} -->
 
-::: {.column width="40%"}
+<!-- ::: {.column width="40%"} -->
 - Uncertainty about the [**mean**]{.green} value of $y$ given $X = x$
 $$\mu_{Y \mid X = x} = \beta_0 + \beta_1x$$
 ```{r}
-new_input <- 
-    data.frame(displ = 3:6)
+new_input <- data.frame(displ = 3:6)
 
-predict(reg_out$fit,
-        newdata = new_input,
-        interval = "confidence",
-        level = 0.95)
+predict(reg_out_fit, newdata = new_input, interval = "confidence", level = 0.95)
 ```
-:::
+<!-- ::: -->
 
 
 
-::: {.column width="60%"}
-
-::: {.panel-tabset}
-
-## Fit with uncertainty band
-```{r}
-#| out-width: "100%"
-(p_ci <- p + geom_smooth(method = "lm", 
-                         color = "#003366", 
-                         fill = "blue",
-                         se = TRUE))
-```
-
-## ggplot object p
-
-```{r}
-#| eval: false
-p <- ggplot(data = reg_out$fit, 
-            aes(x = displ, y = hwy)) +
-     geom_point(alpha = 0.3) + 
-     labs(title = "Highway MPG vs. Engine Displacement",
-          x = "Displacement (litres)",
-          y = "Highway miles per gallon") +
-      coord_cartesian(ylim = c(11, 44))
-```
+<!-- ::: {.column width="60%"} -->
 
 
-:::
 
-:::
-::::
+<!-- ::: -->
+<!-- :::: -->
 
 
 ::: notes
@@ -724,40 +696,73 @@ p <- ggplot(data = reg_out$fit,
 - Again we use geom_smooth() layer, and set se = TRUE, so that geom_smooth() uses the standard error info to obtain the confidence interval for us. 
 :::
 
+## Quantify Uncertainty about Mean of $y$ 
+
+::: {.panel-tabset}
+
+## Fit with uncertainty band
+```{r}
+#| out-width: "70%"
+#| echo: false
+(p_ci <- p + geom_smooth(method = "lm", 
+                         color = "#003366", 
+                         fill = "blue",
+                         se = TRUE))
+```
+
+## ggplot code
+
+```{r}
+#| eval: false
+p <- ggplot(data = reg_out_fit, 
+            aes(x = displ, y = hwy)) +
+     geom_point(alpha = 0.3) + 
+     labs(title = "Highway MPG vs. Engine Displacement",
+          x = "Displacement (litres)",
+          y = "Highway miles per gallon") +
+      coord_cartesian(ylim = c(11, 44))
+
+p_ci <- p + geom_smooth(method = "lm", 
+                        color = "#003366", 
+                        fill = "blue",
+                        se = TRUE)
+```
+
+
+:::
+
+
+
+
 
 ## Quantify Uncertainty about Individual $y$
 
-:::: {.columns}
+<!-- :::: {.columns} -->
 
-::: {.column width="40%"}
+<!-- ::: {.column width="40%"} -->
 
 - Uncertainty about the [**individual**]{.green} value of $y$ given $X = x$, $Y \mid X = x$
 
 ```{r}
 #| warning: false
-predict(reg_out$fit, 
-        newdata = new_input, 
-        interval = "prediction", 
-        level = 0.95)
+predict(reg_out_fit, newdata = new_input, interval = "prediction", level = 0.95)
 ## predict at current inputs
-df <- as.tibble(
-    predict(
-        reg_out$fit, 
-        interval = "prediction"))
+pred_y <- predict(reg_out_fit, interval = "prediction")
+head(pred_y)
 ```
-:::
+<!-- ::: -->
 
-::: {.column width="60%"}
-```{r}
-#| out-width: "100%"
-p_ci + 
-    geom_line(aes(x = displ, y = df$lwr), 
-              color = "red") +
-    geom_line(aes(x = displ, y = df$upr), 
-              color = "red")
-```
-:::
-::::
+<!-- ::: {.column width="60%"} -->
+<!-- ```{r} -->
+<!-- #| out-width: "100%" -->
+<!-- p_ci +  -->
+<!--     geom_line(aes(x = displ, y = df$lwr),  -->
+<!--               color = "red") + -->
+<!--     geom_line(aes(x = displ, y = df$upr),  -->
+<!--               color = "red") -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- :::: -->
 
 
 ::: notes
@@ -770,6 +775,15 @@ p_ci +
 - You can see that the 95% interval is much wider, trying to capture or contain most of the observed values of $y$.
 :::
 
+
+## Quantify Uncertainty about Individual $y$
+
+```{r}
+#| out-width: "100%"
+p_ci + 
+    geom_line(aes(x = displ, y = pred_y[, "lwr"]), color = "red") +
+    geom_line(aes(x = displ, y = pred_y[, "upr"]), color = "red")
+```
 
 
 # Model Checking
@@ -940,7 +954,7 @@ ggplot(df, mapping = aes(x = fake_predicted, y = fake_resid)) +
 ```{r, echo=-1, out.width="70%"}
 #| out-width: "70%"
 par(mar = c(4, 4, 2, 0))
-plot(reg_out$fit, which = 1, col = "blue", las = 1)
+plot(reg_out_fit, which = 1, col = "blue", las = 1)
 ```
 
 
@@ -1010,7 +1024,7 @@ typeof(mpg_new$trans)
 ```
 
 ```{r hwy-trans-fit}
-tidymdl |> 
+linear_reg() |> 
     fit(hwy ~ trans, data = mpg_new) |> 
     tidy()
 ```
@@ -1028,7 +1042,7 @@ tidymdl |>
 ## Highway MPG & Transmission Type
 ```{r}
 #| echo: false
-tidymdl |> 
+linear_reg() |> 
     fit(hwy ~ trans, data = mpg_new) |> 
     tidy()
 ```

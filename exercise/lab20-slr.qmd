@@ -37,6 +37,8 @@ In **lab.qmd** `## Lab 20` section,
 
 ```{r}
 #| echo: false
+library(tidyverse)
+library(tidymodels)
 ggplot(data = mpg, aes(x = cty, y = hwy)) +
     geom_point() +
     geom_smooth(method = "lm", se = FALSE, color = "#003366") + 

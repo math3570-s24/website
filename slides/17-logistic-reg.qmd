@@ -130,16 +130,17 @@ theme_set(theme_minimal(base_size = 20))
 
 
 ## Regression vs. Classification
-- Linear regression assumes that the response $Y$ is *numerical*.
-- In many situations, $Y$ is *categorical*!
+
+
+
 
 
 :::: {.columns}
 
-::: {.column width="50%"}
+::: {.column width="33%"}
 
 :::{.center}
-**normal email vs. spam email**
+**Normal vs. Spam/Phishing**
 :::
 
 ```{r}
@@ -149,10 +150,10 @@ knitr::include_graphics("./images/17-logistic-reg/spam_filter.jpg")
 ```
 :::
 
-::: {.column width="50%"}
+::: {.column width="33%"}
 
 :::{.center}
-**fake news vs. true news**
+**Fake vs. True**
 :::
 
 ```{r}
@@ -161,7 +162,25 @@ knitr::include_graphics("./images/17-logistic-reg/spam_filter.jpg")
 knitr::include_graphics("./images/17-logistic-reg/fake_news.jpeg")
 ```
 :::
+
+::: {.column width="33%"}
+
+:::{.center}
+**Normal vs. COVID vs. Smoking**
+:::
+
+```{r}
+#| echo: false
+#| out-width: "90%"
+knitr::include_graphics("./images/17-logistic-reg/covid_lung.jpeg")
+```
+:::
 ::::
+
+
+- The response $Y$ in linear regression is *numerical*.
+
+- In many situations, $Y$ is *categorical*!
 
 - A process of predicting categorical response is known as **classification**.
 
@@ -204,7 +223,7 @@ knitr::include_graphics("./images/17-logistic-reg/classification.png")
 ## Classification Example
 - Predict whether people will default on their credit card payment $(Y)$ `yes` or `no`, based on monthly credit card balance $(X)$.
 
-- We use the training sample $\{(x_1, y_1), \dots, (x_n, y_n)\}$ to build a classifier.
+- Use the training sample $\{(x_1, y_1), \dots, (x_n, y_n)\}$ to build a classifier.
 
 :::: {.columns}
 
@@ -270,7 +289,7 @@ Any potential issue of this dummy variable approach?
 ```{r lm_default}
 #| echo: false
 #| out-width: "72%"
-Default_tbl %>% 
+Default_tbl |>  
     ggplot(aes(x = balance, y = as.numeric(default)-1), colour=default) +
     geom_point(aes(colour=default), alpha = 0.1) + 
     geom_smooth(method = lm, se = FALSE) +
@@ -301,17 +320,17 @@ Default_tbl %>%
 ```{r glm_default}
 #| echo: false
 #| out-width: "65%"
-Default_tbl %>% 
-    ggplot(aes(x = balance, y = as.numeric(default)-1), colour=default) +
-    geom_point(aes(colour=default), alpha = 0.1) + 
-    geom_smooth(method = "glm", method.args = list(family="binomial"), se = FALSE) +
+Default_tbl |> 
+    ggplot(aes(x = balance, y = as.numeric(default) - 1), colour = default) +
+    geom_point(aes(colour = default), alpha = 0.1) + 
+    geom_smooth(method = "glm", method.args = list(family = "binomial"), se = FALSE) +
     theme(legend.position = "none") +
     ylab("Probability of Default") +
     labs(title = "Simple Logistic Regression: Default vs. Balance")
 ```
 
 
-# Logistic Regression
+# Binary Logistic Regression
 
 
 ## Framing the Problem: Binary Responses {visibility="hidden"}
@@ -340,7 +359,9 @@ In the default credit card example,
 
 ## Framing the Problem: Binary Responses {visibility="hidden"}
 
-- Training data $(x_1, y_1), \dots, (x_n, y_n)$ where $y_i = 1$ (`default`) or $0$ (`not default`).
+- Training data $(x_1, y_1), \dots, (x_n, y_n)$ where 
+    + $y_i = 1$ (`default`) 
+    + $y_i = 0$ (`not default`).
 
 - We first predict $P(y_i = 1 \mid x_i) = \pi(x_i) = \pi_i$
 
@@ -358,20 +379,25 @@ In the default credit card example,
 
 :::: {.columns}
 
-::: {.column width="50%"}
+::: {.column width="40%"}
 <!-- - Two outcomes: `default` $(y = 1)$ and `not default` $(y = 0)$ -->
 
-- Training data $(x_1, y_1), \dots, (x_n, y_n)$ where $y_i = 1$ (`default`) or $0$ (`not default`).
+- Training data $(x_1, y_1), \dots, (x_n, y_n)$ where 
+    + $y_i = 1$ (`default`) 
+    + $y_i = 0$ (`not default`).
 
-- We first predict $P(y_i = 1 \mid x_i) = \pi(x_i) = \pi_i$
 
-- The probability $\pi$ *changes with* the value of predictor $x$!
+- First predict $P(y_i = 1 \mid x_i) = \pi(x_i) = \pi_i$
+
+
+
+- [**The probability $\pi$ *changes with* the value of predictor $x$!**]{.blue}
 
 :::
 
 
 
-::: {.column width="50%"}
+::: {.column width="60%"}
 
 
 ```{r, ref.label="glm_default"}
@@ -392,7 +418,7 @@ In the default credit card example,
 
 
 
-## Logistic Regression
+## Logistic Regression {visibility="hidden"}
 
 :::{.center}
 Instead of predicting $y_i$ directly, we use predictors to model its *probability* of success, $\pi_i$.
@@ -405,7 +431,7 @@ But how?
 
 . . .
 
-- **Transform $\pi \in (0, 1)$ into another variable $\eta \in (-\infty, \infty)$. Then construct a linear predictor on on $\eta$**: $$\eta_i = \beta_0 + \beta_1 x_i$$
+- **Transform $\pi \in (0, 1)$ into another variable $\eta \in (-\infty, \infty)$. Then construct a linear predictor on $\eta$**: $$\eta_i = \beta_0 + \beta_1 x_i$$
 
 
 . . .
@@ -418,7 +444,7 @@ $$\eta = \text{logit}(\pi) = \ln\left(\frac{\pi}{1-\pi}\right)$$
 
 
 
-## Logit function $\eta = \text{logit}(\pi) = \ln\left(\frac{\pi}{1-\pi}\right)$
+## Logit function $\eta = \text{logit}(\pi) = \ln\left(\frac{\pi}{1-\pi}\right)$ {visibility="hidden"}
 
 ```{r}
 #| echo: false
@@ -435,8 +461,22 @@ ggplot(d, aes(x = p, y = logit_p)) +
     labs(title = expression(paste("logit(", pi, ") vs. ", pi)))
 ```
 
-
 ## Logistic Function
+
+- Assume $\pi$ is affected by the linear function $\beta_0 + \beta_1x$ with the **logistic** transformation:
+
+$$\pi = \frac{1}{1+\exp(-(\beta_0 + \beta_1x))}$$
+
+. . .
+
+
+::: {.question}
+Does the logistic function guarantee that $\pi \in (0, 1)$ for any value of $\beta_0$, $\beta_1$, and $x$?
+:::
+
+ 
+ 
+## Logistic Function {visibility="hidden"}
 
 - The *logistic* function takes a value $\eta \in (-\infty, \infty)$ and maps it to a value $\pi \in (0, 1)$.
 
@@ -447,7 +487,7 @@ $$\pi = \text{logistic}(\eta) = \frac{1}{1+\exp(-\eta)} \in (0, 1)$$
 
 - So once $\eta$ is estimated by the linear predictor, we use the logistic function to transform $\eta$ back to the probability.
 
-## Logistic Function $\pi = \text{logistic}(\eta) = \frac{\exp(\eta)}{1+\exp(\eta)}$
+## Logistic Function $\pi = \text{logistic}(\beta_0 + \beta_1x) = \frac{\exp(\beta_0 + \beta_1 x)}{1+\exp(\beta_0 + \beta_1 x)}$
 ```{r}
 #| echo: false
 #| out-width: "72%"
@@ -458,29 +498,31 @@ d <- tibble(eta = seq(-5, 5, length.out = 2000)) %>%
 ggplot(d, aes(x = eta, y = logistic)) + 
     geom_line() + 
     xlim(-5,5) + 
-    xlab(expression(eta)) + 
-    ylab(expression(paste("logistic(", eta, ")"))) +
-    labs(title = expression(paste("logistic(", eta, ") vs. ", eta)))
+    xlab(expression(z)) + 
+    ylab(expression(paste("logistic(", z, ")"))) +
+    labs(title = expression(paste("logistic(", z, ") vs. ", z)))
 ```
 
 
-## Simple Logistic Regression Model
+## Simple Binary Logistic Regression Model
 
 For $i = 1, \dots, n$, and with one predictor $X$:
   $$(Y_i \mid X = x_i) = \begin{cases}   1       & \quad \text{w/ prob } \pi(x_i)\\
     0  & \quad \text{w/ prob } 1 - \pi(x_i) \end{cases}$$
-  $$\text{logit}(\pi_i) = \ln \left( \frac{\pi(x_i)}{1 - \pi(x_i)} \right) = \eta_i = \beta_0+\beta_1 x_{i}$$
+  <!-- $$\ln \left( \frac{\pi(x_i)}{1 - \pi(x_i)} \right) = \beta_0+\beta_1 x_{i}$$ -->
+  
+  $$\pi(x_i) = \frac{1}{1+\exp(-(\beta_0+\beta_1 x_{i}))}$$
 <!-- - The $\text{logit}(\pi_i)$ is a **link function** that *links* the linear predictor and the mean of $Y_i$. -->
 
 . . .
 
-Goal: Get estimates $\hat{\beta}$ and $\hat{\beta}_1$, and therefore $\hat{\pi}_i$!
+Goal: Get estimates $\hat{\beta}_0$ and $\hat{\beta}_1$, and therefore $\hat{\pi}$!
 
 
 <!-- $$\small \pi_i = \frac{1}{1+\exp(-(\beta_0+\beta_1 x_{i}))} = \frac{1}{1 + \exp(-\eta_i)}$$ -->
 
 
-$$\small \hat{\pi}_i = \frac{1}{1+\exp(-\hat{\beta}_0-\hat{\beta}_1 x_{i})}$$
+$$\small \hat{\pi} = \frac{1}{1+\exp(-\hat{\beta}_0-\hat{\beta}_1 x_{})}$$
 
 
 
@@ -572,12 +614,14 @@ bodydata <- read_csv("./data/body.csv")
 body <- bodydata |> 
     select(GENDER, HEIGHT) |> 
     mutate(GENDER = as.factor(GENDER))
-body |> slice(1:4) 
+body |> slice(1:4)
 ```
 
 
-- `GENDER = 1` if male
-- `GENDER = 0` if female
+- `GENDER = 1` if Male
+
+- `GENDER = 0` if Female
+
 - Use `HEIGHT` (centimeter, 1 cm = 0.39 in) to predict/classify `GENDER`: whether one is male or female.
 :::
 
@@ -637,32 +681,24 @@ body |> ggplot(aes(x = GENDER, y = HEIGHT)) + geom_boxplot()
 
 ```{r}
 library(tidymodels)
-logis_mdl <- parsnip::logistic_reg() |> 
-    set_engine("glm") 
+show_engines("logistic_reg")
 ```
 
-. . .
 
-- Define `family = "binomial"`
+<!-- # ```{r} -->
+<!-- # logis_mdl <- parsnip::logistic_reg() |>  -->
+<!-- #     set_engine("glm")  -->
+<!-- # ``` -->
 
-```{r}
-logis_out <- logis_mdl |> 
-    fit(GENDER ~ HEIGHT, 
-        data = body, 
-        family = "binomial")
-```
+<!-- ## Logistic Regression - Model Fitting -->
 
-. . .
 
-```{r}
-logis_out$fit$coefficients
-```
 
 ## Logistic Regression Model Result {visibility="hidden"}
 
 ```{r}
 #| echo: true
-logis_out$fit$coefficients
+# logis_out$fit$coefficients
 ```
 
 
@@ -680,18 +716,37 @@ logis_out$fit$coefficients
 - The **odds ratio**, $\widehat{OR} = \frac{\text{odds}_{x+1}}{\text{odds}_{x}} = e^{\hat{\beta}_1} = e^{0.24} = 1.273$.
 - The odds of being male increases by 27.3% with additional one cm of `HEIGHT`.
 
+## Logistic Regression - Model Fitting
 
-## Pr(GENDER = 1) When HEIGHT is 170 cm
+- Define `family = "binomial"`
+
+```{r}
+logis_out <- logistic_reg() |> 
+    fit(GENDER ~ HEIGHT, 
+        data = body, 
+        family = "binomial")
+logis_out_fit <- logis_out$fit
+```
+
+. . .
+
+```{r}
+logis_out_fit$coefficients
+```
+
+. . .
+
+#### Pr(GENDER = 1) When HEIGHT is 170 cm
 
 
-- $\hat{\eta} = \ln \left( \frac{\hat{\pi}}{1 - \hat{\pi}}\right) = -40.55 + 0.24 \times \text{HEIGHT}$
+<!-- - $\hat{\eta} = \ln \left( \frac{\hat{\pi}}{1 - \hat{\pi}}\right) = -40.55 + 0.24 \times \text{HEIGHT}$ -->
 
 
 $$ \hat{\pi}(x = 170) = \frac{1}{1+\exp(-\hat{\beta}_0-\hat{\beta}_1 x)} = \frac{1}{1+\exp(-(-40.55) - 0.24 \times 170)} = 63.3\%$$
 
 
 ```{r}
-predict(logis_out$fit, newdata = data.frame(HEIGHT = 170), type = "response")
+predict(logis_out_fit, newdata = data.frame(HEIGHT = 170), type = "response")
 ```
 
 <!-- . . . -->
@@ -720,7 +775,7 @@ body$HEIGHT |> head()
 
 :::: {.columns}
 
-::: {.column width="70%"}
+::: {.column width="65%"}
 ```{r default-predict-viz, echo=FALSE, out.width = "85%"}
 height_0 <- body$HEIGHT[body$GENDER == 0]
 height_1 <- body$HEIGHT[body$GENDER == 1]
@@ -749,6 +804,34 @@ points(c(160, 170, 180), pi_new, pch = c(15, 16, 17), cex = 4,
 - **[`r paste0(180, " cm, Pr(male) = ", round(pi_new[3], 2))`]{.green}**
 :::
 ::::
+
+
+
+##
+::: {.lab}
+
+<span style="color:blue"> **21-Logistic Regression** </span>
+
+In **lab.qmd** `## Lab 21` section,
+
+- Use our fitted logistic regression model to predict whether you are male or female! Change `175` to your height (cm).
+
+- Use [the converter](https://www.thecalculatorsite.com/conversions/common/cm-to-feet-inches.php) to get your height in cm!
+
+```{r}
+#| eval: true
+
+# Fit the logistic regression
+
+predict(logis_out_fit, newdata = data.frame(HEIGHT = 175), 
+        type = "response")
+```
+
+<!-- - Suppose data are collected with $X =$ hours studied, and $Y =$ receive an A or not in 3570. We fit a logistic regression and the estimated coefficients are $b_0 = −3$, $b_1 = 0.05$. -->
+<!--     + Estimate the probability that a student who studies for 40 hours gets an A in the class. -->
+<!--     + How many hours would the student need to study to have a 50% chance of getting an A in the class? -->
+:::
+
 
 
 # {background-color="#ffde57" background-image="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" background-size="40%" background-position="90% 50%"}
@@ -851,9 +934,9 @@ clf.predict_proba(new_height)
 
 - **Accuracy** $= \frac{TP + TN}{TP+FN+FP+TN}$
 
-. . .
+<!-- . . . -->
 
-A *good* classifier is one which the *test accuracy rate is highest*.
+<!-- A *good* classifier is one which the *test accuracy rate is highest*. -->
 
 
 
@@ -862,16 +945,16 @@ A *good* classifier is one which the *test accuracy rate is highest*.
 ```{r}
 #| label: confusion
 
-pred_prob <- predict(logis_out$fit, type = "response")
+pred_prob <- predict(logis_out_fit, type = "response")
 
 ## true observations
 gender_true <- body$GENDER
 
 ## predicted labels
-gender_predict <- (pred_prob > 0.5) * 1
+gender_pred <- (pred_prob > 0.5) * 1
 
 ## confusion matrix
-table(gender_predict, gender_true)
+table(gender_pred, gender_true)
 ```
 
 
@@ -917,7 +1000,7 @@ plot(roc, colorize = TRUE, cex.lab = 2, lwd = 4, cex.axis = 1.5)
 ```{r}
 roc_df <- tibble(truth = gender_true,
                  prob = 1 - pred_prob,
-                 pred = gender_predict)
+                 pred = gender_pred)
 roc_df
 ```
 :::
@@ -980,28 +1063,3 @@ roc_df_2 |> group_by(model) |> roc_curve(truth, prob) |> autoplot() +
           legend.title = element_text(size = 18),
           legend.text = element_text(size = 16))
 ```
-
-##
-::: {.lab}
-
-<span style="color:blue"> **21-Logistic Regression** </span>
-
-In **lab.qmd** `## Lab 21` section,
-
-- Use our fitted logistic regression model to predict whether you are male or female! Change `175` to your height (cm).
-
-- Use [the converter](https://www.thecalculatorsite.com/conversions/common/cm-to-feet-inches.php) to get your height in cm!
-
-```{r}
-#| eval: true
-
-# Fit the logistic regression
-
-predict(logis_out$fit, newdata = data.frame(HEIGHT = 175), 
-        type = "response")
-```
-
-<!-- - Suppose data are collected with $X =$ hours studied, and $Y =$ receive an A or not in 3570. We fit a logistic regression and the estimated coefficients are $b_0 = −3$, $b_1 = 0.05$. -->
-<!--     + Estimate the probability that a student who studies for 40 hours gets an A in the class. -->
-<!--     + How many hours would the student need to study to have a 50% chance of getting an A in the class? -->
-:::

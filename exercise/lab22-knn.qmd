@@ -31,7 +31,9 @@ library(tidymodels)
 
 In **lab.qmd** `## Lab 22` section, 
 
-1. use `HEIGHT`, `WAIST` and `BMI` to predict `GENDER` using KNN with $K = 3$.
+<!-- 1. use `HEIGHT`, `WAIST` and `BMI` to predict `GENDER` using KNN with $K = 3$. -->
+
+1. use `HEIGHT` and `WAIST` to predict `GENDER` using KNN with $K = 3$.
 
 2. Generate the (test) confusion matrix.
 
@@ -39,37 +41,31 @@ In **lab.qmd** `## Lab 22` section,
 
 4. Does using more predictors predict better?
 
-```{r}
-#| eval: false
-
-library(tidymodels)
-## load data
-bodydata <- read_csv("./data/body.csv")
-body <- bodydata |> 
-    select(GENDER, HEIGHT, WAIST, BMI) |> 
-    mutate(GENDER = as.factor(GENDER))
-
-## training and test data
-set.seed(2024)
-df_split <- rsample::initial_split(data = body, prop = 0.8)
-df_trn <- rsample::training(df_split)
-df_tst <- rsample::testing(df_split)
-```
 
 ### R Code
 
 ```{r}
 #| eval: false
 
+library(tidymodels)
+
+## load data
+bodydata <- read_csv("./data/body.csv")
+body <- bodydata |> 
+    select(GENDER, HEIGHT, WAIST) |> 
+    mutate(GENDER = as.factor(GENDER))
+
+## training and test data
+set.seed(2024)
+df_split <- initial_split(data = body, prop = 0.8)
+df_trn <- training(df_split)
+df_tst <- testing(df_split)
+
 ## KNN training
-knn_recipe <- recipes::recipe(GENDER ~ HEIGHT + WAIST + BMI, data = df_trn) |> 
+knn_recipe <- recipe(GENDER ~ HEIGHT + WAIST, data = df_trn) |> 
     step_normalize(all_predictors())
-
-knn_mdl <- parsnip::nearest_neighbor(neighbors = 3) |> 
-    set_mode("classification") |>
-    set_engine("kknn")
-
-knn_out <- workflows::workflow() |> 
+knn_mdl <- nearest_neighbor(neighbors = 3, mode = "classification")
+knn_out <- workflow() |> 
     add_recipe(knn_recipe) |> 
     add_model(knn_mdl) |> 
     fit(data = df_trn)
@@ -93,20 +89,22 @@ from sklearn.neighbors import KNeighborsClassifier
 
 ## load data
 body = pd.read_csv('./data/body.csv')
-
-X = body[['HEIGHT', 'WAIST', 'BMI']]
+X = body[['HEIGHT', 'WAIST']]
 y = body['GENDER']
+
+## training and test data
 X_trn, X_tst, y_trn, y_tst = train_test_split(X, y, test_size=0.2, random_state=2024)
 
 ## KNN training
-neigh = KNeighborsClassifier(n_neighbors = 3)
+knn = KNeighborsClassifier(n_neighbors = 3)
 X_trn = np.array(X_trn)
 X_tst = np.array(X_tst)
-neigh.fit(X_trn, y_trn)
+knn.fit(X_trn, y_trn)
 
 ## KNN prediction
-y_pred = neigh.predict(X_tst)
+y_pred = knn.predict(X_tst)
 from sklearn.metrics import confusion_matrix
 confusion_matrix(y_tst, y_pred)
+np.mean(y_tst == y_pred)
 ```
 

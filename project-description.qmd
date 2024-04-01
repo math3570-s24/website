@@ -1,5 +1,5 @@
 ---
-title: "MATH/COSC 3570 Project Competition"
+title: "MATH/COSC 3570 Project Chanllenge"
 date-modified: today
 ---
 
