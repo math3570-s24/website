@@ -8,12 +8,12 @@ Here shows group project's proposal.
 
 -   **ggplot3**: Arik Zintel, Iris Murphy, Yesenia Tavizon, Lauren Barrile
 
--   **Group 3**: Michael Gephart, Rich Lukas, Candice Watson, ONE MORE
-
 -   **Ctrl + Alt + Elite**: Mia Kwiatkoski, Sienna Ifill, Mridula Geddam, Bridget Clark
 
--   **Group 5**:
+-   **Big Meta Watchers**: Miguel Basurto, Nicholas Paulick, Christopher Purney, Darius Dahl
 
--   **Group 6**:
+-   **Win Rs**: Allan Akkathara, Michael Hankins, Katy Carter, Maddie Flint
 
--   **Group 7**:
+-   **Red Pandas**: Michael Gephart, Rich Lukas, Candice Watson, [ONE MORE]{.blue}
+
+-   [Patrick Dunleavy, Fike Carter, Alex Kusek, Arianna Smith, Luke Baumer]{.blue}
