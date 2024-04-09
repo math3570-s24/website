@@ -14,6 +14,6 @@ Here shows group project's proposal.
 
 -   **Win Rs**: Allan Akkathara, Michael Hankins, Katy Carter, Maddie Flint
 
--   **Red Pandas**: Michael Gephart, Rich Lukas, Candice Watson, [ONE MORE]{.blue}
+-   **Red Pandas**: Michael Gephart, Rich Lukas, Candice Watson, Fike Carter
 
--   [Patrick Dunleavy, Fike Carter, Alex Kusek, Arianna Smith, Luke Baumer]{.blue}
+-   **Data Dawgs**: Patrick Dunleavy, Alex Kusek, Arianna Smith, Luke Baumer

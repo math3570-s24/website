@@ -255,14 +255,14 @@ knitr::include_graphics("images/17-logistic-reg/credit_card.jpeg")
 ::::
 
 
-## Why Not Linear Regression?
+## Why Not Linear Regression? {visibility="hidden"}
 
 - Most of the time, we code categories using numbers!
 
-$$Y =\begin{cases}
+$Y =\begin{cases}
     0  & \quad \text{if not default}\\
     1  & \quad \text{if default}
-     \end{cases}$$
+     \end{cases}$
      
 
 - $Y = \beta_0 + \beta_1X + \epsilon$, $\, X =$ credit card balance 
@@ -299,7 +299,7 @@ Default_tbl |>
 ```
 
 
-## Why Not Linear Regression?
+## Why Not Linear Regression?  {visibility="hidden"}
 
 - $\hat{Y} = b_0 + b_1X$
 - **Some estimates might be outside $[0, 1]$.**
@@ -311,7 +311,13 @@ Default_tbl |>
 
 
 
-## Why Not Linear Regression?
+## Binary Classification by Probability
+
+- Most of the time, we code categories using numbers!
+$Y =\begin{cases}
+    0  & \quad \text{if not default}\\
+    1  & \quad \text{if default}
+     \end{cases}$
 
 - First predict the **probability** of each category of $Y$.
 
