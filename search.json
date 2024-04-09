@@ -1242,7 +1242,7 @@
     "href": "slides/01-syllabus.html#grade-percentage-conversion",
     "title": "Welcome Aboard! 🙌",
     "section": "Grade-Percentage Conversion",
-    "text": "Grade-Percentage Conversion\n\n\n\\([x, y)\\) means greater than or equal to \\(x\\) and less than \\(y\\). For example, 94.0 is in [94, 100] and the grade is A and 93.8 is in [90, 94) and the grade is A-.\n\n\n\n\n\n\nGrade\nPercentage\n\n\n\nA\n[94, 100]\n\n\nA-\n[90, 94)\n\n\nB+\n[87, 90)\n\n\nB\n[84, 87)\n\n\nB-\n[80, 84)\n\n\nC+\n[77, 80)\n\n\nC\n[74, 77)\n\n\nC-\n[70, 74)\n\n\nD+\n[65, 70)\n\n\nD\n[60, 65)\n\n\nF\n[0, 60)"
+    "text": "Grade-Percentage Conversion\n\n\n\\([x, y)\\) means greater than or equal to \\(x\\) and less than \\(y\\). For example, 94.0 is in [94, 100] and the grade is A and 93.8 is in [90, 94) and the grade is A-.\n\n\n\n\n\nGrade\nPercentage\n\n\n\nA\n[94, 100]\n\n\nA-\n[90, 94)\n\n\nB+\n[87, 90)\n\n\nB\n[84, 87)\n\n\nB-\n[80, 84)\n\n\nC+\n[77, 80)\n\n\nC\n[74, 77)\n\n\nC-\n[70, 74)\n\n\nD+\n[65, 70)\n\n\nD\n[60, 65)\n\n\nF\n[0, 60)"
   },
   {
     "objectID": "slides/01-syllabus.html#lab-exercises-40",
@@ -1298,7 +1298,7 @@
     "href": "slides/17-logistic-reg.html#regression-vs.-classification",
     "title": "Logistic Regression \n",
     "section": "Regression vs. Classification",
-    "text": "Regression vs. Classification\n\nLinear regression assumes that the response \\(Y\\) is numerical.\nIn many situations, \\(Y\\) is categorical!\n\n\n\n\nnormal email vs. spam email\n\n\n\n\n\n\n\n\n\n\n\nfake news vs. true news\n\n\n\n\n\n\n\n\n\n\n\n\nA process of predicting categorical response is known as classification.\n\n\neye color\ncar brand\ntrue vs. fake news"
+    "text": "Regression vs. Classification\n\n\n\nNormal vs. Spam/Phishing\n\n\n\n\n\n\n\n\n\n\n\nFake vs. True\n\n\n\n\n\n\n\n\n\n\n\nNormal vs. COVID vs. Smoking\n\n\n\n\n\n\n\n\n\n\n\n\nThe response \\(Y\\) in linear regression is numerical.\nIn many situations, \\(Y\\) is categorical!\nA process of predicting categorical response is known as classification.\n\n\neye color\ncar brand\ntrue vs. fake news"
   },
   {
     "objectID": "slides/17-logistic-reg.html#regression-function-fx-vs.-classifier-cx",
@@ -1312,70 +1312,42 @@
     "href": "slides/17-logistic-reg.html#classification-example",
     "title": "Logistic Regression \n",
     "section": "Classification Example",
-    "text": "Classification Example\n\nPredict whether people will default on their credit card payment \\((Y)\\) yes or no, based on monthly credit card balance \\((X)\\).\nWe use the training sample \\(\\{(x_1, y_1), \\dots, (x_n, y_n)\\}\\) to build a classifier."
+    "text": "Classification Example\n\nPredict whether people will default on their credit card payment \\((Y)\\) yes or no, based on monthly credit card balance \\((X)\\).\nUse the training sample \\(\\{(x_1, y_1), \\dots, (x_n, y_n)\\}\\) to build a classifier."
   },
   {
-    "objectID": "slides/17-logistic-reg.html#why-not-linear-regression",
-    "href": "slides/17-logistic-reg.html#why-not-linear-regression",
+    "objectID": "slides/17-logistic-reg.html#binary-classification-by-probability",
+    "href": "slides/17-logistic-reg.html#binary-classification-by-probability",
     "title": "Logistic Regression \n",
-    "section": "Why Not Linear Regression?",
-    "text": "Why Not Linear Regression?\n\nMost of the time, we code categories using numbers!\n\n\\[Y =\\begin{cases}\n    0  & \\quad \\text{if not default}\\\\\n    1  & \\quad \\text{if default}\n     \\end{cases}\\]\n\n\n\\(Y = \\beta_0 + \\beta_1X + \\epsilon\\), \\(\\, X =\\) credit card balance\n\n\nAny potential issue of this dummy variable approach?\n\n\n\n\n\n\n\n\\(Y\\) is categorical but coded as dummy variable or indicator variable\nFit linear regression and treat it as a numerical variable."
-  },
-  {
-    "objectID": "slides/17-logistic-reg.html#why-not-linear-regression-2",
-    "href": "slides/17-logistic-reg.html#why-not-linear-regression-2",
-    "title": "Logistic Regression \n",
-    "section": "Why Not Linear Regression?",
-    "text": "Why Not Linear Regression?\n\n\\(\\hat{Y} = b_0 + b_1X\\)\nSome estimates might be outside \\([0, 1]\\)."
-  },
-  {
-    "objectID": "slides/17-logistic-reg.html#why-not-linear-regression-3",
-    "href": "slides/17-logistic-reg.html#why-not-linear-regression-3",
-    "title": "Logistic Regression \n",
-    "section": "Why Not Linear Regression?",
-    "text": "Why Not Linear Regression?\n\nFirst predict the probability of each category of \\(Y\\).\nPredict probability of default using a S-shaped curve."
+    "section": "Binary Classification by Probability",
+    "text": "Binary Classification by Probability\n\nMost of the time, we code categories using numbers! \\(Y =\\begin{cases}\n  0  & \\quad \\text{if not default}\\\\\n  1  & \\quad \\text{if default}\n   \\end{cases}\\)\nFirst predict the probability of each category of \\(Y\\).\nPredict probability of default using a S-shaped curve."
   },
   {
     "objectID": "slides/17-logistic-reg.html#binary-responses-with-nonconstant-probability",
     "href": "slides/17-logistic-reg.html#binary-responses-with-nonconstant-probability",
     "title": "Logistic Regression \n",
     "section": "Binary Responses with Nonconstant Probability",
-    "text": "Binary Responses with Nonconstant Probability\n\n\n\n\nTraining data \\((x_1, y_1), \\dots, (x_n, y_n)\\) where \\(y_i = 1\\) (default) or \\(0\\) (not default).\nWe first predict \\(P(y_i = 1 \\mid x_i) = \\pi(x_i) = \\pi_i\\)\nThe probability \\(\\pi\\) changes with the value of predictor \\(x\\)!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(X =\\) balance. \\(x_1 = 2000\\) has a larger \\(\\pi_1 = \\pi(2000)\\) than \\(\\pi_2 = \\pi(500)\\) with \\(x_2 = 500\\).\nCredit cards with a higher balance is more likely to be default."
-  },
-  {
-    "objectID": "slides/17-logistic-reg.html#logistic-regression-1",
-    "href": "slides/17-logistic-reg.html#logistic-regression-1",
-    "title": "Logistic Regression \n",
-    "section": "Logistic Regression",
-    "text": "Logistic Regression\n\nInstead of predicting \\(y_i\\) directly, we use predictors to model its probability of success, \\(\\pi_i\\).\n\n\nBut how?\n\n\n\n\nTransform \\(\\pi \\in (0, 1)\\) into another variable \\(\\eta \\in (-\\infty, \\infty)\\). Then construct a linear predictor on on \\(\\eta\\): \\[\\eta_i = \\beta_0 + \\beta_1 x_i\\]\n\n\n\n\n\n\nLogit function: For \\(0 &lt; \\pi &lt; 1\\)\n\n\n\\[\\eta = \\text{logit}(\\pi) = \\ln\\left(\\frac{\\pi}{1-\\pi}\\right)\\]\n\nThe logit function takes a value \\(\\pi \\in (0, 1)\\) and maps it to a value \\(\\eta \\in (-\\infty, \\infty)\\)."
-  },
-  {
-    "objectID": "slides/17-logistic-reg.html#logit-function-eta-textlogitpi-lnleftfracpi1-piright",
-    "href": "slides/17-logistic-reg.html#logit-function-eta-textlogitpi-lnleftfracpi1-piright",
-    "title": "Logistic Regression \n",
-    "section": "Logit function \\(\\eta = \\text{logit}(\\pi) = \\ln\\left(\\frac{\\pi}{1-\\pi}\\right)\\)\n",
-    "text": "Logit function \\(\\eta = \\text{logit}(\\pi) = \\ln\\left(\\frac{\\pi}{1-\\pi}\\right)\\)"
+    "text": "Binary Responses with Nonconstant Probability\n\n\n\n\n\nTraining data \\((x_1, y_1), \\dots, (x_n, y_n)\\) where\n\n\n\\(y_i = 1\\) (default)\n\n\\(y_i = 0\\) (not default).\n\n\nFirst predict \\(P(y_i = 1 \\mid x_i) = \\pi(x_i) = \\pi_i\\)\nThe probability \\(\\pi\\) changes with the value of predictor \\(x\\)!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(X =\\) balance. \\(x_1 = 2000\\) has a larger \\(\\pi_1 = \\pi(2000)\\) than \\(\\pi_2 = \\pi(500)\\) with \\(x_2 = 500\\).\nCredit cards with a higher balance is more likely to be default."
   },
   {
     "objectID": "slides/17-logistic-reg.html#logistic-function",
     "href": "slides/17-logistic-reg.html#logistic-function",
     "title": "Logistic Regression \n",
     "section": "Logistic Function",
-    "text": "Logistic Function\n\nThe logistic function takes a value \\(\\eta \\in (-\\infty, \\infty)\\) and maps it to a value \\(\\pi \\in (0, 1)\\).\nLogistic function: \\[\\pi = \\text{logistic}(\\eta) = \\frac{1}{1+\\exp(-\\eta)} \\in (0, 1)\\]\n\n\n\nSo once \\(\\eta\\) is estimated by the linear predictor, we use the logistic function to transform \\(\\eta\\) back to the probability."
+    "text": "Logistic Function\n\nAssume \\(\\pi\\) is affected by the linear function \\(\\beta_0 + \\beta_1x\\) with the logistic transformation:\n\n\\[\\pi = \\frac{1}{1+\\exp(-(\\beta_0 + \\beta_1x))}\\]\n\n\nDoes the logistic function guarantee that \\(\\pi \\in (0, 1)\\) for any value of \\(\\beta_0\\), \\(\\beta_1\\), and \\(x\\)?"
   },
   {
-    "objectID": "slides/17-logistic-reg.html#logistic-function-pi-textlogisticeta-fracexpeta1expeta",
-    "href": "slides/17-logistic-reg.html#logistic-function-pi-textlogisticeta-fracexpeta1expeta",
+    "objectID": "slides/17-logistic-reg.html#logistic-function-pi-textlogisticbeta_0-beta_1x-fracexpbeta_0-beta_1-x1expbeta_0-beta_1-x",
+    "href": "slides/17-logistic-reg.html#logistic-function-pi-textlogisticbeta_0-beta_1x-fracexpbeta_0-beta_1-x1expbeta_0-beta_1-x",
     "title": "Logistic Regression \n",
-    "section": "Logistic Function \\(\\pi = \\text{logistic}(\\eta) = \\frac{\\exp(\\eta)}{1+\\exp(\\eta)}\\)\n",
-    "text": "Logistic Function \\(\\pi = \\text{logistic}(\\eta) = \\frac{\\exp(\\eta)}{1+\\exp(\\eta)}\\)"
+    "section": "Logistic Function \\(\\pi = \\text{logistic}(\\beta_0 + \\beta_1x) = \\frac{\\exp(\\beta_0 + \\beta_1 x)}{1+\\exp(\\beta_0 + \\beta_1 x)}\\)\n",
+    "text": "Logistic Function \\(\\pi = \\text{logistic}(\\beta_0 + \\beta_1x) = \\frac{\\exp(\\beta_0 + \\beta_1 x)}{1+\\exp(\\beta_0 + \\beta_1 x)}\\)"
   },
   {
-    "objectID": "slides/17-logistic-reg.html#simple-logistic-regression-model",
-    "href": "slides/17-logistic-reg.html#simple-logistic-regression-model",
+    "objectID": "slides/17-logistic-reg.html#simple-binary-logistic-regression-model",
+    "href": "slides/17-logistic-reg.html#simple-binary-logistic-regression-model",
     "title": "Logistic Regression \n",
-    "section": "Simple Logistic Regression Model",
-    "text": "Simple Logistic Regression Model\nFor \\(i = 1, \\dots, n\\), and with one predictor \\(X\\): \\[(Y_i \\mid X = x_i) = \\begin{cases}   1       & \\quad \\text{w/ prob } \\pi(x_i)\\\\\n    0  & \\quad \\text{w/ prob } 1 - \\pi(x_i) \\end{cases}\\] \\[\\text{logit}(\\pi_i) = \\ln \\left( \\frac{\\pi(x_i)}{1 - \\pi(x_i)} \\right) = \\eta_i = \\beta_0+\\beta_1 x_{i}\\] \n\nGoal: Get estimates \\(\\hat{\\beta}\\) and \\(\\hat{\\beta}_1\\), and therefore \\(\\hat{\\pi}_i\\)!\n\n\\[\\small \\hat{\\pi}_i = \\frac{1}{1+\\exp(-\\hat{\\beta}_0-\\hat{\\beta}_1 x_{i})}\\]\n\nwith sample size \\(n\\) and with \\(k\\) predictors, we have the logistic regression model like this\nFirst, we have a probability distribution Bernoulli describing how the outcome or response data are generated.\n\n\n\\(Y_i \\mid {\\bf x}_i; \\pi_i \\sim \\text{Bern}(p_i)\\), \\({\\bf x}_i = (x_{1,i}, \\cdots, x_{k,i})\\), \\(i = 1, \\dots, n\\)\n\n\n\nThen we have a link function, logit function, that relates the linear regression to the parameter of the outcome distribution, which is the parameter \\(p\\), the probability of success in the Bernoulli distribution.\n\n\\(\\text{logit}(\\pi_i) = \\eta_i = \\beta_0+\\beta_1 x_{1,i} + \\cdots + \\beta_k x_{k,i}\\)"
+    "section": "Simple Binary Logistic Regression Model",
+    "text": "Simple Binary Logistic Regression Model\nFor \\(i = 1, \\dots, n\\), and with one predictor \\(X\\): \\[(Y_i \\mid X = x_i) = \\begin{cases}   1       & \\quad \\text{w/ prob } \\pi(x_i)\\\\\n    0  & \\quad \\text{w/ prob } 1 - \\pi(x_i) \\end{cases}\\] \n\\[\\pi(x_i) = \\frac{1}{1+\\exp(-(\\beta_0+\\beta_1 x_{i}))}\\] \n\nGoal: Get estimates \\(\\hat{\\beta}_0\\) and \\(\\hat{\\beta}_1\\), and therefore \\(\\hat{\\pi}\\)!\n\n\\[\\small \\hat{\\pi} = \\frac{1}{1+\\exp(-\\hat{\\beta}_0-\\hat{\\beta}_1 x_{})}\\]\n\nwith sample size \\(n\\) and with \\(k\\) predictors, we have the logistic regression model like this\nFirst, we have a probability distribution Bernoulli describing how the outcome or response data are generated.\n\n\n\\(Y_i \\mid {\\bf x}_i; \\pi_i \\sim \\text{Bern}(p_i)\\), \\({\\bf x}_i = (x_{1,i}, \\cdots, x_{k,i})\\), \\(i = 1, \\dots, n\\)\n\n\n\nThen we have a link function, logit function, that relates the linear regression to the parameter of the outcome distribution, which is the parameter \\(p\\), the probability of success in the Bernoulli distribution.\n\n\\(\\text{logit}(\\pi_i) = \\eta_i = \\beta_0+\\beta_1 x_{1,i} + \\cdots + \\beta_k x_{k,i}\\)"
   },
   {
     "objectID": "slides/17-logistic-reg.html#probability-curve",
@@ -1389,7 +1361,7 @@
     "href": "slides/17-logistic-reg.html#fit-logistic-regression",
     "title": "Logistic Regression \n",
     "section": "Fit Logistic Regression",
-    "text": "Fit Logistic Regression\n\n\n\nbodydata &lt;- read_csv(\"./data/body.csv\")\nbody &lt;- bodydata |&gt; \n    select(GENDER, HEIGHT) |&gt; \n    mutate(GENDER = as.factor(GENDER))\nbody |&gt; slice(1:4) \n\n# A tibble: 4 × 2\n  GENDER HEIGHT\n  &lt;fct&gt;   &lt;dbl&gt;\n1 0        172 \n2 1        186 \n3 0        154.\n4 1        160.\n\n\n\n\nGENDER = 1 if male\n\nGENDER = 0 if female\nUse HEIGHT (centimeter, 1 cm = 0.39 in) to predict/classify GENDER: whether one is male or female.\n\n\n\n\n\n\n\nSource: https://www.thetealmango.com/featured/average-male-and-female-height-worldwide/"
+    "text": "Fit Logistic Regression\n\n\n\nbodydata &lt;- read_csv(\"./data/body.csv\")\nbody &lt;- bodydata |&gt; \n    select(GENDER, HEIGHT) |&gt; \n    mutate(GENDER = as.factor(GENDER))\nbody |&gt; slice(1:4)\n\n# A tibble: 4 × 2\n  GENDER HEIGHT\n  &lt;fct&gt;   &lt;dbl&gt;\n1 0        172 \n2 1        186 \n3 0        154.\n4 1        160.\n\n\n\nGENDER = 1 if Male\nGENDER = 0 if Female\nUse HEIGHT (centimeter, 1 cm = 0.39 in) to predict/classify GENDER: whether one is male or female.\n\n\n\n\n\n\n\nSource: https://www.thetealmango.com/featured/average-male-and-female-height-worldwide/"
   },
   {
     "objectID": "slides/17-logistic-reg.html#logistic-regression---data-summary",
@@ -1403,14 +1375,14 @@
     "href": "slides/17-logistic-reg.html#logistic-regression---model-fitting",
     "title": "Logistic Regression \n",
     "section": "Logistic Regression - Model Fitting",
-    "text": "Logistic Regression - Model Fitting\n\nSpecify the model with logistic_reg() \nUse \"glm\" instead of \"lm\" as the engine\n\n\nlibrary(tidymodels)\nlogis_mdl &lt;- parsnip::logistic_reg() |&gt; \n    set_engine(\"glm\") \n\n\n\nDefine family = \"binomial\"\n\n\n\nlogis_out &lt;- logis_mdl |&gt; \n    fit(GENDER ~ HEIGHT, \n        data = body, \n        family = \"binomial\")\n\n\n\n\nlogis_out$fit$coefficients\n\n(Intercept)      HEIGHT \n    -40.548       0.242"
+    "text": "Logistic Regression - Model Fitting\n\nSpecify the model with logistic_reg() \nUse \"glm\" instead of \"lm\" as the engine\n\n\nlibrary(tidymodels)\nshow_engines(\"logistic_reg\")\n\n# A tibble: 7 × 2\n  engine    mode          \n  &lt;chr&gt;     &lt;chr&gt;         \n1 glm       classification\n2 glmnet    classification\n3 LiblineaR classification\n4 spark     classification\n5 keras     classification\n6 stan      classification\n7 brulee    classification"
   },
   {
-    "objectID": "slides/17-logistic-reg.html#prgender-1-when-height-is-170-cm",
-    "href": "slides/17-logistic-reg.html#prgender-1-when-height-is-170-cm",
+    "objectID": "slides/17-logistic-reg.html#logistic-regression---model-fitting-1",
+    "href": "slides/17-logistic-reg.html#logistic-regression---model-fitting-1",
     "title": "Logistic Regression \n",
-    "section": "Pr(GENDER = 1) When HEIGHT is 170 cm",
-    "text": "Pr(GENDER = 1) When HEIGHT is 170 cm\n\n\\(\\hat{\\eta} = \\ln \\left( \\frac{\\hat{\\pi}}{1 - \\hat{\\pi}}\\right) = -40.55 + 0.24 \\times \\text{HEIGHT}\\)\n\n\\[ \\hat{\\pi}(x = 170) = \\frac{1}{1+\\exp(-\\hat{\\beta}_0-\\hat{\\beta}_1 x)} = \\frac{1}{1+\\exp(-(-40.55) - 0.24 \\times 170)} = 63.3\\%\\]\n\npredict(logis_out$fit, newdata = data.frame(HEIGHT = 170), type = \"response\")\n\n    1 \n0.633"
+    "section": "Logistic Regression - Model Fitting",
+    "text": "Logistic Regression - Model Fitting\n\nDefine family = \"binomial\"\n\n\n\nlogis_out &lt;- logistic_reg() |&gt; \n    fit(GENDER ~ HEIGHT, \n        data = body, \n        family = \"binomial\")\nlogis_out_fit &lt;- logis_out$fit\n\n\n\nlogis_out_fit$coefficients\n\n(Intercept)      HEIGHT \n    -40.548       0.242 \n\n\n\n\nPr(GENDER = 1) When HEIGHT is 170 cm\n\n\\[ \\hat{\\pi}(x = 170) = \\frac{1}{1+\\exp(-\\hat{\\beta}_0-\\hat{\\beta}_1 x)} = \\frac{1}{1+\\exp(-(-40.55) - 0.24 \\times 170)} = 63.3\\%\\]\n\npredict(logis_out_fit, newdata = data.frame(HEIGHT = 170), type = \"response\")\n\n    1 \n0.633"
   },
   {
     "objectID": "slides/17-logistic-reg.html#probability-curve-1",
@@ -1418,6 +1390,13 @@
     "title": "Logistic Regression \n",
     "section": "Probability Curve",
     "text": "Probability Curve\n\npi_hat &lt;- predict(logis_out$fit, type = \"response\")\npi_hat |&gt; head()\n\n     1      2      3      4      5      6 \n0.7369 0.9880 0.0383 0.1480 0.9383 0.4375 \n\nbody$HEIGHT |&gt; head()\n\n[1] 172 186 154 160 179 167\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n160 cm, Pr(male) = 0.13\n170 cm, Pr(male) = 0.63\n180 cm, Pr(male) = 0.95"
+  },
+  {
+    "objectID": "slides/17-logistic-reg.html#section-1",
+    "href": "slides/17-logistic-reg.html#section-1",
+    "title": "Logistic Regression \n",
+    "section": "",
+    "text": "21-Logistic Regression \nIn lab.qmd ## Lab 21 section,\n\nUse our fitted logistic regression model to predict whether you are male or female! Change 175 to your height (cm).\nUse the converter to get your height in cm!\n\n\n# Fit the logistic regression\n\npredict(logis_out_fit, newdata = data.frame(HEIGHT = 175), \n        type = \"response\")\n\n    1 \n0.853"
   },
   {
     "objectID": "slides/17-logistic-reg.html#sklearn.linear_model.logisticregression",
@@ -1438,14 +1417,14 @@
     "href": "slides/17-logistic-reg.html#evaluation-metrics",
     "title": "Logistic Regression \n",
     "section": "Evaluation Metrics1\n",
-    "text": "Evaluation Metrics1\n\n\nConfusion Matrix\n\n\n\n\n\n\n\n\n\nTrue 0\nTrue 1\n\n\n\nPredict 0\nTrue Negative (TN)\nFalse Negative (FN)\n\n\nPredict 1\nFalse Positive (FP)\nTrue Positive (TP)\n\n\n\n\nSensitivity (True Positive Rate) \\(= P( \\text{predict 1} \\mid \\text{true 1}) = \\frac{TP}{TP+FN}\\)\nSpecificity (True Negative Rate) \\(= P( \\text{predict 0} \\mid \\text{true 0}) = \\frac{TN}{FP+TN}\\)\nAccuracy \\(= \\frac{TP + TN}{TP+FN+FP+TN}\\)\n\n\nA good classifier is one which the test accuracy rate is highest.\n\nMore on Wiki page."
+    "text": "Evaluation Metrics1\n\n\nConfusion Matrix\n\n\n\n\n\n\n\n\n\nTrue 0\nTrue 1\n\n\n\nPredict 0\nTrue Negative (TN)\nFalse Negative (FN)\n\n\nPredict 1\nFalse Positive (FP)\nTrue Positive (TP)\n\n\n\n\nSensitivity (True Positive Rate) \\(= P( \\text{predict 1} \\mid \\text{true 1}) = \\frac{TP}{TP+FN}\\)\nSpecificity (True Negative Rate) \\(= P( \\text{predict 0} \\mid \\text{true 0}) = \\frac{TN}{FP+TN}\\)\nAccuracy \\(= \\frac{TP + TN}{TP+FN+FP+TN}\\)\n\nMore on Wiki page."
   },
   {
     "objectID": "slides/17-logistic-reg.html#confusion-matrix",
     "href": "slides/17-logistic-reg.html#confusion-matrix",
     "title": "Logistic Regression \n",
     "section": "Confusion Matrix",
-    "text": "Confusion Matrix\n\npred_prob &lt;- predict(logis_out$fit, type = \"response\")\n\n## true observations\ngender_true &lt;- body$GENDER\n\n## predicted labels\ngender_predict &lt;- (pred_prob &gt; 0.5) * 1\n\n## confusion matrix\ntable(gender_predict, gender_true)\n\n              gender_true\ngender_predict   0   1\n             0 118  29\n             1  29 124"
+    "text": "Confusion Matrix\n\npred_prob &lt;- predict(logis_out_fit, type = \"response\")\n\n## true observations\ngender_true &lt;- body$GENDER\n\n## predicted labels\ngender_pred &lt;- (pred_prob &gt; 0.5) * 1\n\n## confusion matrix\ntable(gender_pred, gender_true)\n\n           gender_true\ngender_pred   0   1\n          0 118  29\n          1  29 124"
   },
   {
     "objectID": "slides/17-logistic-reg.html#receiver-operating-characteristic-roc-curve",
@@ -1459,14 +1438,7 @@
     "href": "slides/17-logistic-reg.html#comparing-models",
     "title": "Logistic Regression \n",
     "section": "Comparing Models",
-    "text": "Comparing Models\n\nWhich model performs better?"
-  },
-  {
-    "objectID": "slides/17-logistic-reg.html#section-2",
-    "href": "slides/17-logistic-reg.html#section-2",
-    "title": "Logistic Regression \n",
-    "section": "",
-    "text": "21-Logistic Regression \nIn lab.qmd ## Lab 21 section,\n\nUse our fitted logistic regression model to predict whether you are male or female! Change 175 to your height (cm).\nUse the converter to get your height in cm!\n\n\n# Fit the logistic regression\n\npredict(logis_out$fit, newdata = data.frame(HEIGHT = 175), \n        type = \"response\")\n\n    1 \n0.853 \n\n\n\n\n\n\n\n\n\n\nmath3570-s24.github.io/website"
+    "text": "Comparing Models\n\nWhich model performs better?\n\n\n\n\n\n\n\n\n\n\n\n\n\nmath3570-s24.github.io/website"
   },
   {
     "objectID": "slides/09-ggplot2.html#plotting-systems-base-lattice-and-ggplot2",
@@ -2543,7 +2515,7 @@
     "href": "project-work.html",
     "title": "Project work",
     "section": "",
-    "text": "Here shows group project’s proposal.\n\nGitClub: Ally Olsen, Josh Wilder, Aniya Lentz, Jazmin Muro, Christian Kasiake\nggplot3: Arik Zintel, Iris Murphy, Yesenia Tavizon, Lauren Barrile\nCtrl + Alt + Elite: Mia Kwiatkoski, Sienna Ifill, Mridula Geddam, Bridget Clark\nBig Meta Watchers: Miguel Basurto, Nicholas Paulick, Christopher Purney, Darius Dahl\nWin Rs: Allan Akkathara, Michael Hankins, Katy Carter, Maddie Flint\nRed Pandas: Michael Gephart, Rich Lukas, Candice Watson, ONE MORE\nPatrick Dunleavy, Fike Carter, Alex Kusek, Arianna Smith, Luke Baumer",
+    "text": "Here shows group project’s proposal.\n\nGitClub: Ally Olsen, Josh Wilder, Aniya Lentz, Jazmin Muro, Christian Kasiake\nggplot3: Arik Zintel, Iris Murphy, Yesenia Tavizon, Lauren Barrile\nCtrl + Alt + Elite: Mia Kwiatkoski, Sienna Ifill, Mridula Geddam, Bridget Clark\nBig Meta Watchers: Miguel Basurto, Nicholas Paulick, Christopher Purney, Darius Dahl\nWin Rs: Allan Akkathara, Michael Hankins, Katy Carter, Maddie Flint\nRed Pandas: Michael Gephart, Rich Lukas, Candice Watson, Fike Carter\nData Dawgs: Patrick Dunleavy, Alex Kusek, Arianna Smith, Luke Baumer",
     "crumbs": [
       "Project",
       "Project Group and Proposal"
