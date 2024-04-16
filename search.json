@@ -1242,7 +1242,7 @@
     "href": "slides/01-syllabus.html#grade-percentage-conversion",
     "title": "Welcome Aboard! 🙌",
     "section": "Grade-Percentage Conversion",
-    "text": "Grade-Percentage Conversion\n\n\n\\([x, y)\\) means greater than or equal to \\(x\\) and less than \\(y\\). For example, 94.0 is in [94, 100] and the grade is A and 93.8 is in [90, 94) and the grade is A-.\n\n\n\n\n\n\nGrade\nPercentage\n\n\n\nA\n[94, 100]\n\n\nA-\n[90, 94)\n\n\nB+\n[87, 90)\n\n\nB\n[84, 87)\n\n\nB-\n[80, 84)\n\n\nC+\n[77, 80)\n\n\nC\n[74, 77)\n\n\nC-\n[70, 74)\n\n\nD+\n[65, 70)\n\n\nD\n[60, 65)\n\n\nF\n[0, 60)"
+    "text": "Grade-Percentage Conversion\n\n\n\\([x, y)\\) means greater than or equal to \\(x\\) and less than \\(y\\). For example, 94.0 is in [94, 100] and the grade is A and 93.8 is in [90, 94) and the grade is A-.\n\n\n\n\n\nGrade\nPercentage\n\n\n\nA\n[94, 100]\n\n\nA-\n[90, 94)\n\n\nB+\n[87, 90)\n\n\nB\n[84, 87)\n\n\nB-\n[80, 84)\n\n\nC+\n[77, 80)\n\n\nC\n[74, 77)\n\n\nC-\n[70, 74)\n\n\nD+\n[65, 70)\n\n\nD\n[60, 65)\n\n\nF\n[0, 60)"
   },
   {
     "objectID": "slides/01-syllabus.html#lab-exercises-40",
@@ -3071,7 +3071,7 @@
     "href": "slides/18-knn.html#spending-our-data",
     "title": "Data Splitting and K-Nearest Neighbors \n",
     "section": "Spending Our Data",
-    "text": "Spending Our Data\n\nSeveral steps to create a useful model:\n\nParameter estimation\nModel selection\nPerformance assessment, etc.\n\n\n\n\n\nDoing all of this on the entire data may lead to overfitting:\n\n\n\nThe model performs well on the training data, but awfully predicts the response on the new data we are interested."
+    "text": "Spending Our Data\n\nSeveral steps to create a useful model:\n\nParameter estimation\nModel selection\nPerformance assessment, etc.\n\n\n\n\n\nDoing all of this using the entire data may lead to overfitting:\n\n\n\nThe model performs well on the training data, but awfully predicts the response on the new data we are interested."
   },
   {
     "objectID": "slides/18-knn.html#overfitting",
@@ -3092,21 +3092,21 @@
     "href": "slides/18-knn.html#initial_split-in-rsample",
     "title": "Data Splitting and K-Nearest Neighbors \n",
     "section": "initial_split() in \n",
-    "text": "initial_split() in \n\n\nCodebodydata &lt;- read_csv(\"./data/body.csv\")\nbody &lt;- bodydata |&gt; \n    select(GENDER, HEIGHT, WAIST, BMI) |&gt; \n    mutate(GENDER = as.factor(GENDER))\n\n\n\n\n\n\nset.seed(2023)\ndf_split &lt;- rsample::initial_split(\n    data = body, \n    prop = 0.8)\n\ndf_split\n\n&lt;Training/Testing/Total&gt;\n&lt;240/60/300&gt;\n\n\n\n\ndf_trn &lt;- rsample::training(df_split)\ndf_tst &lt;- rsample::testing(df_split)\n\ndim(df_trn)\n\n[1] 240   4\n\ndim(df_tst)\n\n[1] 60  4\n\n\n\n\nnames(df_split)\ndf_split$in_id |&gt; head()"
+    "text": "initial_split() in \n\n\nCodebodydata &lt;- read_csv(\"./data/body.csv\")\nbody &lt;- bodydata |&gt; \n    select(GENDER, HEIGHT, WAIST, BMI) |&gt; \n    mutate(GENDER = as.factor(GENDER))\n\n\n\n\n\n\nset.seed(2024)\ndf_split &lt;- \n    rsample::initial_split(\n        data = body, \n        prop = 0.8)\n\ndf_split\n\n&lt;Training/Testing/Total&gt;\n&lt;240/60/300&gt;\n\n\n\n\ndf_trn &lt;- rsample::training(df_split)\ndf_tst &lt;- rsample::testing(df_split)\n\ndim(df_trn)\n\n[1] 240   4\n\ndim(df_tst)\n\n[1] 60  4\n\n\n\n\nnames(df_split)\ndf_split$in_id |&gt; head()"
   },
   {
     "objectID": "slides/18-knn.html#body-data",
     "href": "slides/18-knn.html#body-data",
     "title": "Data Splitting and K-Nearest Neighbors \n",
     "section": "\nbody Data",
-    "text": "body Data\n\n\n\ndf_trn\n\n# A tibble: 240 × 4\n  GENDER HEIGHT WAIST   BMI\n  &lt;fct&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 1        185. 115    30.2\n2 1        171.  78    22.2\n3 0        155. 104.   30.4\n4 0        156. 132.   47.2\n5 0        157.  90.5  24.6\n6 0        170. 134.   36.7\n# ℹ 234 more rows\n\n\n\n\ndf_tst\n\n# A tibble: 60 × 4\n  GENDER HEIGHT WAIST   BMI\n  &lt;fct&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 0        172  120.   33.3\n2 1        166.  95    25.8\n3 1        181. 119.   37.4\n4 0        164   75.5  19.3\n5 1        181.  92.5  27.4\n6 0        156. 110    33.6\n# ℹ 54 more rows"
+    "text": "body Data\n\n\n\ndf_trn\n\n# A tibble: 240 × 4\n  GENDER HEIGHT WAIST   BMI\n  &lt;fct&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 1        188.  82.3  20.2\n2 0        160   94.8  27.3\n3 0        160.  88.7  26.1\n4 1        180   88.3  22.6\n5 0        168   81.2  21.9\n6 1        176. 101.   29.2\n# ℹ 234 more rows\n\n\n\n\ndf_tst\n\n# A tibble: 60 × 4\n  GENDER HEIGHT WAIST   BMI\n  &lt;fct&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 1        181.  92.5  27.4\n2 0        155. 101.   31.4\n3 0        156. 103    29.3\n4 0        164.  90.6  21.6\n5 0        165.  95.2  27.1\n6 1        178.  95.3  25.5\n# ℹ 54 more rows"
   },
   {
     "objectID": "slides/18-knn.html#what-makes-a-good-classifier-test-accuracy-rate",
     "href": "slides/18-knn.html#what-makes-a-good-classifier-test-accuracy-rate",
     "title": "Data Splitting and K-Nearest Neighbors \n",
     "section": "What Makes a Good Classifier: Test Accuracy Rate",
-    "text": "What Makes a Good Classifier: Test Accuracy Rate\n\nThe test accuracy rate associated with the test data \\(\\{x_j, y_j\\}_{j=1}^J\\): \\[ \\frac{1}{J}\\sum_{j=1}^JI(y_j = \\hat{y}_j),\\] where \\(\\hat{y}_j\\) is the predicted label resulting from applying the classifier to the test response \\(y_j\\) with predictor \\(x_j\\).\n\n\nWhat is the value of \\(J\\) in our example?\n\n\n\nThe best estimated classifier \\(\\hat{C}(x)\\) trained from the training data for \\(C(x)\\) is the one producing the highest test accuracy rate or lowest test error rate."
+    "text": "What Makes a Good Classifier: Test Accuracy Rate\n\nThe test accuracy rate associated with the test data \\(\\{x_j, y_j\\}_{j=1}^J\\): \\[ \\frac{1}{J}\\sum_{j=1}^JI(y_j = \\hat{y}_j),\\] where \\(\\hat{y}_j\\) is the predicted label resulting from applying the classifier to the test response \\(y_j\\) with predictor \\(x_j\\).\n\n\nWhat is the value of \\(J\\) in our example?\n\n\n\nThe best estimated classifier \\(\\hat{C}(x)\\) trained from the training data for \\(C(x)\\) can be defined as the one producing the highest test accuracy rate or lowest test error rate."
   },
   {
     "objectID": "slides/18-knn.html#k-nearest-neighbors-knn-classifier",
@@ -3127,28 +3127,28 @@
     "href": "slides/18-knn.html#knn-training-recipes",
     "title": "Data Splitting and K-Nearest Neighbors \n",
     "section": "KNN Training \n",
-    "text": "KNN Training \n\n\n\nStep 1: Create recipe: recipes::recipe()\n\n\nStandardize predictors before doing KNN!\n\n(knn_recipe &lt;- recipes::recipe(GENDER ~ HEIGHT, data = df_trn) |&gt; \n    step_normalize(all_predictors()))\n\nA recipe is a description of the steps to be applied to a data set in order to prepare it for data analysis."
+    "text": "KNN Training \n\n\n\nStep 1: Create recipe: recipes::recipe()\n\n\nStandardize predictors before doing KNN!\n\nknn_recipe &lt;- recipes::recipe(GENDER ~ HEIGHT, data = df_trn) |&gt; \n    step_normalize(all_numeric_predictors())\n\n\n── Recipe ────────────────────────────────────────────────────────────────\n\n── Inputs \nNumber of variables by role\noutcome:   1\npredictor: 1\n\n── Operations \n• Centering and scaling for: all_numeric_predictors()\n\nA recipe is a description of the steps to be applied to a data set in order to prepare it for data analysis. feature engineering steps to get your data ready for modeling\nwhich is designed to help you preprocess your data before training your model"
   },
   {
     "objectID": "slides/18-knn.html#knn-training-parsnip",
     "href": "slides/18-knn.html#knn-training-parsnip",
     "title": "Data Splitting and K-Nearest Neighbors \n",
     "section": "KNN Training \n",
-    "text": "KNN Training \n\n\n\nStep 2: Specify Model: parsnip::nearest_neighbor()\n\n\n\n(knn_mdl &lt;- parsnip::nearest_neighbor(neighbors = 3) |&gt; \n    set_mode(\"classification\") |&gt; \n    set_engine(\"kknn\"))\n\nK-Nearest Neighbor Model Specification (classification)\n\nMain Arguments:\n  neighbors = 3\n\nComputational engine: kknn"
+    "text": "KNN Training \n\n\n\nStep 2: Specify Model: parsnip::nearest_neighbor()\n\n\n\n(knn_mdl &lt;- parsnip::nearest_neighbor(mode = \"classification\", neighbors = 3))\n\nK-Nearest Neighbor Model Specification (classification)\n\nMain Arguments:\n  neighbors = 3\n\nComputational engine: kknn"
   },
   {
     "objectID": "slides/18-knn.html#knn-training-workflows",
     "href": "slides/18-knn.html#knn-training-workflows",
     "title": "Data Splitting and K-Nearest Neighbors \n",
     "section": "KNN Training \n",
-    "text": "KNN Training \n\n\n\nStep 3: Fitting by creating workflow: workflows::workflow()\n\n\n\n(knn_fit &lt;- workflows::workflow() |&gt; \n    add_recipe(knn_recipe) |&gt; \n    add_model(knn_mdl) |&gt; \n    fit(data = df_trn))\n\n══ Workflow [trained] ══════════════════════════════════════════════════════════\nPreprocessor: Recipe\nModel: nearest_neighbor()\n\n── Preprocessor ────────────────────────────────────────────────────────────────\n1 Recipe Step\n\n• step_normalize()\n\n── Model ───────────────────────────────────────────────────────────────────────\n\nCall:\nkknn::train.kknn(formula = ..y ~ ., data = data, ks = min_rows(3,     data, 5))\n\nType of response variable: nominal\nMinimal misclassification: 0.217\nBest kernel: optimal\nBest k: 3"
+    "text": "KNN Training \n\n\n\nStep 3: Fitting by creating workflow: workflows::workflow()\n\n\n\n\n\n\nknn_out &lt;- \n    workflows::workflow() |&gt; \n    add_recipe(knn_recipe) |&gt; \n    add_model(knn_mdl) |&gt; \n    fit(data = df_trn)\n\n\n\n\n\n══ Workflow [trained] ══════════════════════════════════════════════════════════\nPreprocessor: Recipe\nModel: nearest_neighbor()\n\n── Preprocessor ────────────────────────────────────────────────────────────────\n1 Recipe Step\n\n• step_normalize()\n\n── Model ───────────────────────────────────────────────────────────────────────\n\nCall:\nkknn::train.kknn(formula = ..y ~ ., data = data, ks = min_rows(3,     data, 5))\n\nType of response variable: nominal\nMinimal misclassification: 0.217\nBest kernel: optimal\nBest k: 3\n\n\n\n\n\nA workflow is a container object that aggregates information required to fit and predict from a model."
   },
   {
     "objectID": "slides/18-knn.html#prediction-on-test-data",
     "href": "slides/18-knn.html#prediction-on-test-data",
     "title": "Data Splitting and K-Nearest Neighbors \n",
     "section": "Prediction on Test Data",
-    "text": "Prediction on Test Data\n\n\n\nbind_cols(\n    predict(knn_fit, df_tst),\n    predict(knn_fit, df_tst, type = \"prob\")) |&gt; \n    dplyr::sample_n(size = 8)\n\n# A tibble: 8 × 3\n  .pred_class .pred_0 .pred_1\n  &lt;fct&gt;         &lt;dbl&gt;   &lt;dbl&gt;\n1 1             0       1    \n2 1             0.370   0.630\n3 0             0.519   0.481\n4 1             0.370   0.630\n5 0             0.852   0.148\n6 1             0       1    \n7 0             1       0    \n8 0             0.630   0.370\n\n\n\n\nknn_pred &lt;- \n    pull(predict(knn_fit, df_tst))\n\n## Confusion matrix\ntable(knn_pred, df_tst$GENDER)\n\n        \nknn_pred  0  1\n       0 25  8\n       1  9 18\n\n## Test accuracy rate\nmean(knn_pred == df_tst$GENDER)\n\n[1] 0.717\n\n\n\n\nmean(knn_pred != df_tst$GENDER)"
+    "text": "Prediction on Test Data\n\n\n\nbind_cols(\n    predict(knn_out, df_tst),\n    predict(knn_out, df_tst, type = \"prob\")) |&gt; \n    dplyr::sample_n(size = 8)\n\n# A tibble: 8 × 3\n  .pred_class .pred_0 .pred_1\n  &lt;fct&gt;         &lt;dbl&gt;   &lt;dbl&gt;\n1 0             1       0    \n2 0             0.852   0.148\n3 0             1       0    \n4 0             1       0    \n5 1             0.481   0.519\n6 0             0.852   0.148\n7 0             1       0    \n8 1             0.370   0.630\n\n\n\n\nknn_pred &lt;- \n    pull(predict(knn_out, df_tst))\n\n## Confusion matrix\ntable(knn_pred, df_tst$GENDER)\n\n        \nknn_pred  0  1\n       0 25  7\n       1  7 21\n\n## Test accuracy rate\nmean(knn_pred == df_tst$GENDER)\n\n[1] 0.767\n\n\n\n\nmean(knn_pred != df_tst$GENDER)"
   },
   {
     "objectID": "slides/18-knn.html#which-k-should-we-use",
@@ -3162,21 +3162,21 @@
     "href": "slides/18-knn.html#v-fold-cross-validation",
     "title": "Data Splitting and K-Nearest Neighbors \n",
     "section": "\n\\(v\\)-fold Cross Validation",
-    "text": "\\(v\\)-fold Cross Validation\n\nUse \\(v\\)-fold Cross Validation (CV) to choose tuning parameters. (MATH 4750 Computational Statistics)\nUsually use \\(v = 5\\) or \\(10\\).\n\nIDEA:\n\nPrepare \\(v\\) CV data sets\nCreate a sequence of values of \\(K\\)\n\nFor each value of \\(K\\), run CV, and obtain an accuracy rate\nChoose the \\(K\\) with the highest accuracy rate"
+    "text": "\\(v\\)-fold Cross Validation\n\nUse \\(v\\)-fold Cross Validation (CV) to choose tuning parameters. (MATH 4750 Computational Statistics)\nUsually use \\(v = 5\\) or \\(10\\).\n\n\n\n\nIDEA:\n\nPrepare \\(v\\) CV data sets\nCreate a sequence of values of \\(K\\)\n\nFor each value of \\(K\\), run CV, and obtain an accuracy rate\nChoose the \\(K\\) with the highest accuracy rate"
   },
   {
     "objectID": "slides/18-knn.html#final-model",
     "href": "slides/18-knn.html#final-model",
     "title": "Data Splitting and K-Nearest Neighbors \n",
     "section": "Final Model",
-    "text": "Final Model\n\nknn_mdl_best &lt;- parsnip::nearest_neighbor(neighbors = 19) |&gt;\n    set_mode(\"classification\") |&gt;\n    set_engine(\"kknn\")\n\nknn_fit_best &lt;- workflows::workflow() |&gt;\n    add_recipe(knn_recipe) |&gt;\n    add_model(knn_mdl_best) |&gt;\n    fit(data = df_trn)\n\nbest_K &lt;- accu_cv |&gt; slice_max(mean) |&gt; pull(neighbors) |&gt; as.integer()"
+    "text": "Final Model\n\nknn_mdl_best &lt;- parsnip::nearest_neighbor(neighbors = 29, mode = \"classification\")\n\nknn_out_best &lt;- workflows::workflow() |&gt;\n    add_recipe(knn_recipe) |&gt;\n    add_model(knn_mdl_best) |&gt;\n    fit(data = df_trn)\n\nbest_K &lt;- accu_cv |&gt; slice_max(mean) |&gt; pull(neighbors) |&gt; as.integer()"
   },
   {
     "objectID": "slides/18-knn.html#final-model-performance",
     "href": "slides/18-knn.html#final-model-performance",
     "title": "Data Splitting and K-Nearest Neighbors \n",
     "section": "Final Model Performance",
-    "text": "Final Model Performance\n\nknn_pred_best &lt;- pull(predict(knn_fit_best, df_tst))\n\n## Confusion matrix\ntable(knn_pred_best, df_tst$GENDER)\n\n             \nknn_pred_best  0  1\n            0 25  6\n            1  9 20\n\n## Test accuracy rate\nmean(knn_pred_best == df_tst$GENDER)\n\n[1] 0.75"
+    "text": "Final Model Performance\n\nknn_pred_best &lt;- pull(predict(knn_out_best, df_tst))\n\n## Confusion matrix\ntable(knn_pred_best, df_tst$GENDER)\n\n             \nknn_pred_best  0  1\n            0 28  7\n            1  4 21\n\n## Test accuracy rate\nmean(knn_pred_best == df_tst$GENDER)\n\n[1] 0.817"
   },
   {
     "objectID": "slides/18-knn.html#sklearn.model_selection.train_test_split",
@@ -3190,35 +3190,35 @@
     "href": "slides/18-knn.html#sklearn.neighbors.kneighborsclassifier",
     "title": "Data Splitting and K-Nearest Neighbors \n",
     "section": "sklearn.neighbors.KNeighborsClassifier",
-    "text": "sklearn.neighbors.KNeighborsClassifier\n\nneigh = KNeighborsClassifier(n_neighbors = 3)\nX_trn = np.array(X_trn)\nX_tst = np.array(X_tst)\nneigh.fit(X_trn, y_trn)\n\n\n\n\nKNeighborsClassifier(n_neighbors=3)\nIn a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.\n\n\nKNeighborsClassifierKNeighborsClassifier(n_neighbors=3)"
+    "text": "sklearn.neighbors.KNeighborsClassifier\n\nknn = KNeighborsClassifier(n_neighbors = 3)\nX_trn = np.array(X_trn)\nX_tst = np.array(X_tst)\nknn.fit(X_trn, y_trn)\n\n\n\n\nKNeighborsClassifier(n_neighbors=3)\nIn a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.\n\n\n  KNeighborsClassifier?Documentation for KNeighborsClassifieriFittedKNeighborsClassifier(n_neighbors=3)"
   },
   {
     "objectID": "slides/18-knn.html#prediction-1",
     "href": "slides/18-knn.html#prediction-1",
     "title": "Data Splitting and K-Nearest Neighbors \n",
     "section": "Prediction",
-    "text": "Prediction\n\ny_pred = neigh.predict(X_tst)\n\n\nfrom sklearn.metrics import confusion_matrix\nconfusion_matrix(y_tst, y_pred)\n\narray([[22,  5],\n       [12, 21]])\n\n\n\n\n\nnp.mean(y_tst == y_pred)\n\n0.7166666666666667\n\n\n\nnp.mean(y_tst != y_pred)\n\n0.2833333333333333"
+    "text": "Prediction\n\ny_pred = knn.predict(X_tst)\n\n\nfrom sklearn.metrics import confusion_matrix\nconfusion_matrix(y_tst, y_pred)\n\narray([[22,  5],\n       [12, 21]])\n\n\n\n\n\nnp.mean(y_tst == y_pred)\n\n0.7166666666666667\n\n\n\nnp.mean(y_tst != y_pred)\n\n0.2833333333333333"
   },
   {
     "objectID": "slides/18-knn.html#section-3",
     "href": "slides/18-knn.html#section-3",
     "title": "Data Splitting and K-Nearest Neighbors \n",
     "section": "",
-    "text": "22-K Nearest Neighbors \nIn lab.qmd ## Lab 22 section,\n\nuse HEIGHT, WAIST and BMI to predict GENDER using KNN with \\(K = 3\\).\nGenerate the (test) confusion matrix.\nCalculate (test) accuracy rate.\nDoes using more predictors predict better?\n\n\nlibrary(tidymodels)\n## load data\nbodydata &lt;- read_csv(\"./data/body.csv\")\nbody &lt;- bodydata |&gt; \n    select(GENDER, HEIGHT, WAIST, BMI) |&gt; \n    mutate(GENDER = as.factor(GENDER))\n\n## training and test data\nset.seed(2024)\ndf_split &lt;- rsample::initial_split(data = body, prop = 0.8)\ndf_trn &lt;- rsample::training(df_split)\ndf_tst &lt;- rsample::testing(df_split)"
+    "text": "22-K Nearest Neighbors \nIn lab.qmd ## Lab 22 section,\n\nuse HEIGHT and WAIST to predict GENDER using KNN with \\(K = 3\\).\nGenerate the (test) confusion matrix.\nCalculate (test) accuracy rate.\nDoes using more predictors predict better?"
   },
   {
     "objectID": "slides/18-knn.html#r-code",
     "href": "slides/18-knn.html#r-code",
     "title": "Data Splitting and K-Nearest Neighbors \n",
     "section": "R Code",
-    "text": "R Code\n\n## KNN training\nknn_recipe &lt;- recipes::recipe(GENDER ~ HEIGHT + WAIST + BMI, data = df_trn) |&gt; \n    step_normalize(all_predictors())\n\nknn_mdl &lt;- parsnip::nearest_neighbor(neighbors = 3) |&gt; \n    set_mode(\"classification\") |&gt;\n    set_engine(\"kknn\")\n\nknn_out &lt;- workflows::workflow() |&gt; \n    add_recipe(knn_recipe) |&gt; \n    add_model(knn_mdl) |&gt; \n    fit(data = df_trn)\n\n## KNN prediction\nknn_pred &lt;- pull(predict(knn_out, df_tst))\ntable(knn_pred, df_tst$GENDER)\nmean(knn_pred == df_tst$GENDER)"
+    "text": "R Code\n\n\nlibrary(tidymodels)\n\n## load data\nbodydata &lt;- read_csv(\"./data/body.csv\")\nbody &lt;- bodydata |&gt; \n    select(GENDER, HEIGHT, WAIST) |&gt; \n    mutate(GENDER = as.factor(GENDER))\n\n## training and test data\nset.seed(2024)\ndf_split &lt;- initial_split(data = body, prop = 0.8)\ndf_trn &lt;- training(df_split)\ndf_tst &lt;- testing(df_split)\n\n## KNN training\nknn_recipe &lt;- recipe(GENDER ~ HEIGHT + WAIST, data = df_trn) |&gt; \n    step_normalize(all_predictors())\nknn_mdl &lt;- nearest_neighbor(neighbors = 3, mode = \"classification\")\nknn_out &lt;- workflow() |&gt; \n    add_recipe(knn_recipe) |&gt; \n    add_model(knn_mdl) |&gt; \n    fit(data = df_trn)\n\n## KNN prediction\nknn_pred &lt;- pull(predict(knn_out, df_tst))\ntable(knn_pred, df_tst$GENDER)\nmean(knn_pred == df_tst$GENDER)"
   },
   {
     "objectID": "slides/18-knn.html#python-code",
     "href": "slides/18-knn.html#python-code",
     "title": "Data Splitting and K-Nearest Neighbors \n",
     "section": "Python Code",
-    "text": "Python Code\n\nimport numpy as np\nimport pandas as pd\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.neighbors import KNeighborsClassifier\n\n## load data\nbody = pd.read_csv('./data/body.csv')\n\nX = body[['HEIGHT', 'WAIST', 'BMI']]\ny = body['GENDER']\nX_trn, X_tst, y_trn, y_tst = train_test_split(X, y, test_size=0.2, random_state=2024)\n\n## KNN training\nneigh = KNeighborsClassifier(n_neighbors = 3)\nX_trn = np.array(X_trn)\nX_tst = np.array(X_tst)\nneigh.fit(X_trn, y_trn)\n\n## KNN prediction\ny_pred = neigh.predict(X_tst)\nfrom sklearn.metrics import confusion_matrix\nconfusion_matrix(y_tst, y_pred)\n\n\n\n\n\nmath3570-s24.github.io/website"
+    "text": "Python Code\n\n\nimport numpy as np\nimport pandas as pd\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.neighbors import KNeighborsClassifier\n\n## load data\nbody = pd.read_csv('./data/body.csv')\nX = body[['HEIGHT', 'WAIST']]\ny = body['GENDER']\n\n## training and test data\nX_trn, X_tst, y_trn, y_tst = train_test_split(X, y, test_size=0.2, random_state=2024)\n\n## KNN training\nknn = KNeighborsClassifier(n_neighbors = 3)\nX_trn = np.array(X_trn)\nX_tst = np.array(X_tst)\nknn.fit(X_trn, y_trn)\n\n## KNN prediction\ny_pred = knn.predict(X_tst)\nfrom sklearn.metrics import confusion_matrix\nconfusion_matrix(y_tst, y_pred)\nnp.mean(y_tst == y_pred)\n\n\n\n\n\n\nmath3570-s24.github.io/website"
   },
   {
     "objectID": "slides/16-linear-reg.html#what-is-regression",

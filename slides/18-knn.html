@@ -9,7 +9,7 @@
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.551">
+<meta name="generator" content="quarto-1.4.549">
 <meta name="author" content="Dr.&nbsp;Cheng-Han Yu   Department of Mathematical and Statistical Sciences   Marquette University">
 <title>MATH/COSC 3570 - Spring 2024 - Data Splitting and K-Nearest Neighbors r fontawesome::fa("people-group")</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -450,7 +450,7 @@ Training and Test Data
 </ul>
 <div class="fragment">
 <ul>
-<li>Doing all of this on the entire data may lead to <strong>overfitting</strong>:</li>
+<li>Doing all of this using the entire data may lead to <strong>overfitting</strong>:</li>
 </ul>
 <p><br></p>
 <blockquote>
@@ -478,7 +478,7 @@ Training and Test Data
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="./images/18-knn/overfit.png" style="width:60.0%"></p>
+<figure><p><img data-src="./images/18-knn/overfit.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
 <figcaption>Source: modified from https://i.pinimg.com/originals/72/e2/22/72e222c1542539754df1d914cb671bd7.png</figcaption></figure>
 </div>
 </div>
@@ -561,12 +561,13 @@ Training and Test Data
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">set.seed</span>(<span class="dv">2023</span>)</span>
-<span id="cb2-2"><a></a>df_split <span class="ot">&lt;-</span> rsample<span class="sc">::</span><span class="fu">initial_split</span>(</span>
-<span id="cb2-3"><a></a>    <span class="at">data =</span> body, </span>
-<span id="cb2-4"><a></a>    <span class="at">prop =</span> <span class="fl">0.8</span>)</span>
-<span id="cb2-5"><a></a></span>
-<span id="cb2-6"><a></a>df_split</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">set.seed</span>(<span class="dv">2024</span>)</span>
+<span id="cb2-2"><a></a>df_split <span class="ot">&lt;-</span> </span>
+<span id="cb2-3"><a></a>    rsample<span class="sc">::</span><span class="fu">initial_split</span>(</span>
+<span id="cb2-4"><a></a>        <span class="at">data =</span> body, </span>
+<span id="cb2-5"><a></a>        <span class="at">prop =</span> <span class="fl">0.8</span>)</span>
+<span id="cb2-6"><a></a></span>
+<span id="cb2-7"><a></a>df_split</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;Training/Testing/Total&gt;
 &lt;240/60/300&gt;</code></pre>
@@ -610,12 +611,12 @@ Training and Test Data
 <pre><code># A tibble: 240 × 4
   GENDER HEIGHT WAIST   BMI
   &lt;fct&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-1 1        185. 115    30.2
-2 1        171.  78    22.2
-3 0        155. 104.   30.4
-4 0        156. 132.   47.2
-5 0        157.  90.5  24.6
-6 0        170. 134.   36.7
+1 1        188.  82.3  20.2
+2 0        160   94.8  27.3
+3 0        160.  88.7  26.1
+4 1        180   88.3  22.6
+5 0        168   81.2  21.9
+6 1        176. 101.   29.2
 # ℹ 234 more rows</code></pre>
 </div>
 </div>
@@ -626,12 +627,12 @@ Training and Test Data
 <pre><code># A tibble: 60 × 4
   GENDER HEIGHT WAIST   BMI
   &lt;fct&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-1 0        172  120.   33.3
-2 1        166.  95    25.8
-3 1        181. 119.   37.4
-4 0        164   75.5  19.3
-5 1        181.  92.5  27.4
-6 0        156. 110    33.6
+1 1        181.  92.5  27.4
+2 0        155. 101.   31.4
+3 0        156. 103    29.3
+4 0        164.  90.6  21.6
+5 0        165.  95.2  27.1
+6 1        178.  95.3  25.5
 # ℹ 54 more rows</code></pre>
 </div>
 </div>
@@ -646,7 +647,7 @@ Training and Test Data
 </div>
 <div class="fragment">
 <ul>
-<li>The <em>best</em> estimated <strong>classifier</strong> <span class="math inline">\(\hat{C}(x)\)</span> trained from the training data for <span class="math inline">\(C(x)\)</span> is the one producing the <em>highest test accuracy rate</em> or <em>lowest test error rate</em>.</li>
+<li>The <em>best</em> estimated <strong>classifier</strong> <span class="math inline">\(\hat{C}(x)\)</span> trained from the training data for <span class="math inline">\(C(x)\)</span> can be defined as the one producing the <em>highest test accuracy rate</em> or <em>lowest test error rate</em>.</li>
 </ul>
 </div>
 </section><section id="k-nearest-neighbors-knn-classifier" class="slide level2"><h2>K-Nearest Neighbors (KNN) Classifier</h2>
@@ -658,7 +659,7 @@ Training and Test Data
 <div class="columns">
 <div class="column" style="width:50%;">
 <!-- - *Neighbors in __Euclidean distance__ sense.* -->
-<div class="cell" data-layout-align="center" data-hash="18-knn_cache/revealjs/unnamed-chunk-8_11936b38ee3dbc8ae2073de276198ad5">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure><p><img data-src="images/18-knn/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
@@ -726,10 +727,22 @@ Training and Test Data
 </ul>
 <p><em>Standardize predictors before doing KNN!</em></p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>(knn_recipe <span class="ot">&lt;-</span> recipes<span class="sc">::</span><span class="fu">recipe</span>(GENDER <span class="sc">~</span> HEIGHT, <span class="at">data =</span> df_trn) <span class="sc">|&gt;</span> </span>
-<span id="cb12-2"><a></a>    <span class="fu">step_normalize</span>(<span class="fu">all_predictors</span>()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>knn_recipe <span class="ot">&lt;-</span> recipes<span class="sc">::</span><span class="fu">recipe</span>(GENDER <span class="sc">~</span> HEIGHT, <span class="at">data =</span> df_trn) <span class="sc">|&gt;</span> </span>
+<span id="cb12-2"><a></a>    <span class="fu">step_normalize</span>(<span class="fu">all_numeric_predictors</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<aside class="notes"><p>A recipe is a description of the steps to be applied to a data set in order to prepare it for data analysis.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>── Recipe ────────────────────────────────────────────────────────────────</span>
+<span id="cb13-2"><a></a></span>
+<span id="cb13-3"><a></a>── Inputs </span>
+<span id="cb13-4"><a></a>Number of variables by role</span>
+<span id="cb13-5"><a></a>outcome<span class="sc">:</span>   <span class="dv">1</span></span>
+<span id="cb13-6"><a></a>predictor<span class="sc">:</span> <span class="dv">1</span></span>
+<span id="cb13-7"><a></a></span>
+<span id="cb13-8"><a></a>── Operations </span>
+<span id="cb13-9"><a></a>• Centering and scaling <span class="cf">for</span><span class="sc">:</span> <span class="fu">all_numeric_predictors</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<aside class="notes"><p>A recipe is a description of the steps to be applied to a data set in order to prepare it for data analysis. feature engineering steps to get your data ready for modeling</p>
+<p>which is designed to help you preprocess your data before training your model</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -747,10 +760,8 @@ Training and Test Data
 <span class="green"><em>Step 2: Specify Model</em></span>: <code><a href="https://parsnip.tidymodels.org/reference/nearest_neighbor.html">parsnip::nearest_neighbor()</a></code>
 </li>
 </ul>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>(knn_mdl <span class="ot">&lt;-</span> parsnip<span class="sc">::</span><span class="fu">nearest_neighbor</span>(<span class="at">neighbors =</span> <span class="dv">3</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb13-2"><a></a>    <span class="fu">set_mode</span>(<span class="st">"classification"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb13-3"><a></a>    <span class="fu">set_engine</span>(<span class="st">"kknn"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!-- ```{r} --><!-- (knn_mdl <- parsnip::nearest_neighbor(neighbors = 3) |>  --><!--     set_mode("classification") |>  --><!--     set_engine("kknn")) --><!-- ``` --><div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>(knn_mdl <span class="ot">&lt;-</span> parsnip<span class="sc">::</span><span class="fu">nearest_neighbor</span>(<span class="at">mode =</span> <span class="st">"classification"</span>, <span class="at">neighbors =</span> <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>K-Nearest Neighbor Model Specification (classification)
 
@@ -767,71 +778,93 @@ Computational engine: kknn </code></pre>
 <span class="green"><em>Step 3: Fitting by creating workflow</em></span>: <code><a href="https://workflows.tidymodels.org/reference/workflow.html">workflows::workflow()</a></code>
 </li>
 </ul>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:35%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>(knn_fit <span class="ot">&lt;-</span> workflows<span class="sc">::</span><span class="fu">workflow</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb15-2"><a></a>    <span class="fu">add_recipe</span>(knn_recipe) <span class="sc">|&gt;</span> </span>
-<span id="cb15-3"><a></a>    <span class="fu">add_model</span>(knn_mdl) <span class="sc">|&gt;</span> </span>
-<span id="cb15-4"><a></a>    <span class="fu">fit</span>(<span class="at">data =</span> df_trn))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">knn_out</span> <span class="op">&lt;-</span> </span>
+<span>    <span class="fu">workflows</span><span class="fu">::</span><span class="fu"><a href="https://workflows.tidymodels.org/reference/workflow.html">workflow</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>    <span class="fu">add_recipe</span><span class="op">(</span><span class="va">knn_recipe</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>    <span class="fu">add_model</span><span class="op">(</span><span class="va">knn_mdl</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>    <span class="fu">fit</span><span class="op">(</span>data <span class="op">=</span> <span class="va">df_trn</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:65%;">
+<div class="small">
+<div class="cell" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource my_classfull number-lines code-with-copy"><code class="sourceCode"><span id="cb16-1"><a></a>══ Workflow [trained] ══════════════════════════════════════════════════════════</span>
-<span id="cb16-2"><a></a>Preprocessor: Recipe</span>
-<span id="cb16-3"><a></a>Model: nearest_neighbor()</span>
-<span id="cb16-4"><a></a></span>
-<span id="cb16-5"><a></a>── Preprocessor ────────────────────────────────────────────────────────────────</span>
-<span id="cb16-6"><a></a>1 Recipe Step</span>
-<span id="cb16-7"><a></a></span>
-<span id="cb16-8"><a></a>• step_normalize()</span>
-<span id="cb16-9"><a></a></span>
-<span id="cb16-10"><a></a>── Model ───────────────────────────────────────────────────────────────────────</span>
-<span id="cb16-11"><a></a></span>
-<span id="cb16-12"><a></a>Call:</span>
-<span id="cb16-13"><a></a>kknn::train.kknn(formula = ..y ~ ., data = data, ks = min_rows(3,     data, 5))</span>
-<span id="cb16-14"><a></a></span>
-<span id="cb16-15"><a></a>Type of response variable: nominal</span>
-<span id="cb16-16"><a></a>Minimal misclassification: 0.217</span>
-<span id="cb16-17"><a></a>Best kernel: optimal</span>
-<span id="cb16-18"><a></a>Best k: 3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource my_class600 number-lines code-with-copy"><code class="sourceCode"><span id="cb17-1"><a></a>══ Workflow [trained] ══════════════════════════════════════════════════════════</span>
+<span id="cb17-2"><a></a>Preprocessor: Recipe</span>
+<span id="cb17-3"><a></a>Model: nearest_neighbor()</span>
+<span id="cb17-4"><a></a></span>
+<span id="cb17-5"><a></a>── Preprocessor ────────────────────────────────────────────────────────────────</span>
+<span id="cb17-6"><a></a>1 Recipe Step</span>
+<span id="cb17-7"><a></a></span>
+<span id="cb17-8"><a></a>• step_normalize()</span>
+<span id="cb17-9"><a></a></span>
+<span id="cb17-10"><a></a>── Model ───────────────────────────────────────────────────────────────────────</span>
+<span id="cb17-11"><a></a></span>
+<span id="cb17-12"><a></a>Call:</span>
+<span id="cb17-13"><a></a>kknn::train.kknn(formula = ..y ~ ., data = data, ks = min_rows(3,     data, 5))</span>
+<span id="cb17-14"><a></a></span>
+<span id="cb17-15"><a></a>Type of response variable: nominal</span>
+<span id="cb17-16"><a></a>Minimal misclassification: 0.217</span>
+<span id="cb17-17"><a></a>Best kernel: optimal</span>
+<span id="cb17-18"><a></a>Best k: 3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</section><section id="prediction-on-test-data" class="slide level2"><h2>Prediction on Test Data</h2>
+</div>
+</div>
+</div>
+<aside class="notes"><p>A workflow is a container object that aggregates information required to fit and predict from a model.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section id="prediction-on-test-data" class="slide level2"><h2>Prediction on Test Data</h2>
 <div class="columns">
 <div class="column" style="width:58%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">bind_cols</span>(</span>
-<span id="cb17-2"><a></a>    <span class="fu">predict</span>(knn_fit, df_tst),</span>
-<span id="cb17-3"><a></a>    <span class="fu">predict</span>(knn_fit, df_tst, <span class="at">type =</span> <span class="st">"prob"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb17-4"><a></a>    dplyr<span class="sc">::</span><span class="fu">sample_n</span>(<span class="at">size =</span> <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">bind_cols</span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">knn_out</span>, <span class="va">df_tst</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">knn_out</span>, <span class="va">df_tst</span>, type <span class="op">=</span> <span class="st">"prob"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">8</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource my_class600 number-lines code-with-copy"><code class="sourceCode"><span id="cb18-1"><a></a># A tibble: 8 × 3</span>
-<span id="cb18-2"><a></a>  .pred_class .pred_0 .pred_1</span>
-<span id="cb18-3"><a></a>  &lt;fct&gt;         &lt;dbl&gt;   &lt;dbl&gt;</span>
-<span id="cb18-4"><a></a>1 1             0       1    </span>
-<span id="cb18-5"><a></a>2 1             0.370   0.630</span>
-<span id="cb18-6"><a></a>3 0             0.519   0.481</span>
-<span id="cb18-7"><a></a>4 1             0.370   0.630</span>
-<span id="cb18-8"><a></a>5 0             0.852   0.148</span>
-<span id="cb18-9"><a></a>6 1             0       1    </span>
-<span id="cb18-10"><a></a>7 0             1       0    </span>
-<span id="cb18-11"><a></a>8 0             0.630   0.370</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource my_class600 number-lines code-with-copy"><code class="sourceCode"><span id="cb19-1"><a></a># A tibble: 8 × 3</span>
+<span id="cb19-2"><a></a>  .pred_class .pred_0 .pred_1</span>
+<span id="cb19-3"><a></a>  &lt;fct&gt;         &lt;dbl&gt;   &lt;dbl&gt;</span>
+<span id="cb19-4"><a></a>1 0             1       0    </span>
+<span id="cb19-5"><a></a>2 0             0.852   0.148</span>
+<span id="cb19-6"><a></a>3 0             1       0    </span>
+<span id="cb19-7"><a></a>4 0             1       0    </span>
+<span id="cb19-8"><a></a>5 1             0.481   0.519</span>
+<span id="cb19-9"><a></a>6 0             0.852   0.148</span>
+<span id="cb19-10"><a></a>7 0             1       0    </span>
+<span id="cb19-11"><a></a>8 1             0.370   0.630</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div><div class="column" style="width:42%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>knn_pred <span class="ot">&lt;-</span> </span>
-<span id="cb19-2"><a></a>    <span class="fu">pull</span>(<span class="fu">predict</span>(knn_fit, df_tst))</span>
-<span id="cb19-3"><a></a></span>
-<span id="cb19-4"><a></a><span class="do">## Confusion matrix</span></span>
-<span id="cb19-5"><a></a><span class="fu">table</span>(knn_pred, df_tst<span class="sc">$</span>GENDER)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">knn_pred</span> <span class="op">&lt;-</span> </span>
+<span>    <span class="fu">pull</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">knn_out</span>, <span class="va">df_tst</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## Confusion matrix</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">knn_pred</span>, <span class="va">df_tst</span><span class="op">$</span><span class="va">GENDER</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>        
 knn_pred  0  1
-       0 25  8
-       1  9 18</code></pre>
+       0 25  7
+       1  7 21</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="do">## Test accuracy rate</span></span>
-<span id="cb21-2"><a></a><span class="fu">mean</span>(knn_pred <span class="sc">==</span> df_tst<span class="sc">$</span>GENDER)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## Test accuracy rate</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">knn_pred</span> <span class="op">==</span> <span class="va">df_tst</span><span class="op">$</span><span class="va">GENDER</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.717</code></pre>
+<pre><code>[1] 0.767</code></pre>
 </div>
 </div>
 </div>
@@ -857,7 +890,7 @@ knn_pred  0  1
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/18-knn/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+<figure><p><img data-src="images/18-knn/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
 </figure>
 </div>
 </div>
@@ -866,7 +899,7 @@ knn_pred  0  1
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/18-knn/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+<figure><p><img data-src="images/18-knn/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
 </figure>
 </div>
 </div>
@@ -878,8 +911,11 @@ knn_pred  0  1
 <ul>
 <li><p>Use <strong><span class="math inline">\(v\)</span>-fold Cross Validation (CV)</strong> to choose tuning parameters. (MATH 4750 Computational Statistics)</p></li>
 <li><p>Usually use <span class="math inline">\(v = 5\)</span> or <span class="math inline">\(10\)</span>.</p></li>
-<li>
-<p>IDEA:</p>
+</ul>
+<div class="columns">
+<div class="column" style="width:42%;">
+<ul>
+<li>IDEA:
 <ul>
 <li>Prepare <span class="math inline">\(v\)</span> CV data sets</li>
 <li>Create a sequence of values of <span class="math inline">\(K\)</span>
@@ -888,16 +924,26 @@ knn_pred  0  1
 <li>Choose the <span class="math inline">\(K\)</span> with the highest accuracy rate</li>
 </ul>
 </li>
-</ul></section><section id="final-model" class="slide level2"><h2>Final Model</h2>
+</ul>
+</div><div class="column" style="width:58%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>knn_mdl_best <span class="ot">&lt;-</span> parsnip<span class="sc">::</span><span class="fu">nearest_neighbor</span>(<span class="at">neighbors =</span> <span class="dv">19</span>) <span class="sc">|&gt;</span></span>
-<span id="cb32-2"><a></a>    <span class="fu">set_mode</span>(<span class="st">"classification"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb32-3"><a></a>    <span class="fu">set_engine</span>(<span class="st">"kknn"</span>)</span>
-<span id="cb32-4"><a></a></span>
-<span id="cb32-5"><a></a>knn_fit_best <span class="ot">&lt;-</span> workflows<span class="sc">::</span><span class="fu">workflow</span>() <span class="sc">|&gt;</span></span>
-<span id="cb32-6"><a></a>    <span class="fu">add_recipe</span>(knn_recipe) <span class="sc">|&gt;</span></span>
-<span id="cb32-7"><a></a>    <span class="fu">add_model</span>(knn_mdl_best) <span class="sc">|&gt;</span></span>
-<span id="cb32-8"><a></a>    <span class="fu">fit</span>(<span class="at">data =</span> df_trn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="./images/18-knn/cross-validation.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section><section id="final-model" class="slide level2"><h2>Final Model</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>knn_mdl_best <span class="ot">&lt;-</span> parsnip<span class="sc">::</span><span class="fu">nearest_neighbor</span>(<span class="at">neighbors =</span> <span class="dv">29</span>, <span class="at">mode =</span> <span class="st">"classification"</span>)</span>
+<span id="cb33-2"><a></a></span>
+<span id="cb33-3"><a></a>knn_out_best <span class="ot">&lt;-</span> workflows<span class="sc">::</span><span class="fu">workflow</span>() <span class="sc">|&gt;</span></span>
+<span id="cb33-4"><a></a>    <span class="fu">add_recipe</span>(knn_recipe) <span class="sc">|&gt;</span></span>
+<span id="cb33-5"><a></a>    <span class="fu">add_model</span>(knn_mdl_best) <span class="sc">|&gt;</span></span>
+<span id="cb33-6"><a></a>    <span class="fu">fit</span>(<span class="at">data =</span> df_trn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <aside class="notes"><p>best_K &lt;- accu_cv |&gt; slice_max(mean) |&gt; pull(neighbors) |&gt; as.integer()</p>
 <style type="text/css">
@@ -912,20 +958,20 @@ knn_pred  0  1
           display:block!important;
       }</style></aside></section><section id="final-model-performance" class="slide level2"><h2>Final Model Performance</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>knn_pred_best <span class="ot">&lt;-</span> <span class="fu">pull</span>(<span class="fu">predict</span>(knn_fit_best, df_tst))</span>
-<span id="cb33-2"><a></a></span>
-<span id="cb33-3"><a></a><span class="do">## Confusion matrix</span></span>
-<span id="cb33-4"><a></a><span class="fu">table</span>(knn_pred_best, df_tst<span class="sc">$</span>GENDER)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a>knn_pred_best <span class="ot">&lt;-</span> <span class="fu">pull</span>(<span class="fu">predict</span>(knn_out_best, df_tst))</span>
+<span id="cb34-2"><a></a></span>
+<span id="cb34-3"><a></a><span class="do">## Confusion matrix</span></span>
+<span id="cb34-4"><a></a><span class="fu">table</span>(knn_pred_best, df_tst<span class="sc">$</span>GENDER)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             
 knn_pred_best  0  1
-            0 25  6
-            1  9 20</code></pre>
+            0 28  7
+            1  4 21</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a><span class="do">## Test accuracy rate</span></span>
-<span id="cb35-2"><a></a><span class="fu">mean</span>(knn_pred_best <span class="sc">==</span> df_tst<span class="sc">$</span>GENDER)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a><span class="do">## Test accuracy rate</span></span>
+<span id="cb36-2"><a></a><span class="fu">mean</span>(knn_pred_best <span class="sc">==</span> df_tst<span class="sc">$</span>GENDER)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.75</code></pre>
+<pre><code>[1] 0.817</code></pre>
 </div>
 </div>
 </section></section><section><section id="section-2" class="title-slide slide level1 center" data-background-color="#ffde57" data-background-image="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" data-background-size="40%" data-background-position="90% 50%"><h1></h1>
@@ -939,50 +985,453 @@ sklearn.model_selection
 </div>
 </section><section id="sklearn.model_selection.train_test_split" class="slide level2"><h2><a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html">sklearn.model_selection.train_test_split</a></h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a><span class="fu">library</span>(reticulate); <span class="fu">py_install</span>(<span class="st">"scikit-learn"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a><span class="fu">library</span>(reticulate); <span class="fu">py_install</span>(<span class="st">"scikit-learn"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb38-2"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb38-3"><a></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
-<span id="cb38-4"><a></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> KNeighborsClassifier</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb39-2"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb39-3"><a></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb39-4"><a></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> KNeighborsClassifier</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p><br></p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a></a>body <span class="op">=</span> pd.read_csv(<span class="st">'./data/body.csv'</span>)</span>
-<span id="cb39-2"><a></a></span>
-<span id="cb39-3"><a></a>X <span class="op">=</span> body[[<span class="st">'HEIGHT'</span>]]</span>
-<span id="cb39-4"><a></a>y <span class="op">=</span> body[<span class="st">'GENDER'</span>]</span>
-<span id="cb39-5"><a></a>X_trn, X_tst, y_trn, y_tst <span class="op">=</span> train_test_split(X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">2024</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a></a>body <span class="op">=</span> pd.read_csv(<span class="st">'./data/body.csv'</span>)</span>
+<span id="cb40-2"><a></a></span>
+<span id="cb40-3"><a></a>X <span class="op">=</span> body[[<span class="st">'HEIGHT'</span>]]</span>
+<span id="cb40-4"><a></a>y <span class="op">=</span> body[<span class="st">'GENDER'</span>]</span>
+<span id="cb40-5"><a></a>X_trn, X_tst, y_trn, y_tst <span class="op">=</span> train_test_split(X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">2024</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section><section id="sklearn.neighbors.kneighborsclassifier" class="slide level2"><h2><a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html">sklearn.neighbors.KNeighborsClassifier</a></h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a></a>neigh <span class="op">=</span> KNeighborsClassifier(n_neighbors <span class="op">=</span> <span class="dv">3</span>)</span>
-<span id="cb40-2"><a></a>X_trn <span class="op">=</span> np.array(X_trn)</span>
-<span id="cb40-3"><a></a>X_tst <span class="op">=</span> np.array(X_tst)</span>
-<span id="cb40-4"><a></a>neigh.fit(X_trn, y_trn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a></a>knn <span class="op">=</span> KNeighborsClassifier(n_neighbors <span class="op">=</span> <span class="dv">3</span>)</span>
+<span id="cb41-2"><a></a>X_trn <span class="op">=</span> np.array(X_trn)</span>
+<span id="cb41-3"><a></a>X_tst <span class="op">=</span> np.array(X_tst)</span>
+<span id="cb41-4"><a></a>knn.fit(X_trn, y_trn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style>
+<style>#sk-container-id-1 {
+  /* Definition of color scheme common for light and dark mode */
+  --sklearn-color-text: black;
+  --sklearn-color-line: gray;
+  /* Definition of color scheme for unfitted estimators */
+  --sklearn-color-unfitted-level-0: #fff5e6;
+  --sklearn-color-unfitted-level-1: #f6e4d2;
+  --sklearn-color-unfitted-level-2: #ffe0b3;
+  --sklearn-color-unfitted-level-3: chocolate;
+  /* Definition of color scheme for fitted estimators */
+  --sklearn-color-fitted-level-0: #f0f8ff;
+  --sklearn-color-fitted-level-1: #d4ebff;
+  --sklearn-color-fitted-level-2: #b3dbfd;
+  --sklearn-color-fitted-level-3: cornflowerblue;
+
+  /* Specific color for light theme */
+  --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, white)));
+  --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-icon: #696969;
+
+  @media (prefers-color-scheme: dark) {
+    /* Redefinition of color scheme for dark theme */
+    --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, #111)));
+    --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-icon: #878787;
+  }
+}
+
+#sk-container-id-1 {
+  color: var(--sklearn-color-text);
+}
+
+#sk-container-id-1 pre {
+  padding: 0;
+}
+
+#sk-container-id-1 input.sk-hidden--visually {
+  border: 0;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+#sk-container-id-1 div.sk-dashed-wrapped {
+  border: 1px dashed var(--sklearn-color-line);
+  margin: 0 0.4em 0.5em 0.4em;
+  box-sizing: border-box;
+  padding-bottom: 0.4em;
+  background-color: var(--sklearn-color-background);
+}
+
+#sk-container-id-1 div.sk-container {
+  /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
+     but bootstrap.min.css set `[hidden] { display: none !important; }`
+     so we also need the `!important` here to be able to override the
+     default hidden behavior on the sphinx rendered scikit-learn.org.
+     See: https://github.com/scikit-learn/scikit-learn/issues/21755 */
+  display: inline-block !important;
+  position: relative;
+}
+
+#sk-container-id-1 div.sk-text-repr-fallback {
+  display: none;
+}
+
+div.sk-parallel-item,
+div.sk-serial,
+div.sk-item {
+  /* draw centered vertical line to link estimators */
+  background-image: linear-gradient(var(--sklearn-color-text-on-default-background), var(--sklearn-color-text-on-default-background));
+  background-size: 2px 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* Parallel-specific style estimator block */
+
+#sk-container-id-1 div.sk-parallel-item::after {
+  content: "";
+  width: 100%;
+  border-bottom: 2px solid var(--sklearn-color-text-on-default-background);
+  flex-grow: 1;
+}
+
+#sk-container-id-1 div.sk-parallel {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background-color: var(--sklearn-color-background);
+  position: relative;
+}
+
+#sk-container-id-1 div.sk-parallel-item {
+  display: flex;
+  flex-direction: column;
+}
+
+#sk-container-id-1 div.sk-parallel-item:first-child::after {
+  align-self: flex-end;
+  width: 50%;
+}
+
+#sk-container-id-1 div.sk-parallel-item:last-child::after {
+  align-self: flex-start;
+  width: 50%;
+}
+
+#sk-container-id-1 div.sk-parallel-item:only-child::after {
+  width: 0;
+}
+
+/* Serial-specific style estimator block */
+
+#sk-container-id-1 div.sk-serial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--sklearn-color-background);
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
+
+/* Toggleable style: style used for estimator/Pipeline/ColumnTransformer box that is
+clickable and can be expanded/collapsed.
+- Pipeline and ColumnTransformer use this feature and define the default style
+- Estimators will overwrite some part of the style using the `sk-estimator` class
+*/
+
+/* Pipeline and ColumnTransformer style (default) */
+
+#sk-container-id-1 div.sk-toggleable {
+  /* Default theme specific background. It is overwritten whether we have a
+  specific estimator or a Pipeline/ColumnTransformer */
+  background-color: var(--sklearn-color-background);
+}
+
+/* Toggleable label */
+#sk-container-id-1 label.sk-toggleable__label {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  margin-bottom: 0;
+  padding: 0.5em;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+#sk-container-id-1 label.sk-toggleable__label-arrow:before {
+  /* Arrow on the left of the label */
+  content: "▸";
+  float: left;
+  margin-right: 0.25em;
+  color: var(--sklearn-color-icon);
+}
+
+#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {
+  color: var(--sklearn-color-text);
+}
+
+/* Toggleable content - dropdown */
+
+#sk-container-id-1 div.sk-toggleable__content {
+  max-height: 0;
+  max-width: 0;
+  overflow: hidden;
+  text-align: left;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content pre {
+  margin: 0.2em;
+  border-radius: 0.25em;
+  color: var(--sklearn-color-text);
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content.fitted pre {
+  /* unfitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {
+  /* Expand drop-down */
+  max-height: 200px;
+  max-width: 100%;
+  overflow: auto;
+}
+
+#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
+  content: "▾";
+}
+
+/* Pipeline/ColumnTransformer-specific style */
+
+#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator-specific style */
+
+/* Colorize estimator box */
+#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+#sk-container-id-1 div.sk-label label.sk-toggleable__label,
+#sk-container-id-1 div.sk-label label {
+  /* The background is the default theme color */
+  color: var(--sklearn-color-text-on-default-background);
+}
+
+/* On hover, darken the color of the background */
+#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+/* Label box, darken color on hover, fitted */
+#sk-container-id-1 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator label */
+
+#sk-container-id-1 div.sk-label label {
+  font-family: monospace;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 1.2em;
+}
+
+#sk-container-id-1 div.sk-label-container {
+  text-align: center;
+}
+
+/* Estimator-specific */
+#sk-container-id-1 div.sk-estimator {
+  font-family: monospace;
+  border: 1px dotted var(--sklearn-color-border-box);
+  border-radius: 0.25em;
+  box-sizing: border-box;
+  margin-bottom: 0.5em;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+/* on hover */
+#sk-container-id-1 div.sk-estimator:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Specification for estimator info (e.g. "i" and "?") */
+
+/* Common style for "i" and "?" */
+
+.sk-estimator-doc-link,
+a:link.sk-estimator-doc-link,
+a:visited.sk-estimator-doc-link {
+  float: right;
+  font-size: smaller;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1em;
+  height: 1em;
+  width: 1em;
+  text-decoration: none !important;
+  margin-left: 1ex;
+  /* unfitted */
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+  color: var(--sklearn-color-unfitted-level-1);
+}
+
+.sk-estimator-doc-link.fitted,
+a:link.sk-estimator-doc-link.fitted,
+a:visited.sk-estimator-doc-link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+div.sk-estimator:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover,
+div.sk-label-container:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+div.sk-estimator.fitted:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover,
+div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+/* Span, style for the box shown on hovering the info icon */
+.sk-estimator-doc-link span {
+  display: none;
+  z-index: 9999;
+  position: relative;
+  font-weight: normal;
+  right: .2ex;
+  padding: .5ex;
+  margin: .5ex;
+  width: min-content;
+  min-width: 20ex;
+  max-width: 50ex;
+  color: var(--sklearn-color-text);
+  box-shadow: 2pt 2pt 4pt #999;
+  /* unfitted */
+  background: var(--sklearn-color-unfitted-level-0);
+  border: .5pt solid var(--sklearn-color-unfitted-level-3);
+}
+
+.sk-estimator-doc-link.fitted span {
+  /* fitted */
+  background: var(--sklearn-color-fitted-level-0);
+  border: var(--sklearn-color-fitted-level-3);
+}
+
+.sk-estimator-doc-link:hover span {
+  display: block;
+}
+
+/* "?"-specific style due to the `<a>` HTML tag */
+
+#sk-container-id-1 a.estimator_doc_link {
+  float: right;
+  font-size: 1rem;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1rem;
+  height: 1rem;
+  width: 1rem;
+  text-decoration: none;
+  /* unfitted */
+  color: var(--sklearn-color-unfitted-level-1);
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+}
+
+#sk-container-id-1 a.estimator_doc_link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+#sk-container-id-1 a.estimator_doc_link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+#sk-container-id-1 a.estimator_doc_link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+}
+</a></style>
 <div id="sk-container-id-1" class="sk-top-container">
 <div class="sk-text-repr-fallback">
 <pre>KNeighborsClassifier(n_neighbors=3)</pre>
 <b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b>
 </div>
-<div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator sk-toggleable">
-<input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked=""><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">KNeighborsClassifier</label><div class="sk-toggleable__content"><pre>KNeighborsClassifier(n_neighbors=3)</pre></div>
-</div></div></div>
+<div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable">
+<input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked=""><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;KNeighborsClassifier<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.neighbors.KNeighborsClassifier.html">?<span>Documentation for KNeighborsClassifier</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>KNeighborsClassifier(n_neighbors=3)</pre></div> </div></div></div>
 </div>
 </div>
 </div>
 </section><section id="prediction-1" class="slide level2"><h2>Prediction</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a></a>y_pred <span class="op">=</span> neigh.predict(X_tst)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a></a>y_pred <span class="op">=</span> knn.predict(X_tst)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix</span>
-<span id="cb42-2"><a></a>confusion_matrix(y_tst, y_pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix</span>
+<span id="cb43-2"><a></a>confusion_matrix(y_tst, y_pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>array([[22,  5],
        [12, 21]])</code></pre>
@@ -991,13 +1440,13 @@ sklearn.model_selection
 <div class="fragment">
 <p><br></p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a></a>np.mean(y_tst <span class="op">==</span> y_pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a></a>np.mean(y_tst <span class="op">==</span> y_pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0.7166666666666667</code></pre>
 </div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a></a>np.mean(y_tst <span class="op">!=</span> y_pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a></a>np.mean(y_tst <span class="op">!=</span> y_pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0.2833333333333333</code></pre>
 </div>
@@ -1008,47 +1457,46 @@ sklearn.model_selection
 <p><span style="color:blue"> <strong>22-K Nearest Neighbors</strong> </span></p>
 <p>In <strong>lab.qmd</strong> <code>## Lab 22</code> section,</p>
 <ol type="1">
-<li><p>use <code>HEIGHT</code>, <code>WAIST</code> and <code>BMI</code> to predict <code>GENDER</code> using KNN with <span class="math inline">\(K = 3\)</span>.</p></li>
+<li><p>use <code>HEIGHT</code> and <code>WAIST</code> to predict <code>GENDER</code> using KNN with <span class="math inline">\(K = 3\)</span>.</p></li>
 <li><p>Generate the (test) confusion matrix.</p></li>
 <li><p>Calculate (test) accuracy rate.</p></li>
 <li><p>Does using more predictors predict better?</p></li>
 </ol>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb48-2"><a></a><span class="do">## load data</span></span>
-<span id="cb48-3"><a></a>bodydata <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"./data/body.csv"</span>)</span>
-<span id="cb48-4"><a></a>body <span class="ot">&lt;-</span> bodydata <span class="sc">|&gt;</span> </span>
-<span id="cb48-5"><a></a>    <span class="fu">select</span>(GENDER, HEIGHT, WAIST, BMI) <span class="sc">|&gt;</span> </span>
-<span id="cb48-6"><a></a>    <span class="fu">mutate</span>(<span class="at">GENDER =</span> <span class="fu">as.factor</span>(GENDER))</span>
-<span id="cb48-7"><a></a></span>
-<span id="cb48-8"><a></a><span class="do">## training and test data</span></span>
-<span id="cb48-9"><a></a><span class="fu">set.seed</span>(<span class="dv">2024</span>)</span>
-<span id="cb48-10"><a></a>df_split <span class="ot">&lt;-</span> rsample<span class="sc">::</span><span class="fu">initial_split</span>(<span class="at">data =</span> body, <span class="at">prop =</span> <span class="fl">0.8</span>)</span>
-<span id="cb48-11"><a></a>df_trn <span class="ot">&lt;-</span> rsample<span class="sc">::</span><span class="fu">training</span>(df_split)</span>
-<span id="cb48-12"><a></a>df_tst <span class="ot">&lt;-</span> rsample<span class="sc">::</span><span class="fu">testing</span>(df_split)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 </div>
 </section><section id="r-code" class="slide level2"><h2>R Code</h2>
+<div class="midi">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r my_classfull number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a><span class="do">## KNN training</span></span>
-<span id="cb49-2"><a></a>knn_recipe <span class="ot">&lt;-</span> recipes<span class="sc">::</span><span class="fu">recipe</span>(GENDER <span class="sc">~</span> HEIGHT <span class="sc">+</span> WAIST <span class="sc">+</span> BMI, <span class="at">data =</span> df_trn) <span class="sc">|&gt;</span> </span>
-<span id="cb49-3"><a></a>    <span class="fu">step_normalize</span>(<span class="fu">all_predictors</span>())</span>
-<span id="cb49-4"><a></a></span>
-<span id="cb49-5"><a></a>knn_mdl <span class="ot">&lt;-</span> parsnip<span class="sc">::</span><span class="fu">nearest_neighbor</span>(<span class="at">neighbors =</span> <span class="dv">3</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb49-6"><a></a>    <span class="fu">set_mode</span>(<span class="st">"classification"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb49-7"><a></a>    <span class="fu">set_engine</span>(<span class="st">"kknn"</span>)</span>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r my_classfull number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb49-2"><a></a></span>
+<span id="cb49-3"><a></a><span class="do">## load data</span></span>
+<span id="cb49-4"><a></a>bodydata <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"./data/body.csv"</span>)</span>
+<span id="cb49-5"><a></a>body <span class="ot">&lt;-</span> bodydata <span class="sc">|&gt;</span> </span>
+<span id="cb49-6"><a></a>    <span class="fu">select</span>(GENDER, HEIGHT, WAIST) <span class="sc">|&gt;</span> </span>
+<span id="cb49-7"><a></a>    <span class="fu">mutate</span>(<span class="at">GENDER =</span> <span class="fu">as.factor</span>(GENDER))</span>
 <span id="cb49-8"><a></a></span>
-<span id="cb49-9"><a></a>knn_out <span class="ot">&lt;-</span> workflows<span class="sc">::</span><span class="fu">workflow</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb49-10"><a></a>    <span class="fu">add_recipe</span>(knn_recipe) <span class="sc">|&gt;</span> </span>
-<span id="cb49-11"><a></a>    <span class="fu">add_model</span>(knn_mdl) <span class="sc">|&gt;</span> </span>
-<span id="cb49-12"><a></a>    <span class="fu">fit</span>(<span class="at">data =</span> df_trn)</span>
-<span id="cb49-13"><a></a></span>
-<span id="cb49-14"><a></a><span class="do">## KNN prediction</span></span>
-<span id="cb49-15"><a></a>knn_pred <span class="ot">&lt;-</span> <span class="fu">pull</span>(<span class="fu">predict</span>(knn_out, df_tst))</span>
-<span id="cb49-16"><a></a><span class="fu">table</span>(knn_pred, df_tst<span class="sc">$</span>GENDER)</span>
-<span id="cb49-17"><a></a><span class="fu">mean</span>(knn_pred <span class="sc">==</span> df_tst<span class="sc">$</span>GENDER)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb49-9"><a></a><span class="do">## training and test data</span></span>
+<span id="cb49-10"><a></a><span class="fu">set.seed</span>(<span class="dv">2024</span>)</span>
+<span id="cb49-11"><a></a>df_split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(<span class="at">data =</span> body, <span class="at">prop =</span> <span class="fl">0.8</span>)</span>
+<span id="cb49-12"><a></a>df_trn <span class="ot">&lt;-</span> <span class="fu">training</span>(df_split)</span>
+<span id="cb49-13"><a></a>df_tst <span class="ot">&lt;-</span> <span class="fu">testing</span>(df_split)</span>
+<span id="cb49-14"><a></a></span>
+<span id="cb49-15"><a></a><span class="do">## KNN training</span></span>
+<span id="cb49-16"><a></a>knn_recipe <span class="ot">&lt;-</span> <span class="fu">recipe</span>(GENDER <span class="sc">~</span> HEIGHT <span class="sc">+</span> WAIST, <span class="at">data =</span> df_trn) <span class="sc">|&gt;</span> </span>
+<span id="cb49-17"><a></a>    <span class="fu">step_normalize</span>(<span class="fu">all_predictors</span>())</span>
+<span id="cb49-18"><a></a>knn_mdl <span class="ot">&lt;-</span> <span class="fu">nearest_neighbor</span>(<span class="at">neighbors =</span> <span class="dv">3</span>, <span class="at">mode =</span> <span class="st">"classification"</span>)</span>
+<span id="cb49-19"><a></a>knn_out <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb49-20"><a></a>    <span class="fu">add_recipe</span>(knn_recipe) <span class="sc">|&gt;</span> </span>
+<span id="cb49-21"><a></a>    <span class="fu">add_model</span>(knn_mdl) <span class="sc">|&gt;</span> </span>
+<span id="cb49-22"><a></a>    <span class="fu">fit</span>(<span class="at">data =</span> df_trn)</span>
+<span id="cb49-23"><a></a></span>
+<span id="cb49-24"><a></a><span class="do">## KNN prediction</span></span>
+<span id="cb49-25"><a></a>knn_pred <span class="ot">&lt;-</span> <span class="fu">pull</span>(<span class="fu">predict</span>(knn_out, df_tst))</span>
+<span id="cb49-26"><a></a><span class="fu">table</span>(knn_pred, df_tst<span class="sc">$</span>GENDER)</span>
+<span id="cb49-27"><a></a><span class="fu">mean</span>(knn_pred <span class="sc">==</span> df_tst<span class="sc">$</span>GENDER)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 </section><section id="python-code" class="slide level2"><h2>Python Code</h2>
+<div class="midi">
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python my_classfull number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb50-2"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -1057,21 +1505,24 @@ sklearn.model_selection
 <span id="cb50-5"><a></a></span>
 <span id="cb50-6"><a></a><span class="co">## load data</span></span>
 <span id="cb50-7"><a></a>body <span class="op">=</span> pd.read_csv(<span class="st">'./data/body.csv'</span>)</span>
-<span id="cb50-8"><a></a></span>
-<span id="cb50-9"><a></a>X <span class="op">=</span> body[[<span class="st">'HEIGHT'</span>, <span class="st">'WAIST'</span>, <span class="st">'BMI'</span>]]</span>
-<span id="cb50-10"><a></a>y <span class="op">=</span> body[<span class="st">'GENDER'</span>]</span>
-<span id="cb50-11"><a></a>X_trn, X_tst, y_trn, y_tst <span class="op">=</span> train_test_split(X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">2024</span>)</span>
-<span id="cb50-12"><a></a></span>
-<span id="cb50-13"><a></a><span class="co">## KNN training</span></span>
-<span id="cb50-14"><a></a>neigh <span class="op">=</span> KNeighborsClassifier(n_neighbors <span class="op">=</span> <span class="dv">3</span>)</span>
-<span id="cb50-15"><a></a>X_trn <span class="op">=</span> np.array(X_trn)</span>
-<span id="cb50-16"><a></a>X_tst <span class="op">=</span> np.array(X_tst)</span>
-<span id="cb50-17"><a></a>neigh.fit(X_trn, y_trn)</span>
-<span id="cb50-18"><a></a></span>
-<span id="cb50-19"><a></a><span class="co">## KNN prediction</span></span>
-<span id="cb50-20"><a></a>y_pred <span class="op">=</span> neigh.predict(X_tst)</span>
-<span id="cb50-21"><a></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix</span>
-<span id="cb50-22"><a></a>confusion_matrix(y_tst, y_pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb50-8"><a></a>X <span class="op">=</span> body[[<span class="st">'HEIGHT'</span>, <span class="st">'WAIST'</span>]]</span>
+<span id="cb50-9"><a></a>y <span class="op">=</span> body[<span class="st">'GENDER'</span>]</span>
+<span id="cb50-10"><a></a></span>
+<span id="cb50-11"><a></a><span class="co">## training and test data</span></span>
+<span id="cb50-12"><a></a>X_trn, X_tst, y_trn, y_tst <span class="op">=</span> train_test_split(X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">2024</span>)</span>
+<span id="cb50-13"><a></a></span>
+<span id="cb50-14"><a></a><span class="co">## KNN training</span></span>
+<span id="cb50-15"><a></a>knn <span class="op">=</span> KNeighborsClassifier(n_neighbors <span class="op">=</span> <span class="dv">3</span>)</span>
+<span id="cb50-16"><a></a>X_trn <span class="op">=</span> np.array(X_trn)</span>
+<span id="cb50-17"><a></a>X_tst <span class="op">=</span> np.array(X_tst)</span>
+<span id="cb50-18"><a></a>knn.fit(X_trn, y_trn)</span>
+<span id="cb50-19"><a></a></span>
+<span id="cb50-20"><a></a><span class="co">## KNN prediction</span></span>
+<span id="cb50-21"><a></a>y_pred <span class="op">=</span> knn.predict(X_tst)</span>
+<span id="cb50-22"><a></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix</span>
+<span id="cb50-23"><a></a>confusion_matrix(y_tst, y_pred)</span>
+<span id="cb50-24"><a></a>np.mean(y_tst <span class="op">==</span> y_pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 
 <div class="quarto-auto-generated-content">
@@ -1386,24 +1837,6 @@ sklearn.model_selection
         // clear code selection
         e.clearSelection();
       });
-        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-        var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp("https:\/\/math3570-s24\.github\.io\/website\/");
-        var isInternal = (href) => {
-            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-        }
-        // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-        for (var i=0; i<links.length; i++) {
-          const link = links[i];
-          if (!isInternal(link.href)) {
-            // undo the damage that might have been done by quarto-nav.js in the case of
-            // links that we want to consider external
-            if (link.dataset.originalHref !== undefined) {
-              link.href = link.dataset.originalHref;
-            }
-          }
-        }
       function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
@@ -1440,11 +1873,7 @@ sklearn.model_selection
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          if (note) {
-            return note.innerHTML;
-          } else {
-            return "";
-          }
+          return note.innerHTML;
         });
       }
       const findCites = (el) => {
