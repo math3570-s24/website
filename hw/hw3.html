@@ -423,6 +423,7 @@ window.Quarto = {
 <ol type="1">
 <li>Suppose you are in a classroom with 30 people. If we assume this is a randomly selected group of 30 people, what is the chance that at least two people have the same birthday? Here we use a Monte Carlo simulation. For simplicity, we assume nobody was born on February 29.</li>
 </ol>
+<!-- -->
 <ol type="i">
 <li>Note that birthdays can be represented as numbers between 1 and 365, so a sample of 30 birthdays can be obtained like this:</li>
 </ol>
@@ -487,7 +488,7 @@ window.Quarto = {
 <h2 data-number="2.1" class="anchored" data-anchor-id="linear-regression"><span class="header-section-number">2.1</span> Linear Regression</h2>
 <p>A pharmaceutical firm would like to obtain information on the relationship between the dose level and potency of a drug product. To do this, each of 15 test tubes is inoculated with a virus culture and incubated for 5 days at 30°C. Three test tubes are randomly assigned to each of the five different dose levels to be investigated (2, 4, 8, 16, and 32 mg). Each tube is injected with only one dose level, and the response of interest is obtained.</p>
 <ol type="1">
-<li>Import <code>dose.csv</code> in the <code>/data</code> folder into your working session. The data set is not tidy. Use <code>pivot_longer()</code> to make it tidy as the shown tibble below. Call the tidy data set <code>dose_tidy</code>.</li>
+<li>Import <a href="./dose.csv"><code>dose.csv</code></a> into your working session. The data set is not tidy. Use <code>pivot_longer()</code> to make it tidy as the shown tibble below. Call the tidy data set <code>dose_tidy</code>.</li>
 </ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">## code</span></span>
@@ -559,7 +560,7 @@ window.Quarto = {
 <section id="logistic-regression" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="logistic-regression"><span class="header-section-number">2.2</span> Logistic Regression</h2>
 <ol type="1">
-<li>Import <code>body.csv</code> in the <code>/data</code> folder. Split the data into a training set and a test set. Set the random seed at your student ID number. Use 80:20 rule.</li>
+<li>Import <a href="./body.csv"><code>body.csv</code></a>. Split the data into a training set and a test set. Set the random seed at your student ID number. Use 80:20 rule.</li>
 </ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code</span></span>
@@ -1241,255 +1242,240 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb25-38"><a href="#cb25-38" aria-hidden="true" tabindex="-1"></a><span class="fu">invisible</span>(<span class="fu">lapply</span>(packages, library, <span class="at">character.only =</span> <span class="cn">TRUE</span>))</span>
 <span id="cb25-39"><a href="#cb25-39" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb25-40"><a href="#cb25-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-41"><a href="#cb25-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-42"><a href="#cb25-42" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Note: For any simulation or random sampling, set the random seed at your student ID number, for example `set.seed(6145678)`.**</span>
-<span id="cb25-43"><a href="#cb25-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-41"><a href="#cb25-41" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Note: For any simulation or random sampling, set the random seed at your student ID number, for example `set.seed(6145678)`.**</span>
+<span id="cb25-42"><a href="#cb25-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-43"><a href="#cb25-43" aria-hidden="true" tabindex="-1"></a><span class="fu"># Probability and Statistics</span></span>
 <span id="cb25-44"><a href="#cb25-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-45"><a href="#cb25-45" aria-hidden="true" tabindex="-1"></a><span class="fu"># Probability and Statistics</span></span>
+<span id="cb25-45"><a href="#cb25-45" aria-hidden="true" tabindex="-1"></a><span class="fu">## Monte Carlo Simulation</span></span>
 <span id="cb25-46"><a href="#cb25-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-47"><a href="#cb25-47" aria-hidden="true" tabindex="-1"></a><span class="fu">## Monte Carlo Simulation</span></span>
+<span id="cb25-47"><a href="#cb25-47" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- 1. Milwaukee Bucks and Golden State Warriors are playing NBA Finals 🏆. The first to win four games wins the series. The Bucks are a better team and have a 60% chance of winning each game. If the Bucks lose the **first two games**, calculate the probability that the Bucks win the NBA championship?  --&gt;</span></span>
 <span id="cb25-48"><a href="#cb25-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-49"><a href="#cb25-49" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- 1. Milwaukee Bucks and Golden State Warriors are playing NBA Finals 🏆. The first to win four games wins the series. The Bucks are a better team and have a 60% chance of winning each game. If the Bucks lose the **first two games**, calculate the probability that the Bucks win the NBA championship?  --&gt;</span></span>
+<span id="cb25-49"><a href="#cb25-49" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- **[Hint]**: You can use binomial distribution, and given the first two games loss, the probability $P(\text{Bucks wins the series})$ is --&gt;</span></span>
 <span id="cb25-50"><a href="#cb25-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-51"><a href="#cb25-51" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- **[Hint]**: You can use binomial distribution, and given the first two games loss, the probability $P(\text{Bucks wins the series})$ is --&gt;</span></span>
+<span id="cb25-51"><a href="#cb25-51" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- $$P(\text{Bucks wins 4 in a row}) + P(\text{Bucks wins 4 in 5 games})$$ --&gt;</span></span>
 <span id="cb25-52"><a href="#cb25-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-53"><a href="#cb25-53" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- $$P(\text{Bucks wins 4 in a row}) + P(\text{Bucks wins 4 in 5 games})$$ --&gt;</span></span>
+<span id="cb25-53"><a href="#cb25-53" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- ```{r} --&gt;</span></span>
 <span id="cb25-54"><a href="#cb25-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-55"><a href="#cb25-55" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- ```{r} --&gt;</span></span>
+<span id="cb25-55"><a href="#cb25-55" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- ## code --&gt;</span></span>
 <span id="cb25-56"><a href="#cb25-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-57"><a href="#cb25-57" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- ## code --&gt;</span></span>
+<span id="cb25-57"><a href="#cb25-57" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- ``` --&gt;</span></span>
 <span id="cb25-58"><a href="#cb25-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-59"><a href="#cb25-59" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- ``` --&gt;</span></span>
+<span id="cb25-59"><a href="#cb25-59" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- 2. Confirm the results of the previous question using a Monte Carlo simulation. --&gt;</span></span>
 <span id="cb25-60"><a href="#cb25-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-61"><a href="#cb25-61" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- 2. Confirm the results of the previous question using a Monte Carlo simulation. --&gt;</span></span>
+<span id="cb25-61"><a href="#cb25-61" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- ```{r} --&gt;</span></span>
 <span id="cb25-62"><a href="#cb25-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-63"><a href="#cb25-63" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- ```{r} --&gt;</span></span>
+<span id="cb25-63"><a href="#cb25-63" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- ## code --&gt;</span></span>
 <span id="cb25-64"><a href="#cb25-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-65"><a href="#cb25-65" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- ## code --&gt;</span></span>
-<span id="cb25-66"><a href="#cb25-66" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- # set.seed(your ID number) --&gt;</span></span>
-<span id="cb25-67"><a href="#cb25-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-68"><a href="#cb25-68" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- ``` --&gt;</span></span>
-<span id="cb25-69"><a href="#cb25-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-70"><a href="#cb25-70" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Suppose you are in a classroom with 30 people. If we assume this is a randomly selected group of 30 people, what is the chance that at least two people have the same birthday? Here we use a Monte Carlo simulation. For simplicity, we assume nobody was born on February 29.</span>
-<span id="cb25-71"><a href="#cb25-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-72"><a href="#cb25-72" aria-hidden="true" tabindex="-1"></a>i. Note that birthdays can be represented as numbers between 1 and 365, so a sample of 30 birthdays can be obtained like this:</span>
-<span id="cb25-73"><a href="#cb25-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-76"><a href="#cb25-76" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-77"><a href="#cb25-77" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">30</span></span>
-<span id="cb25-78"><a href="#cb25-78" aria-hidden="true" tabindex="-1"></a>bdays <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">365</span>, <span class="at">size =</span> n, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb25-79"><a href="#cb25-79" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-80"><a href="#cb25-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-81"><a href="#cb25-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-82"><a href="#cb25-82" aria-hidden="true" tabindex="-1"></a>ii. To check if in this particular set of 30 people we have at least two with the same birthday, we can use the function <span class="in">`duplicated()`</span>, which returns <span class="in">`TRUE`</span> whenever an element of a vector is a duplicate. Here is an example:</span>
-<span id="cb25-85"><a href="#cb25-85" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-86"><a href="#cb25-86" aria-hidden="true" tabindex="-1"></a><span class="fu">duplicated</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">5</span>))</span>
-<span id="cb25-87"><a href="#cb25-87" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-88"><a href="#cb25-88" aria-hidden="true" tabindex="-1"></a>The second time 1 and 3 appear, we get a <span class="in">`TRUE`</span>.</span>
-<span id="cb25-89"><a href="#cb25-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-65"><a href="#cb25-65" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- # set.seed(your ID number) --&gt;</span></span>
+<span id="cb25-66"><a href="#cb25-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-67"><a href="#cb25-67" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- ``` --&gt;</span></span>
+<span id="cb25-68"><a href="#cb25-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-69"><a href="#cb25-69" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Suppose you are in a classroom with 30 people. If we assume this is a randomly selected group of 30 people, what is the chance that at least two people have the same birthday? Here we use a Monte Carlo simulation. For simplicity, we assume nobody was born on February 29.</span>
+<span id="cb25-70"><a href="#cb25-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-71"><a href="#cb25-71" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb25-72"><a href="#cb25-72" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;!-- --&gt;</span></span>
+<span id="cb25-73"><a href="#cb25-73" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-74"><a href="#cb25-74" aria-hidden="true" tabindex="-1"></a>i.  Note that birthdays can be represented as numbers between 1 and 365, so a sample of 30 birthdays can be obtained like this:</span>
+<span id="cb25-75"><a href="#cb25-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-78"><a href="#cb25-78" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-79"><a href="#cb25-79" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">30</span></span>
+<span id="cb25-80"><a href="#cb25-80" aria-hidden="true" tabindex="-1"></a>bdays <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">365</span>, <span class="at">size =</span> n, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb25-81"><a href="#cb25-81" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-82"><a href="#cb25-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-83"><a href="#cb25-83" aria-hidden="true" tabindex="-1"></a>ii. To check if in this particular set of 30 people we have at least two with the same birthday, we can use the function <span class="in">`duplicated()`</span>, which returns <span class="in">`TRUE`</span> whenever an element of a vector is a duplicate. Here is an example:</span>
+<span id="cb25-84"><a href="#cb25-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-87"><a href="#cb25-87" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-88"><a href="#cb25-88" aria-hidden="true" tabindex="-1"></a><span class="fu">duplicated</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">5</span>))</span>
+<span id="cb25-89"><a href="#cb25-89" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb25-90"><a href="#cb25-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-91"><a href="#cb25-91" aria-hidden="true" tabindex="-1"></a>iii. To check if two birthdays were the same, we simply use the <span class="in">`any()`</span> and <span class="in">`duplicated()`</span> functions like this:</span>
-<span id="cb25-94"><a href="#cb25-94" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-95"><a href="#cb25-95" aria-hidden="true" tabindex="-1"></a><span class="fu">any</span>(<span class="fu">duplicated</span>(bdays))</span>
-<span id="cb25-96"><a href="#cb25-96" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-97"><a href="#cb25-97" aria-hidden="true" tabindex="-1"></a>In this case, we see that it did happen. At least two people had the same birthday.</span>
-<span id="cb25-98"><a href="#cb25-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-99"><a href="#cb25-99" aria-hidden="true" tabindex="-1"></a>To estimate the probability of a shared birthday in the group, repeat this experiment by sampling sets of 30 birthdays 10000 times, and find the relative frequency of the event that at least two people had the same birthday.</span>
+<span id="cb25-91"><a href="#cb25-91" aria-hidden="true" tabindex="-1"></a>The second time 1 and 3 appear, we get a <span class="in">`TRUE`</span>.</span>
+<span id="cb25-92"><a href="#cb25-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-93"><a href="#cb25-93" aria-hidden="true" tabindex="-1"></a>iii. To check if two birthdays were the same, we simply use the <span class="in">`any()`</span> and <span class="in">`duplicated()`</span> functions like this:</span>
+<span id="cb25-94"><a href="#cb25-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-97"><a href="#cb25-97" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-98"><a href="#cb25-98" aria-hidden="true" tabindex="-1"></a><span class="fu">any</span>(<span class="fu">duplicated</span>(bdays))</span>
+<span id="cb25-99"><a href="#cb25-99" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb25-100"><a href="#cb25-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-103"><a href="#cb25-103" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-104"><a href="#cb25-104" aria-hidden="true" tabindex="-1"></a><span class="do">## code</span></span>
-<span id="cb25-105"><a href="#cb25-105" aria-hidden="true" tabindex="-1"></a><span class="co"># set.seed(your ID number)</span></span>
-<span id="cb25-106"><a href="#cb25-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-107"><a href="#cb25-107" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb25-108"><a href="#cb25-108" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-109"><a href="#cb25-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-101"><a href="#cb25-101" aria-hidden="true" tabindex="-1"></a>In this case, we see that it did happen. At least two people had the same birthday.</span>
+<span id="cb25-102"><a href="#cb25-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-103"><a href="#cb25-103" aria-hidden="true" tabindex="-1"></a>To estimate the probability of a shared birthday in the group, repeat this experiment by sampling sets of 30 birthdays 10000 times, and find the relative frequency of the event that at least two people had the same birthday.</span>
+<span id="cb25-104"><a href="#cb25-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-107"><a href="#cb25-107" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-108"><a href="#cb25-108" aria-hidden="true" tabindex="-1"></a><span class="do">## code</span></span>
+<span id="cb25-109"><a href="#cb25-109" aria-hidden="true" tabindex="-1"></a><span class="co"># set.seed(your ID number)</span></span>
 <span id="cb25-110"><a href="#cb25-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-111"><a href="#cb25-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-112"><a href="#cb25-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-111"><a href="#cb25-111" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb25-112"><a href="#cb25-112" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb25-113"><a href="#cb25-113" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-114"><a href="#cb25-114" aria-hidden="true" tabindex="-1"></a><span class="fu">## Central Limit Theorem</span></span>
-<span id="cb25-115"><a href="#cb25-115" aria-hidden="true" tabindex="-1"></a>Suppose random variables $X_1, X_2, \dots, X_n$ are independent and follow Chi-squared distribution with degrees of freedom 1, $\chi^2_{df=1}$.</span>
-<span id="cb25-116"><a href="#cb25-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-117"><a href="#cb25-117" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Use <span class="in">`dchisq()`</span> to plot $\chi^2_{df=1}$ distribution. Consider $x\in (0, 5)$.</span>
-<span id="cb25-118"><a href="#cb25-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-121"><a href="#cb25-121" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-122"><a href="#cb25-122" aria-hidden="true" tabindex="-1"></a><span class="do">## code</span></span>
-<span id="cb25-123"><a href="#cb25-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-124"><a href="#cb25-124" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-125"><a href="#cb25-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-115"><a href="#cb25-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-116"><a href="#cb25-116" aria-hidden="true" tabindex="-1"></a>Suppose random variables $X_1, X_2, \dots, X_n$ are independent and follow Chi-squared distribution with degrees of freedom 1, $\chi^2_{df=1}$.</span>
+<span id="cb25-117"><a href="#cb25-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-118"><a href="#cb25-118" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Use <span class="in">`dchisq()`</span> to plot $\chi^2_{df=1}$ distribution. Consider $x\in (0, 5)$.</span>
+<span id="cb25-119"><a href="#cb25-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-122"><a href="#cb25-122" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-123"><a href="#cb25-123" aria-hidden="true" tabindex="-1"></a><span class="do">## code</span></span>
+<span id="cb25-124"><a href="#cb25-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-125"><a href="#cb25-125" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb25-126"><a href="#cb25-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-127"><a href="#cb25-127" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Consider three sample sizes $n = 2, 8, 100$, and set the sample size of the sample mean $\overline{X}_n$ be $1000$. Show the sampling distribution of $\overline{X}_n$, i.e., the collection $\{\overline{X}_n^{(m)}\}_{m=1}^{1000}$, looks more and more like Gaussian as $n$ increases by making histograms of $\overline{X}_n$ samples with $n = 2, 8, 100$. The procedure is the following:</span>
+<span id="cb25-127"><a href="#cb25-127" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Consider three sample sizes $n = 2, 8, 100$, and set the sample size of the sample mean $\overline{X}_n$ be $1000$. Show the sampling distribution of $\overline{X}_n$, i.e., the collection $\{\overline{X}_n^{(m)}\}_{m=1}^{1000}$, looks more and more like Gaussian as $n$ increases by making histograms of $\overline{X}_n$ samples with $n = 2, 8, 100$. The procedure is the following:</span>
 <span id="cb25-128"><a href="#cb25-128" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-129"><a href="#cb25-129" aria-hidden="true" tabindex="-1"></a>For each $n = 2, 8, 100$,</span>
 <span id="cb25-130"><a href="#cb25-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-131"><a href="#cb25-131" aria-hidden="true" tabindex="-1"></a>i. Draw $n$ values $x_1, x_2, \dots, x_n$ using <span class="in">`rchisq(n, df = 1)`</span>.</span>
+<span id="cb25-131"><a href="#cb25-131" aria-hidden="true" tabindex="-1"></a>i.  Draw $n$ values $x_1, x_2, \dots, x_n$ using <span class="in">`rchisq(n, df = 1)`</span>.</span>
 <span id="cb25-132"><a href="#cb25-132" aria-hidden="true" tabindex="-1"></a>ii. Compute the mean of the $n$ values, which is $\overline{x}_n$.</span>
 <span id="cb25-133"><a href="#cb25-133" aria-hidden="true" tabindex="-1"></a>iii. Repeat i. and ii. 1000 times to obtain 1000 $\overline{x}_n$s.</span>
 <span id="cb25-134"><a href="#cb25-134" aria-hidden="true" tabindex="-1"></a>iv. Plot the histogram of these 1000 $\overline{x}_n$s.</span>
 <span id="cb25-135"><a href="#cb25-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-136"><a href="#cb25-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-139"><a href="#cb25-139" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-140"><a href="#cb25-140" aria-hidden="true" tabindex="-1"></a><span class="do">## code</span></span>
-<span id="cb25-141"><a href="#cb25-141" aria-hidden="true" tabindex="-1"></a><span class="co"># set.seed(your ID number)</span></span>
+<span id="cb25-138"><a href="#cb25-138" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-139"><a href="#cb25-139" aria-hidden="true" tabindex="-1"></a><span class="do">## code</span></span>
+<span id="cb25-140"><a href="#cb25-140" aria-hidden="true" tabindex="-1"></a><span class="co"># set.seed(your ID number)</span></span>
+<span id="cb25-141"><a href="#cb25-141" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-142"><a href="#cb25-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-143"><a href="#cb25-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-144"><a href="#cb25-144" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-145"><a href="#cb25-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-143"><a href="#cb25-143" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-144"><a href="#cb25-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-145"><a href="#cb25-145" aria-hidden="true" tabindex="-1"></a><span class="fu"># Machine Learning</span></span>
 <span id="cb25-146"><a href="#cb25-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-147"><a href="#cb25-147" aria-hidden="true" tabindex="-1"></a><span class="fu"># Machine Learning</span></span>
+<span id="cb25-147"><a href="#cb25-147" aria-hidden="true" tabindex="-1"></a><span class="fu">## Linear Regression</span></span>
 <span id="cb25-148"><a href="#cb25-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-149"><a href="#cb25-149" aria-hidden="true" tabindex="-1"></a><span class="fu">## Linear Regression</span></span>
+<span id="cb25-149"><a href="#cb25-149" aria-hidden="true" tabindex="-1"></a>A pharmaceutical firm would like to obtain information on the relationship between the dose level and potency of a drug product. To do this, each of 15 test tubes is inoculated with a virus culture and incubated for 5 days at 30°C. Three test tubes are randomly assigned to each of the five different dose levels to be investigated (2, 4, 8, 16, and 32 mg). Each tube is injected with only one dose level, and the response of interest is obtained.</span>
 <span id="cb25-150"><a href="#cb25-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-151"><a href="#cb25-151" aria-hidden="true" tabindex="-1"></a>A pharmaceutical firm would like to obtain information on the relationship between the dose level and potency of a drug product. To do this, each of 15 test tubes is inoculated with a virus culture and incubated for 5 days at 30°C. Three test tubes are randomly assigned to each of the five different dose levels to be investigated (2, 4, 8, 16, and 32 mg). Each tube is injected with only one dose level, and the response of interest is obtained.</span>
+<span id="cb25-151"><a href="#cb25-151" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Import <span class="co">[</span><span class="ot">`dose.csv`</span><span class="co">](./dose.csv)</span> into your working session. The data set is not tidy. Use <span class="in">`pivot_longer()`</span> to make it tidy as the shown tibble below. Call the tidy data set <span class="in">`dose_tidy`</span>.</span>
 <span id="cb25-152"><a href="#cb25-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-153"><a href="#cb25-153" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Import <span class="in">`dose.csv`</span> in the <span class="in">`/data`</span> folder into your working session. The data set is not tidy. Use <span class="in">`pivot_longer()`</span> to make it tidy as the shown tibble below. Call the tidy data set <span class="in">`dose_tidy`</span>.</span>
-<span id="cb25-154"><a href="#cb25-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-157"><a href="#cb25-157" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-158"><a href="#cb25-158" aria-hidden="true" tabindex="-1"></a><span class="do">## code</span></span>
-<span id="cb25-159"><a href="#cb25-159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-160"><a href="#cb25-160" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 15 × 3</span></span>
-<span id="cb25-161"><a href="#cb25-161" aria-hidden="true" tabindex="-1"></a><span class="do">##    dose_level tube  response</span></span>
-<span id="cb25-162"><a href="#cb25-162" aria-hidden="true" tabindex="-1"></a><span class="do">##         &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;</span></span>
-<span id="cb25-163"><a href="#cb25-163" aria-hidden="true" tabindex="-1"></a><span class="do">##  1          2 tube1        5</span></span>
-<span id="cb25-164"><a href="#cb25-164" aria-hidden="true" tabindex="-1"></a><span class="do">##  2          2 tube2        7</span></span>
-<span id="cb25-165"><a href="#cb25-165" aria-hidden="true" tabindex="-1"></a><span class="do">##  3          2 tube3        3</span></span>
-<span id="cb25-166"><a href="#cb25-166" aria-hidden="true" tabindex="-1"></a><span class="do">##  4          4 tube1       10</span></span>
-<span id="cb25-167"><a href="#cb25-167" aria-hidden="true" tabindex="-1"></a><span class="do">##  5          4 tube2       12</span></span>
-<span id="cb25-168"><a href="#cb25-168" aria-hidden="true" tabindex="-1"></a><span class="do">##  6          4 tube3       14</span></span>
-<span id="cb25-169"><a href="#cb25-169" aria-hidden="true" tabindex="-1"></a><span class="do">##  7          8 tube1       15</span></span>
-<span id="cb25-170"><a href="#cb25-170" aria-hidden="true" tabindex="-1"></a><span class="do">##  8          8 tube2       17</span></span>
-<span id="cb25-171"><a href="#cb25-171" aria-hidden="true" tabindex="-1"></a><span class="do">##  9          8 tube3       18</span></span>
-<span id="cb25-172"><a href="#cb25-172" aria-hidden="true" tabindex="-1"></a><span class="do">## 10         16 tube1       20</span></span>
-<span id="cb25-173"><a href="#cb25-173" aria-hidden="true" tabindex="-1"></a><span class="do">## 11         16 tube2       21</span></span>
-<span id="cb25-174"><a href="#cb25-174" aria-hidden="true" tabindex="-1"></a><span class="do">## 12         16 tube3       19</span></span>
-<span id="cb25-175"><a href="#cb25-175" aria-hidden="true" tabindex="-1"></a><span class="do">## 13         32 tube1       23</span></span>
-<span id="cb25-176"><a href="#cb25-176" aria-hidden="true" tabindex="-1"></a><span class="do">## 14         32 tube2       24</span></span>
-<span id="cb25-177"><a href="#cb25-177" aria-hidden="true" tabindex="-1"></a><span class="do">## 15         32 tube3       29</span></span>
-<span id="cb25-178"><a href="#cb25-178" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-155"><a href="#cb25-155" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-156"><a href="#cb25-156" aria-hidden="true" tabindex="-1"></a><span class="do">## code</span></span>
+<span id="cb25-157"><a href="#cb25-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-158"><a href="#cb25-158" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 15 × 3</span></span>
+<span id="cb25-159"><a href="#cb25-159" aria-hidden="true" tabindex="-1"></a><span class="do">##    dose_level tube  response</span></span>
+<span id="cb25-160"><a href="#cb25-160" aria-hidden="true" tabindex="-1"></a><span class="do">##         &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;</span></span>
+<span id="cb25-161"><a href="#cb25-161" aria-hidden="true" tabindex="-1"></a><span class="do">##  1          2 tube1        5</span></span>
+<span id="cb25-162"><a href="#cb25-162" aria-hidden="true" tabindex="-1"></a><span class="do">##  2          2 tube2        7</span></span>
+<span id="cb25-163"><a href="#cb25-163" aria-hidden="true" tabindex="-1"></a><span class="do">##  3          2 tube3        3</span></span>
+<span id="cb25-164"><a href="#cb25-164" aria-hidden="true" tabindex="-1"></a><span class="do">##  4          4 tube1       10</span></span>
+<span id="cb25-165"><a href="#cb25-165" aria-hidden="true" tabindex="-1"></a><span class="do">##  5          4 tube2       12</span></span>
+<span id="cb25-166"><a href="#cb25-166" aria-hidden="true" tabindex="-1"></a><span class="do">##  6          4 tube3       14</span></span>
+<span id="cb25-167"><a href="#cb25-167" aria-hidden="true" tabindex="-1"></a><span class="do">##  7          8 tube1       15</span></span>
+<span id="cb25-168"><a href="#cb25-168" aria-hidden="true" tabindex="-1"></a><span class="do">##  8          8 tube2       17</span></span>
+<span id="cb25-169"><a href="#cb25-169" aria-hidden="true" tabindex="-1"></a><span class="do">##  9          8 tube3       18</span></span>
+<span id="cb25-170"><a href="#cb25-170" aria-hidden="true" tabindex="-1"></a><span class="do">## 10         16 tube1       20</span></span>
+<span id="cb25-171"><a href="#cb25-171" aria-hidden="true" tabindex="-1"></a><span class="do">## 11         16 tube2       21</span></span>
+<span id="cb25-172"><a href="#cb25-172" aria-hidden="true" tabindex="-1"></a><span class="do">## 12         16 tube3       19</span></span>
+<span id="cb25-173"><a href="#cb25-173" aria-hidden="true" tabindex="-1"></a><span class="do">## 13         32 tube1       23</span></span>
+<span id="cb25-174"><a href="#cb25-174" aria-hidden="true" tabindex="-1"></a><span class="do">## 14         32 tube2       24</span></span>
+<span id="cb25-175"><a href="#cb25-175" aria-hidden="true" tabindex="-1"></a><span class="do">## 15         32 tube3       29</span></span>
+<span id="cb25-176"><a href="#cb25-176" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-177"><a href="#cb25-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-178"><a href="#cb25-178" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Fit a simple linear regression with the predictor $\texttt{dose level}$ for <span class="in">`response`</span>. Print the fitted result.</span>
 <span id="cb25-179"><a href="#cb25-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-180"><a href="#cb25-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-181"><a href="#cb25-181" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Fit a simple linear regression with the predictor $\texttt{dose level}$ for <span class="in">`response`</span>. Print the fitted result. </span>
-<span id="cb25-182"><a href="#cb25-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-185"><a href="#cb25-185" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-186"><a href="#cb25-186" aria-hidden="true" tabindex="-1"></a><span class="do">## code</span></span>
+<span id="cb25-182"><a href="#cb25-182" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-183"><a href="#cb25-183" aria-hidden="true" tabindex="-1"></a><span class="do">## code</span></span>
+<span id="cb25-184"><a href="#cb25-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-185"><a href="#cb25-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-186"><a href="#cb25-186" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb25-187"><a href="#cb25-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-188"><a href="#cb25-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-189"><a href="#cb25-189" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-190"><a href="#cb25-190" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-191"><a href="#cb25-191" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>With (2), plot the data with a $95\%$ confidence interval for the mean response.</span>
-<span id="cb25-192"><a href="#cb25-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-195"><a href="#cb25-195" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-196"><a href="#cb25-196" aria-hidden="true" tabindex="-1"></a><span class="do">## code</span></span>
-<span id="cb25-197"><a href="#cb25-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-198"><a href="#cb25-198" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-199"><a href="#cb25-199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-200"><a href="#cb25-200" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Fit a simple linear regression model with the predictor $\texttt{ln(dose level)}$ for <span class="in">`response`</span>, where $\ln = \log_e$. Print the fitted result.</span>
-<span id="cb25-201"><a href="#cb25-201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-204"><a href="#cb25-204" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-205"><a href="#cb25-205" aria-hidden="true" tabindex="-1"></a><span class="do">## code</span></span>
-<span id="cb25-206"><a href="#cb25-206" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-207"><a href="#cb25-207" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-208"><a href="#cb25-208" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-209"><a href="#cb25-209" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>With (4), plot the data $(\ln(\text{dose level})_i, \text{response}_i), i = 1, \dots, 15$ with a $95\%$ confidence interval for the mean response.</span>
-<span id="cb25-210"><a href="#cb25-210" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-213"><a href="#cb25-213" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-214"><a href="#cb25-214" aria-hidden="true" tabindex="-1"></a><span class="do">## code</span></span>
-<span id="cb25-215"><a href="#cb25-215" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-216"><a href="#cb25-216" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-217"><a href="#cb25-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-218"><a href="#cb25-218" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>Draw residual plots of Model in (2) and (4). According to the plots, which model you think is better?</span>
-<span id="cb25-219"><a href="#cb25-219" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-222"><a href="#cb25-222" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-223"><a href="#cb25-223" aria-hidden="true" tabindex="-1"></a><span class="do">## code</span></span>
-<span id="cb25-224"><a href="#cb25-224" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-225"><a href="#cb25-225" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-226"><a href="#cb25-226" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-227"><a href="#cb25-227" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-228"><a href="#cb25-228" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>Import <span class="in">`dose_tidy.csv`</span> and redo (2) using **Python**. Show the slope and intercept.</span>
-<span id="cb25-229"><a href="#cb25-229" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-232"><a href="#cb25-232" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb25-233"><a href="#cb25-233" aria-hidden="true" tabindex="-1"></a><span class="co"># code</span></span>
+<span id="cb25-188"><a href="#cb25-188" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>With (2), plot the data with a $95\%$ confidence interval for the mean response.</span>
+<span id="cb25-189"><a href="#cb25-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-192"><a href="#cb25-192" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-193"><a href="#cb25-193" aria-hidden="true" tabindex="-1"></a><span class="do">## code</span></span>
+<span id="cb25-194"><a href="#cb25-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-195"><a href="#cb25-195" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-196"><a href="#cb25-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-197"><a href="#cb25-197" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>Fit a simple linear regression model with the predictor $\texttt{ln(dose level)}$ for <span class="in">`response`</span>, where $\ln = \log_e$. Print the fitted result.</span>
+<span id="cb25-198"><a href="#cb25-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-201"><a href="#cb25-201" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-202"><a href="#cb25-202" aria-hidden="true" tabindex="-1"></a><span class="do">## code</span></span>
+<span id="cb25-203"><a href="#cb25-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-204"><a href="#cb25-204" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-205"><a href="#cb25-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-206"><a href="#cb25-206" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>With (4), plot the data $(\ln(\text{dose level})_i, \text{response}_i), i = 1, \dots, 15$ with a $95\%$ confidence interval for the mean response.</span>
+<span id="cb25-207"><a href="#cb25-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-210"><a href="#cb25-210" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-211"><a href="#cb25-211" aria-hidden="true" tabindex="-1"></a><span class="do">## code</span></span>
+<span id="cb25-212"><a href="#cb25-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-213"><a href="#cb25-213" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-214"><a href="#cb25-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-215"><a href="#cb25-215" aria-hidden="true" tabindex="-1"></a><span class="ss">6.  </span>Draw residual plots of Model in (2) and (4). According to the plots, which model you think is better?</span>
+<span id="cb25-216"><a href="#cb25-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-219"><a href="#cb25-219" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-220"><a href="#cb25-220" aria-hidden="true" tabindex="-1"></a><span class="do">## code</span></span>
+<span id="cb25-221"><a href="#cb25-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-222"><a href="#cb25-222" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-223"><a href="#cb25-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-224"><a href="#cb25-224" aria-hidden="true" tabindex="-1"></a><span class="ss">7.  </span>Import <span class="in">`dose_tidy.csv`</span> and redo (2) using **Python**. Show the slope and intercept.</span>
+<span id="cb25-225"><a href="#cb25-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-228"><a href="#cb25-228" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb25-229"><a href="#cb25-229" aria-hidden="true" tabindex="-1"></a><span class="co"># code</span></span>
+<span id="cb25-230"><a href="#cb25-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-231"><a href="#cb25-231" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-232"><a href="#cb25-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-233"><a href="#cb25-233" aria-hidden="true" tabindex="-1"></a><span class="ss">8.  </span>Use **Python** to predict the response value when the dose level is 10 and 30.</span>
 <span id="cb25-234"><a href="#cb25-234" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-235"><a href="#cb25-235" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-236"><a href="#cb25-236" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-237"><a href="#cb25-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-238"><a href="#cb25-238" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-239"><a href="#cb25-239" aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>Use **Python** to predict the response value when the dose level is 10 and 30.</span>
-<span id="cb25-240"><a href="#cb25-240" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-243"><a href="#cb25-243" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb25-244"><a href="#cb25-244" aria-hidden="true" tabindex="-1"></a><span class="co"># code</span></span>
+<span id="cb25-237"><a href="#cb25-237" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb25-238"><a href="#cb25-238" aria-hidden="true" tabindex="-1"></a><span class="co"># code</span></span>
+<span id="cb25-239"><a href="#cb25-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-240"><a href="#cb25-240" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-241"><a href="#cb25-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-242"><a href="#cb25-242" aria-hidden="true" tabindex="-1"></a><span class="fu">## Logistic Regression</span></span>
+<span id="cb25-243"><a href="#cb25-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-244"><a href="#cb25-244" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Import <span class="co">[</span><span class="ot">`body.csv`</span><span class="co">](./body.csv)</span>. Split the data into a training set and a test set. Set the random seed at your student ID number. Use 80:20 rule.</span>
 <span id="cb25-245"><a href="#cb25-245" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-246"><a href="#cb25-246" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-247"><a href="#cb25-247" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-248"><a href="#cb25-248" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-249"><a href="#cb25-249" aria-hidden="true" tabindex="-1"></a><span class="fu">## Logistic Regression</span></span>
-<span id="cb25-250"><a href="#cb25-250" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-251"><a href="#cb25-251" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Import <span class="in">`body.csv`</span> in the <span class="in">`/data`</span> folder. Split the data into a training set and a test set. Set the random seed at your student ID number. Use 80:20 rule.</span>
-<span id="cb25-252"><a href="#cb25-252" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-255"><a href="#cb25-255" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-256"><a href="#cb25-256" aria-hidden="true" tabindex="-1"></a><span class="co"># code</span></span>
-<span id="cb25-257"><a href="#cb25-257" aria-hidden="true" tabindex="-1"></a><span class="co"># set.seed(your ID number)</span></span>
-<span id="cb25-258"><a href="#cb25-258" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-259"><a href="#cb25-259" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-248"><a href="#cb25-248" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-249"><a href="#cb25-249" aria-hidden="true" tabindex="-1"></a><span class="co"># code</span></span>
+<span id="cb25-250"><a href="#cb25-250" aria-hidden="true" tabindex="-1"></a><span class="co"># set.seed(your ID number)</span></span>
+<span id="cb25-251"><a href="#cb25-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-252"><a href="#cb25-252" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-253"><a href="#cb25-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-254"><a href="#cb25-254" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Fit a logistic regression with the predictor <span class="in">`HEIGHT`</span> using the training sample data. Find the probability that the subject is male given <span class="in">`HEIGHT = 165`</span>.</span>
+<span id="cb25-255"><a href="#cb25-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-258"><a href="#cb25-258" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-259"><a href="#cb25-259" aria-hidden="true" tabindex="-1"></a><span class="co"># code</span></span>
 <span id="cb25-260"><a href="#cb25-260" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-261"><a href="#cb25-261" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Fit a logistic regression with the predictor <span class="in">`HEIGHT`</span> using the training sample data. Find the probability that the subject is male given <span class="in">`HEIGHT = 165`</span>.</span>
+<span id="cb25-261"><a href="#cb25-261" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb25-262"><a href="#cb25-262" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-265"><a href="#cb25-265" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-266"><a href="#cb25-266" aria-hidden="true" tabindex="-1"></a><span class="co"># code</span></span>
-<span id="cb25-267"><a href="#cb25-267" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-268"><a href="#cb25-268" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-263"><a href="#cb25-263" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Fit a logistic regression with the predictor <span class="in">`BMI`</span> using the training sample data. Find the probability that the subject is male given <span class="in">`BMI = 25`</span>.</span>
+<span id="cb25-264"><a href="#cb25-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-267"><a href="#cb25-267" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-268"><a href="#cb25-268" aria-hidden="true" tabindex="-1"></a><span class="co"># code</span></span>
 <span id="cb25-269"><a href="#cb25-269" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-270"><a href="#cb25-270" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Fit a logistic regression with the predictor <span class="in">`BMI`</span> using the training sample data. Find the probability that the subject is male given <span class="in">`BMI = 25`</span>.</span>
+<span id="cb25-270"><a href="#cb25-270" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb25-271"><a href="#cb25-271" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-274"><a href="#cb25-274" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-275"><a href="#cb25-275" aria-hidden="true" tabindex="-1"></a><span class="co"># code</span></span>
-<span id="cb25-276"><a href="#cb25-276" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-277"><a href="#cb25-277" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-272"><a href="#cb25-272" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>Do the classification on the test set for the model (2) and (3), and compute the test accuracy rate. Which model gives us higher accuracy rate?</span>
+<span id="cb25-273"><a href="#cb25-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-276"><a href="#cb25-276" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-277"><a href="#cb25-277" aria-hidden="true" tabindex="-1"></a><span class="co"># code</span></span>
 <span id="cb25-278"><a href="#cb25-278" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-279"><a href="#cb25-279" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-280"><a href="#cb25-280" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Do the classification on the test set for the model (2) and (3), and compute the test accuracy rate. Which model gives us higher accuracy rate?</span>
-<span id="cb25-281"><a href="#cb25-281" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-284"><a href="#cb25-284" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-285"><a href="#cb25-285" aria-hidden="true" tabindex="-1"></a><span class="co"># code</span></span>
-<span id="cb25-286"><a href="#cb25-286" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-287"><a href="#cb25-287" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-288"><a href="#cb25-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-279"><a href="#cb25-279" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-280"><a href="#cb25-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-281"><a href="#cb25-281" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>Use **Python** to split the <span class="in">`body`</span> data into a training set and a test set.</span>
+<span id="cb25-282"><a href="#cb25-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-285"><a href="#cb25-285" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb25-286"><a href="#cb25-286" aria-hidden="true" tabindex="-1"></a><span class="co">## code</span></span>
+<span id="cb25-287"><a href="#cb25-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-288"><a href="#cb25-288" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb25-289"><a href="#cb25-289" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-290"><a href="#cb25-290" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Use **Python** to split the <span class="in">`body`</span> data into a training set and a test set.</span>
+<span id="cb25-290"><a href="#cb25-290" aria-hidden="true" tabindex="-1"></a><span class="ss">6.  </span>Use **Python** to fit a logistic regression with the predictor <span class="in">`BMI`</span> using the training sample data. Find the probability that the subject is male given <span class="in">`BMI = 25`</span>.</span>
 <span id="cb25-291"><a href="#cb25-291" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-294"><a href="#cb25-294" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb25-295"><a href="#cb25-295" aria-hidden="true" tabindex="-1"></a><span class="co">## code</span></span>
+<span id="cb25-295"><a href="#cb25-295" aria-hidden="true" tabindex="-1"></a><span class="co"># code</span></span>
 <span id="cb25-296"><a href="#cb25-296" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-297"><a href="#cb25-297" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb25-298"><a href="#cb25-298" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-299"><a href="#cb25-299" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-300"><a href="#cb25-300" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>Use **Python** to fit a logistic regression with the predictor <span class="in">`BMI`</span> using the training sample data. Find the probability that the subject is male given <span class="in">`BMI = 25`</span>.</span>
-<span id="cb25-301"><a href="#cb25-301" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-304"><a href="#cb25-304" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb25-305"><a href="#cb25-305" aria-hidden="true" tabindex="-1"></a><span class="co"># code</span></span>
+<span id="cb25-299"><a href="#cb25-299" aria-hidden="true" tabindex="-1"></a><span class="ss">7.  </span>Use **Python** to do the classification on the test set. Compute the test accuracy rate.</span>
+<span id="cb25-300"><a href="#cb25-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-303"><a href="#cb25-303" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb25-304"><a href="#cb25-304" aria-hidden="true" tabindex="-1"></a><span class="co"># code</span></span>
+<span id="cb25-305"><a href="#cb25-305" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-306"><a href="#cb25-306" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-307"><a href="#cb25-307" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb25-308"><a href="#cb25-308" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-309"><a href="#cb25-309" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-310"><a href="#cb25-310" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>Use **Python** to do the classification on the test set. Compute the test accuracy rate.</span>
-<span id="cb25-311"><a href="#cb25-311" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-314"><a href="#cb25-314" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb25-315"><a href="#cb25-315" aria-hidden="true" tabindex="-1"></a><span class="co"># code</span></span>
-<span id="cb25-316"><a href="#cb25-316" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-309"><a href="#cb25-309" aria-hidden="true" tabindex="-1"></a><span class="fu">## K-Nearest Neighbors (KNN)</span></span>
+<span id="cb25-310"><a href="#cb25-310" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-311"><a href="#cb25-311" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Fit the KNN with $K=1$ and $10$ using <span class="in">`BMI`</span> on the training data and do the classification on the same test set used in logistic regression. Obtain the confusion matrix for the two $K$s. Which $K$ performs better? Why?</span>
+<span id="cb25-312"><a href="#cb25-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-315"><a href="#cb25-315" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-316"><a href="#cb25-316" aria-hidden="true" tabindex="-1"></a><span class="co"># code</span></span>
 <span id="cb25-317"><a href="#cb25-317" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-318"><a href="#cb25-318" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-319"><a href="#cb25-319" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-320"><a href="#cb25-320" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-321"><a href="#cb25-321" aria-hidden="true" tabindex="-1"></a><span class="fu">## K-Nearest Neighbors (KNN)</span></span>
-<span id="cb25-322"><a href="#cb25-322" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-323"><a href="#cb25-323" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Fit the KNN with $K=1$ and $10$ using <span class="in">`BMI`</span> on the training data and do the classification on the same test set used in logistic regression. Obtain the confusion matrix for the two $K$s. Which $K$ performs better? Why?</span>
-<span id="cb25-324"><a href="#cb25-324" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-327"><a href="#cb25-327" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-328"><a href="#cb25-328" aria-hidden="true" tabindex="-1"></a><span class="co"># code</span></span>
-<span id="cb25-329"><a href="#cb25-329" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-330"><a href="#cb25-330" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-331"><a href="#cb25-331" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-332"><a href="#cb25-332" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-333"><a href="#cb25-333" aria-hidden="true" tabindex="-1"></a></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
