@@ -184,7 +184,7 @@ theme_set(theme_minimal(base_size = 20))
 
 . . .
 
-- Doing all of this on the entire data may lead to **overfitting**: 
+- Doing all of this using the entire data may lead to **overfitting**: 
 
 <br>
 
@@ -294,10 +294,11 @@ body <- bodydata |>
 
 ::: {.column width="50%"}
 ```{r}
-set.seed(2023)
-df_split <- rsample::initial_split(
-    data = body, 
-    prop = 0.8)
+set.seed(2024)
+df_split <- 
+    rsample::initial_split(
+        data = body, 
+        prop = 0.8)
 
 df_split
 ```
@@ -356,7 +357,7 @@ What is the value of $J$ in our example?
 
 . . .
 
-- The *best* estimated **classifier** $\hat{C}(x)$ trained from the training data for $C(x)$ is the one producing the *highest test accuracy rate* or *lowest test error rate*.
+- The *best* estimated **classifier** $\hat{C}(x)$ trained from the training data for $C(x)$ can be defined as the one producing the *highest test accuracy rate* or *lowest test error rate*.
 
 
 
@@ -547,25 +548,49 @@ plotrix::draw.circle(8, 6, 2,
 
 *Standardize predictors before doing KNN!*
 
+
 ```{r}
-#| class-output: my_class800
-(knn_recipe <- recipes::recipe(GENDER ~ HEIGHT, data = df_trn) |> 
-    step_normalize(all_predictors()))
+#| include: true
+knn_recipe <- recipes::recipe(GENDER ~ HEIGHT, data = df_trn) |> 
+    step_normalize(all_numeric_predictors())
+```
+
+
+```{r}
+#| eval: false
+── Recipe ────────────────────────────────────────────────────────────────
+
+── Inputs 
+Number of variables by role
+outcome:   1
+predictor: 1
+
+── Operations 
+• Centering and scaling for: all_numeric_predictors()
 ```
 
 
 ::: notes
 A recipe is a description of the steps to be applied to a data set in order to prepare it for data analysis.
+feature engineering steps to get your data ready for modeling
+
+which is designed to help you preprocess your data before training your model
 :::
+
+
 
 ## KNN Training [![parsnip](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/parsnip.png){width=60}](https://parsnip.tidymodels.org/reference/nearest_neighbor.html)
 
 - [*Step 2: Specify Model*]{.green}: `parsnip::nearest_neighbor()`
 
+<!-- ```{r} -->
+<!-- (knn_mdl <- parsnip::nearest_neighbor(neighbors = 3) |>  -->
+<!--     set_mode("classification") |>  -->
+<!--     set_engine("kknn")) -->
+<!-- ``` -->
+
 ```{r}
-(knn_mdl <- parsnip::nearest_neighbor(neighbors = 3) |> 
-    set_mode("classification") |> 
-    set_engine("kknn"))
+(knn_mdl <- parsnip::nearest_neighbor(mode = "classification", neighbors = 3))
 ```
 
 
@@ -573,13 +598,42 @@ A recipe is a description of the steps to be applied to a data set in order to p
 
 - [*Step 3: Fitting by creating workflow*]{.green}: `workflows::workflow()`
 
+
+<br>
+
+:::: {.columns}
+
+::: {.column width="35%"}
+
 ```{r}
 #| class-output: my_classfull
-(knn_fit <- workflows::workflow() |> 
+#| code-line-numbers: false
+knn_out <- 
+    workflows::workflow() |> 
     add_recipe(knn_recipe) |> 
     add_model(knn_mdl) |> 
-    fit(data = df_trn))
+    fit(data = df_trn)
 ```
+:::
+
+
+::: {.column width="65%"}
+::: small
+```{r}
+#| class-output: my_class600
+#| echo: false
+#| code-line-numbers: false
+knn_out
+```
+:::
+:::
+
+::::
+
+
+::: notes
+A workflow is a container object that aggregates information required to fit and predict from a model.
+:::
 
 
 ## Prediction on Test Data
@@ -588,9 +642,10 @@ A recipe is a description of the steps to be applied to a data set in order to p
 ::: {.column width="58%"}
 ```{r}
 #| class-output: my_class600
+#| code-line-numbers: false
 bind_cols(
-    predict(knn_fit, df_tst),
-    predict(knn_fit, df_tst, type = "prob")) |> 
+    predict(knn_out, df_tst),
+    predict(knn_out, df_tst, type = "prob")) |> 
     dplyr::sample_n(size = 8)
 ```
 :::
@@ -599,8 +654,9 @@ bind_cols(
 
 ::: {.column width="42%"}
 ```{r}
+#| code-line-numbers: false
 knn_pred <- 
-    pull(predict(knn_fit, df_tst))
+    pull(predict(knn_out, df_tst))
 
 ## Confusion matrix
 table(knn_pred, df_tst$GENDER)
@@ -671,13 +727,28 @@ points(knn_ex %>% select(x1, x2), col = c("orangered", "navyblue")[knn_ex$class]
 
 - Usually use $v = 5$ or $10$.
 
+:::: {.columns}
+::: {.column width="42%"}
+
 - IDEA: 
   + Prepare $v$ CV data sets
   + Create a sequence of values of $K$
   + For each value of $K$, run CV, and obtain an accuracy rate
   + Choose the $K$ with the highest accuracy rate
-  
-  
+
+:::
+
+
+::: {.column width="58%"}
+```{r}
+#| echo: false
+#| out-width: 100%
+knitr::include_graphics("./images/18-knn/cross-validation.png")
+```
+:::
+::::
+
+
   
 ## [`rsample::vfold_cv()`](https://rsample.tidymodels.org/reference/vfold_cv.html) {visibility="hidden"}
 
@@ -749,11 +820,9 @@ ggplot(accu_cv, aes(x = neighbors, y = mean)) +
 ## Final Model
 
 ```{r}
-knn_mdl_best <- parsnip::nearest_neighbor(neighbors = 19) |>
-    set_mode("classification") |>
-    set_engine("kknn")
+knn_mdl_best <- parsnip::nearest_neighbor(neighbors = 29, mode = "classification")
 
-knn_fit_best <- workflows::workflow() |>
+knn_out_best <- workflows::workflow() |>
     add_recipe(knn_recipe) |>
     add_model(knn_mdl_best) |>
     fit(data = df_trn)
@@ -767,7 +836,7 @@ best_K <- accu_cv |> slice_max(mean) |> pull(neighbors) |> as.integer()
 
 ```{r}
 #| eval: true
-knn_pred_best <- pull(predict(knn_fit_best, df_tst))
+knn_pred_best <- pull(predict(knn_out_best, df_tst))
 
 ## Confusion matrix
 table(knn_pred_best, df_tst$GENDER)
@@ -821,16 +890,16 @@ X_trn, X_tst, y_trn, y_tst = train_test_split(X, y, test_size=0.2, random_state=
 
 ```{python}
 #| eval: true
-neigh = KNeighborsClassifier(n_neighbors = 3)
+knn = KNeighborsClassifier(n_neighbors = 3)
 X_trn = np.array(X_trn)
 X_tst = np.array(X_tst)
-neigh.fit(X_trn, y_trn)
+knn.fit(X_trn, y_trn)
 ```
 
 ## Prediction
 
 ```{python}
-y_pred = neigh.predict(X_tst)
+y_pred = knn.predict(X_tst)
 ```
 
 
@@ -860,7 +929,7 @@ np.mean(y_tst != y_pred)
 
 In **lab.qmd** `## Lab 22` section, 
 
-1. use `HEIGHT`, `WAIST` and `BMI` to predict `GENDER` using KNN with $K = 3$.
+1. use `HEIGHT` and `WAIST` to predict `GENDER` using KNN with $K = 3$.
 
 2. Generate the (test) confusion matrix.
 
@@ -870,38 +939,36 @@ In **lab.qmd** `## Lab 22` section,
 
 ```{r}
 #| eval: false
-
-library(tidymodels)
-## load data
-bodydata <- read_csv("./data/body.csv")
-body <- bodydata |> 
-    select(GENDER, HEIGHT, WAIST, BMI) |> 
-    mutate(GENDER = as.factor(GENDER))
-
-## training and test data
-set.seed(2024)
-df_split <- rsample::initial_split(data = body, prop = 0.8)
-df_trn <- rsample::training(df_split)
-df_tst <- rsample::testing(df_split)
 ```
 
 :::
 
 ## R Code
 
+::: midi
 ```{r}
 #| eval: false
 #| class-source: my_classfull
 
+library(tidymodels)
+
+## load data
+bodydata <- read_csv("./data/body.csv")
+body <- bodydata |> 
+    select(GENDER, HEIGHT, WAIST) |> 
+    mutate(GENDER = as.factor(GENDER))
+
+## training and test data
+set.seed(2024)
+df_split <- initial_split(data = body, prop = 0.8)
+df_trn <- training(df_split)
+df_tst <- testing(df_split)
+
 ## KNN training
-knn_recipe <- recipes::recipe(GENDER ~ HEIGHT + WAIST + BMI, data = df_trn) |> 
+knn_recipe <- recipe(GENDER ~ HEIGHT + WAIST, data = df_trn) |> 
     step_normalize(all_predictors())
-
-knn_mdl <- parsnip::nearest_neighbor(neighbors = 3) |> 
-    set_mode("classification") |>
-    set_engine("kknn")
-
-knn_out <- workflows::workflow() |> 
+knn_mdl <- nearest_neighbor(neighbors = 3, mode = "classification")
+knn_out <- workflow() |> 
     add_recipe(knn_recipe) |> 
     add_model(knn_mdl) |> 
     fit(data = df_trn)
@@ -911,10 +978,11 @@ knn_pred <- pull(predict(knn_out, df_tst))
 table(knn_pred, df_tst$GENDER)
 mean(knn_pred == df_tst$GENDER)
 ```
-
+:::
 
 ## Python Code
 
+::: midi
 ```{python}
 #| eval: false
 #| class-source: my_classfull
@@ -926,20 +994,22 @@ from sklearn.neighbors import KNeighborsClassifier
 
 ## load data
 body = pd.read_csv('./data/body.csv')
-
-X = body[['HEIGHT', 'WAIST', 'BMI']]
+X = body[['HEIGHT', 'WAIST']]
 y = body['GENDER']
+
+## training and test data
 X_trn, X_tst, y_trn, y_tst = train_test_split(X, y, test_size=0.2, random_state=2024)
 
 ## KNN training
-neigh = KNeighborsClassifier(n_neighbors = 3)
+knn = KNeighborsClassifier(n_neighbors = 3)
 X_trn = np.array(X_trn)
 X_tst = np.array(X_tst)
-neigh.fit(X_trn, y_trn)
+knn.fit(X_trn, y_trn)
 
 ## KNN prediction
-y_pred = neigh.predict(X_tst)
+y_pred = knn.predict(X_tst)
 from sklearn.metrics import confusion_matrix
 confusion_matrix(y_tst, y_pred)
+np.mean(y_tst == y_pred)
 ```
-
+:::
