@@ -6,6 +6,8 @@ Here shows group project's proposal.
 
 -   **GitClub**: Ally Olsen, Josh Wilder, Aniya Lentz, Jazmin Muro, Christian Kasiake
 
+    + [Web Development: Utilizing Quarto to Creat a Website](./documents/proposal_GitClub.pdf)
+
 -   **ggplot3**: Arik Zintel, Iris Murphy, Yesenia Tavizon, Lauren Barrile
 
 -   **Ctrl + Alt + Elite**: Mia Kwiatkoski, Sienna Ifill, Mridula Geddam, Bridget Clark
