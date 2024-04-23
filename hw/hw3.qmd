@@ -204,7 +204,7 @@ A pharmaceutical firm would like to obtain information on the relationship betwe
 
 ```
 
-7.  Import `dose_tidy.csv` and redo (2) using **Python**. Show the slope and intercept.
+7.  Import [`dose_tidy.csv`](./dose_tidy.csv) and redo (2) using **Python**. Show the slope and intercept.
 
 ```{python}
 
