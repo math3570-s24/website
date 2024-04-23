@@ -1242,7 +1242,7 @@
     "href": "slides/01-syllabus.html#grade-percentage-conversion",
     "title": "Welcome Aboard! 🙌",
     "section": "Grade-Percentage Conversion",
-    "text": "Grade-Percentage Conversion\n\n\n\\([x, y)\\) means greater than or equal to \\(x\\) and less than \\(y\\). For example, 94.0 is in [94, 100] and the grade is A and 93.8 is in [90, 94) and the grade is A-.\n\n\n\n\n\nGrade\nPercentage\n\n\n\nA\n[94, 100]\n\n\nA-\n[90, 94)\n\n\nB+\n[87, 90)\n\n\nB\n[84, 87)\n\n\nB-\n[80, 84)\n\n\nC+\n[77, 80)\n\n\nC\n[74, 77)\n\n\nC-\n[70, 74)\n\n\nD+\n[65, 70)\n\n\nD\n[60, 65)\n\n\nF\n[0, 60)"
+    "text": "Grade-Percentage Conversion\n\n\n\\([x, y)\\) means greater than or equal to \\(x\\) and less than \\(y\\). For example, 94.0 is in [94, 100] and the grade is A and 93.8 is in [90, 94) and the grade is A-.\n\n\n\n\n\n\nGrade\nPercentage\n\n\n\nA\n[94, 100]\n\n\nA-\n[90, 94)\n\n\nB+\n[87, 90)\n\n\nB\n[84, 87)\n\n\nB-\n[80, 84)\n\n\nC+\n[77, 80)\n\n\nC\n[74, 77)\n\n\nC-\n[70, 74)\n\n\nD+\n[65, 70)\n\n\nD\n[60, 65)\n\n\nF\n[0, 60)"
   },
   {
     "objectID": "slides/01-syllabus.html#lab-exercises-40",
@@ -2580,7 +2580,7 @@
     "href": "project-work.html",
     "title": "Project work",
     "section": "",
-    "text": "Here shows group project’s proposal.\n\nGitClub: Ally Olsen, Josh Wilder, Aniya Lentz, Jazmin Muro, Christian Kasiake\nggplot3: Arik Zintel, Iris Murphy, Yesenia Tavizon, Lauren Barrile\nCtrl + Alt + Elite: Mia Kwiatkoski, Sienna Ifill, Mridula Geddam, Bridget Clark\nBig Meta Watchers: Miguel Basurto, Nicholas Paulick, Christopher Purney, Darius Dahl\nWin Rs: Allan Akkathara, Michael Hankins, Katy Carter, Maddie Flint\nRed Pandas: Michael Gephart, Rich Lukas, Candice Watson, Fike Carter\nData Dawgs: Patrick Dunleavy, Alex Kusek, Arianna Smith, Luke Baumer",
+    "text": "Here shows group project’s proposal.\n\nGitClub: Ally Olsen, Josh Wilder, Aniya Lentz, Jazmin Muro, Christian Kasiake\n\nWeb Development: Utilizing Quarto to Creat a Website\n\nggplot3: Arik Zintel, Iris Murphy, Yesenia Tavizon, Lauren Barrile\nCtrl + Alt + Elite: Mia Kwiatkoski, Sienna Ifill, Mridula Geddam, Bridget Clark\nBig Meta Watchers: Miguel Basurto, Nicholas Paulick, Christopher Purney, Darius Dahl\nWin Rs: Allan Akkathara, Michael Hankins, Katy Carter, Maddie Flint\nRed Pandas: Michael Gephart, Rich Lukas, Candice Watson, Fike Carter\nData Dawgs: Patrick Dunleavy, Alex Kusek, Arianna Smith, Luke Baumer",
     "crumbs": [
       "Project",
       "Project Group and Proposal"
@@ -4625,14 +4625,14 @@
     "href": "slides/19-pca.html#section-5",
     "title": "Principal Component Analysis \n",
     "section": "",
-    "text": "import numpy as np\nimport pandas as pd\nfrom sklearn.decomposition import PCA\nfrom sklearn.preprocessing import StandardScaler\n\n\nUSArrests = pd.read_csv('https://raw.githubusercontent.com/vincentarelbundock/Rdatasets/master/csv/datasets/USArrests.csv')\nUSArrests.head(4)\n\n   rownames  Murder  Assault  UrbanPop  Rape\n0   Alabama    13.2      236        58  21.2\n1    Alaska    10.0      263        48  44.5\n2   Arizona     8.1      294        80  31.0\n3  Arkansas     8.8      190        50  19.5\n\n\n\n\nUSArr = USArrests.drop(['rownames'], axis = 1)\nUSArr.index = USArrests['rownames']\nUSArr.head(4)\n\n          Murder  Assault  UrbanPop  Rape\nrownames                                 \nAlabama     13.2      236        58  21.2\nAlaska      10.0      263        48  44.5\nArizona      8.1      294        80  31.0\nArkansas     8.8      190        50  19.5\n\n\nhttps://stackoverflow.com/questions/68275857/urllib-error-urlerror-urlopen-error-ssl-certificate-verify-failed-certifica"
+    "text": "import numpy as np\nimport pandas as pd\nfrom sklearn.decomposition import PCA\nfrom sklearn.preprocessing import StandardScaler\n\n\n# https://raw.githubusercontent.com/vincentarelbundock/Rdatasets/master/csv/datasets/USArrests.csv\nUSArrests = pd.read_csv('./data/USArrests.csv')\nUSArrests.head(4)\n\n   rownames  Murder  Assault  UrbanPop  Rape\n0   Alabama    13.2      236        58  21.2\n1    Alaska    10.0      263        48  44.5\n2   Arizona     8.1      294        80  31.0\n3  Arkansas     8.8      190        50  19.5\n\n\n\n\nUSArr = USArrests.drop(['rownames'], axis = 1)\nUSArr.index = USArrests['rownames']\nUSArr.head(4)\n\n          Murder  Assault  UrbanPop  Rape\nrownames                                 \nAlabama     13.2      236        58  21.2\nAlaska      10.0      263        48  44.5\nArizona      8.1      294        80  31.0\nArkansas     8.8      190        50  19.5\n\n\nhttps://stackoverflow.com/questions/68275857/urllib-error-urlerror-urlopen-error-ssl-certificate-verify-failed-certifica"
   },
   {
     "objectID": "slides/19-pca.html#section-6",
     "href": "slides/19-pca.html#section-6",
     "title": "Principal Component Analysis \n",
     "section": "",
-    "text": "Standardization\n\n\nscaler = StandardScaler()\nX = scaler.fit_transform(USArr.values) ## Array\n\n\n\n\nPerform PCA (prcomp(USArrests, scale = TRUE))\n\n\npca = PCA(n_components=4)\npca.fit(X)\n\n\n\n\nPCA(n_components=4)\nIn a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.\n\n\nPCAPCA(n_components=4)\n\n\n\n\n\n\n\n\nPCA Components (pca_output$rotation)\n\n\nresult = np.round(pca.components_.T, 2)\npd.DataFrame(result, columns=['PC1', 'PC2', 'PC3', 'PC4'], index=USArr.columns)\n\n           PC1   PC2   PC3   PC4\nMurder    0.54  0.42 -0.34  0.65\nAssault   0.58  0.19 -0.27 -0.74\nUrbanPop  0.28 -0.87 -0.38  0.13\nRape      0.54 -0.17  0.82  0.09"
+    "text": "Standardization\n\n\nscaler = StandardScaler()\nX = scaler.fit_transform(USArr.values) ## Array\n\n\n\n\nPerform PCA (prcomp(USArrests, scale = TRUE))\n\n\npca = PCA(n_components=4)\npca.fit(X)\n\n\n\n\nPCA(n_components=4)\nIn a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.\n\n\n  PCA?Documentation for PCAiFittedPCA(n_components=4) \n\n\n\n\n\n\n\nPCA Components (pca_output$rotation)\n\n\nresult = np.round(pca.components_.T, 2)\npd.DataFrame(result, columns=['PC1', 'PC2', 'PC3', 'PC4'], index=USArr.columns)\n\n           PC1   PC2   PC3   PC4\nMurder    0.54  0.42 -0.34  0.65\nAssault   0.58  0.19 -0.27 -0.74\nUrbanPop  0.28 -0.87 -0.38  0.13\nRape      0.54 -0.17  0.82  0.09"
   },
   {
     "objectID": "slides/19-pca.html#section-7",
