@@ -16,6 +16,9 @@ title: "Project work"
 
 -   **Win Rs**: Allan Akkathara, Michael Hankins, Katy Carter, Maddie Flint
 
+    + [How You Can Sleep Better: A Data Analysis](./documents/proposal_WinR.pdf)
+    
+    
 -   **Red Pandas**: Michael Gephart, Rich Lukas, Candice Watson, Fike Carter
 
 -   **Data Dawgs**: Patrick Dunleavy, Alex Kusek, Arianna Smith, Luke Baumer
