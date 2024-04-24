@@ -2,7 +2,7 @@
 title: "Project work"
 ---
 
-Here shows group project's proposal.
+## Group project's proposal
 
 -   **GitClub**: Ally Olsen, Josh Wilder, Aniya Lentz, Jazmin Muro, Christian Kasiake
 
@@ -19,3 +19,31 @@ Here shows group project's proposal.
 -   **Red Pandas**: Michael Gephart, Rich Lukas, Candice Watson, Fike Carter
 
 -   **Data Dawgs**: Patrick Dunleavy, Alex Kusek, Arianna Smith, Luke Baumer
+
+
+## Presentation order
+
+```{r}
+team <- c("GitClub", "ggplot3", "Ctrl + Alt + Elite", 
+          "Big Meta Watchers", "Win Rs", "Red Pandas", "Data Dawgs")
+set.seed(2024)
+(present_order <- sample(team, size = 7, replace = FALSE))
+```
+
+- Every individual is welcome to ask questions to any group.
+
+- Each group asks as least one question.
+
+- ``r present_order[2]`` ask questions about ``r present_order[1]``'s project.
+
+- ``r present_order[3]`` ask questions about ``r present_order[2]``'s project.
+
+- ``r present_order[4]`` ask questions about ``r present_order[3]``'s project.
+
+- ``r present_order[5]`` ask questions about ``r present_order[4]``'s project.
+
+- ``r present_order[6]`` ask questions about ``r present_order[5]``'s project.
+
+- ``r present_order[7]`` ask questions about ``r present_order[6]``'s project.
+
+- ``r present_order[1]`` ask questions about ``r present_order[7]``'s project.
