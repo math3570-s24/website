@@ -475,8 +475,8 @@ knitr::include_graphics("./images/20-kmeans/kmeans_algo.png")
 :::{.callout-note}
 
 :::{style="font-size: 1.2em;"}
-- The K-means algorithm finds a _local_ rather than global optimum.
-- The results depend on the initial cluster assignment of each observation. 
+- The K-means algorithm finds a **local** rather than global optimum.
+- The results depend on the *initial cluster assignment of each observation.* 
   + Run the algorithm multiple times, then select the one producing the smallest **within-cluster variation**.
 - Standardize the data so that distance is not affected by variable unit.
 :::

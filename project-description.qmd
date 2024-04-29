@@ -14,9 +14,9 @@ date-modified: today
 
     ~~by [**Monday, 4/1 11:59 PM**]{.red}.~~
 
--   **Proposal**. Please send me a [**one-page PDF**]{.blue} describing what you are going to do for your project (no word limit) with your **project title** by [**Friday, 4/26 11:59 PM**]{.red}.
+-   ~~**Proposal**. Please send me a [**one-page PDF**]{.blue} describing what you are going to do for your project (no word limit) with your **project title** by [**Friday, 4/26 11:59 PM**]{.red}.~~
 
--   **Meeting**. Schedule a group meeting with Dr. Yu discussing your project. Please book a time slot in the [Excel form](https://marq-my.sharepoint.com/:x:/g/personal/cheng-han_yu_marquette_edu/ETtTWF_3hkpOnAVrdXendnYB1jHd4eIR2xfSPhXD9xcJ_g?e=uGqyYg). [[Starts **April 9**, ends **May 2**.]]{.red}
+-   ~~**Meeting**. Schedule a group meeting with Dr. Yu discussing your project. Please book a time slot in the [Excel form](https://marq-my.sharepoint.com/:x:/g/personal/cheng-han_yu_marquette_edu/ETtTWF_3hkpOnAVrdXendnYB1jHd4eIR2xfSPhXD9xcJ_g?e=uGqyYg). [[Starts **April 9**, ends **May 2**.]]{.red}~~
 
 -   **Presentation**. You will be presenting your project on [**Monday, 5/6 10:30 AM - 12:30 PM**]{.red}.
 
@@ -194,7 +194,7 @@ knitr::kable(grade, align = "c", caption = "Performance Grade Sheet", label = "t
 -   You evaluate group performance based on the rubric attached. Four evaluation criteria are considered:
 
     -   **Project Content and Organization (8 pts)**
-    -   **Slides Quality (4 pts)**
+    -   **Presentation Material (Slides) Quality (4 pts)**
     -   **Oral Presentation Skill and Delivery (4 pts)**
     -   **Interactions and Q&A (4 pts)**
 
@@ -220,10 +220,10 @@ knitr::kable(grade, align = "c", caption = "Performance Grade Sheet", label = "t
     -   Show the package is *better* in some sense, its code is shorter, it is run faster, its output is more clear, its plot is prettier, etc
     -   All ideas are presented in logical order
 
--   **Slides Quality**
+-   **Presentation Material Quality**
 
-    -   Slides show code and output beautifully
-    -   Slides clearly aid the speaker in telling a coherent story
+    -   Presentation material show code and output beautifully
+    -   Presentation material clearly aid the speaker in telling a coherent story
     -   All tables and graphics are informative and related to the topic and make it easier to understand
     -   Attractive design, layout, and neatness.
 

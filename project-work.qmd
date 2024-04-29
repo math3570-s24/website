@@ -6,23 +6,32 @@ title: "Project work"
 
 -   **GitClub**: Ally Olsen, Josh Wilder, Aniya Lentz, Jazmin Muro, Christian Kasiake
 
-    + [Web Development: Utilizing Quarto to Creat a Website](./documents/proposal_GitClub.pdf)
+    + [R package] [Web Development: Utilizing Quarto to Creat a Website](./documents/proposal_GitClub.pdf)
 
 -   **ggplot3**: Arik Zintel, Iris Murphy, Yesenia Tavizon, Lauren Barrile
 
+    + [R package] [Leaflet: An Introduction to Geographic Data Visualization](https://math3570-s24.github.io/website/documents/proposal_ggplot3.pdf)
+
 -   **Ctrl + Alt + Elite**: Mia Kwiatkoski, Sienna Ifill, Mridula Geddam, Bridget Clark
+
+    + [R package] [Do you Believe in Magick?](https://math3570-s24.github.io/website/documents/proposal_CtrlAltDelete.pdf)
 
 -   **Big Meta Watchers**: Miguel Basurto, Nicholas Paulick, Christopher Purney, Darius Dahl
 
+    + [Data analysis; Python package] [How to Use Data Science in Real-Life](https://math3570-s24.github.io/website/documents/proposal_bigmeta.pdf)
+
 -   **Win Rs**: Allan Akkathara, Michael Hankins, Katy Carter, Maddie Flint
 
-    + [How You Can Sleep Better: A Data Analysis](./documents/proposal_WinR.pdf)
+    + [Data analysis] [How You Can Sleep Better: A Data Analysis](https://math3570-s24.github.io/website/documents/proposal_WinR.pdf)
     
     
 -   **Red Pandas**: Michael Gephart, Rich Lukas, Candice Watson, Fike Carter
 
+    + [R package] [RGL: 3D Visualization of Trails](https://math3570-s24.github.io/website/documents/proposal_RedPandas.pdf)
+
 -   **Data Dawgs**: Patrick Dunleavy, Alex Kusek, Arianna Smith, Luke Baumer
 
+    + [Data analysis] [Datadawgs Take on College](https://math3570-s24.github.io/website/documents/proposal_datadawg.pdf)
 
 ## Presentation order
 
@@ -35,7 +44,7 @@ set.seed(2024)
 
 - Every individual is welcome to ask questions to any group.
 
-- Each group asks as least one question.
+- Each group asks **as least one** question.
 
 - ``r present_order[2]`` ask questions about ``r present_order[1]``'s project.
 
